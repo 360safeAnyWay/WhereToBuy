@@ -232,6 +232,8 @@
 		F89334FB1AAA06D1007005D0 /* DDMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = F89334F61AAA06D1007005D0 /* DDMenuController.m */; };
 		F89334FC1AAA06D1007005D0 /* MainMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F89334F81AAA06D1007005D0 /* MainMoreCell.m */; };
 		F89334FD1AAA06D1007005D0 /* MainMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F89334FA1AAA06D1007005D0 /* MainMoreViewController.m */; };
+		F8AF54F11AAAADD00029435B /* SearchDetailEvaluteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AF54EF1AAAADD00029435B /* SearchDetailEvaluteCell.m */; };
+		F8AF54F21AAAADD00029435B /* SearchDetailEvaluteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8AF54F01AAAADD00029435B /* SearchDetailEvaluteCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -575,6 +577,9 @@
 		F89334F81AAA06D1007005D0 /* MainMoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMoreCell.m; sourceTree = "<group>"; };
 		F89334F91AAA06D1007005D0 /* MainMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMoreViewController.h; sourceTree = "<group>"; };
 		F89334FA1AAA06D1007005D0 /* MainMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMoreViewController.m; sourceTree = "<group>"; };
+		F8AF54EE1AAAADD00029435B /* SearchDetailEvaluteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchDetailEvaluteCell.h; path = ../../../SearchDetailEvaluteCell.h; sourceTree = "<group>"; };
+		F8AF54EF1AAAADD00029435B /* SearchDetailEvaluteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchDetailEvaluteCell.m; path = ../../../SearchDetailEvaluteCell.m; sourceTree = "<group>"; };
+		F8AF54F01AAAADD00029435B /* SearchDetailEvaluteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchDetailEvaluteCell.xib; path = ../../../SearchDetailEvaluteCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1001,6 +1006,9 @@
 				931C91801A63B79A0051496E /* SearchTableViewCell.m */,
 				932DCB681AA70DB300134D5E /* SearchDetailCell.h */,
 				932DCB691AA70DB300134D5E /* SearchDetailCell.m */,
+				F8AF54EE1AAAADD00029435B /* SearchDetailEvaluteCell.h */,
+				F8AF54EF1AAAADD00029435B /* SearchDetailEvaluteCell.m */,
+				F8AF54F01AAAADD00029435B /* SearchDetailEvaluteCell.xib */,
 			);
 			path = WhereToBuy;
 			sourceTree = "<group>";
@@ -1279,6 +1287,7 @@
 				932B2F621AA15C3A00BBD25E /* isBuyUp@2x.png in Resources */,
 				93A8B09D1A650F07006D6A74 /* person@2x.png in Resources */,
 				932B2F671AA16ED100BBD25E /* plusOne@2x.png in Resources */,
+				F8AF54F21AAAADD00029435B /* SearchDetailEvaluteCell.xib in Resources */,
 				931C91671A638D1E0051496E /* navigationbar_button_background_pushed@2x.png in Resources */,
 				938933CF1AA43C550009F54D /* hot@2x.png in Resources */,
 				931C916B1A6390630051496E /* location@2x.png in Resources */,
@@ -1478,6 +1487,7 @@
 				9337B9261A58FE61003A0884 /* SDWebImagePrefetcher.m in Sources */,
 				9332C2B41A885AAE008D2DC4 /* EvaluteCell.m in Sources */,
 				93B86BF81AA57F0C00A24353 /* IsBuyMainViewController.m in Sources */,
+				F8AF54F11AAAADD00029435B /* SearchDetailEvaluteCell.m in Sources */,
 				932B2F6C1AA1895D00BBD25E /* IsBuySendTopicViewController.m in Sources */,
 				9329A6F31AA2EDED005B7D70 /* ChineseToPinyinResource.m in Sources */,
 				93E59EA51A8EFFF60060AE7E /* VipEvaluteDetailViewContrller.m in Sources */,
