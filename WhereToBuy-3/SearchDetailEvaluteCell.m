@@ -7,17 +7,22 @@
 //
 
 #import "SearchDetailEvaluteCell.h"
+#import "Tools.h"
+
+//tag＝1 内行点评进度条底部view      2  大众点评进度条底部view
+//     3 内行点评得颜色view         4  大众点评得颜色view
 
 @implementation SearchDetailEvaluteCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    for (NSInteger i = 1; i < 3; i++) {
+        [Tools setUIViewLine:[self.contentView viewWithTag:i] cornerRadius:5 with:0 color:[UIColor whiteColor]];
+        [self.contentView viewWithTag:i].clipsToBounds = YES;
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end

@@ -10,6 +10,7 @@
 #import "Tools.h"
 #import "CLLRefreshHeadController.h"
 #import "TopicCell.h"
+#import "SearchDetailEvaluteCell.h"
 
 const int MaxCount6 = 5;
 
@@ -137,9 +138,9 @@ const int MaxCount6 = 5;
     UITableView *table = [[UITableView alloc] initWithFrame:CGRectMake(0, 65, self.view.frame.size.width, self.view.frame.size.height  - 65) style:UITableViewStylePlain];
     table.delegate = self;
     table.dataSource = self;
-    table.rowHeight = 180.0f;
-    table.sectionHeaderHeight = 22.0f;
-    table.sectionFooterHeight = 22.0f;
+    table.rowHeight = 112.0f;
+    table.sectionHeaderHeight = 0.0f;
+    table.sectionFooterHeight = 0.0f;
     self.tableView1 = table;
     [self.view addSubview:table];
 }
@@ -158,22 +159,17 @@ const int MaxCount6 = 5;
 
 #pragma mark -- delegate & dataSource
 
-- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return self.dataArr1.count;
-}
-
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *cellID = @"cellID";
-    TopicCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    SearchDetailEvaluteCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (cell == nil) {
-        cell = [[TopicCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        cell = (SearchDetailEvaluteCell *)[[[NSBundle  mainBundle]  loadNibNamed:@"SearchDetailEvaluteCell" owner:self options:nil]  lastObject];
     }
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     return cell;
