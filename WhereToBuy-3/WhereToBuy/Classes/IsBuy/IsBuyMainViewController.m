@@ -126,7 +126,6 @@ const int MaxCount = 5;
     UIButton *itemBtn2 = [[UIButton alloc] initWithFrame:CGRectMake(245, 8, 20, 30)];
     [itemBtn2 setBackgroundImage:[UIImage imageNamed:@"more.png"] forState:UIControlStateNormal];
     [itemBtn2 addTarget:self action:@selector(more) forControlEvents:UIControlEventTouchUpInside];
-
     UIBarButtonItem *more = [[UIBarButtonItem alloc] initWithCustomView:itemBtn2];
     
     self.navigationItem.rightBarButtonItems = @[more, sendTitle, search];

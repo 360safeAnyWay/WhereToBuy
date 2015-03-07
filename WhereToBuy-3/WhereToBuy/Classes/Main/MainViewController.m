@@ -85,16 +85,19 @@
         WBNavigationController *isBuyNav = [[WBNavigationController alloc] initWithRootViewController:isBuy];
     isBuyNav.delegate = self;
 //    [self addChildViewController:isBuyNav];
-    DDMenuController *menu = [[DDMenuController alloc] initWithRootViewController:isBuyNav];
+    DDMenuController *menu1 = [[DDMenuController alloc] initWithRootViewController:isBuyNav];
     MainMoreViewController *right = [[MainMoreViewController alloc] init];
-    [menu setRightViewController:right];
-    [self addChildViewController:menu];
+    [menu1 setRightViewController:right];
+    [self addChildViewController:menu1];
     
     //买哪儿控制器
     WhereBuyMainVIewController *whereBuy = [[WhereBuyMainVIewController alloc] init];
         WBNavigationController *whereBuyNav = [[WBNavigationController alloc] initWithRootViewController:whereBuy];
     whereBuyNav.delegate = self;
-    [self addChildViewController:whereBuyNav];
+    DDMenuController *menu2 = [[DDMenuController alloc] initWithRootViewController:whereBuyNav];
+    MainMoreViewController *right1 = [[MainMoreViewController alloc] init];
+    [menu2 setRightViewController:right1];
+    [self addChildViewController:menu2];
     
     //会员中心控制器
     PersonMainViewController *person = [[PersonMainViewController alloc] init];

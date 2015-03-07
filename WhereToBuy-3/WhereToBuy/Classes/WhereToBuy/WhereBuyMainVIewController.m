@@ -12,6 +12,9 @@
 #import "MainViewController.h"
 #import "SearchViewController.h"
 #import "GTCommontHeader.h"
+#import "DDMenuController.h"
+#import "WBNavigationController.h"
+#import "MainMoreViewController.h"
 
 @interface WhereBuyMainVIewController()<SelectCityDelegate>
 

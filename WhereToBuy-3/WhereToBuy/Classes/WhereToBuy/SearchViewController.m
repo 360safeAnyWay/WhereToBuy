@@ -13,6 +13,7 @@
 #import "SelectCityViewController.h"
 #import "DBAccess.h"
 #import "SearchDetailViewController.h"
+#import "DDMenuController.h"
 
 @interface SearchViewController ()<UITableViewDataSource, UITableViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate>
 
@@ -42,6 +43,11 @@
     [super viewDidLoad];
     self.title = @"搜索";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"leftBack.png"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+    UIButton *itemBtn2 = [[UIButton alloc] initWithFrame:CGRectMake(245, 8, 20, 30)];
+    [itemBtn2 setBackgroundImage:[UIImage imageNamed:@"more.png"] forState:UIControlStateNormal];
+    [itemBtn2 addTarget:self action:@selector(more) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *more = [[UIBarButtonItem alloc] initWithCustomView:itemBtn2];
+    self.navigationItem.rightBarButtonItem = more;
     [self addUI];
     _isUpFlag = YES;
     _indexTable = 0;
@@ -54,6 +60,13 @@
     [self getCity];
 //    [self getHousesNameFromNet];
 //    [self getHousesName];
+}
+
+//显示更多菜单
+- (void)more
+{
+    DDMenuController *menu = self.view.window.rootViewController.childViewControllers[1];
+    [menu showRightController:YES];
 }
 
 //获取所有的小区名，从数据里根据模糊查询获取数据
