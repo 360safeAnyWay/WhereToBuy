@@ -19,7 +19,7 @@
 @property (strong, nonatomic) NSString *district;
 @property (strong, nonatomic) NSString *phoneNum;
 @property (strong, nonatomic) NSString *photo;
-@property (assign, nonatomic) int senedTitles;//已发表话题次数
-@property (assign, nonatomic) int callBackTimes;//已回复话题次数
+@property (assign, nonatomic) NSInteger senedTitles;//已发表话题次数
+@property (assign, nonatomic) NSInteger callBackTimes;//已回复话题次数
 
 @end
