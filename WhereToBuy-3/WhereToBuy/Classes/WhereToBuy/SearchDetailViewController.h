@@ -11,6 +11,7 @@
 @interface SearchDetailViewController : BaseViewController
 
 @property (nonatomic, strong) NSMutableArray *dataArr1;
+@property (nonatomic, strong) NSMutableArray *dataArray;
 @property (weak, nonatomic) UITableView *tableView1;
 
 @end

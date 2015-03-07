@@ -11,6 +11,7 @@
 #import "CLLRefreshHeadController.h"
 #import "TopicCell.h"
 #import "SearchDetailEvaluteCell.h"
+#import "SearchDetailCell.h"
 
 const int MaxCount6 = 5;
 
@@ -130,6 +131,12 @@ const int MaxCount6 = 5;
 {
     [super viewDidLoad];
     
+    NSDictionary *dic = @{@"Cell": @"MainCell",@"isAttached":@(NO)};
+    NSArray * array = @[dic,dic,dic,dic,dic,dic];
+    
+    self.dataArray = [[NSMutableArray alloc]init];
+    self.dataArray = [NSMutableArray arrayWithArray:array];
+    
     [self refreshControl];
 }
 
@@ -138,7 +145,6 @@ const int MaxCount6 = 5;
     UITableView *table = [[UITableView alloc] initWithFrame:CGRectMake(0, 65, self.view.frame.size.width, self.view.frame.size.height  - 65) style:UITableViewStylePlain];
     table.delegate = self;
     table.dataSource = self;
-    table.rowHeight = 112.0f;
     table.sectionHeaderHeight = 0.0f;
     table.sectionFooterHeight = 0.0f;
     self.tableView1 = table;
@@ -159,20 +165,111 @@ const int MaxCount6 = 5;
 
 #pragma mark -- delegate & dataSource
 
-- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 5;
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *cellID = @"cellID";
-    SearchDetailEvaluteCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    if (cell == nil) {
-        cell = (SearchDetailEvaluteCell *)[[[NSBundle  mainBundle]  loadNibNamed:@"SearchDetailEvaluteCell" owner:self options:nil]  lastObject];
+    
+    
+    if ([[self.dataArray[indexPath.row] objectForKey:@"Cell"] isEqualToString:@"MainCell"])
+    {
+        
+        static NSString *CellIdentifier = @"SearchDetailCell";
+        
+        SearchDetailCell *cell = (SearchDetailCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        if (cell == nil) {
+            cell = (SearchDetailCell *)[[[NSBundle mainBundle] loadNibNamed:@"SearchDetailCell" owner:self options:nil] lastObject];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        
+        return cell;
+        
+    }else if([[self.dataArray[indexPath.row] objectForKey:@"Cell"] isEqualToString:@"AttachedCell"]){
+        
+        static NSString *CellIdentifier = @"SearchDetailEvaluteCell";
+        
+        SearchDetailEvaluteCell *cell = (SearchDetailEvaluteCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = (SearchDetailEvaluteCell *)[[[NSBundle mainBundle] loadNibNamed:@"SearchDetailEvaluteCell" owner:self options:nil] lastObject];
+            
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        
+        return cell;
+        
     }
-    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-    return cell;
+    
+    return nil;
+    
+    
+}
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    NSIndexPath *path = nil;
+    
+    if ([[self.dataArray[indexPath.row] objectForKey:@"Cell"] isEqualToString:@"MainCell"]) {
+        path = [NSIndexPath indexPathForItem:(indexPath.row+1) inSection:indexPath.section];
+    }else{
+        path = indexPath;
+    }
+    
+    if ([[self.dataArray[indexPath.row] objectForKey:@"isAttached"] boolValue]) {
+        // 关闭附加cell
+        NSDictionary * dic = @{@"Cell": @"MainCell",@"isAttached":@(NO)};
+        self.dataArray[(path.row-1)] = dic;
+        [self.dataArray removeObjectAtIndex:path.row];
+        
+        [self.tableView1 beginUpdates];
+        [self.tableView1 deleteRowsAtIndexPaths:@[path]  withRowAnimation:UITableViewRowAnimationMiddle];
+        [self.tableView1 endUpdates];
+        
+    }else{
+        // 打开附加cell
+        NSDictionary * dic = @{@"Cell": @"MainCell",@"isAttached":@(YES)};
+        self.dataArray[(path.row-1)] = dic;
+        NSDictionary * addDic = @{@"Cell": @"AttachedCell",@"isAttached":@(YES)};
+        [self.dataArray insertObject:addDic atIndex:path.row];
+        
+        
+        [self.tableView1 beginUpdates];
+        [self.tableView1 insertRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationMiddle];
+        [self.tableView1 endUpdates];
+        
+    }
+    
+    
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([[self.dataArray[indexPath.row] objectForKey:@"Cell"] isEqualToString:@"MainCell"])
+    {
+        return 248;
+    }else{
+        return 112;
+    }
 }
 
 @end
+
+
+
+
+
+
+

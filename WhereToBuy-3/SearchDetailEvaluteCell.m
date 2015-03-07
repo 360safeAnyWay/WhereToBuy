@@ -15,10 +15,16 @@
 @implementation SearchDetailEvaluteCell
 
 - (void)awakeFromNib {
+
     for (NSInteger i = 1; i < 3; i++) {
-        [Tools setUIViewLine:[self.contentView viewWithTag:i] cornerRadius:5 with:0 color:[UIColor whiteColor]];
-        [self.contentView viewWithTag:i].clipsToBounds = YES;
+        UIView *view = [self.contentView viewWithTag:i];
+        [Tools setUIViewLine:view cornerRadius:5 with:0 color:[UIColor whiteColor]];
+        view.clipsToBounds = YES;
     }
+    [UIView animateWithDuration:1.0f animations:^{
+        [[self.contentView viewWithTag:3] setFrame:CGRectMake(0, 0, arc4random_uniform(205), 10)];
+        [[self.contentView viewWithTag:4] setFrame:CGRectMake(0, 0, arc4random_uniform(205), 10)];
+    } completion:nil];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
