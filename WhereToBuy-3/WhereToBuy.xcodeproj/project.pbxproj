@@ -235,6 +235,7 @@
 		F8AF54F21AAAADD00029435B /* SearchDetailEvaluteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8AF54F01AAAADD00029435B /* SearchDetailEvaluteCell.xib */; };
 		F8AF54F61AAABDA20029435B /* SearchDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AF54F41AAABDA20029435B /* SearchDetailCell.m */; };
 		F8AF54F71AAABDA20029435B /* SearchDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8AF54F51AAABDA20029435B /* SearchDetailCell.xib */; };
+		F8AF54FA1AAAE41D0029435B /* BuilddingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AF54F91AAAE41D0029435B /* BuilddingDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -582,6 +583,8 @@
 		F8AF54F31AAABDA20029435B /* SearchDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchDetailCell.h; path = ../../../SearchDetailCell.h; sourceTree = "<group>"; };
 		F8AF54F41AAABDA20029435B /* SearchDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchDetailCell.m; path = ../../../SearchDetailCell.m; sourceTree = "<group>"; };
 		F8AF54F51AAABDA20029435B /* SearchDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchDetailCell.xib; path = ../../../SearchDetailCell.xib; sourceTree = "<group>"; };
+		F8AF54F81AAAE41D0029435B /* BuilddingDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuilddingDetailViewController.h; sourceTree = "<group>"; };
+		F8AF54F91AAAE41D0029435B /* BuilddingDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuilddingDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1012,6 +1015,8 @@
 				F8AF54F31AAABDA20029435B /* SearchDetailCell.h */,
 				F8AF54F41AAABDA20029435B /* SearchDetailCell.m */,
 				F8AF54F51AAABDA20029435B /* SearchDetailCell.xib */,
+				F8AF54F81AAAE41D0029435B /* BuilddingDetailViewController.h */,
+				F8AF54F91AAAE41D0029435B /* BuilddingDetailViewController.m */,
 			);
 			path = WhereToBuy;
 			sourceTree = "<group>";
@@ -1498,6 +1503,7 @@
 				9337B91D1A58FE61003A0884 /* AFURLSessionManager.m in Sources */,
 				934FD0DE1A88A94800992BA6 /* VipEvaluteViewController.m in Sources */,
 				93A8B0731A64DE4E006D6A74 /* SelectCityViewController.m in Sources */,
+				F8AF54FA1AAAE41D0029435B /* BuilddingDetailViewController.m in Sources */,
 				9337B9831A591982003A0884 /* NSString+WJ.m in Sources */,
 				9383DC271A79D74C001691BF /* WhereBuyMainVIewController.m in Sources */,
 				F89334FB1AAA06D1007005D0 /* DDMenuController.m in Sources */,
