@@ -165,7 +165,7 @@ const int MaxCount7 = 5;
         {
             [btn setTitle:@"大众评论" forState:UIControlStateNormal];
         }
-        else if(i == 2)
+        else if(i == 3)
         {
             [btn setTitle:@"购房权威" forState:UIControlStateNormal];
         }
