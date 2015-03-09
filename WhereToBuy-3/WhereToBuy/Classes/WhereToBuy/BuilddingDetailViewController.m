@@ -12,6 +12,8 @@
 
 const int MaxCount7 = 5;
 
+//哈喽
+
 @interface BuilddingDetailViewController ()<CLLRefreshHeadControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 {
     NSInteger loadCount;
