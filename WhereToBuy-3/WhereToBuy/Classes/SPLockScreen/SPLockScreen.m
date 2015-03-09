@@ -64,10 +64,10 @@
 	CGFloat gap = (self.frame.size.width - 6 * radius )/4;
 	CGFloat topOffset = radius;
 	
-	for (int i=0; i < 9; i++) {
+	for (NSInteger i=0; i < 9; i++) {
 		NormalCircle *circle = [[NormalCircle alloc]initwithRadius:radius];
-		int column =  i % 3;
-		int row    = i / 3;
+		NSInteger column =  i % 3;
+		NSInteger row    = i / 3;
 		CGFloat x = (gap + radius) + (gap + 2*radius)*column;
 		CGFloat y = (row * gap + row * 2 * radius) + topOffset;
 		circle.center = CGPointMake(x, y + 100);

@@ -58,7 +58,7 @@
     UIView *segmentView = [[UIView alloc] init];
     [segmentView setBackgroundColor:[UIColor clearColor]];
     
-    for (int i = 1; i <= 6; i++) {
+    for (NSInteger i = 1; i <= 6; i++) {
         UIImageView *houseImage = [[UIImageView alloc] initWithFrame:CGRectMake((i - 1) * self.view.frame.size.width, 0, self.view.frame.size.width, 240)];
         [houseImage setBackgroundColor:[UIColor lightGrayColor]];
         [houseImage setImage:[UIImage imageNamed:@"personBack.png"]];
@@ -174,7 +174,7 @@
 {
     if (scrollView == _scroll) {
         int x = scrollView.contentOffset.x / self.view.frame.size.width;
-        for (int i = 1; i <= 6; i++) {
+        for (NSInteger i = 1; i <= 6; i++) {
             [_segmentView viewWithTag:i].backgroundColor = [UIColor whiteColor];
         }
         [_segmentView viewWithTag:x + 1].backgroundColor = [Tools colorWithRed:255 angGreen:102 andBlue:49];

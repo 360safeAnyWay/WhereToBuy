@@ -133,7 +133,7 @@
     if (_flag == 1) {
         searchResults = [[NSMutableArray alloc]init];
         if (mySearchBar.text.length>0&&![ChineseInclude isIncludeChineseInString:mySearchBar.text]) {
-            for (int i=0; i<dataArray.count; i++) {
+            for (NSInteger i=0; i<dataArray.count; i++) {
                 if ([ChineseInclude isIncludeChineseInString:dataArray[i]]) {
                     NSString *tempPinYinStr = [PinYinForObjc chineseConvertToPinYin:dataArray[i]];
                     NSRange titleResult=[tempPinYinStr rangeOfString:mySearchBar.text options:NSCaseInsensitiveSearch];
@@ -171,7 +171,7 @@
         if ([str isEqualToString:@"#"] && mySearchBar.text.length > 1) {
             str = [mySearchBar.text substringWithRange:NSMakeRange(1, mySearchBar.text.length - 1)];
             if (str>0&&![ChineseInclude isIncludeChineseInString:str]) {
-                for (int i=0; i<dataArray.count; i++) {
+                for (NSInteger i=0; i<dataArray.count; i++) {
                     if ([ChineseInclude isIncludeChineseInString:dataArray[i]]) {
                         NSString *tempPinYinStr = [PinYinForObjc chineseConvertToPinYin:dataArray[i]];
                         NSRange titleResult=[tempPinYinStr rangeOfString:str options:NSCaseInsensitiveSearch];

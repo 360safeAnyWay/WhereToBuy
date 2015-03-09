@@ -45,7 +45,7 @@
 {
     NSMutableArray *arr = [[NSMutableArray alloc] init];
     sqlite3_stmt *statement;
-    int result = sqlite3_prepare(database, sql, -1, &statement, NULL);
+    NSInteger result = sqlite3_prepare(database, sql, -1, &statement, NULL);
     if (result == SQLITE_OK) {
         while (sqlite3_step(statement) == SQLITE_ROW) {
             char *city = (char *)sqlite3_column_text(statement, 0);
@@ -59,7 +59,7 @@
 //清空表中的数据
 + (void) cleanDBWithSql:(const char *)sql
 {
-    int result = sqlite3_exec(database, sql, NULL, NULL, nil);
+    NSInteger result = sqlite3_exec(database, sql, NULL, NULL, nil);
     if (result == SQLITE_OK) {
         
     }else
@@ -72,7 +72,7 @@
 + (void) insertDBWithSql:(const char *)sql
 {
     char *errmsg;
-    int result = sqlite3_exec(database, sql, NULL, NULL, &errmsg);
+    NSInteger result = sqlite3_exec(database, sql, NULL, NULL, &errmsg);
     if (result == SQLITE_OK) {
         
     }else

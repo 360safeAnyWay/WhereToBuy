@@ -15,7 +15,7 @@ const int MaxCount4 = 5;
 
 @interface PeronTipsViewController ()
 {
-    int loadCount;
+    NSInteger loadCount;
 }
 
 @property (nonatomic,strong)CLLRefreshHeadController *refreshControll;
@@ -74,7 +74,7 @@ const int MaxCount4 = 5;
 }
 - (void)endLoadMore {
     loadCount ++;
-    NSMutableArray *data = [[NSMutableArray alloc] initWithObjects:[NSString stringWithFormat:@"第%d次就加载更多,共%d次",loadCount,MaxCount4 ],@"更多1",@"更多2",@"更多3", nil];
+    NSMutableArray *data = [[NSMutableArray alloc] initWithObjects:[NSString stringWithFormat:@"第%ld次就加载更多,共%d次",(long)loadCount,MaxCount4 ],@"更多1",@"更多2",@"更多3", nil];
     [self.dataArr addObjectsFromArray:data];
     [self.tableView reloadData];
     

@@ -31,7 +31,7 @@
                             withHanyuPinyinOutputFormat:(HanyuPinyinOutputFormat *)outputFormat {
     NSMutableArray *pinyinStrArray =[NSMutableArray arrayWithArray:[PinyinHelper getUnformattedHanyuPinyinStringArrayWithChar:ch]];
     if (nil != pinyinStrArray) {
-        for (int i = 0; i < (int) [pinyinStrArray count]; i++) {
+        for (NSInteger i = 0; i < (NSInteger) [pinyinStrArray count]; i++) {
             [pinyinStrArray replaceObjectAtIndex:i withObject:[PinyinFormatter formatHanyuPinyinWithNSString:
                                                                [pinyinStrArray objectAtIndex:i]withHanyuPinyinOutputFormat:outputFormat]];
         }
@@ -65,7 +65,7 @@
     NSArray *hanyuPinyinStringArray = [PinyinHelper getUnformattedHanyuPinyinStringArrayWithChar:ch];
     if (nil != hanyuPinyinStringArray) {
         NSMutableArray *targetPinyinStringArray = [NSMutableArray arrayWithCapacity:hanyuPinyinStringArray.count];
-        for (int i = 0; i < (int) [hanyuPinyinStringArray count]; i++) {
+        for (NSInteger i = 0; i < (NSInteger) [hanyuPinyinStringArray count]; i++) {
             
         }
         return targetPinyinStringArray;
@@ -81,7 +81,7 @@
     NSArray *hanyuPinyinStringArray = [PinyinHelper getUnformattedHanyuPinyinStringArrayWithChar:ch];
     if (nil != hanyuPinyinStringArray) {
         NSMutableArray *targetPinyinStringArray =[NSMutableArray arrayWithCapacity:hanyuPinyinStringArray.count];
-        for (int i = 0; i < (int) [hanyuPinyinStringArray count]; i++) {
+        for (NSInteger i = 0; i < (NSInteger) [hanyuPinyinStringArray count]; i++) {
         }
         return targetPinyinStringArray;
     }
@@ -92,7 +92,7 @@
                   withHanyuPinyinOutputFormat:(HanyuPinyinOutputFormat *)outputFormat
                                  withNSString:(NSString *)seperater {
     NSMutableString *resultPinyinStrBuf = [[NSMutableString alloc] init];
-    for (int i = 0; i <  str.length; i++) {
+    for (NSInteger i = 0; i <  str.length; i++) {
         NSString *mainPinyinStrOfChar = [PinyinHelper getFirstHanyuPinyinStringWithChar:[str characterAtIndex:i] withHanyuPinyinOutputFormat:outputFormat];
         if (nil != mainPinyinStrOfChar) {
             [resultPinyinStrBuf appendString:mainPinyinStrOfChar];
@@ -110,7 +110,7 @@
 + (NSString *)getFirstHanyuPinyinStringWithChar:(unichar)ch
                     withHanyuPinyinOutputFormat:(HanyuPinyinOutputFormat *)outputFormat {
     NSArray *pinyinStrArray = [PinyinHelper getFormattedHanyuPinyinStringArrayWithChar:ch withHanyuPinyinOutputFormat:outputFormat];
-    if ((nil != pinyinStrArray) && ((int) [pinyinStrArray count] > 0)) {
+    if ((nil != pinyinStrArray) && ((NSInteger) [pinyinStrArray count] > 0)) {
         return [pinyinStrArray objectAtIndex:0];
     }
     else {

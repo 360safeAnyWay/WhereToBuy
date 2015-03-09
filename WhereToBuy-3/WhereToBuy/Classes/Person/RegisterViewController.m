@@ -15,8 +15,8 @@
 
 @interface RegisterViewController ()<UITextFieldDelegate>
 {
-    int _seconds;//多少秒后可以再次获取验证码
-    int _token;//验证码
+    NSInteger _seconds;//多少秒后可以再次获取验证码
+    NSInteger _token;//验证码
 }
 @end
 
@@ -38,7 +38,7 @@
 - (void) addUI
 {
     //两个TextField
-    for (int i = 1; i <= 3; i++) {
+    for (NSInteger i = 1; i <= 3; i++) {
         UITextField *text = [[UITextField alloc] initWithFrame:CGRectMake(20, 85 + (i-1)*52, self.view.frame.size.width - 40, 38)];
         text.tag = i;
         [Tools setUIViewLine:text cornerRadius:8 with:1 color:[Tools colorWithRed:207 angGreen:207 andBlue:207]];
@@ -87,7 +87,7 @@
         [Tools showAlertView:[[DataCenter instance] getStringForKey:@"insertPhoneNumTip"]];
         return;
     }
-    if (_token != [((UITextField *)[self.view viewWithTag:2]).text intValue]) {
+    if (_token != [((UITextField *)[self.view viewWithTag:2]).text integerValue]) {
         [Tools showAlertView:[[DataCenter instance] getStringForKey:@"secretCantNull"]];
         return;
     }

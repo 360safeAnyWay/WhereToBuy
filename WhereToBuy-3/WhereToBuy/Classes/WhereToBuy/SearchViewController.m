@@ -93,7 +93,7 @@
             [DBAccess openDB];
             const char *sqlC = "delete from houses";
             [DBAccess cleanDBWithSql:sqlC];
-            for (int i =0; i < self.housesData.count; i++) {
+            for (NSInteger i =0; i < self.housesData.count; i++) {
                 NSString *sql = [NSString stringWithFormat:@"insert into houses (name, num) values ('%@', 3)",self.housesData[i]];
                 [DBAccess insertDBWithSql:[sql UTF8String]];
             }
@@ -207,14 +207,14 @@
     [searchView addSubview:btn];
     
     //搜索框中的两个小竖线
-    for (int i = 0; i <= 1; i++) {
+    for (NSInteger i = 0; i <= 1; i++) {
         UIView *views = [[UIView alloc] initWithFrame:GTRectMake(i * GTFixWidthFlaot(260) + GTFixWidthFlaot(10), GTFixHeightFlaot(28), 1, 12)];
         [views setBackgroundColor:[UIColor lightGrayColor]];
         [searchView addSubview:views];
     }
     
     //添加线条，下面的下划线
-    for (int i = 1; i < 6; i++) {
+    for (NSInteger i = 1; i < 6; i++) {
         UIView *view1 = [[UIView alloc] initWithFrame:GTRectMake(GTFixWidthFlaot(30), GTFixHeightFlaot(85)  + (i * GTFixHeightFlaot(40)), 260, 1)];
         [view1 setBackgroundColor:[UIColor lightGrayColor]];
         [self.view addSubview:view1];
@@ -478,7 +478,7 @@
 - (NSMutableArray *)exchangeArr:(NSArray *)arr withEndStr:(NSString *)string
 {
     NSMutableArray *arrM = [[NSMutableArray alloc] initWithCapacity:arr.count];
-    for (int i = 0; i < arr.count; i++) {
+    for (NSInteger i = 0; i < arr.count; i++) {
         NSMutableString *str = [[NSMutableString alloc] initWithString:arr[i]];
         NSRange range = NSMakeRange(0, [str length]);
         if (i == arr.count -1) {
@@ -514,10 +514,10 @@
 
 - (void)autoTips:(id)sender
 {
-    int count = 0;
+    NSInteger count = 0;
     NSMutableString *insertStr = [[NSMutableString alloc] init];
     if (self.text.text.length > 0) {
-        for (int i = 0; i<self.text.text.length; i++) {
+        for (NSInteger i = 0; i<self.text.text.length; i++) {
             unichar c = [self.text.text characterAtIndex:i];
             if (c >=0x4E00 && c <=0x9FA5)
             {

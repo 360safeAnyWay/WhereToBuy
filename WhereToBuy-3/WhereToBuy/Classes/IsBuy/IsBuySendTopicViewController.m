@@ -121,18 +121,18 @@
 {
     
 }
-
+#warning 数据测试会出问题吗?--------------------------------------------------------
 //统计字数
 - (void)autoTips:(id)sender
 {
-    int count = 0;
+    NSInteger count = 0;
     if (self.titleTextfiled.text.length > 0) {
-        for (int i = 0; i<self.titleTextfiled.text.length; i++) {
+        for (NSInteger i = 0; i<self.titleTextfiled.text.length; i++) {
             unichar c = [self.titleTextfiled.text characterAtIndex:i];
             if (c >=0x4E00 && c <=0x9FA5)
             {
                 count++;
-                [self.numLabel setText:[NSString stringWithFormat:@"%d字",20 - count]];
+                [self.numLabel setText:[NSString stringWithFormat:@"%ld字",(long)20 - count]];
             }
         }
     }

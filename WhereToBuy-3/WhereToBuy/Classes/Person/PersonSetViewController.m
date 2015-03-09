@@ -91,7 +91,7 @@
     [self.view addSubview:submitBtn];
     
     //两个短的下划线
-    for (int i = 0; i <= 1; i++) {
+    for (NSInteger i = 0; i <= 1; i++) {
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(phoneTextField.frame.origin.x, phoneTextField.frame.origin.y + phoneTextField.frame.size.height + i * 40, phoneTextField.frame.size.width + getTokenBtn.frame.size.width, 1)];
         [view setBackgroundColor:[UIColor lightGrayColor]];
         [self.view addSubview:view];

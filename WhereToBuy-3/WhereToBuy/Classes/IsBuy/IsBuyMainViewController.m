@@ -19,7 +19,7 @@ const int MaxCount = 5;
 
 @interface IsBuyMainViewController ()
 {
-    int loadCount;
+    NSInteger loadCount;
 }
 
 @property (nonatomic,strong)CLLRefreshHeadController *refreshControll1;
@@ -90,7 +90,7 @@ const int MaxCount = 5;
 }
 - (void)endLoadMore {
     loadCount ++;
-    NSMutableArray *data = [[NSMutableArray alloc] initWithObjects:[NSString stringWithFormat:@"第%d次就加载更多,共%d次",loadCount,MaxCount ],@"更多1",@"更多2",@"更多3", nil];
+    NSMutableArray *data = [[NSMutableArray alloc] initWithObjects:[NSString stringWithFormat:@"第%ld次就加载更多,共%d次",(long)loadCount,MaxCount ],@"更多1",@"更多2",@"更多3", nil];
     [self.dataArr addObjectsFromArray:data];
     [self.tableView reloadData];
     [self.tableView2 reloadData];

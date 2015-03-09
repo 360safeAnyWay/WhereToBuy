@@ -38,7 +38,7 @@
     }
     CGFloat height = self.frame.size.height;
     CGFloat width = self.frame.size.width / count;
-    for (int i = 0; i<count; i++) {
+    for (NSInteger i = 0; i<count; i++) {
         DockItem *dockItem = self.subviews[i];
         dockItem.tag = i;
         dockItem.frame = CGRectMake(width * i, 0, width, height);

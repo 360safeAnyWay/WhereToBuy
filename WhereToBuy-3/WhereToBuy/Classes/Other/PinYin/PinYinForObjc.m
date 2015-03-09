@@ -29,7 +29,7 @@
     [outputFormat setVCharType:VCharTypeWithV];
     [outputFormat setCaseType:CaseTypeLowercase];
     NSMutableString *outputPinyin = [[NSMutableString alloc] init];
-    for (int i=0;i <chinese.length;i++) {
+    for (NSInteger i=0;i <chinese.length;i++) {
         NSString *mainPinyinStrOfChar = [PinyinHelper getFirstHanyuPinyinStringWithChar:[chinese characterAtIndex:i] withHanyuPinyinOutputFormat:outputFormat];
         if (nil!=mainPinyinStrOfChar) {
             [outputPinyin appendString:[mainPinyinStrOfChar substringToIndex:1]];

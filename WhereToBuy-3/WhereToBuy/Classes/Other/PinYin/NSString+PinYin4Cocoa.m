@@ -17,11 +17,11 @@
         return 0;
     }
     NSRange range = [self rangeOfString:s];
-    return range.location == NSNotFound ? -1 : (int) range.location;
+    return range.location == NSNotFound ? -1 : (NSInteger) range.location;
 }
 
 
-- (NSInteger)indexOfString:(NSString *)s fromIndex:(int)index {
+- (NSInteger)indexOfString:(NSString *)s fromIndex:(NSInteger)index {
     NSAssert3((s!=nil), @"Error, s is a nil string, %s, %s, %d", __FILE__, __FUNCTION__, __LINE__);
     if ([s length] == 0) {
         return 0;
@@ -31,10 +31,10 @@
     NSRange range = [self rangeOfString:s
                                 options:NSLiteralSearch
                                   range:searchRange];
-    return range.location == NSNotFound ? -1 : (int) range.location;
+    return range.location == NSNotFound ? -1 : (NSInteger) range.location;
 }
 
-- (NSInteger)indexOf:(int)ch {
+- (NSInteger)indexOf:(NSInteger)ch {
     //    unichar c = (unichar) ch;
     //    for(int i=0;i<self.length;i++)
     //        if(c == [self characterAtIndex:i])
@@ -43,10 +43,10 @@
     return [self indexOf:ch fromIndex:0];
 }
 
-- (NSInteger)indexOf:(int)ch fromIndex:(int)index {
+- (NSInteger)indexOf:(NSInteger)ch fromIndex:(NSInteger)index {
     unichar c = (unichar) ch;
     NSString *s = [NSString stringWithCharacters:&c length:1];
-    return [self indexOfString:s fromIndex:(int)index];
+    return [self indexOfString:s fromIndex:(NSInteger)index];
 }
 
 + (NSString *)valueOfChar:(unichar)value {

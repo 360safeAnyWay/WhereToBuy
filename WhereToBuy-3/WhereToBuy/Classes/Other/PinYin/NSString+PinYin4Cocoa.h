@@ -11,9 +11,9 @@
 @interface NSString (PinYin4Cocoa)
 
 - (NSInteger)indexOfString:(NSString *)s;
-- (NSInteger)indexOfString:(NSString *)s fromIndex:(int)index;
-- (NSInteger)indexOf:(int)ch;
-- (NSInteger)indexOf:(int)ch fromIndex:(int)index;
+- (NSInteger)indexOfString:(NSString *)s fromIndex:(NSInteger)index;
+- (NSInteger)indexOf:(NSInteger)ch;
+- (NSInteger)indexOf:(NSInteger)ch fromIndex:(NSInteger)index;
 + (NSString *)valueOfChar:(unichar)value;
 
 -(NSString *) stringByReplacingRegexPattern:(NSString *)regex withString:(NSString *) replacement;

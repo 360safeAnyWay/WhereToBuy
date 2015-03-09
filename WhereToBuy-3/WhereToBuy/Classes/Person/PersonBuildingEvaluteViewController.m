@@ -13,11 +13,11 @@
 #import "EvaluteCell.h"
 #import "VipEvaluteViewController.h"
 
-const int MaxCount2 = 5;
+const NSInteger MaxCount2 = 5;
 
 @interface PersonBuildingEvaluteViewController ()<UITableViewDataSource, UITableViewDelegate, CLLRefreshHeadControllerDelegate>
 {
-    int loadCount;
+    NSInteger loadCount;
 }
 @property (nonatomic,strong)CLLRefreshHeadController *refreshControll;
 @property (nonatomic, strong) NSMutableArray *dataArr;
@@ -90,7 +90,7 @@ const int MaxCount2 = 5;
 }
 - (void)endLoadMore {
     loadCount ++;
-    NSMutableArray *data = [[NSMutableArray alloc] initWithObjects:[NSString stringWithFormat:@"第%d次就加载更多,共%d次",loadCount,MaxCount2 ],@"更多1",@"更多2",@"更多3", nil];
+    NSMutableArray *data = [[NSMutableArray alloc] initWithObjects:[NSString stringWithFormat:@"第%ld次就加载更多,共%ld次",(long)loadCount,(long)MaxCount2 ],@"更多1",@"更多2",@"更多3", nil];
     [self.dataArr addObjectsFromArray:data];
     [self.tableView reloadData];
     [self.tableView2 reloadData];
@@ -146,7 +146,7 @@ const int MaxCount2 = 5;
     [view addSubview:lineDown];
     
     //2个按钮标签
-    for (int i = 1; i < 3; i++) {
+    for (NSInteger i = 1; i < 3; i++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         [btn setFrame:CGRectMake(17 + (i - 1) * 67, 0, 67, 34.5)];
         [btn setBackgroundImage:[UIImage imageNamed:@"isBuyListBack.png"] forState:UIControlStateSelected];
@@ -199,7 +199,7 @@ const int MaxCount2 = 5;
 //点击不同得按钮，显示不同得内容
 - (void)showTopicByButton:(UIButton *)btn
 {
-    for (int i = 1; i <= 2; i++) {
+    for (NSInteger i = 1; i <= 2; i++) {
         [((UIButton *)[self.view viewWithTag:i]) setSelected:NO];
         [((UIButton *)[self.view viewWithTag:i]) setUserInteractionEnabled:NO];
     }

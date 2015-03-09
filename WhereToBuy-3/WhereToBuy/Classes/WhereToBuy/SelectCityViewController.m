@@ -50,7 +50,7 @@
             [arr addObjectsFromArray:obj[@"city"]];
             const char* sql = "delete from city";
             [DBAccess cleanDBWithSql:sql];
-            for (int i = 0; i < arr.count; i++) {
+            for (NSInteger i = 0; i < arr.count; i++) {
                 NSString *sqlS = [NSString stringWithFormat:@"insert into city (name,province_id) values ('%@',(select id from province where name = '江苏省'))",arr[i]];
                 [DBAccess insertDBWithSql:[sqlS UTF8String]];
             }

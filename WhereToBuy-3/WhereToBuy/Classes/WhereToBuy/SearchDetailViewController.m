@@ -13,7 +13,7 @@
 #import "SearchDetailEvaluteCell.h"
 #import "SearchDetailCell.h"
 
-const int MaxCount6 = 5;
+const NSInteger MaxCount6 = 5;
 
 @interface SearchDetailViewController()
 {
@@ -23,7 +23,7 @@ const int MaxCount6 = 5;
 
 @interface SearchDetailViewController()<UITextFieldDelegate, CLLRefreshHeadControllerDelegate,UITableViewDelegate,UITableViewDataSource>
 {
-    int loadCount;
+    NSInteger loadCount;
 }
 
 @property (nonatomic,strong)CLLRefreshHeadController *refreshControll1;
@@ -82,7 +82,7 @@ const int MaxCount6 = 5;
 }
 - (void)endLoadMore {
     loadCount ++;
-    NSMutableArray *data = [[NSMutableArray alloc] initWithObjects:[NSString stringWithFormat:@"第%d次就加载更多,共%d次",loadCount,MaxCount6 ],@"更多1",@"更多2",@"更多3", nil];
+    NSMutableArray *data = [[NSMutableArray alloc] initWithObjects:[NSString stringWithFormat:@"第%ld次就加载更多,共%ld次",(long)loadCount,(long)MaxCount6 ],@"更多1",@"更多2",@"更多3", nil];
     [self.dataArr1 addObjectsFromArray:data];
     [self.tableView1 reloadData];
     

@@ -14,8 +14,8 @@ const int MaxCount1 = 5;
 
 @interface PersonTopicViewController()<UITableViewDataSource, UITableViewDelegate,CLLRefreshHeadControllerDelegate,PersonTopicAndFeedbackDelegate>
 {
-    int loadCount;
-    int _type;//table显示的类型
+    NSInteger loadCount;
+    NSInteger _type;//table显示的类型
 }
 
 @property (nonatomic,strong)CLLRefreshHeadController *refreshControll1;
@@ -109,7 +109,7 @@ const int MaxCount1 = 5;
 }
 - (void)endLoadMore {
     loadCount ++;
-    NSMutableArray *data = [[NSMutableArray alloc] initWithObjects:[NSString stringWithFormat:@"第%d次就加载更多,共%d次",loadCount,MaxCount1 ],@"更多1",@"更多2",@"更多3", nil];
+    NSMutableArray *data = [[NSMutableArray alloc] initWithObjects:[NSString stringWithFormat:@"第%ld次就加载更多,共%d次",(long)loadCount,MaxCount1 ],@"更多1",@"更多2",@"更多3", nil];
     [self.dataArr1 addObjectsFromArray:data];
     [self.tableView1 reloadData];
     
@@ -139,7 +139,7 @@ const int MaxCount1 = 5;
 }
 
 //person中table显示类型的代理方法
-- (void)showTableViewType:(int)type
+- (void)showTableViewType:(NSInteger)type
 {
     _type = type;
 }

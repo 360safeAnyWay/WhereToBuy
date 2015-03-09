@@ -21,6 +21,6 @@
 +(void) setUIViewLine:(UIView *) temp cornerRadius:(NSInteger) radius with:(NSInteger) width color:(UIColor *)color;
 
 //根据RGB返回特定的颜色
-+(UIColor *) colorWithRed:(int) red angGreen:(int) green andBlue:(int)blue;
++(UIColor *) colorWithRed:(CGFloat) red angGreen:(CGFloat) green andBlue:(CGFloat)blue;
 
 @end

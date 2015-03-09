@@ -46,7 +46,7 @@
     UIViewController *personCenter = self.childViewControllers[1];
         if ([DataCenter instance].user == nil) {
             NSLog(@"加载登录试图");
-            static int i = 0;
+            static NSInteger i = 0;
             if (i == 0) {
                 self.title = [[DataCenter instance] getStringForKey:@"userLogin"];
                 UIViewController *login = self.childViewControllers[0];

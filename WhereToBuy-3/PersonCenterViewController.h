@@ -18,6 +18,6 @@
 
 @protocol PersonTopicAndFeedbackDelegate <NSObject>
 
-- (void)showTableViewType:(int)type;
+- (void)showTableViewType:(NSInteger)type;
 
 @end

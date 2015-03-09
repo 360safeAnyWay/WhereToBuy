@@ -34,7 +34,7 @@
 }
 
 //根据RGB返回特定的颜色
-+(UIColor *) colorWithRed:(int) red angGreen:(int) green andBlue:(int)blue
++(UIColor *) colorWithRed:(CGFloat) red angGreen:(CGFloat) green andBlue:(CGFloat)blue
 {
     UIColor *color = [UIColor colorWithRed:red / 255.0 green:green / 255.0 blue:blue / 255.0 alpha:1.0];
     return color;

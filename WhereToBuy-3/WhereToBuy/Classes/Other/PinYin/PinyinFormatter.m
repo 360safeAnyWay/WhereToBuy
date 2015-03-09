@@ -10,12 +10,12 @@
 
 @interface PinyinFormatter ()
 +(NSInteger)getNumericValue:(unichar)c;
-+(NSInteger)indexOfChar:(int*) table ch:(unichar)c;
++(NSInteger)indexOfChar:(NSInteger*) table ch:(unichar)c;
 @end    
 
 @implementation PinyinFormatter
 
-static int numericKeys[] = {
+static NSInteger numericKeys[] = {
     0x0030, 0x0041, 0x0061, 0x00b2, 0x00b9, 0x00bc, 0x0660, 0x06f0,
     0x0966, 0x09e6, 0x09f4, 0x09f9, 0x0a66, 0x0ae6, 0x0b66, 0x0be7,
     0x0bf1, 0x0bf2, 0x0c66, 0x0ce6, 0x0d66, 0x0e50, 0x0ed0, 0x0f20,
@@ -168,7 +168,7 @@ static unichar numericValues[] = {
 
 }
 
-+(NSInteger)indexOfChar:(int*) table ch:(unichar)c{
++(NSInteger)indexOfChar:(NSInteger*) table ch:(unichar)c{
     NSInteger len=sizeof(table)/sizeof(table[0]);
     for (int i = 0; i < len; i++) {
         if (table[i] == (int) c) {
