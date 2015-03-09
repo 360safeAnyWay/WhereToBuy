@@ -15,15 +15,10 @@
 
 const NSInteger MaxCount6 = 5;
 
-@interface SearchDetailViewController()
-{
-    NSInteger _tag;//用于标定是否
-}
-@end
-
 @interface SearchDetailViewController()<UITextFieldDelegate, CLLRefreshHeadControllerDelegate,UITableViewDelegate,UITableViewDataSource>
 {
     NSInteger loadCount;
+    NSInteger _tag;//用于标定是否
 }
 
 @property (nonatomic,strong)CLLRefreshHeadController *refreshControll1;
@@ -138,6 +133,8 @@ const NSInteger MaxCount6 = 5;
     self.dataArray = [NSMutableArray arrayWithArray:array];
     
     [self refreshControl];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showEvalute:) name:@"showEvalute" object:nil];
 }
 
 - (void)addUI
@@ -181,31 +178,16 @@ const NSInteger MaxCount6 = 5;
     
     if ([[self.dataArray[indexPath.row] objectForKey:@"Cell"] isEqualToString:@"MainCell"])
     {
-        
-        static NSString *CellIdentifier = @"SearchDetailCell";
-        
-        SearchDetailCell *cell = (SearchDetailCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        
-        if (cell == nil) {
-            cell = (SearchDetailCell *)[[[NSBundle mainBundle] loadNibNamed:@"SearchDetailCell" owner:self options:nil] lastObject];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        }
-        
+        SearchDetailCell *cell = (SearchDetailCell *)[[[NSBundle mainBundle] loadNibNamed:@"SearchDetailCell" owner:self options:nil] lastObject];
+        [cell cellInitWithCell:@[] andIndex:indexPath.row];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
         
     }else if([[self.dataArray[indexPath.row] objectForKey:@"Cell"] isEqualToString:@"AttachedCell"]){
         
-        static NSString *CellIdentifier = @"SearchDetailEvaluteCell";
-        
-        SearchDetailEvaluteCell *cell = (SearchDetailEvaluteCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        if (cell == nil) {
-            cell = (SearchDetailEvaluteCell *)[[[NSBundle mainBundle] loadNibNamed:@"SearchDetailEvaluteCell" owner:self options:nil] lastObject];
-            
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        }
-        
+        SearchDetailEvaluteCell *cell = (SearchDetailEvaluteCell *)[[[NSBundle mainBundle] loadNibNamed:@"SearchDetailEvaluteCell" owner:self options:nil] lastObject];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
-        
     }
     
     return nil;
@@ -217,15 +199,21 @@ const NSInteger MaxCount6 = 5;
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+}
+
+- (void)showEvalute:(NSNotification *)userInfo
+{
+    NSLog(@"点击了显示详情得butto %@",[userInfo object]);
+    NSInteger row = [[userInfo object] integerValue] - 8;
     NSIndexPath *path = nil;
     
-    if ([[self.dataArray[indexPath.row] objectForKey:@"Cell"] isEqualToString:@"MainCell"]) {
-        path = [NSIndexPath indexPathForItem:(indexPath.row+1) inSection:indexPath.section];
+    if ([[self.dataArray[row] objectForKey:@"Cell"] isEqualToString:@"MainCell"]) {
+        path = [NSIndexPath indexPathForItem:(row+1) inSection:0];
     }else{
-        path = indexPath;
+        path = [NSIndexPath indexPathForItem:row inSection:0];
     }
     
-    if ([[self.dataArray[indexPath.row] objectForKey:@"isAttached"] boolValue]) {
+    if ([[self.dataArray[row] objectForKey:@"isAttached"] boolValue]) {
         // 关闭附加cell
         NSDictionary * dic = @{@"Cell": @"MainCell",@"isAttached":@(NO)};
         self.dataArray[(path.row-1)] = dic;
@@ -242,15 +230,11 @@ const NSInteger MaxCount6 = 5;
         NSDictionary * addDic = @{@"Cell": @"AttachedCell",@"isAttached":@(YES)};
         [self.dataArray insertObject:addDic atIndex:path.row];
         
-        
         [self.tableView1 beginUpdates];
         [self.tableView1 insertRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationMiddle];
         [self.tableView1 endUpdates];
         
     }
-    
-    
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
