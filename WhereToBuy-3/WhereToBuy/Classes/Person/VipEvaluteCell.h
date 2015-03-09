@@ -7,13 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AttributedLabel.h"
 
 @interface VipEvaluteCell : UITableViewCell
 
 @property (weak, nonatomic) UILabel *titleLabel;
 @property (weak, nonatomic) UIView *progress;
-@property (weak, nonatomic) AttributedLabel *point;
+@property (weak, nonatomic) UILabel *point;
 @property (weak, nonatomic) UILabel *myEvalute;//我的评论
 
 - (void)cellInitWithCell:(NSArray *)arr andIndex:(NSInteger) row;

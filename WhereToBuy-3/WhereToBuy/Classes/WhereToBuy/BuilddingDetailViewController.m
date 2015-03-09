@@ -9,14 +9,18 @@
 #import "BuilddingDetailViewController.h"
 #import "CLLRefreshHeadController.h"
 #import "Tools.h"
+#import "VipEvaluteCell.h"
 
 const int MaxCount7 = 5;
 
 //哈喽ooo
 
-@interface BuilddingDetailViewController ()<CLLRefreshHeadControllerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface BuilddingDetailViewController ()<CLLRefreshHeadControllerDelegate, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 {
     NSInteger loadCount;
+    NSInteger _tag;//用于判定当前选中的事哪一个标签，用于控制table得移动
+    UIScrollView *_scroll;
+    UIView *_segmentView;
 }
 @property (nonatomic,strong)CLLRefreshHeadController *refreshControll;
 @property (nonatomic, strong) NSMutableArray *dataArr;
@@ -123,6 +127,9 @@ const int MaxCount7 = 5;
     [self refreshControl];
     [self refreshControl2];
     [self refreshControl3];
+    
+    _dataArr = [[NSMutableArray alloc] initWithArray:@[@[@"3",@"小买吐槽:物业费比较贵，小买觉得不好"],@[@"4",@"小买吐槽:物业费比较贵，小买觉得不好"],@[@"7",@"小买吐槽:物业费比较贵，小买觉得不好"],@[@"2",@"小买吐槽:物业费比较贵，小买觉得不好"],@[@"8",@"小买吐槽:物业费比较贵，小买觉得不好"],@[@"2",@"小买吐槽:物业费比较贵，小买觉得不好"],@[@"9",@"小买吐槽:物业费比较贵，小买觉得不好"],@[@"4",@"小买吐槽:物业费比较贵，小买觉得不好"],@[@"6",@"小买吐槽:物业费比较贵，小买觉得不好"],@[@"7",@"小买吐槽:物业费比较贵，小买觉得不好"]]];
+    [self.tableView reloadData];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -172,13 +179,16 @@ const int MaxCount7 = 5;
         [view insertSubview:btn atIndex:0];
     }
     
+    _tag = 1;//当前tag定位在tag为1页面
+    
     //显示内容得tableView(0, 99, self.view.frame.size.width, 425)
-    UITableView *table = [[UITableView alloc] initWithFrame:CGRectMake(0, 99, self.view.frame.size.width, 503) style:UITableViewStylePlain];
+    UITableView *table = [[UITableView alloc] initWithFrame:CGRectMake(0, 99, self.view.frame.size.width, 468.5) style:UITableViewStylePlain];
     table.delegate = self;
     table.dataSource = self;
-    table.rowHeight = 100;
+    table.rowHeight = 65;
     table.sectionHeaderHeight = 22.0f;
     table.sectionFooterHeight = 22.0f;
+    table.tableHeaderView = [self BuilddingHeaderView];
     [table setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     self.tableView = table;
     self.tableView.backgroundView = nil;
@@ -189,7 +199,7 @@ const int MaxCount7 = 5;
     UITableView *table2 = [[UITableView alloc] initWithFrame:CGRectMake(self.view.frame.size.width, 99, self.view.frame.size.width, 503) style:UITableViewStylePlain];
     table2.delegate = self;
     table2.dataSource = self;
-    table2.rowHeight = 100;
+//    table2.rowHeight = 100;
     table2.sectionHeaderHeight = 22.0f;
     table2.sectionFooterHeight = 22.0f;
     [table2 setSeparatorStyle:UITableViewCellSeparatorStyleNone];
@@ -197,34 +207,96 @@ const int MaxCount7 = 5;
     self.tableView2.backgroundView = nil;
     self.tableView2.backgroundColor = [UIColor clearColor];
     [self.view addSubview:table2];
+    
+    //显示内容得tableView(0, 99, self.view.frame.size.width, 425)
+    UITableView *table3 = [[UITableView alloc] initWithFrame:CGRectMake(self.view.frame.size.width*2, 99, self.view.frame.size.width, 503) style:UITableViewStylePlain];
+    table3.delegate = self;
+    table3.dataSource = self;
+    //    table2.rowHeight = 100;
+    table3.sectionHeaderHeight = 22.0f;
+    table3.sectionFooterHeight = 22.0f;
+    [table3 setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    self.tableView3 = table3;
+    self.tableView3.backgroundView = nil;
+    self.tableView3.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:table3];
+}
+
+//返回楼盘详情得headerView
+-(UIView *)BuilddingHeaderView
+{
+    UIView *tableHearView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 470)];
+    
+    UIScrollView *scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 240)];
+    [scroll setContentSize:CGSizeMake(self.view.frame.size.width * 6, 240)];
+    scroll.showsHorizontalScrollIndicator = NO;
+    scroll.showsVerticalScrollIndicator = NO;
+    [scroll setContentOffset:CGPointMake(0, 0)];
+    scroll.pagingEnabled = YES;
+    scroll.bounces = NO;
+    [scroll setBackgroundColor:[UIColor greenColor]];
+    [scroll setDelegate:self];
+    [tableHearView addSubview:scroll];
+    _scroll = scroll;
+    
+    //用来装分页控件的试图，每次只要居中即可
+    UIView *segmentView = [[UIView alloc] init];
+    [segmentView setBackgroundColor:[UIColor clearColor]];
+    
+    for (NSInteger i = 1; i <= 6; i++) {
+        UIImageView *houseImage = [[UIImageView alloc] initWithFrame:CGRectMake((i - 1) * self.view.frame.size.width, 0, self.view.frame.size.width, 240)];
+        [houseImage setBackgroundColor:[UIColor lightGrayColor]];
+        [houseImage setImage:[UIImage imageNamed:@"personBack.png"]];
+        [scroll addSubview:houseImage];
+        
+        //使用自定义分页控件
+        UIView *LineView = [[UIView alloc] initWithFrame:CGRectMake((i - 1) * 51, 0, 50, 3)];
+        LineView.tag = i;
+        [LineView setBackgroundColor:[UIColor whiteColor]];
+        [segmentView setBounds:CGRectMake(0, 0, 51 * i, 3)];
+        [segmentView addSubview:LineView];
+    }
+    
+    [segmentView viewWithTag:1].backgroundColor = [Tools colorWithRed:255 angGreen:102 andBlue:49];
+    [segmentView setCenter:CGPointMake(self.view.frame.size.width / 2, 220)];
+    _segmentView = segmentView;
+    [tableHearView addSubview:segmentView];
+    
+    return tableHearView;
 }
 
 //点击不同得按钮，显示不同得内容
 - (void)showTopicByButton:(UIButton *)btn
 {
-    for (int i = 1; i <= 2; i++) {
+    for (int i = 1; i <= 3; i++) {
         [((UIButton *)[self.view viewWithTag:i]) setSelected:NO];
         [((UIButton *)[self.view viewWithTag:i]) setUserInteractionEnabled:NO];
     }
     [btn setSelected:YES];
-    if (btn.tag ==1) {
+    if (btn.tag < _tag) {//向右边移动
         [UIView animateWithDuration:0.5f animations:^{//点击待评价按钮，将已评价的table移入进来，带评价table移除出去
-            [self.view bringSubviewToFront:self.tableView];
-            [self.tableView setCenter:CGPointMake(self.tableView.center.x + self.view.frame.size.width, self.tableView.center.y)];
-            [self.tableView2 setCenter:CGPointMake(self.tableView2.center.x + self.view.frame.size.width, self.tableView2.center.y)];
+            [self.tableView setCenter:CGPointMake(self.tableView.center.x + (_tag - btn.tag)*self.view.frame.size.width, self.tableView.center.y)];
+            [self.tableView2 setCenter:CGPointMake(self.tableView2.center.x + (_tag - btn.tag)*self.view.frame.size.width, self.tableView2.center.y)];
+            [self.tableView3 setCenter:CGPointMake(self.tableView3.center.x + (_tag - btn.tag)*self.view.frame.size.width, self.tableView3.center.y)];
         } completion:^(BOOL finished) {
-            
-            [((UIButton *)[self.view viewWithTag:2]) setUserInteractionEnabled:YES];
+            _tag = btn.tag;
+            for (int i = 1; i <= 3; i++) {
+                [((UIButton *)[self.view viewWithTag:i]) setUserInteractionEnabled:YES];
+            }
+            [((UIButton *)[self.view viewWithTag:_tag]) setUserInteractionEnabled:NO];
         }];
-    }else if (btn.tag == 2)
+    }else if (btn.tag > _tag)//向左边移动
     {
-        [UIView animateWithDuration:0.5f animations:^{//点击待评价按钮，将待评价的table移入进来，已评价table移除出去
-            [self.view bringSubviewToFront:self.tableView2];
-            [self.tableView2 setCenter:CGPointMake(self.tableView2.center.x - self.view.frame.size.width, self.tableView2.center.y)];
-            [self.tableView setCenter:CGPointMake(self.tableView.center.x - self.view.frame.size.width, self.tableView.center.y)];
+        [UIView animateWithDuration:0.5f animations:^{//点击待评价按钮，将已评价的table移入进来，带评价table移除出去
+            [self.tableView setCenter:CGPointMake(self.tableView.center.x - (btn.tag - _tag)*self.view.frame.size.width, self.tableView.center.y)];
+            [self.tableView2 setCenter:CGPointMake(self.tableView2.center.x - (btn.tag - _tag)*self.view.frame.size.width, self.tableView2.center.y)];
+            [self.tableView3 setCenter:CGPointMake(self.tableView3.center.x - (btn.tag - _tag)*self.view.frame.size.width, self.tableView3.center.y)];
         } completion:^(BOOL finished) {
-            
-            [((UIButton *)[self.view viewWithTag:1]) setUserInteractionEnabled:YES];
+            _tag = btn.tag;
+            for (int i = 1; i <= 3; i++) {
+                [((UIButton *)[self.view viewWithTag:i]) setUserInteractionEnabled:YES];
+            }
+            [((UIButton *)[self.view viewWithTag:_tag]) setUserInteractionEnabled:NO];
         }];
     }
 }
@@ -237,17 +309,46 @@ const int MaxCount7 = 5;
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.dataArr.count;
+    if (tableView == self.tableView) {
+        return 10;
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *cellID = @"cellID";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    if (tableView == self.tableView) {
+//        if (indexPath.row == 0) {
+//            
+//        }else{
+            NSString *cellID = @"cellID";
+            VipEvaluteCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+            if (cell == nil) {
+                cell = [[VipEvaluteCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+                [cell cellInitWithCell:_dataArr andIndex:indexPath.row];
+            }
+            return cell;
+        }
+//    }
+    return nil;
+}
+
+//取消选中
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+//用于切换底部的控制条
+- (void) scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (scrollView == _scroll) {
+        int x = scrollView.contentOffset.x / self.view.frame.size.width;
+        for (NSInteger i = 1; i <= 6; i++) {
+            [_segmentView viewWithTag:i].backgroundColor = [UIColor whiteColor];
+        }
+        [_segmentView viewWithTag:x + 1].backgroundColor = [Tools colorWithRed:255 angGreen:102 andBlue:49];
     }
-    return cell;
 }
 
 @end

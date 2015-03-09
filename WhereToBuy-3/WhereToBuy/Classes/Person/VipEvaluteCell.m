@@ -46,12 +46,12 @@
         progress.clipsToBounds = YES;
         _progress = progress;
         
-        AttributedLabel *point = [[AttributedLabel alloc] initWithFrame:CGRectMake(progressView.frame.origin.x + progressView.frame.size.width + 5, 14, self.contentView.frame.size.width - progressView.frame.origin.x - progressView.frame.size.width - 5, 20)];
+        UILabel *point = [[UILabel alloc] initWithFrame:CGRectMake(progressView.frame.origin.x + progressView.frame.size.width + 5, 14, self.contentView.frame.size.width - progressView.frame.origin.x - progressView.frame.size.width - 5, 20)];
         NSString *str = @"     请评分";
         point.text = str;
-        [point setColor:[Tools colorWithRed:255 angGreen:153 andBlue:52] fromIndex:0 length:3];
         [point setTextAlignment:NSTextAlignmentCenter];
         [point setFont:[UIFont systemFontOfSize:14]];
+        [point setTextColor:[UIColor orangeColor]];
         [self.contentView addSubview:point];
         _point = point;
         
@@ -86,9 +86,33 @@
             
         }else if (row == 3)
         {
-            [_titleLabel setText:@"个      性"];
+            [_titleLabel setText:@"物业管理"];
             
-        };
+        }else if (row == 4)
+        {
+            [_titleLabel setText:@"交通地铁"];
+            
+        }else if (row == 5)
+        {
+            [_titleLabel setText:@"周边配套"];
+            
+        }else if (row == 6)
+        {
+            [_titleLabel setText:@"学      区"];
+            
+        }else if (row == 7)
+        {
+            [_titleLabel setText:@"绿化景观"];
+            
+        }else if (row == 8)
+        {
+            [_titleLabel setText:@"开发品牌"];
+            
+        }else if (row == 9)
+        {
+            [_titleLabel setText:@"区域发展"];
+            
+        }
     NSString *s = tempArr[1];//如果是空字符串，需要将字符串设置为nil，否则将会有高度产生
     if ([s isEqualToString:@""]) {
         s = nil;
