@@ -23,7 +23,7 @@
 }
 -(void)createTableView
 {
-    _myTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
+    _myTableView = [[UITableView alloc]initWithFrame:CGRectMake(0,-44, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStyleGrouped];
     _myTableView.delegate = self;
     _myTableView.dataSource = self;
     [self.view addSubview:_myTableView];
@@ -49,7 +49,15 @@
 {
     return 200;
 }
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section;
+{
+    return 10.0f;
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
+{
+    return 1;
+}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView;
 {
     return 10;
 }

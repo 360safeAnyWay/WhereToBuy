@@ -20,7 +20,6 @@
         CGRect rect = self.frame;
         rect.size.height = 200;
         self.frame = rect;
-        self.backgroundColor = [UIColor redColor];
         //     创建视图
         NSLog(@"%f",self.frame.size.height);
         [self createView];
@@ -29,9 +28,7 @@
 }
 -(void)createView
 {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-10, [UIScreen mainScreen].applicationFrame.size.width, 10)];
-    view.backgroundColor = [Tools colorWithRed:240.0 angGreen:240.0 andBlue:240.0];
-    [self addSubview:view];
+   
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
