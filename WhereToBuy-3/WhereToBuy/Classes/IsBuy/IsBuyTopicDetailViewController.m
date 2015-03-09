@@ -23,9 +23,10 @@
 }
 -(void)createTableView
 {
-    _myTableView = [[UITableView alloc]initWithFrame:CGRectMake(0,-44, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStyleGrouped];
+    _myTableView = [[UITableView alloc]initWithFrame:CGRectMake(0,0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
     _myTableView.delegate = self;
     _myTableView.dataSource = self;
+    _myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_myTableView];
 }
 //返回按钮的创建
@@ -49,10 +50,6 @@
 {
     return 200;
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section;
-{
-    return 10.0f;
-}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 {
     return 1;
@@ -69,5 +66,11 @@
         cell = [[IsBuyTopTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     return cell;
+  
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+{
+    UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 }
 @end
