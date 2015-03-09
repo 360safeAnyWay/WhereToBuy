@@ -18,15 +18,8 @@
     
 }
 
-- (void)cellInitWithCell:(NSArray *)arr andIndex:(NSInteger) row
-{
-    ((UIButton *)[self.contentView viewWithTag:7]).tag = 8 + row;
-}
-
-//显示评价
-- (IBAction)showEvalute:(UIButton *)sender {
-    NSNumber *tag = [NSNumber numberWithInteger:sender.tag];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"showEvalute" object:tag];
+- (IBAction)pushDetail:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"pushDetail" object:@"jl"];
 }
 
 @end

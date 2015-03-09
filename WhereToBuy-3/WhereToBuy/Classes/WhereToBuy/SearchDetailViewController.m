@@ -12,6 +12,7 @@
 #import "TopicCell.h"
 #import "SearchDetailEvaluteCell.h"
 #import "SearchDetailCell.h"
+#import "BuilddingDetailViewController.h"
 
 const NSInteger MaxCount6 = 5;
 
@@ -134,7 +135,7 @@ const NSInteger MaxCount6 = 5;
     
     [self refreshControl];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showEvalute:) name:@"showEvalute" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushBuilddingDetail:) name:@"pushDetail" object:nil];
 }
 
 - (void)addUI
@@ -178,16 +179,31 @@ const NSInteger MaxCount6 = 5;
     
     if ([[self.dataArray[indexPath.row] objectForKey:@"Cell"] isEqualToString:@"MainCell"])
     {
-        SearchDetailCell *cell = (SearchDetailCell *)[[[NSBundle mainBundle] loadNibNamed:@"SearchDetailCell" owner:self options:nil] lastObject];
-        [cell cellInitWithCell:@[] andIndex:indexPath.row];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        static NSString *CellIdentifier = @"SearchDetailCell";
+        
+        SearchDetailCell *cell = (SearchDetailCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        if (cell == nil) {
+            cell = (SearchDetailCell *)[[[NSBundle mainBundle] loadNibNamed:@"SearchDetailCell" owner:self options:nil] lastObject];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        
         return cell;
         
     }else if([[self.dataArray[indexPath.row] objectForKey:@"Cell"] isEqualToString:@"AttachedCell"]){
         
-        SearchDetailEvaluteCell *cell = (SearchDetailEvaluteCell *)[[[NSBundle mainBundle] loadNibNamed:@"SearchDetailEvaluteCell" owner:self options:nil] lastObject];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        static NSString *CellIdentifier = @"SearchDetailEvaluteCell";
+        
+        SearchDetailEvaluteCell *cell = (SearchDetailEvaluteCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = (SearchDetailEvaluteCell *)[[[NSBundle mainBundle] loadNibNamed:@"SearchDetailEvaluteCell" owner:self options:nil] lastObject];
+            
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        
         return cell;
+        
     }
     
     return nil;
@@ -199,21 +215,15 @@ const NSInteger MaxCount6 = 5;
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-}
-
-- (void)showEvalute:(NSNotification *)userInfo
-{
-    NSLog(@"点击了显示详情得butto %@",[userInfo object]);
-    NSInteger row = [[userInfo object] integerValue] - 8;
     NSIndexPath *path = nil;
     
-    if ([[self.dataArray[row] objectForKey:@"Cell"] isEqualToString:@"MainCell"]) {
-        path = [NSIndexPath indexPathForItem:(row+1) inSection:0];
+    if ([[self.dataArray[indexPath.row] objectForKey:@"Cell"] isEqualToString:@"MainCell"]) {
+        path = [NSIndexPath indexPathForItem:(indexPath.row+1) inSection:indexPath.section];
     }else{
-        path = [NSIndexPath indexPathForItem:row inSection:0];
+        path = indexPath;
     }
     
-    if ([[self.dataArray[row] objectForKey:@"isAttached"] boolValue]) {
+    if ([[self.dataArray[indexPath.row] objectForKey:@"isAttached"] boolValue]) {
         // 关闭附加cell
         NSDictionary * dic = @{@"Cell": @"MainCell",@"isAttached":@(NO)};
         self.dataArray[(path.row-1)] = dic;
@@ -230,11 +240,19 @@ const NSInteger MaxCount6 = 5;
         NSDictionary * addDic = @{@"Cell": @"AttachedCell",@"isAttached":@(YES)};
         [self.dataArray insertObject:addDic atIndex:path.row];
         
+        
         [self.tableView1 beginUpdates];
         [self.tableView1 insertRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationMiddle];
         [self.tableView1 endUpdates];
         
     }
+}
+
+- (void)pushBuilddingDetail:(NSNotification *)userInfo
+{
+    NSLog(@"%@",[userInfo object]);
+    BuilddingDetailViewController *detail = [[BuilddingDetailViewController alloc] init];
+    [self.navigationController pushViewController:detail animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

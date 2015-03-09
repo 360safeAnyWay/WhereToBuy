@@ -10,9 +10,5 @@
 
 @interface SearchDetailCell : UITableViewCell
 
-- (void)cellInitWithCell:(NSArray *)arr andIndex:(NSInteger) row;
-
-//显示评价
-- (IBAction)showEvalute:(id)sender;
 
 @end
