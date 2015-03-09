@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface IsBuyTopicDetailViewController : BaseViewController
+@interface IsBuyTopicDetailViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
 
 @end

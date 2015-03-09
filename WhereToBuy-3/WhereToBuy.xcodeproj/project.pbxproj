@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5974FD2B1AA9F52B00B2F306 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5974FD2A1AA9F52B00B2F306 /* Default-568h@2x.png */; };
+		59DA38951AAD41B20041F71C /* IsBuyTopTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59DA38941AAD41B20041F71C /* IsBuyTopTableViewCell.m */; };
 		93009FE61A7B2152005B3085 /* CLLRefreshCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93009FDE1A7B2152005B3085 /* CLLRefreshCircleView.m */; };
 		93009FE71A7B2152005B3085 /* CLLRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93009FE01A7B2152005B3085 /* CLLRefreshFooterView.m */; };
 		93009FE81A7B2152005B3085 /* CLLRefreshHeadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93009FE21A7B2152005B3085 /* CLLRefreshHeadController.m */; };
@@ -250,6 +251,9 @@
 
 /* Begin PBXFileReference section */
 		5974FD2A1AA9F52B00B2F306 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		59DA38931AAD41B20041F71C /* IsBuyTopTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IsBuyTopTableViewCell.h; sourceTree = "<group>"; };
+		59DA38941AAD41B20041F71C /* IsBuyTopTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IsBuyTopTableViewCell.m; sourceTree = "<group>"; };
+		59DA389A1AAD463C0041F71C /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		93009FDD1A7B2152005B3085 /* CLLRefreshCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLLRefreshCircleView.h; sourceTree = "<group>"; };
 		93009FDE1A7B2152005B3085 /* CLLRefreshCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLLRefreshCircleView.m; sourceTree = "<group>"; };
 		93009FDF1A7B2152005B3085 /* CLLRefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLLRefreshFooterView.h; sourceTree = "<group>"; };
@@ -778,6 +782,7 @@
 				93009FEB1A7B42F5005B3085 /* CoreGraphics.framework */,
 				9337B8B71A58FD3E003A0884 /* Info.plist */,
 				9337B8B81A58FD3E003A0884 /* main.m */,
+				59DA389A1AAD463C0041F71C /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -941,6 +946,8 @@
 				93B86BF71AA57F0C00A24353 /* IsBuyMainViewController.m */,
 				93EE20EA1AA06FF0007D1CD0 /* IsBuyTopicDetailViewController.h */,
 				93EE20EB1AA06FF0007D1CD0 /* IsBuyTopicDetailViewController.m */,
+				59DA38931AAD41B20041F71C /* IsBuyTopTableViewCell.h */,
+				59DA38941AAD41B20041F71C /* IsBuyTopTableViewCell.m */,
 				932B2F6A1AA1895D00BBD25E /* IsBuySendTopicViewController.h */,
 				932B2F6B1AA1895D00BBD25E /* IsBuySendTopicViewController.m */,
 				93C05EA81AA2BF5100E46309 /* IsBuySearchViewController.h */,
@@ -1507,6 +1514,7 @@
 				9337B9831A591982003A0884 /* NSString+WJ.m in Sources */,
 				9383DC271A79D74C001691BF /* WhereBuyMainVIewController.m in Sources */,
 				F89334FB1AAA06D1007005D0 /* DDMenuController.m in Sources */,
+				59DA38951AAD41B20041F71C /* IsBuyTopTableViewCell.m in Sources */,
 				932F96F11A7F4ECF000C28B5 /* PersonTopicViewController.m in Sources */,
 				934345221A8CA7FD00E31F14 /* VipEvaluteCell.m in Sources */,
 				9337B91E1A58FE61003A0884 /* MKAnnotationView+WebCache.m in Sources */,
@@ -1633,6 +1641,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "/Users/max-mengfanjie/GitHub/WhereToBuy/WhereToBuy-3/WhereToBuy/PrefixHeader.pch";
 				INFOPLIST_FILE = WhereToBuy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1645,6 +1656,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "/Users/max-mengfanjie/GitHub/WhereToBuy/WhereToBuy-3/WhereToBuy/PrefixHeader.pch";
 				INFOPLIST_FILE = WhereToBuy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
