@@ -46,9 +46,9 @@
     [btn setBackgroundImage:[UIImage imageNamed:@"black.png"] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(WindowBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:btn];
-    _anImage = [[UIImageView alloc]initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width-60, [UIScreen mainScreen].bounds.size.height-60, 50, 50)];
-    _anImage.image = [UIImage imageNamed:@"begin.png"];
-    [[UIApplication sharedApplication].delegate.window addSubview:_anImage];
+    _anImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
+    _anImage.image = [UIImage imageNamed:@"begin2.png"];
+    [view addSubview:_anImage];
     [self createWindowViewAddUI];
     
 }
@@ -159,7 +159,7 @@
     [UIView animateWithDuration:1 animations:^{
         CGRect rect = view.frame;
         rect.origin.x = X;
-        rect.size.width =widthes ;
+        rect.size.width =widthes;
         view.frame = rect;
     } completion:^(BOOL finished) {
         if (_isOpen == NO)

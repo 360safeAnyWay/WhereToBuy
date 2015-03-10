@@ -27,7 +27,7 @@
 +(NSString *)dirDoc;
 
 //获取Library目录
-+(void)dirLib；
++(void)dirLib;
 
 //获取Cache目录
 +(void)dirCache;
