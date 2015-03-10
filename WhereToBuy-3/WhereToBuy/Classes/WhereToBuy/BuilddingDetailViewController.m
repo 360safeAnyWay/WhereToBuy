@@ -225,7 +225,7 @@ const int MaxCount7 = 5;
 //返回楼盘详情得headerView
 -(UIView *)BuilddingHeaderView
 {
-    UIView *tableHearView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 470)];
+    UIView *tableHearView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 240)];
     
     UIScrollView *scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 240)];
     [scroll setContentSize:CGSizeMake(self.view.frame.size.width * 6, 240)];

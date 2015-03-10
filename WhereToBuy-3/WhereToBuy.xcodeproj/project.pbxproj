@@ -238,6 +238,8 @@
 		F8AF54F61AAABDA20029435B /* SearchDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AF54F41AAABDA20029435B /* SearchDetailCell.m */; };
 		F8AF54F71AAABDA20029435B /* SearchDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8AF54F51AAABDA20029435B /* SearchDetailCell.xib */; };
 		F8AF54FA1AAAE41D0029435B /* BuilddingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AF54F91AAAE41D0029435B /* BuilddingDetailViewController.m */; };
+		F8BB36381AAE827D004CD43E /* builddingDetailFirstCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F8BB36361AAE827D004CD43E /* builddingDetailFirstCell.m */; };
+		F8BB36391AAE827D004CD43E /* builddingDetailFirstCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8BB36371AAE827D004CD43E /* builddingDetailFirstCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -591,6 +593,9 @@
 		F8AF54F51AAABDA20029435B /* SearchDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchDetailCell.xib; path = ../../../SearchDetailCell.xib; sourceTree = "<group>"; };
 		F8AF54F81AAAE41D0029435B /* BuilddingDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuilddingDetailViewController.h; sourceTree = "<group>"; };
 		F8AF54F91AAAE41D0029435B /* BuilddingDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuilddingDetailViewController.m; sourceTree = "<group>"; };
+		F8BB36351AAE827D004CD43E /* builddingDetailFirstCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = builddingDetailFirstCell.h; sourceTree = "<group>"; };
+		F8BB36361AAE827D004CD43E /* builddingDetailFirstCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = builddingDetailFirstCell.m; sourceTree = "<group>"; };
+		F8BB36371AAE827D004CD43E /* builddingDetailFirstCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = builddingDetailFirstCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1024,6 +1029,8 @@
 				93A8B0721A64DE4E006D6A74 /* SelectCityViewController.m */,
 				932DCB651AA6E5D700134D5E /* SearchDetailViewController.h */,
 				932DCB661AA6E5D700134D5E /* SearchDetailViewController.m */,
+				F8AF54F81AAAE41D0029435B /* BuilddingDetailViewController.h */,
+				F8AF54F91AAAE41D0029435B /* BuilddingDetailViewController.m */,
 				931C917F1A63B7990051496E /* SearchTableViewCell.h */,
 				931C91801A63B79A0051496E /* SearchTableViewCell.m */,
 				F8AF54EE1AAAADD00029435B /* SearchDetailEvaluteCell.h */,
@@ -1032,8 +1039,9 @@
 				F8AF54F31AAABDA20029435B /* SearchDetailCell.h */,
 				F8AF54F41AAABDA20029435B /* SearchDetailCell.m */,
 				F8AF54F51AAABDA20029435B /* SearchDetailCell.xib */,
-				F8AF54F81AAAE41D0029435B /* BuilddingDetailViewController.h */,
-				F8AF54F91AAAE41D0029435B /* BuilddingDetailViewController.m */,
+				F8BB36351AAE827D004CD43E /* builddingDetailFirstCell.h */,
+				F8BB36361AAE827D004CD43E /* builddingDetailFirstCell.m */,
+				F8BB36371AAE827D004CD43E /* builddingDetailFirstCell.xib */,
 			);
 			path = WhereToBuy;
 			sourceTree = "<group>";
@@ -1358,6 +1366,7 @@
 				932F96E81A7F4582000C28B5 /* 2@2x.png in Resources */,
 				932DCB611AA6B29500134D5E /* mainMoreCell@2x.png in Resources */,
 				932B2F611AA15C3A00BBD25E /* down@2x.png in Resources */,
+				F8BB36391AAE827D004CD43E /* builddingDetailFirstCell.xib in Resources */,
 				93DA090E1A6DF0BC00A26CD2 /* KYICircleMenuButton01_highlighted@2x.png in Resources */,
 				9362A5991A832B80005233EE /* red@2x.png in Resources */,
 				93A8B0751A64F7E3006D6A74 /* refresh@2x.png in Resources */,
@@ -1536,6 +1545,7 @@
 				9329A6FB1AA2EE50005B7D70 /* ChineseInclude.m in Sources */,
 				9383DC211A79D28A001691BF /* DockViewController.m in Sources */,
 				939394A91A89B8370039FFF3 /* NormalCircle.m in Sources */,
+				F8BB36381AAE827D004CD43E /* builddingDetailFirstCell.m in Sources */,
 				9337B9311A58FF19003A0884 /* ServiceManage.m in Sources */,
 				939394AA1A89B8370039FFF3 /* SPLine.m in Sources */,
 				93B33A391A9F118E00EB7F6A /* PeronTipsViewController.m in Sources */,

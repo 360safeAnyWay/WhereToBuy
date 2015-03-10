@@ -17,6 +17,7 @@
 #import "PersonCollectViewController.h"
 #import "DXAlertView.h"
 #import "MBProgressHUD.h"
+#import "SDImageCache.h"
 
 @interface PersonCenterViewController()<UITableViewDataSource, UITableViewDelegate>
 {
@@ -381,6 +382,49 @@
     _iconImage = [UIImage imageNamed:@"6.png"];
     [_tableView reloadData];
     sleep(2);
+}
+
+//计算缓存目录得大小
++(float)folderSizeAtPath:(NSString *)path{
+    NSFileManager *fileManager=[NSFileManager defaultManager];
+    float folderSize;
+    if ([fileManager fileExistsAtPath:path]) {
+        NSArray *childerFiles=[fileManager subpathsAtPath:path];
+        for (NSString *fileName in childerFiles) {
+            NSString *absolutePath=[path stringByAppendingPathComponent:fileName];
+//            folderSize +=[FileService fileSizeAtPath:absolutePath];
+        }
+        //SDWebImage框架自身计算缓存的实现
+        folderSize+=[[SDImageCache sharedImageCache] getSize]/1024.0/1024.0;
+        return folderSize;
+    }
+    return 0;
+}
+
+//清除缓存
+- (void)clearCache
+{
+dispatch_async(
+   dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+   , ^{
+       NSString *cachPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+       
+       NSArray *files = [[NSFileManager defaultManager] subpathsAtPath:cachPath];
+       NSLog(@"files :%ld",[files count]);
+       for (NSString *p in files) {
+           NSError *error;
+           NSString *path = [cachPath stringByAppendingPathComponent:p];
+           if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+               [[NSFileManager defaultManager] removeItemAtPath:path error:&error];
+           }
+       }
+       [self performSelectorOnMainThread:@selector(clearCacheSuccess) withObject:nil waitUntilDone:YES];});
+}
+
+//清除缓存成功得回调方法
+-(void)clearCacheSuccess
+{
+    NSLog(@"清理成功");
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

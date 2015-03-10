@@ -23,4 +23,16 @@
 //根据RGB返回特定的颜色
 +(UIColor *) colorWithRed:(CGFloat) red angGreen:(CGFloat) green andBlue:(CGFloat)blue;
 
+//获取Documents目录
++(NSString *)dirDoc;
+
+//获取Library目录
++(void)dirLib；
+
+//获取Cache目录
++(void)dirCache;
+
+//获取Tmp目录
++(void)dirTmp;
+
 @end

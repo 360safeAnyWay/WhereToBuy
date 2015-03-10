@@ -40,5 +40,35 @@
     return color;
 }
 
+//获取Documents目录
++(NSString *)dirDoc{
+    //[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSLog(@"app_home_doc: %@",documentsDirectory);
+    return documentsDirectory;
+}
+
+//获取Library目录
++(void)dirLib{
+    //[NSHomeDirectory() stringByAppendingPathComponent:@"Library"];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+    NSString *libraryDirectory = [paths objectAtIndex:0];
+    NSLog(@"app_home_lib: %@",libraryDirectory);
+}
+
+//获取Cache目录
++(void)dirCache{
+    NSArray *cacPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cachePath = [cacPath objectAtIndex:0];
+    NSLog(@"app_home_lib_cache: %@",cachePath);
+}
+
+//获取Tmp目录
++(void)dirTmp{
+    //[NSHomeDirectory() stringByAppendingPathComponent:@"tmp"];
+    NSString *tmpDirectory = NSTemporaryDirectory();
+    NSLog(@"app_home_tmp: %@",tmpDirectory);
+}
 
 @end
