@@ -15,6 +15,8 @@
     CGRect  Inforect;
     BOOL            _isOpen;
     UIImageView * _anImage;
+    //    箭头
+    UIImageView * _Zimage;
 
 }
 
@@ -49,13 +51,45 @@
     _anImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
     _anImage.image = [UIImage imageNamed:@"begin2.png"];
     [view addSubview:_anImage];
-    [self createWindowViewAddUI];
     
 }
 //windowView 控件
 -(void)createWindowViewAddUI
 {
+//    箭头
+    _Zimage = [[UIImageView alloc]initWithFrame:CGRectMake(-10, 0, 50, 50)];
+    _Zimage.image= [UIImage imageNamed:@"rightarrow.png"];
+     UIView * view = [[UIApplication sharedApplication].delegate.window viewWithTag:1975];
+    _Zimage.alpha = 0;
+    [view addSubview:_Zimage];
+    PointLike * pl = [[PointLike alloc]initWithString:@"33652"];
+    pl.frame = CGRectMake(50, 10, 100, 25);
+    pl.backgroundColor = [UIColor redColor];
+    [view addSubview:pl];
     
+    [UIView animateWithDuration:0.3 animations:^{
+        CGRect rect = _Zimage.frame;
+        rect.origin.x = 0;
+        _Zimage.frame = rect;
+        _Zimage.alpha = 1;
+    } completion:^(BOOL finished) {
+        
+    }];
+    
+}
+-(void)removeZimageView
+{
+    [UIView animateWithDuration:0.2 animations:^{
+        CGRect rect = _Zimage.frame;
+        rect.origin.x = -10;
+        _Zimage.frame = rect;
+        _Zimage.alpha = 1;
+        _Zimage.alpha = 0;
+    } completion:^(BOOL finished) {
+        [_Zimage removeFromSuperview];
+        _Zimage = nil;
+    [self animationWithView:[UIScreen mainScreen].bounds.size.width-60 widthes:50] ;
+    }];
 }
 -(void)WindowBtnClick:(UIButton *)btn
 {
@@ -74,8 +108,9 @@
         _isOpen = YES;
     }
     else{
+        [self removeZimageView];
+       
         
-        [self animationWithView:[UIScreen mainScreen].bounds.size.width-60 widthes:50] ;
         _isOpen = NO;
 
     }
@@ -166,11 +201,13 @@
         {
             [UIView animateWithDuration:0.5 animations:^{
                 _anImage.alpha = 1;
-                
             }];
+        }else{
+            [self createWindowViewAddUI];
+
         }
         _anImage.userInteractionEnabled = NO;
-
+        
 
     }];
 }
