@@ -33,6 +33,7 @@
     BOOL _btnInteraction;//按钮是否需要可以再次点击
     UIColor *_tilteColor;//字体的颜色
     UIImage *_iconImage;//清除缓存使用的icon
+    NSInteger _cacheSize;//缓存目录得大小
 }
 
 @end
@@ -45,7 +46,8 @@
     
     NSString *path = [[Tools shareInstance] dirCache];
     CGFloat size = [[Tools shareInstance] folderSizeAtPath:path];
-    NSLog(@"缓存目录得大小是%f",size);
+    NSLog(@"缓存目录得大小是%ld",(long)((NSInteger)size));
+    _cacheSize = (NSInteger)size;
 }
 
 - (void) addUI
@@ -233,6 +235,13 @@
         [Tools setUIViewLine:button cornerRadius:0 with:_borderWith color:[Tools colorWithRed:173 angGreen:173 andBlue:173]];
         [button setTitleColor:_tilteColor forState:UIControlStateNormal];
         [button setUserInteractionEnabled:_btnInteraction];
+        
+        //显示内存还剩余多少兆
+        UILabel *cacheLabel = [[UILabel alloc] initWithFrame:CGRectMake(200, 10, 60, 20)];
+        [cacheLabel setTextColor:[UIColor whiteColor]];
+        [cacheLabel setText:[NSString stringWithFormat:@"%ldM缓存",(long)_cacheSize]];
+        [cacheLabel setTextAlignment:NSTextAlignmentLeft];
+        [view addSubview:cacheLabel];
     }
     NSString *icon = _titleImageArray[section];
     [button setImage:[UIImage imageNamed:icon] forState:UIControlStateNormal];
