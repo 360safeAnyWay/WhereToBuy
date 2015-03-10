@@ -10,6 +10,18 @@
 
 @implementation Tools
 
++(instancetype)sharedInstance
+{
+    static Tools *tool = nil;
+    dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        if (!tool) {
+            tool = [[Tools alloc] init];
+        }
+    });
+    return tool;
+}
+
 + (void)showAlertView:(NSString *)tips
 {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:tips delegate:nil cancelButtonTitle:@"确认" otherButtonTitles:nil, nil];
@@ -58,10 +70,10 @@
 }
 
 //获取Cache目录
-+(void)dirCache{
++(NSString *)dirCache{
     NSArray *cacPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *cachePath = [cacPath objectAtIndex:0];
-    NSLog(@"app_home_lib_cache: %@",cachePath);
+    return cachePath;
 }
 
 //获取Tmp目录
@@ -69,6 +81,32 @@
     //[NSHomeDirectory() stringByAppendingPathComponent:@"tmp"];
     NSString *tmpDirectory = NSTemporaryDirectory();
     NSLog(@"app_home_tmp: %@",tmpDirectory);
+}
+
+- (CGFloat) folderSizeAtPath:(NSString*) folderPath{
+    NSFileManager* manager = [NSFileManager defaultManager];
+    if (![manager fileExistsAtPath:folderPath]) return 0;
+    NSEnumerator *childFilesEnumerator = [[manager subpathsAtPath:folderPath] objectEnumerator];//从前向后枚举器／／／／//
+    NSString* fileName;
+    long long folderSize = 0;
+    while ((fileName = [childFilesEnumerator nextObject]) != nil){
+        NSLog(@"fileName ==== %@",fileName);
+        NSString* fileAbsolutePath = [folderPath stringByAppendingPathComponent:fileName];
+        NSLog(@"fileAbsolutePath ==== %@",fileAbsolutePath);
+        folderSize += [self fileSizeAtPath:fileAbsolutePath];
+    }
+    NSLog(@"folderSize ==== %lld",folderSize);
+    return folderSize/(1024.0*1024.0);
+}
+
+///计算缓存文件的大小的M
+- (long long) fileSizeAtPath:(NSString*) filePath{
+    NSFileManager* manager = [NSFileManager defaultManager];
+    if ([manager fileExistsAtPath:filePath]){
+        return [[manager attributesOfItemAtPath:filePath error:nil] fileSize];
+    }
+    
+    return 0;
 }
 
 @end
