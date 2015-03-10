@@ -42,6 +42,10 @@
 - (void) viewDidLoad
 {
     [self addUI];
+    
+    NSString *path = [[Tools shareInstance] dirCache];
+    CGFloat size = [[Tools shareInstance] folderSizeAtPath:path];
+    NSLog(@"缓存目录得大小是%f",size);
 }
 
 - (void) addUI
@@ -382,23 +386,6 @@
     _iconImage = [UIImage imageNamed:@"6.png"];
     [_tableView reloadData];
     sleep(2);
-}
-
-//计算缓存目录得大小
-+(float)folderSizeAtPath:(NSString *)path{
-    NSFileManager *fileManager=[NSFileManager defaultManager];
-    float folderSize;
-    if ([fileManager fileExistsAtPath:path]) {
-        NSArray *childerFiles=[fileManager subpathsAtPath:path];
-        for (NSString *fileName in childerFiles) {
-            NSString *absolutePath=[path stringByAppendingPathComponent:fileName];
-//            folderSize +=[FileService fileSizeAtPath:absolutePath];
-        }
-        //SDWebImage框架自身计算缓存的实现
-        folderSize+=[[SDImageCache sharedImageCache] getSize]/1024.0/1024.0;
-        return folderSize;
-    }
-    return 0;
 }
 
 //清除缓存

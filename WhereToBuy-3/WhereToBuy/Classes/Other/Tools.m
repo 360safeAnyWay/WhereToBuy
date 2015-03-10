@@ -10,6 +10,18 @@
 
 @implementation Tools
 
++(instancetype)shareInstance
+{
+    static Tools *tool = nil;
+    dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        if(onceToken) {
+            tool = [[Tools alloc] init];
+        }
+    });
+    return tool;
+}
+
 + (void)showAlertView:(NSString *)tips
 {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:tips delegate:nil cancelButtonTitle:@"确认" otherButtonTitles:nil, nil];
@@ -58,10 +70,11 @@
 }
 
 //获取Cache目录
-+(void)dirCache{
+-(NSString *)dirCache{
     NSArray *cacPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *cachePath = [cacPath objectAtIndex:0];
     NSLog(@"app_home_lib_cache: %@",cachePath);
+    return cachePath;
 }
 
 //获取Tmp目录
@@ -69,6 +82,48 @@
     //[NSHomeDirectory() stringByAppendingPathComponent:@"tmp"];
     NSString *tmpDirectory = NSTemporaryDirectory();
     NSLog(@"app_home_tmp: %@",tmpDirectory);
+}
+
+///计算缓存文件的大小的M
+- (NSInteger) fileSizeAtPath:(NSString*) filePath{
+    NSFileManager* manager = [NSFileManager defaultManager];
+    if ([manager fileExistsAtPath:filePath]){
+        
+        //        //取得一个目录下得所有文件名
+        //        NSArray *files = [manager subpathsAtPath:filePath];
+        //        NSLog(@"files1111111%@ == %ld",files,files.count);
+        //
+        //        // 从路径中获得完整的文件名（带后缀）
+        //        NSString *exe = [filePath lastPathComponent];
+        //        NSLog(@"exeexe ====%@",exe);
+        //
+        //        // 获得文件名（不带后缀）
+        //        exe = [exe stringByDeletingPathExtension];
+        //
+        //        // 获得文件名（不带后缀）
+        //        NSString *exestr = [[files objectAtIndex:1] stringByDeletingPathExtension];
+        //        NSLog(@"files2222222%@  ==== %@",[files objectAtIndex:1],exestr);
+        
+        
+        return [[manager attributesOfItemAtPath:filePath error:nil] fileSize];
+    }
+    
+    return 0;
+}
+- (CGFloat) folderSizeAtPath:(NSString*) folderPath{
+    NSFileManager* manager = [NSFileManager defaultManager];
+    if (![manager fileExistsAtPath:folderPath]) return 0;
+    NSEnumerator *childFilesEnumerator = [[manager subpathsAtPath:folderPath] objectEnumerator];//从前向后枚举器／／／／//
+    NSString* fileName;
+    long long folderSize = 0;
+    while ((fileName = [childFilesEnumerator nextObject]) != nil){
+        NSLog(@"fileName ==== %@",fileName);
+        NSString* fileAbsolutePath = [folderPath stringByAppendingPathComponent:fileName];
+        NSLog(@"fileAbsolutePath ==== %@",fileAbsolutePath);
+        folderSize += [self fileSizeAtPath:fileAbsolutePath];
+    }
+    NSLog(@"folderSize ==== %lld",folderSize);
+    return folderSize/(1024.0*1024.0);
 }
 
 @end

@@ -11,6 +11,8 @@
 
 @interface Tools : NSObject
 
++(instancetype)shareInstance;
+
 //弹出ALertView的提示，只需要输入要弹出的信息即可
 + (void)showAlertView:(NSString *)tips;
 
@@ -30,9 +32,11 @@
 +(void)dirLib;
 
 //获取Cache目录
-+(void)dirCache;
+-(NSString *)dirCache;
 
 //获取Tmp目录
 +(void)dirTmp;
+
+- (CGFloat) folderSizeAtPath:(NSString*) folderPath;
 
 @end
