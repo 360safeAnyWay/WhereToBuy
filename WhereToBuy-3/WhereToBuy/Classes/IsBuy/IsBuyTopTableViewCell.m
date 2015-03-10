@@ -27,7 +27,6 @@
         CGRect rect = self.frame;
         rect.size.height = 200+Inforect.size.height;
         self.frame = rect;
-        NSLog(@"%f",rect.size.height);
         //     创建视图
         [self createView];
         [self createPointLikes];

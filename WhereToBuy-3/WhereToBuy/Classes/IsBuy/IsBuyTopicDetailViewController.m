@@ -9,6 +9,7 @@
 #import "IsBuyTopicDetailViewController.h"
 #import "NavBackButton.h"
 #import "IsBuyTopTableViewCell.h"
+#import "IsBuyTopBCell.h"
 @implementation IsBuyTopicDetailViewController
 {
     UITableView * _myTableView;
@@ -17,6 +18,11 @@
     UIImageView * _anImage;
     //    箭头
     UIImageView * _Zimage;
+    PointLike   * _pl;
+//    回复按钮
+    UIButton    * _HButton;
+//    🌲杠;
+    UIView      * _viewInViewFrameD;
 
 }
 
@@ -61,35 +67,100 @@
     _Zimage.image= [UIImage imageNamed:@"rightarrow.png"];
      UIView * view = [[UIApplication sharedApplication].delegate.window viewWithTag:1975];
     _Zimage.alpha = 0;
+    _Zimage.userInteractionEnabled = YES;
     [view addSubview:_Zimage];
-    PointLike * pl = [[PointLike alloc]initWithString:@"33652"];
-    pl.frame = CGRectMake(50, 10, 100, 25);
-    pl.backgroundColor = [UIColor redColor];
-    [view addSubview:pl];
-    
-    [UIView animateWithDuration:0.3 animations:^{
+    _pl = [[PointLike alloc]initWithString:@"33652"];
+    _pl.frame = CGRectMake(20, 10, 100, 25);
+    [_pl.plusBtn setBackgroundImage:[UIImage imageNamed:@"Zup.png"] forState:0];
+    [_pl.subBtn setBackgroundImage:[UIImage imageNamed:@"Zdown.png"] forState:0];
+    _pl.zanCount.textColor = [UIColor whiteColor];
+    _pl.alpha = 0;
+    [view addSubview:_pl];
+    _viewInViewFrameD = [[UIView alloc] initWithFrame:CGRectMake(_pl.frame.origin.x+_pl.frame.size.width+17, 10, 0.5, 30)];
+    [_viewInViewFrameD setBackgroundColor:[UIColor whiteColor]];
+    _viewInViewFrameD.alpha = 0;
+    [view addSubview:_viewInViewFrameD];
+    _HButton = [[UIButton alloc]initWithFrame:CGRectMake(_pl.frame.origin.x+_pl.frame.size.width,_pl.frame.origin.y+1.5, 80,24)];
+    [_HButton setBackgroundImage:[UIImage imageNamed:@"huifulouzhu.png"] forState:0];
+    [_HButton addTarget:self action:@selector(BlackLZ:) forControlEvents:UIControlEventTouchUpInside];
+    _HButton.alpha = 0;
+    [view addSubview:_HButton];
+    [UIView animateWithDuration:0.2 animations:^{
         CGRect rect = _Zimage.frame;
         rect.origin.x = 0;
         _Zimage.frame = rect;
         _Zimage.alpha = 1;
     } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.2 animations:^{
+            CGRect rect = _pl.frame;
+            rect.origin.x = 30;
+            _pl.frame = rect;
+            _pl.alpha = 1;
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.2 animations:^{
+                CGRect rect = _viewInViewFrameD.frame;
+                rect.origin.x = _pl.frame.origin.x+_pl.frame.size.width+10;
+                _viewInViewFrameD.frame = rect;
+                _viewInViewFrameD.alpha = 1;
+            } completion:^(BOOL finished) {
+                [UIView animateWithDuration:0.2 animations:^{
+                    CGRect rect = _HButton.frame;
+                    rect.origin.x = _pl.frame.origin.x+_pl.frame.size.width+20;
+                    _HButton.frame = rect;
+                    _HButton.alpha = 1;
+                    _Zimage.userInteractionEnabled = NO;
+
+                }];
+            }];
+            
+        }];
         
     }];
     
 }
+//删除动画
 -(void)removeZimageView
 {
+    _Zimage.userInteractionEnabled = YES;
     [UIView animateWithDuration:0.2 animations:^{
-        CGRect rect = _Zimage.frame;
-        rect.origin.x = -10;
-        _Zimage.frame = rect;
-        _Zimage.alpha = 1;
-        _Zimage.alpha = 0;
+        CGRect rect = _HButton.frame;
+        rect.origin.x = _pl.frame.origin.x+_pl.frame.size.width+10;
+        _HButton.frame = rect;
+        _HButton.alpha = 0;
     } completion:^(BOOL finished) {
-        [_Zimage removeFromSuperview];
-        _Zimage = nil;
-    [self animationWithView:[UIScreen mainScreen].bounds.size.width-60 widthes:50] ;
+        [UIView animateWithDuration:0.2 animations:^{
+            CGRect rect = _viewInViewFrameD.frame;
+            rect.origin.x = _pl.frame.origin.x+_pl.frame.size.width;
+            _viewInViewFrameD.frame = rect;
+            _viewInViewFrameD.alpha = 0;
+        } completion:^(BOOL finished) {
+            [_HButton removeFromSuperview];
+            _HButton = nil;
+            [UIView animateWithDuration:0.2 animations:^{
+                CGRect rect = _pl.frame;
+                rect.origin.x = 20;
+                _pl.frame = rect;
+                _pl.alpha = 0;
+            } completion:^(BOOL finished) {
+                [_pl removeFromSuperview];
+                _pl = nil;
+                [UIView animateWithDuration:0.2 animations:^{
+                    CGRect rect = _Zimage.frame;
+                    rect.origin.x = -10;
+                    _Zimage.frame = rect;
+                    _Zimage.alpha = 0;
+                } completion:^(BOOL finished) {
+                    [_Zimage removeFromSuperview];
+                    _Zimage = nil;
+                    [self animationWithView:[UIScreen mainScreen].bounds.size.width-60 widthes:50];
+                }];
+                
+            }];
+
+        }];
     }];
+    
+    
 }
 -(void)WindowBtnClick:(UIButton *)btn
 {
@@ -98,7 +169,7 @@
     if (_isOpen == NO)
     {
         
-        [UIView animateWithDuration:0.5 animations:^{
+        [UIView animateWithDuration:0.3 animations:^{
             _anImage.alpha = 0;
             _anImage.userInteractionEnabled = YES;
         } completion:^(BOOL finished) {
@@ -141,40 +212,51 @@
 - (void)back
 {
     [self.navigationController popViewControllerAnimated:YES];
-    [self animationWithView:[UIScreen mainScreen].bounds.size.width widthes:50];
     UIView * view = [[UIApplication sharedApplication].delegate.window viewWithTag:1975];
-   
-    dispatch_main_after(1.5f, ^{
-        [view removeFromSuperview];
-    });
+    [view removeFromSuperview];
+
     
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
+    if ([indexPath row] == 0)
+    {
     _infoStr     =  @"1、做英语阅读的感觉： 我们知道贤鏛是在生活中很重要的。比如在鼙蛮和贎胡里，有彃燊在罅鸡那里蘩墝，之前他们链滼鞷蕻贱鬡鴊雫宽裤湾旷隗谡坚镊蠵恒闳嘑傡彚槩滼鞷蕻贱鬡艐倏雫宽裤湾旷隗谡坚镊蠵。 1，鞷 在文中的意思？ 2，给这篇文章起个标题？ 3，作者想告诉我们什么？2、学渣滴考试心得：语文考试时觉得自己是外国人，英语考试时又觉得自己变回中国人了，数学考试时发现试卷上都是外星文。3、一天下课我问同桌：“咱俩谁爹谁儿子？”同桌想了半天来一句：“我爹你儿子。”随后我说：“好孙子。。。”4、我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。";
     Inforect = [self  cellHight:_infoStr Size:CGSizeMake(210, 0)];
 
     return 200+Inforect.size.height;
+        
+    }else{
+    return 200;
+    }
 }
 #pragma mark- 代理
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 {
-    return 1;
+    return 10;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView;
 {
-    return 10;
+    return 1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
-    IsBuyTopTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if ( cell == nil)
+    if ([indexPath row] == 0)
     {
-        cell = [[IsBuyTopTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    IsBuyTopTableViewCell * cell = [[IsBuyTopTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        
+        return cell;
     }
-    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-
-    return cell;
+    
+        static NSString * str = @"BCell";
+        IsBuyTopBCell * BCell = [tableView dequeueReusableCellWithIdentifier:str];
+        if (BCell == nil)
+        {
+            BCell = [[IsBuyTopBCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str];
+        }
+        return BCell;
+   
   
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
@@ -191,7 +273,7 @@
 -(void)animationWithView:(CGFloat)X widthes:(CGFloat)widthes
 {
     UIView * view = [[UIApplication sharedApplication].delegate.window viewWithTag:1975];
-    [UIView animateWithDuration:1 animations:^{
+    [UIView animateWithDuration:0.5 animations:^{
         CGRect rect = view.frame;
         rect.origin.x = X;
         rect.size.width =widthes;
@@ -199,7 +281,7 @@
     } completion:^(BOOL finished) {
         if (_isOpen == NO)
         {
-            [UIView animateWithDuration:0.5 animations:^{
+            [UIView animateWithDuration:0.3 animations:^{
                 _anImage.alpha = 1;
             }];
         }else{
@@ -211,11 +293,8 @@
 
     }];
 }
-//延迟加载
-static void dispatch_main_after(NSTimeInterval delay, void (^block)(void))
+-(void)BlackLZ:(UIButton *)btn
 {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        block();
-    });
+    NSLog(@"回复楼主的页面");
 }
 @end
