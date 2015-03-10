@@ -12,6 +12,7 @@
 #import "PersonSetCell.h"
 #import "RegisterViewController.h"
 #import "PersonIntroViewController.h"
+#import "UIButton+WebCache.h"
 
 @interface PersonSetViewController()<UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate>
 {
@@ -46,13 +47,14 @@
     [imageBtn setTitle:@"上传头像" forState:UIControlStateNormal];
     [imageBtn setTitleEdgeInsets:UIEdgeInsetsMake(70, 0, 0, 0)];
     [imageBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
-    [imageBtn setBackgroundImage:[UIImage imageNamed:@"moren.png"] forState:UIControlStateNormal];
-    [imageBtn setBackgroundImage:[UIImage imageNamed:@"moren.png"] forState:UIControlStateHighlighted];
+//    [imageBtn setBackgroundImage:[UIImage imageNamed:@"moren.png"] forState:UIControlStateNormal];
+//    [imageBtn setBackgroundImage:[UIImage imageNamed:@"moren.png"] forState:UIControlStateHighlighted];
     imageBtn.clipsToBounds = YES;
     [Tools setUIViewLine:imageBtn cornerRadius:125 / 2.0f with:1 color:[UIColor lightGrayColor]];
+    [imageBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:@"http://f.hiphotos.baidu.com/image/pic/item/a8773912b31bb0517547fc2f357adab44aede052.jpg"] forState:UIControlStateNormal];
     [self.view addSubview:imageBtn];
     
-    //绑定手机标签
+    //绑定手机标
     UILabel *phoneLabel = [[UILabel alloc] initWithFrame:CGRectMake(13, imageBtn.frame.origin.y + imageBtn.frame.size.height + 13, 70, 40)];
     [phoneLabel setText:@"绑定手机"];
     [phoneLabel setFont:[UIFont systemFontOfSize:14]];
