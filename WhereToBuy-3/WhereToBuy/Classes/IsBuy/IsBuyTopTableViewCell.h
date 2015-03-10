@@ -17,6 +17,7 @@
 @property (weak, nonatomic) UILabel *titleLabel1;//标签
 @property (weak, nonatomic) UIButton *mark1;//标签1
 @property (weak, nonatomic) UIButton *mark2;//标签2
-@property (weak, nonatomic) NSString * markString1;//标签监听数据
-@property (weak, nonatomic) NSString * markString2;//标签监听数据
+@property (copy, nonatomic) NSString * markString1;//标签监听数据
+@property (copy, nonatomic) NSString * markString2;//标签监听数据
+@property (nonatomic, copy) NSString * infoStr;
 @end

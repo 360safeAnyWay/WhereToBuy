@@ -9,5 +9,7 @@
 #import "BaseViewController.h"
 
 @interface IsBuyTopicDetailViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic, copy) NSString * infoStr;
+
 
 @end
