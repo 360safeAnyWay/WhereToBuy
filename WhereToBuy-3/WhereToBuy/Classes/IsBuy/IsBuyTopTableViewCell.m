@@ -30,9 +30,17 @@
         NSLog(@"%f",rect.size.height);
         //     创建视图
         [self createView];
+        [self createPointLikes];
         
     }
     return self;
+}
+//点赞按钮
+-(void)createPointLikes
+{
+    _pl = [[PointLike alloc]initWithString:@"33652"];
+    _pl.frame = CGRectMake([UIScreen mainScreen].bounds.size.width-110, self.frame.size.height-45, 100, 25);
+    [self.contentView addSubview:_pl];
 }
 -(void)createView
 {
@@ -90,7 +98,6 @@
     UIView *viewDown = [[UIView alloc] initWithFrame:CGRectMake(0, title.frame.origin.y+title.frame.size.height, [UIScreen mainScreen].applicationFrame.size.width, 1)];
     [viewDown setBackgroundColor:[Tools colorWithRed:236 angGreen:236 andBlue:236]];
     [self addSubview:viewDown];
-
     [self createInfoStr:viewDown.frame.origin.y+10];
     
     

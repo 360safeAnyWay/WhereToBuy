@@ -20,4 +20,5 @@
 @property (copy, nonatomic) NSString * markString1;//标签监听数据
 @property (copy, nonatomic) NSString * markString2;//标签监听数据
 @property (nonatomic, copy) NSString * infoStr;
+@property (nonatomic,retain)PointLike * pl;
 @end

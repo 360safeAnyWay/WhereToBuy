@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		5974FD2B1AA9F52B00B2F306 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5974FD2A1AA9F52B00B2F306 /* Default-568h@2x.png */; };
 		597D3B981AAE7E2D003F3871 /* gogogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 597D3B971AAE7E2D003F3871 /* gogogo.png */; };
+		597D3B9B1AAE89B9003F3871 /* PointLike.m in Sources */ = {isa = PBXBuildFile; fileRef = 597D3B9A1AAE89B9003F3871 /* PointLike.m */; };
+		597D3B9F1AAE9AB8003F3871 /* black.png in Resources */ = {isa = PBXBuildFile; fileRef = 597D3B9D1AAE9AB8003F3871 /* black.png */; };
+		597D3BA11AAE9D6D003F3871 /* backG.png in Resources */ = {isa = PBXBuildFile; fileRef = 597D3BA01AAE9D6D003F3871 /* backG.png */; };
+		597D3BA31AAEB7D3003F3871 /* begin2.png in Resources */ = {isa = PBXBuildFile; fileRef = 597D3BA21AAEB7D3003F3871 /* begin2.png */; };
 		59DA38951AAD41B20041F71C /* IsBuyTopTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59DA38941AAD41B20041F71C /* IsBuyTopTableViewCell.m */; };
 		93009FE61A7B2152005B3085 /* CLLRefreshCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93009FDE1A7B2152005B3085 /* CLLRefreshCircleView.m */; };
 		93009FE71A7B2152005B3085 /* CLLRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93009FE01A7B2152005B3085 /* CLLRefreshFooterView.m */; };
@@ -255,6 +259,11 @@
 /* Begin PBXFileReference section */
 		5974FD2A1AA9F52B00B2F306 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		597D3B971AAE7E2D003F3871 /* gogogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gogogo.png; sourceTree = "<group>"; };
+		597D3B991AAE89B9003F3871 /* PointLike.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointLike.h; sourceTree = "<group>"; };
+		597D3B9A1AAE89B9003F3871 /* PointLike.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointLike.m; sourceTree = "<group>"; };
+		597D3B9D1AAE9AB8003F3871 /* black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black.png; sourceTree = "<group>"; };
+		597D3BA01AAE9D6D003F3871 /* backG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backG.png; sourceTree = "<group>"; };
+		597D3BA21AAEB7D3003F3871 /* begin2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = begin2.png; sourceTree = "<group>"; };
 		59DA38931AAD41B20041F71C /* IsBuyTopTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IsBuyTopTableViewCell.h; sourceTree = "<group>"; };
 		59DA38941AAD41B20041F71C /* IsBuyTopTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IsBuyTopTableViewCell.m; sourceTree = "<group>"; };
 		59DA389A1AAD463C0041F71C /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -932,6 +941,8 @@
 		9337B92E1A58FE89003A0884 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				597D3B991AAE89B9003F3871 /* PointLike.h */,
+				597D3B9A1AAE89B9003F3871 /* PointLike.m */,
 				9337B9871A5941E0003A0884 /* Tools.h */,
 				9337B9881A5941E0003A0884 /* Tools.m */,
 				9332C2B51A886299008D2DC4 /* AttributedLabel.h */,
@@ -1092,6 +1103,9 @@
 		9383DC2F1A7A0C90001691BF /* IsBuy */ = {
 			isa = PBXGroup;
 			children = (
+				597D3BA21AAEB7D3003F3871 /* begin2.png */,
+				597D3BA01AAE9D6D003F3871 /* backG.png */,
+				597D3B9D1AAE9AB8003F3871 /* black.png */,
 				597D3B971AAE7E2D003F3871 /* gogogo.png */,
 				932DCB601AA6B29500134D5E /* mainMoreCell@2x.png */,
 				93B86C0F1AA5B8AA00A24353 /* mainMorePhoto@2x.png */,
@@ -1350,6 +1364,7 @@
 				9383DC391A7A24A9001691BF /* isBuyListBack@2x.png in Resources */,
 				932B2F701AA18D7800BBD25E /* isBuyFlag@2x.png in Resources */,
 				93B86C101AA5B8AA00A24353 /* mainMorePhoto@2x.png in Resources */,
+				597D3BA11AAE9D6D003F3871 /* backG.png in Resources */,
 				9306778B1A6FA5BF00A1A597 /* WhereToBuy.sqlite in Resources */,
 				93EE20D71AA00D4A007D1CD0 /* 6_selected@2x.png in Resources */,
 				93A6973E1A762DD700A9B894 /* aniublank_highlighted@2x.png in Resources */,
@@ -1411,6 +1426,7 @@
 				93A8B09B1A650F07006D6A74 /* isBuy@2x.png in Resources */,
 				93B86C071AA5A88700A24353 /* isBuy_1@2x.png in Resources */,
 				930A56D71A9D9E1F005F86B3 /* paopao@2x.png in Resources */,
+				597D3B9F1AAE9AB8003F3871 /* black.png in Resources */,
 				93EE20E11AA0318C007D1CD0 /* btn_close_normal.png in Resources */,
 				5974FD2B1AA9F52B00B2F306 /* Default-568h@2x.png in Resources */,
 				934FD0DA1A8887F600992BA6 /* goDetail@2x.png in Resources */,
@@ -1425,6 +1441,7 @@
 				938AF1601A8071F70087811E /* 1_selected@2x.png in Resources */,
 				932B2F731AA1921000BBD25E /* down_highlighted@2x.png in Resources */,
 				934B68DC1A66074D00474A18 /* searchBarBack.png in Resources */,
+				597D3BA31AAEB7D3003F3871 /* begin2.png in Resources */,
 				9332C2AD1A8853DF008D2DC4 /* vip2@2x.png in Resources */,
 				9332C2AC1A8853DF008D2DC4 /* vip1@2x.png in Resources */,
 				93EE20E41AA0318C007D1CD0 /* btn_close_selected@2x.png in Resources */,
@@ -1468,6 +1485,7 @@
 				93009FE61A7B2152005B3085 /* CLLRefreshCircleView.m in Sources */,
 				931C91721A639B130051496E /* SearchViewController.m in Sources */,
 				93C05EAA1AA2BF5100E46309 /* IsBuySearchViewController.m in Sources */,
+				597D3B9B1AAE89B9003F3871 /* PointLike.m in Sources */,
 				9337B92A1A58FE61003A0884 /* UIImage+WebP.m in Sources */,
 				9337B9161A58FE61003A0884 /* AFHTTPRequestOperationManager.m in Sources */,
 				93EE20E91AA04891007D1CD0 /* PersonGestureViewController.m in Sources */,

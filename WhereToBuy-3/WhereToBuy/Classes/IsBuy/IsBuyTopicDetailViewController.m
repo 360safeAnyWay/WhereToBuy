@@ -13,6 +13,8 @@
 {
     UITableView * _myTableView;
     CGRect  Inforect;
+    BOOL            _isOpen;
+    UIImageView * _anImage;
 
 }
 
@@ -24,23 +26,60 @@
     [self createWindowView];
     
 }
+//tagView功能栏
 -(void)createWindowView
 {
-    UIView * view = [[UIView alloc]initWithFrame:CGRectMake(50, [UIScreen mainScreen].bounds.size.height-50, [UIScreen mainScreen].bounds.size.width-50, 50)];
-    view.backgroundColor = [UIColor whiteColor];
+    UIView * view = [[UIView alloc]initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width-60, [UIScreen mainScreen].bounds.size.height-60, 50, 50)];
     [[UIApplication sharedApplication].delegate.window addSubview:view];
+    view.clipsToBounds = YES;
+    view.layer.cornerRadius = 25;
     view.tag = 1975;
-    view.layer.cornerRadius = 10;
+    UIImageView * image = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width-80, 50)];
+    UIImage * images  = [UIImage imageNamed:@"backG.png"];
+    [images stretchableImageWithLeftCapWidth:25 topCapHeight:20];
+    image.image = images;
+    [view addSubview:image];
     UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(0, 0, 50, 50);
-    [btn setBackgroundImage:[UIImage imageNamed:@"gogogo.png"] forState:UIControlStateNormal];
+    btn.layer.cornerRadius = 25;
+    btn.clipsToBounds = YES;
+    [btn setBackgroundImage:[UIImage imageNamed:@"black.png"] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(WindowBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:btn];
+    _anImage = [[UIImageView alloc]initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width-60, [UIScreen mainScreen].bounds.size.height-60, 50, 50)];
+    _anImage.image = [UIImage imageNamed:@"begin.png"];
+    [[UIApplication sharedApplication].delegate.window addSubview:_anImage];
+    [self createWindowViewAddUI];
     
 }
--(void)WindowBtnClick:(id)Views
+//windowView 控件
+-(void)createWindowViewAddUI
 {
-    NSLog( @"点到啦");
+    
+}
+-(void)WindowBtnClick:(UIButton *)btn
+{
+    
+   // view 动画;
+    if (_isOpen == NO)
+    {
+        
+        [UIView animateWithDuration:0.5 animations:^{
+            _anImage.alpha = 0;
+            _anImage.userInteractionEnabled = YES;
+        } completion:^(BOOL finished) {
+            [self animationWithView:70.f widthes:[UIScreen mainScreen].bounds.size.width-80];
+
+        }];
+        _isOpen = YES;
+    }
+    else{
+        
+        [self animationWithView:[UIScreen mainScreen].bounds.size.width-60 widthes:50] ;
+        _isOpen = NO;
+
+    }
+    
 }
 #pragma mark- TableView
 -(void)createTableView
@@ -67,6 +106,13 @@
 - (void)back
 {
     [self.navigationController popViewControllerAnimated:YES];
+    [self animationWithView:[UIScreen mainScreen].bounds.size.width widthes:50];
+    UIView * view = [[UIApplication sharedApplication].delegate.window viewWithTag:1975];
+   
+    dispatch_main_after(1.5f, ^{
+        [view removeFromSuperview];
+    });
+    
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
@@ -100,10 +146,39 @@
 {
    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+//计算高度
 -(CGRect)cellHight:(NSString *)cellText Size:(CGSize)size
 {
     CGRect rect = [cellText boundingRectWithSize:size options:
                    NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]} context:nil];
     return rect;
+}
+-(void)animationWithView:(CGFloat)X widthes:(CGFloat)widthes
+{
+    UIView * view = [[UIApplication sharedApplication].delegate.window viewWithTag:1975];
+    [UIView animateWithDuration:1 animations:^{
+        CGRect rect = view.frame;
+        rect.origin.x = X;
+        rect.size.width =widthes ;
+        view.frame = rect;
+    } completion:^(BOOL finished) {
+        if (_isOpen == NO)
+        {
+            [UIView animateWithDuration:0.5 animations:^{
+                _anImage.alpha = 1;
+                
+            }];
+        }
+        _anImage.userInteractionEnabled = NO;
+
+
+    }];
+}
+//延迟加载
+static void dispatch_main_after(NSTimeInterval delay, void (^block)(void))
+{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        block();
+    });
 }
 @end
