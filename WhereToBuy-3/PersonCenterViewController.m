@@ -43,12 +43,24 @@
 - (void) viewDidLoad
 {
     [self addUI];
-    
+}
+
+//每次在页面加载得时候计算缓存的大小，如果缓存不为0，就显示可加载状态
+- (void)viewWillAppear:(BOOL)animated
+{
     NSString *path = [[Tools shareInstance] dirCache];
     CGFloat size = [[Tools shareInstance] folderSizeAtPath:path];
     NSLog(@"缓存目录是：%@",path);
     NSLog(@"缓存目录得大小是%f",size);
-    _cacheSize = size;
+    if (size > 0) {
+        _cacheStatePic = @"1dian_green.png";
+        _borderWith  = 0;
+        _btnInteraction = YES;
+        _tilteColor = [UIColor whiteColor];
+        _iconImage = [UIImage imageNamed:@"6_selected.png"];
+        _cacheSize = size;
+        [_tableView reloadData];
+    }
 }
 
 - (void) addUI
@@ -359,7 +371,7 @@
 
 //清理缓存
 - (void)showWithLabelMixed {
-    
+    [self clearCache];
     _HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self.navigationController.view addSubview:_HUD];
     _HUD.labelText = @"正在整理缓存";
@@ -422,6 +434,8 @@ dispatch_async(
 -(void)clearCacheSuccess
 {
     NSLog(@"清理成功");
+    _cacheSize = 0.0;
+    [_tableView reloadData];
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
