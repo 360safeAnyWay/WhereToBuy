@@ -247,6 +247,7 @@
 		F88990441AB00D1300DC9513 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F88990431AB00D1300DC9513 /* Security.framework */; };
 		F88990461AB00D2100DC9513 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F88990451AB00D2100DC9513 /* libz.dylib */; };
 		F889904A1AB017C600DC9513 /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = F88990491AB017C600DC9513 /* PushConfig.plist */; };
+		F889904C1AB0205400DC9513 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F889904B1AB0205400DC9513 /* Launch Screen.xib */; };
 		F89334FB1AAA06D1007005D0 /* DDMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = F89334F61AAA06D1007005D0 /* DDMenuController.m */; };
 		F89334FC1AAA06D1007005D0 /* MainMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F89334F81AAA06D1007005D0 /* MainMoreCell.m */; };
 		F89334FD1AAA06D1007005D0 /* MainMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F89334FA1AAA06D1007005D0 /* MainMoreViewController.m */; };
@@ -616,6 +617,7 @@
 		F88990431AB00D1300DC9513 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		F88990451AB00D2100DC9513 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		F88990491AB017C600DC9513 /* PushConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PushConfig.plist; sourceTree = "<group>"; };
+		F889904B1AB0205400DC9513 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Launch Screen.xib"; path = "Classes/Model/Data/Launch Screen.xib"; sourceTree = "<group>"; };
 		F89334F51AAA06D1007005D0 /* DDMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMenuController.h; sourceTree = "<group>"; };
 		F89334F61AAA06D1007005D0 /* DDMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMenuController.m; sourceTree = "<group>"; };
 		F89334F71AAA06D1007005D0 /* MainMoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMoreCell.h; sourceTree = "<group>"; };
@@ -846,6 +848,7 @@
 		9337B8B61A58FD3D003A0884 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F889904B1AB0205400DC9513 /* Launch Screen.xib */,
 				5974FD2A1AA9F52B00B2F306 /* Default-568h@2x.png */,
 				9337B8B71A58FD3E003A0884 /* Info.plist */,
 				9337B8B81A58FD3E003A0884 /* main.m */,
@@ -1431,6 +1434,7 @@
 				934B68DF1A661EC500474A18 /* downQ@2x.png in Resources */,
 				932F96E91A7F4582000C28B5 /* 3@2x.png in Resources */,
 				931C917C1A639FE70051496E /* leftBack@2x.png in Resources */,
+				F889904C1AB0205400DC9513 /* Launch Screen.xib in Resources */,
 				930AA8801A6909E700770125 /* WhereToBuyInfo.plist in Resources */,
 				93009FF11A7B72CD005B3085 /* zan_disable@2x.png in Resources */,
 				93B86C0A1AA5A88700A24353 /* isBuy_7@2x.png in Resources */,
@@ -1760,6 +1764,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1779,6 +1784,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
