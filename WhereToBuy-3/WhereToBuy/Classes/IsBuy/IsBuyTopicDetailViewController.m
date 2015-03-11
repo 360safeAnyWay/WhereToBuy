@@ -227,7 +227,11 @@
     return 200+Inforect.size.height;
         
     }else{
-    return 200;
+        _infoStr     =  @"为德玛西亚的房价";
+        Inforect = [self  cellHight:_infoStr Size:CGSizeMake(210, 0)];
+        
+        return 200+Inforect.size.height;
+
     }
 }
 #pragma mark- 代理
@@ -253,8 +257,10 @@
         IsBuyTopBCell * BCell = [tableView dequeueReusableCellWithIdentifier:str];
         if (BCell == nil)
         {
-            BCell = [[IsBuyTopBCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str];
+            BCell = [[IsBuyTopBCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BCell"];
         }
+    BCell.LCLabel.text = [NSString stringWithFormat:@"%ld",(long)[indexPath row]];
+    
         return BCell;
    
   

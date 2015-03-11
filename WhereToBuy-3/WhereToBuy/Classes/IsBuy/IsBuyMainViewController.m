@@ -193,7 +193,6 @@ const int MaxCount = 5;
     self.tableView.backgroundView = nil;
     self.tableView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:table];
-    
     UITableView *table2 = [[UITableView alloc] initWithFrame:CGRectMake(self.view.frame.size.width, 99, self.view.frame.size.width, [UIScreen mainScreen].bounds.size.height-40-62-40) style:UITableViewStylePlain];
     table2.delegate = self;
     table2.dataSource = self;
