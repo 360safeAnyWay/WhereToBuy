@@ -36,14 +36,14 @@
     imageView.clipsToBounds = YES;
     self.imageHead = imageView;
     [self addSubview:imageView];
-    UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(imageView.frame.origin.x+imageView.frame.size.width-15,imageView.frame.origin.y , 93, 12)];
-    [nameLabel setText:@"小二呆"];
+    UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(imageView.frame.origin.x+imageView.frame.size.width+5,imageView.frame.origin.y+5 , 93, 12)];
+    [nameLabel setText:@"鸟鸟鸟"];
     [nameLabel setTextColor:[UIColor blackColor]];
     [nameLabel setFont:[UIFont systemFontOfSize:14]];
-    [nameLabel setTextAlignment:NSTextAlignmentCenter];
+    [nameLabel setTextAlignment:NSTextAlignmentLeft];
     self.nameLabel = nameLabel;
     [self addSubview:nameLabel];
-    UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(nameLabel.frame.origin.x-25,nameLabel.frame.origin.y+15 , 200, 12)];
+    UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(5,nameLabel.frame.origin.y+15 , 200, 12)];
     [dateLabel setText:@"2015/3/9 14:21"];
     [dateLabel setTextColor:[UIColor darkGrayColor]];
     [dateLabel setFont:[UIFont systemFontOfSize:14]];
