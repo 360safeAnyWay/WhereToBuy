@@ -10,6 +10,7 @@
 @implementation IsBuyTopBCell
 {
     CGRect  Inforect;
+    CGFloat _Sheight;
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -21,7 +22,7 @@
         CGRect rect = self.frame;
         rect.size.height = 200+Inforect.size.height;
         self.frame = rect;
-        _reviewArray = [[NSMutableArray alloc]initWithObjects:@"提莫  回复 @鸡鸡鸡 提莫露脸",@"德莱文 回复 @提莫 这不是提莫吗?",@"盲僧 回复 @德莱文 团战可以输提莫必须Ssssssssssssssssssssssssssssss", nil];
+        _reviewArray = [[NSMutableArray alloc]initWithObjects:@"提莫  回复 @鸡鸡鸡 提莫露脸",@"德莱文  回复 @提莫 这不是提莫吗?",@"盲僧  回复 @德莱文 团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S", nil];
         [self createUI];
         [self createReviewView];
     }
@@ -78,7 +79,7 @@
     [viewDown setBackgroundColor:[Tools colorWithRed:236 angGreen:236 andBlue:236]];
      [self addSubview:viewDown];
     PointLike * pl = [[PointLike alloc]initWithString:@"3332"];
-    pl.frame = CGRectMake(self.frame.size.width-110, viewDown.frame.origin.y-30, 25, 25);
+    pl.frame = CGRectMake(self.frame.size.width-110, viewDown.frame.origin.y-30, 100, 25);
     [self addSubview:pl];
     _LCLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, viewDown.frame.origin.y-25, 80, 25)];
     _LCLabel.font = [UIFont systemFontOfSize:13];
@@ -96,35 +97,42 @@
             reviewLabel.text = str;
             Ry = reviewLabel.frame.origin.y;
             heightes = reviewLabel.frame.size.height;
+            _Sheight = heightes;
             reviewLabel.lineBreakMode = NSLineBreakByWordWrapping;
             reviewLabel.font = [UIFont systemFontOfSize:14];
             reviewLabel.text = str;
+            reviewLabel.numberOfLines = 0;
             reviewLabel.textColor = [UIColor darkGrayColor];
-            reviewLabel.backgroundColor  = [UIColor redColor];
             [self addSubview:reviewLabel];
         }else if(i == 1){
-            UILabel * reviewLabel = [[UILabel alloc]initWithFrame:CGRectMake(5,Ry+heightes+3,[UIScreen mainScreen].bounds.size.width-10, Rrect.size.height)];
+            UILabel * reviewLabel = [[UILabel alloc]initWithFrame:CGRectMake(5,Ry+heightes+5,[UIScreen mainScreen].bounds.size.width-10, Rrect.size.height)];
             reviewLabel.text = str;
+            reviewLabel.numberOfLines = 0;
             Ry = reviewLabel.frame.origin.y;
             heightes = reviewLabel.frame.size.height;
+            _Sheight =_Sheight+heightes;
             reviewLabel.lineBreakMode = NSLineBreakByWordWrapping;
             reviewLabel.font = [UIFont systemFontOfSize:14];
             reviewLabel.text = str;
             reviewLabel.textColor = [UIColor darkGrayColor];
-            reviewLabel.backgroundColor  = [UIColor redColor];
             [self addSubview:reviewLabel];
         }else{
-            UILabel * reviewLabel = [[UILabel alloc]initWithFrame:CGRectMake(5,Ry+heightes+3,[UIScreen mainScreen].bounds.size.width-10, Rrect.size.height)];
+            UILabel * reviewLabel = [[UILabel alloc]initWithFrame:CGRectMake(5,Ry+heightes+2.5,[UIScreen mainScreen].bounds.size.width-10, Rrect.size.height)];
             reviewLabel.text = str;
+            reviewLabel.numberOfLines = 0;
+            _Sheight =_Sheight+reviewLabel.frame.size.height;
             reviewLabel.lineBreakMode = NSLineBreakByWordWrapping;
             reviewLabel.font = [UIFont systemFontOfSize:14];
             reviewLabel.text = str;
             reviewLabel.textColor = [UIColor darkGrayColor];
-            reviewLabel.backgroundColor  = [UIColor redColor];
             [self addSubview:reviewLabel];
         }
         
     }
+    CGRect rect = self.frame;
+    CGFloat Sheiget= rect.size.height + _Sheight;
+    rect.size.height = Sheiget;
+    self.frame = rect;
 }
 -(void)createReviewView
 {
