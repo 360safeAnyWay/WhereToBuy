@@ -10,4 +10,6 @@
 
 @interface PersonIntroViewController : BaseViewController
 
+@property (weak, nonatomic) UITextView *text;
+
 @end

@@ -27,6 +27,13 @@
     [textView setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:textView];
     [textView becomeFirstResponder];
+    _text = textView;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [_text resignFirstResponder];
 }
 
 - (void)back
