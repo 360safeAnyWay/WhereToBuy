@@ -13,6 +13,7 @@
 #import "PatternViewController.h"
 #import <math.h>
 #import "APService.h"
+#import "LeafNotification.h"
 
 #define kCurrentPattern												@"KeyForCurrentPatternToUnlock"
 #define kCurrentPatternTemp										@"KeyForCurrentPatternToUnlockTemp"
@@ -74,9 +75,18 @@
              // Required
              categories:nil];
         }
+    [APService setAlias:@"yangwenjun" callbackSelector:nil object:nil];
     [APService setupWithOption:launchOptions];
-    
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
+    [defaultCenter addObserver:self selector:@selector(networkDidReceiveMessage:) name:kJPFNetworkDidReceiveMessageNotification object:nil];
     return YES;
+}
+
+- (void)networkDidReceiveMessage:(NSNotification *)notification {
+    NSDictionary * userInfo = [notification userInfo];
+    NSString *content = [userInfo valueForKey:@"content"]; //推送显示的内容
+    NSLog(@"获取到的内容是%@",content);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -123,7 +133,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 - (void)application:(UIApplication *)application
 didReceiveRemoteNotification:(NSDictionary *)userInfo {
     // Required
-    NSLog(@"传递得信息%@",userInfo);
+    
     [APService handleRemoteNotification:userInfo];
 }
 
@@ -131,7 +141,16 @@ didReceiveRemoteNotification:(NSDictionary *)userInfo {
 didReceiveRemoteNotification:(NSDictionary *)userInfo
 fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     //ios7 required
+    // 取得 APNs 标准信息内容
+    NSDictionary *aps = [userInfo valueForKey:@"aps"];
+    NSString *content = [aps valueForKey:@"alert"]; //推送显示的内容
+    NSInteger badge = [[aps valueForKey:@"badge"] integerValue]; //badge数量
+    NSString *sound = [aps valueForKey:@"sound"]; //播放的声音
+    // 取得自定义字段内容
+    NSString *customizeField1 = [userInfo valueForKey:@"customizeField1"]; //自定义参数，key是自己定义的
+    NSLog(@"content =[%@], badge=[%ld], sound=[%@], customize field  =[%@]",content,(long)badge,sound,customizeField1);
     [APService handleRemoteNotification:userInfo];
+    [LeafNotification showInController:self.window.rootViewController withText:content type:LeafNotificationTypeSuccess];
     completionHandler(UIBackgroundFetchResultNewData);
 }
 
