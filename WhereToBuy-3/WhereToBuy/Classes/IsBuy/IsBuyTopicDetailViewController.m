@@ -259,7 +259,7 @@
         {
             BCell = [[IsBuyTopBCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BCell"];
         }
-    BCell.LCLabel.text = [NSString stringWithFormat:@"%ld",(long)[indexPath row]];
+    BCell.LCLabel.text = [NSString stringWithFormat:@"%ld楼",(long)[indexPath row]];
     
         return BCell;
    
