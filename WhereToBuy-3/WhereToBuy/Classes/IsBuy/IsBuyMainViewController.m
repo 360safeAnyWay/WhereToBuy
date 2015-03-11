@@ -20,6 +20,7 @@ const int MaxCount = 5;
 @interface IsBuyMainViewController ()
 {
     NSInteger loadCount;
+    
 }
 
 @property (nonatomic,strong)CLLRefreshHeadController *refreshControll1;

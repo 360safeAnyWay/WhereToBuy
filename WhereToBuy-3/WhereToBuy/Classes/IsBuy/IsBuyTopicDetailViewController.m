@@ -10,6 +10,7 @@
 #import "NavBackButton.h"
 #import "IsBuyTopTableViewCell.h"
 #import "IsBuyTopBCell.h"
+#import "ReviewViewController.h"
 @implementation IsBuyTopicDetailViewController
 {
     UITableView * _myTableView;
@@ -23,11 +24,22 @@
     UIButton    * _HButton;
 //    🌲杠;
     UIView      * _viewInViewFrameD;
+    CGFloat _Sheight;
+
 
 }
 
 - (void)viewDidLoad
 {
+    _reviewArray = [[NSMutableArray alloc]initWithObjects:@"提莫     回复 @鸟鸟鸟 提莫露脸",@"德莱文  回复 @提莫 这不是提莫吗?",@"盲僧     回复 @德莱文 团战可以输提莫必须S团战可以输提莫必须S为什么提莫可以致盲盲人", nil];
+    for (NSInteger i = 0; i <3; i++)
+    {
+        NSString * str = [_reviewArray objectAtIndex:i];
+        CGRect Rrect = [self cellHight:str Size:CGSizeMake(0, 0)];
+        CGFloat Sheight  = Rrect.size.height;
+        _Sheight =_Sheight+Sheight;
+    }
+    NSLog(@"%f",_Sheight);
     //   导航返回
     [self backButton];
     [self createTableView];
@@ -229,8 +241,8 @@
     }else{
         _infoStr     =  @"为德玛西亚的房价";
         Inforect = [self  cellHight:_infoStr Size:CGSizeMake(210, 0)];
-        
-        return 200+Inforect.size.height;
+        //NSLog(@"%f",200+Inforect.size.height+_Sheight);
+        return 200+Inforect.size.height+_Sheight;
 
     }
 }
@@ -299,8 +311,13 @@
 
     }];
 }
+#pragma mark- 回复界面
 -(void)BlackLZ:(UIButton *)btn
 {
-    NSLog(@"回复楼主的页面");
+    UIView * view = [[UIApplication sharedApplication].delegate.window viewWithTag:1975];
+    view.alpha = 0;
+    ReviewViewController * review = [[ReviewViewController alloc]init];
+    [self.navigationController pushViewController:review animated:YES];
+    
 }
 @end

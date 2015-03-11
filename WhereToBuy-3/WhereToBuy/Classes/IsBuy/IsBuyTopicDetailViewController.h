@@ -10,6 +10,8 @@
 
 @interface IsBuyTopicDetailViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, copy) NSString * infoStr;
+@property (nonatomic,retain)NSMutableArray  * reviewArray;
+
 
 
 @end

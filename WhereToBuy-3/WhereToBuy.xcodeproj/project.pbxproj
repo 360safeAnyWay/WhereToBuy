@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		595C50C31AB0308100E91511 /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 595C50C21AB0308100E91511 /* ReviewViewController.m */; };
 		5974FD2B1AA9F52B00B2F306 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5974FD2A1AA9F52B00B2F306 /* Default-568h@2x.png */; };
 		597D3B981AAE7E2D003F3871 /* gogogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 597D3B971AAE7E2D003F3871 /* gogogo.png */; };
 		597D3B9B1AAE89B9003F3871 /* PointLike.m in Sources */ = {isa = PBXBuildFile; fileRef = 597D3B9A1AAE89B9003F3871 /* PointLike.m */; };
@@ -271,6 +272,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		595C50C11AB0308100E91511 /* ReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewViewController.h; sourceTree = "<group>"; };
+		595C50C21AB0308100E91511 /* ReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewViewController.m; sourceTree = "<group>"; };
 		5974FD2A1AA9F52B00B2F306 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		597D3B971AAE7E2D003F3871 /* gogogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gogogo.png; sourceTree = "<group>"; };
 		597D3B991AAE89B9003F3871 /* PointLike.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointLike.h; sourceTree = "<group>"; };
@@ -669,6 +672,8 @@
 		595C50BA1AAFCEBE00E91511 /* Review */ = {
 			isa = PBXGroup;
 			children = (
+				595C50C11AB0308100E91511 /* ReviewViewController.h */,
+				595C50C21AB0308100E91511 /* ReviewViewController.m */,
 			);
 			name = Review;
 			sourceTree = "<group>";
@@ -1577,6 +1582,7 @@
 				932DCB671AA6E5D700134D5E /* SearchDetailViewController.m in Sources */,
 				93EF040D1A84C02000FD97B2 /* PersonIntroViewController.m in Sources */,
 				9337B9271A58FE61003A0884 /* UIButton+WebCache.m in Sources */,
+				595C50C31AB0308100E91511 /* ReviewViewController.m in Sources */,
 				9337B9241A58FE61003A0884 /* SDWebImageDownloaderOperation.m in Sources */,
 				93F470EA1A7764C50012DC13 /* MBProgressHUD.m in Sources */,
 				F86131121A6D291E0049FE21 /* KYCircleMenu.m in Sources */,

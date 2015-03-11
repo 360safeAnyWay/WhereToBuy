@@ -18,11 +18,19 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         _infoStr     =  @"为德玛西亚的房价";
-        Inforect = [self  cellHight:_infoStr Size:CGSizeMake(210, 0)];
+        Inforect = [self  cellHight:_infoStr Size:CGSizeMake(0, 0)];
+        _reviewArray = [[NSMutableArray alloc]initWithObjects:@"提莫     回复 @鸟鸟鸟 提莫露脸",@"德莱文  回复 @提莫 这不是提莫吗?",@"盲僧     回复 @德莱文 团战可以输提莫必须S团战可以输提莫必须S为什么提莫可以致盲盲人", nil];
+        for (NSInteger i = 0; i <3; i++)
+        {
+            NSString * str = [_reviewArray objectAtIndex:i];
+            CGRect Rrect = [self cellHight:str Size:CGSizeMake(0, 0)];
+            CGFloat Sheight  = Rrect.size.height;
+            _Sheight =_Sheight+Sheight;
+        }
+        NSLog(@"%f",_Sheight);
         CGRect rect = self.frame;
-        rect.size.height = 200+Inforect.size.height;
+        rect.size.height = 200+Inforect.size.height+_Sheight;
         self.frame = rect;
-        _reviewArray = [[NSMutableArray alloc]initWithObjects:@"提莫  回复 @鸡鸡鸡 提莫露脸",@"德莱文  回复 @提莫 这不是提莫吗?",@"盲僧  回复 @德莱文 团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S", nil];
         [self createUI];
         [self createReviewView];
     }
@@ -33,7 +41,6 @@
 {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-10, [UIScreen mainScreen].applicationFrame.size.width, 10)];
     [view setBackgroundColor:[Tools colorWithRed:240 angGreen:240 andBlue:240]];
-    NSLog(@"%f",view.frame.origin.y);
     
     [self addSubview:view];
     UIButton *imageView = [[UIButton alloc] initWithFrame:CGRectMake(13, 15, 40, 40)];
@@ -93,46 +100,44 @@
         CGRect Rrect = [self cellHight:str Size:CGSizeMake(210, 0)];
         if (i == 0)
         {
-            UILabel * reviewLabel = [[UILabel alloc]initWithFrame:CGRectMake(5,viewDown.frame.origin.y+10,[UIScreen mainScreen].bounds.size.width-10, Rrect.size.height)];
+            UILabel * reviewLabel = [[UILabel alloc]initWithFrame:CGRectMake(5,viewDown.frame.origin.y+10,[UIScreen mainScreen].bounds.size.width-5, Rrect.size.height)];
             reviewLabel.text = str;
             Ry = reviewLabel.frame.origin.y;
             heightes = reviewLabel.frame.size.height;
-            _Sheight = heightes;
             reviewLabel.lineBreakMode = NSLineBreakByWordWrapping;
             reviewLabel.font = [UIFont systemFontOfSize:14];
             reviewLabel.text = str;
             reviewLabel.numberOfLines = 0;
             reviewLabel.textColor = [UIColor darkGrayColor];
             [self addSubview:reviewLabel];
+            [self resetContent:reviewLabel];
+
         }else if(i == 1){
             UILabel * reviewLabel = [[UILabel alloc]initWithFrame:CGRectMake(5,Ry+heightes+5,[UIScreen mainScreen].bounds.size.width-10, Rrect.size.height)];
             reviewLabel.text = str;
             reviewLabel.numberOfLines = 0;
             Ry = reviewLabel.frame.origin.y;
             heightes = reviewLabel.frame.size.height;
-            _Sheight =_Sheight+heightes;
             reviewLabel.lineBreakMode = NSLineBreakByWordWrapping;
             reviewLabel.font = [UIFont systemFontOfSize:14];
             reviewLabel.text = str;
             reviewLabel.textColor = [UIColor darkGrayColor];
             [self addSubview:reviewLabel];
+            [self resetContent:reviewLabel];
         }else{
-            UILabel * reviewLabel = [[UILabel alloc]initWithFrame:CGRectMake(5,Ry+heightes+2.5,[UIScreen mainScreen].bounds.size.width-10, Rrect.size.height)];
+            UILabel * reviewLabel = [[UILabel alloc]initWithFrame:CGRectMake(5,Ry+heightes+5,[UIScreen mainScreen].bounds.size.width-10, Rrect.size.height)];
             reviewLabel.text = str;
             reviewLabel.numberOfLines = 0;
-            _Sheight =_Sheight+reviewLabel.frame.size.height;
             reviewLabel.lineBreakMode = NSLineBreakByWordWrapping;
             reviewLabel.font = [UIFont systemFontOfSize:14];
             reviewLabel.text = str;
             reviewLabel.textColor = [UIColor darkGrayColor];
             [self addSubview:reviewLabel];
+            [self resetContent:reviewLabel];
+
         }
         
     }
-    CGRect rect = self.frame;
-    CGFloat Sheiget= rect.size.height + _Sheight;
-    rect.size.height = Sheiget;
-    self.frame = rect;
 }
 -(void)createReviewView
 {
