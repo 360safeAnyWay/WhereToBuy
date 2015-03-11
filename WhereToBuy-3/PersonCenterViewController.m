@@ -46,7 +46,8 @@
     
     NSString *path = [[Tools shareInstance] dirCache];
     CGFloat size = [[Tools shareInstance] folderSizeAtPath:path];
-    NSLog(@"缓存目录得大小是%ld",(long)((NSInteger)size));
+    NSLog(@"缓存目录是：%@",path);
+    NSLog(@"缓存目录得大小是%f",size);
     _cacheSize = size;
 }
 
@@ -237,9 +238,9 @@
         [button setUserInteractionEnabled:_btnInteraction];
         
         //显示内存还剩余多少兆
-        UILabel *cacheLabel = [[UILabel alloc] initWithFrame:CGRectMake(180, 10, 80, 20)];
+        UILabel *cacheLabel = [[UILabel alloc] initWithFrame:CGRectMake(180, 10, 120, 20)];
         [cacheLabel setTextColor:[UIColor whiteColor]];
-        [cacheLabel setText:[NSString stringWithFormat:@"%.3fM缓存",_cacheSize]];
+        [cacheLabel setText:[NSString stringWithFormat:@"%.2fM缓存",_cacheSize]];
         [cacheLabel setTextAlignment:NSTextAlignmentLeft];
         [view addSubview:cacheLabel];
     }

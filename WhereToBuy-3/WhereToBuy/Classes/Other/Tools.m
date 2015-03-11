@@ -15,7 +15,7 @@
     static Tools *tool = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        if(!onceToken) {
+        if(!tool) {
             tool = [[Tools alloc] init];
         }
     });
@@ -57,7 +57,6 @@
     //[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSLog(@"app_home_doc: %@",documentsDirectory);
     return documentsDirectory;
 }
 
@@ -66,14 +65,12 @@
     //[NSHomeDirectory() stringByAppendingPathComponent:@"Library"];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
     NSString *libraryDirectory = [paths objectAtIndex:0];
-    NSLog(@"app_home_lib: %@",libraryDirectory);
 }
 
 //获取Cache目录
 -(NSString *)dirCache{
     NSArray *cacPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *cachePath = [cacPath objectAtIndex:0];
-    NSLog(@"app_home_lib_cache: %@",cachePath);
     return cachePath;
 }
 
@@ -81,11 +78,10 @@
 +(void)dirTmp{
     //[NSHomeDirectory() stringByAppendingPathComponent:@"tmp"];
     NSString *tmpDirectory = NSTemporaryDirectory();
-    NSLog(@"app_home_tmp: %@",tmpDirectory);
 }
 
 ///计算缓存文件的大小的M
-- (NSInteger) fileSizeAtPath:(NSString*) filePath{
+- (long long) fileSizeAtPath:(NSString*) filePath{
     NSFileManager* manager = [NSFileManager defaultManager];
     if ([manager fileExistsAtPath:filePath]){
         

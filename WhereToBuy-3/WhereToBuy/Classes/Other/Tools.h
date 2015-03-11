@@ -37,6 +37,6 @@
 //获取Tmp目录
 +(void)dirTmp;
 
-- (NSInteger) folderSizeAtPath:(NSString*) folderPath;
+- (CGFloat) folderSizeAtPath:(NSString*) folderPath;
 
 @end
