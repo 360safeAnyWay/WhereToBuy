@@ -193,12 +193,10 @@ const int MaxCount7 = 5;
     table2.delegate = self;
     table2.dataSource = self;
 //    table2.rowHeight = 100;
-    table2.sectionHeaderHeight = 22.0f;
-    table2.sectionFooterHeight = 22.0f;
+    table2.sectionHeaderHeight = 0.0f;
+    table2.sectionFooterHeight = 0.0f;
     [table2 setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     self.tableView2 = table2;
-    self.tableView2.backgroundView = nil;
-    self.tableView2.backgroundColor = [UIColor clearColor];
     [self.view addSubview:table2];
     
     //显示内容得tableView(0, 99, self.view.frame.size.width, 425)
@@ -219,7 +217,6 @@ const int MaxCount7 = 5;
 -(UIView *)BuilddingHeaderView
 {
     UIView *tableHearView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 240)];
-
     UIScrollView *scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 240)];
     [scroll setContentSize:CGSizeMake(self.view.frame.size.width * 6, 240)];
     scroll.showsHorizontalScrollIndicator = NO;

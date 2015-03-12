@@ -20,9 +20,10 @@
     [Tools setUIViewLine:[self.contentView viewWithTag:1] cornerRadius:30 with:0 color:[UIColor whiteColor]];
     [self.contentView viewWithTag:1].clipsToBounds = YES;
     NSInteger i = arc4random_uniform(100);
-    [self.contentView viewWithTag:4].clipsToBounds = YES;
-    [UIView animateWithDuration:1.0f animations:^{
-        [_bloodView setCenter:CGPointMake(_bloodView.center.x + 50, _bloodView.center.y)];
+    [UIView animateWithDuration:10.0f animations:^{
+        [_bloodView setFrame:CGRectMake(0, 0, i, 10)];
+        [_bloodView setBackgroundColor:[UIColor orangeColor]];
+        NSLog(@"之后%f",_bloodView.frame.size.width);
     } completion:nil];
     i = i / 10;
     [((UILabel *)[self.contentView viewWithTag:6]) setText:[NSString stringWithFormat:@"%ld分",(long)i]];
