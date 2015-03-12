@@ -21,6 +21,8 @@
 {
     self.title = @"回复楼主";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"leftBack.png"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"提交回复" style:UIBarButtonItemStylePlain target:self action:@selector(submitIntro)];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     [self addUI];
     _labelView = [[UILabel alloc]initWithFrame:CGRectMake(20, 75, 150, 30)];
     _labelView.text = @"请输入回复内容";
@@ -35,7 +37,6 @@
     [textView setFont:[UIFont systemFontOfSize:16]];
     textView.delegate = self;
     [self.view addSubview:textView];
-    //[textView becomeFirstResponder];
 }
 
 - (void)back

@@ -39,7 +39,6 @@
         CGFloat Sheight  = Rrect.size.height;
         _Sheight =_Sheight+Sheight;
     }
-    NSLog(@"%f",_Sheight);
     //   导航返回
     [self backButton];
     [self createTableView];

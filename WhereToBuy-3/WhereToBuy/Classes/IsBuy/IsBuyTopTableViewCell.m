@@ -46,7 +46,6 @@
 //    底部的间隔
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-10, [UIScreen mainScreen].applicationFrame.size.width, 10)];
     [view setBackgroundColor:[Tools colorWithRed:240 angGreen:240 andBlue:240]];
-    NSLog(@"%f",view.frame.origin.y);
 
     [self addSubview:view];
     UIButton *imageView = [[UIButton alloc] initWithFrame:CGRectMake(13, 15, 40, 40)];

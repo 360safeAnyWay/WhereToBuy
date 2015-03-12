@@ -30,7 +30,6 @@
             CGFloat Sheight  = Rrect.size.height;
             _Sheight =_Sheight+Sheight;
         }
-        NSLog(@"%f",_Sheight);
         CGRect rect = self.frame;
         rect.size.height = 200+Inforect.size.height+_Sheight;
         self.frame = rect;
@@ -157,6 +156,7 @@
     [self addSubview:_MRBtn];
     UILabel * lab = [[UILabel alloc]initWithFrame:CGRectMake(0, _lineOrigin, [UIScreen mainScreen].bounds.size.width, 35)];
     lab.text = @"点击显示更多回复";
+    lab.textAlignment = NSTextAlignmentCenter;
     lab.font = [UIFont systemFontOfSize:13];
     [self addSubview:lab];
 }
@@ -174,7 +174,7 @@
 {
     UIView * view = [[UIApplication sharedApplication].delegate.window viewWithTag:1975];
     view.alpha = 0;
-    MoreReplyViewController * mrv = [[MoreReplyViewController alloc]init];
+    MoreReplyViewController * mrv = [[MoreReplyViewController alloc]initWithstr:_infoStr WithFlot:Inforect.size.height number:_LCLabel.text];
     UIViewController * issBuyVC = [self viewController];
     [issBuyVC.navigationController pushViewController:mrv animated:YES];
 }

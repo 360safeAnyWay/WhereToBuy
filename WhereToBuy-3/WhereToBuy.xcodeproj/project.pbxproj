@@ -10,6 +10,7 @@
 		595C50C31AB0308100E91511 /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 595C50C21AB0308100E91511 /* ReviewViewController.m */; };
 		5974FD2B1AA9F52B00B2F306 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5974FD2A1AA9F52B00B2F306 /* Default-568h@2x.png */; };
 		597CC0301AB12F750026DA64 /* MoreReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 597CC02F1AB12F750026DA64 /* MoreReplyViewController.m */; };
+		597CC0321AB15C520026DA64 /* 我发表的主题.png in Resources */ = {isa = PBXBuildFile; fileRef = 597CC0311AB15C520026DA64 /* 我发表的主题.png */; };
 		597D3B981AAE7E2D003F3871 /* gogogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 597D3B971AAE7E2D003F3871 /* gogogo.png */; };
 		597D3B9B1AAE89B9003F3871 /* PointLike.m in Sources */ = {isa = PBXBuildFile; fileRef = 597D3B9A1AAE89B9003F3871 /* PointLike.m */; };
 		597D3B9F1AAE9AB8003F3871 /* black.png in Resources */ = {isa = PBXBuildFile; fileRef = 597D3B9D1AAE9AB8003F3871 /* black.png */; };
@@ -282,6 +283,7 @@
 		5974FD2A1AA9F52B00B2F306 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		597CC02E1AB12F750026DA64 /* MoreReplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreReplyViewController.h; sourceTree = "<group>"; };
 		597CC02F1AB12F750026DA64 /* MoreReplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreReplyViewController.m; sourceTree = "<group>"; };
+		597CC0311AB15C520026DA64 /* 我发表的主题.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我发表的主题.png"; sourceTree = "<group>"; };
 		597D3B971AAE7E2D003F3871 /* gogogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gogogo.png; sourceTree = "<group>"; };
 		597D3B991AAE89B9003F3871 /* PointLike.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointLike.h; sourceTree = "<group>"; };
 		597D3B9A1AAE89B9003F3871 /* PointLike.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointLike.m; sourceTree = "<group>"; };
@@ -1208,6 +1210,7 @@
 				938933D41AA4411A0009F54D /* more@2x.png */,
 				9383DC331A7A0C9A001691BF /* searchS@2x.png */,
 				59C5C2121AAEDDD50042382F /* huifulouzhu.png */,
+				597CC0311AB15C520026DA64 /* 我发表的主题.png */,
 			);
 			path = IsBuy;
 			sourceTree = "<group>";
@@ -1560,6 +1563,7 @@
 				932F96E61A7F4582000C28B5 /* 1@2x.png in Resources */,
 				93A8B09F1A650F07006D6A74 /* search@2x.png in Resources */,
 				93A8B0671A64C094006D6A74 /* area@2x.png in Resources */,
+				597CC0321AB15C520026DA64 /* 我发表的主题.png in Resources */,
 				93DA09101A6DF0BC00A26CD2 /* KYICircleMenuButton03_highlighted@2x.png in Resources */,
 				9383DC341A7A0C9A001691BF /* message@2x.png in Resources */,
 				93EE20D61AA00D4A007D1CD0 /* 1dian_green@2x.png in Resources */,
