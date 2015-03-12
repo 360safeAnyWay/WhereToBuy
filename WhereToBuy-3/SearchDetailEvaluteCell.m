@@ -15,7 +15,6 @@
 @implementation SearchDetailEvaluteCell
 
 - (void)awakeFromNib {
-
     for (NSInteger i = 1; i < 3; i++) {
         UIView *view = [self.contentView viewWithTag:i];
         [Tools setUIViewLine:view cornerRadius:5 with:0 color:[UIColor whiteColor]];

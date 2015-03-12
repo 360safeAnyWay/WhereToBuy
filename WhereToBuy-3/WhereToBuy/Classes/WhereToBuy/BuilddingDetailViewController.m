@@ -11,6 +11,7 @@
 #import "Tools.h"
 #import "VipEvaluteCell.h"
 #import "builddingDetailFirstCell.h"
+#import "UserEvaluteViewCell.h"
 
 const int MaxCount7 = 5;
 
@@ -188,7 +189,7 @@ const int MaxCount7 = 5;
     [self.view addSubview:table];
     
     //显示内容得tableView(0, 99, self.view.frame.size.width, 425)
-    UITableView *table2 = [[UITableView alloc] initWithFrame:CGRectMake(self.view.frame.size.width, 99, self.view.frame.size.width, 503) style:UITableViewStylePlain];
+    UITableView *table2 = [[UITableView alloc] initWithFrame:CGRectMake(self.view.frame.size.width, 99, self.view.frame.size.width, 468.5) style:UITableViewStylePlain];
     table2.delegate = self;
     table2.dataSource = self;
 //    table2.rowHeight = 100;
@@ -201,7 +202,7 @@ const int MaxCount7 = 5;
     [self.view addSubview:table2];
     
     //显示内容得tableView(0, 99, self.view.frame.size.width, 425)
-    UITableView *table3 = [[UITableView alloc] initWithFrame:CGRectMake(self.view.frame.size.width*2, 99, self.view.frame.size.width, 503) style:UITableViewStylePlain];
+    UITableView *table3 = [[UITableView alloc] initWithFrame:CGRectMake(self.view.frame.size.width*2, 99, self.view.frame.size.width, 468.5) style:UITableViewStylePlain];
     table3.delegate = self;
     table3.dataSource = self;
     //    table2.rowHeight = 100;
@@ -218,7 +219,7 @@ const int MaxCount7 = 5;
 -(UIView *)BuilddingHeaderView
 {
     UIView *tableHearView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 240)];
-    
+
     UIScrollView *scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 240)];
     [scroll setContentSize:CGSizeMake(self.view.frame.size.width * 6, 240)];
     scroll.showsHorizontalScrollIndicator = NO;
@@ -303,6 +304,9 @@ const int MaxCount7 = 5;
 {
     if (tableView == self.tableView) {
         return 10;
+    }else if (tableView == self.tableView2)
+    {
+        return 10;
     }
     return 0;
 }
@@ -328,6 +332,15 @@ const int MaxCount7 = 5;
             }
             return cell;
         }
+    }else if (tableView == self.tableView2)
+    {
+        static NSString *cellID = @"UserEvaluteViewCell";
+        UserEvaluteViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        if (cell == nil) {
+            cell = (UserEvaluteViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"UserEvaluteViewCell" owner:self options:nil] lastObject];
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        }
+        return cell;
     }
     return nil;
 }
@@ -341,6 +354,9 @@ const int MaxCount7 = 5;
         {
             return 65;
         }
+    }else if (tableView == self.tableView2)
+    {
+        return 120;
     }
     return 0;
 }

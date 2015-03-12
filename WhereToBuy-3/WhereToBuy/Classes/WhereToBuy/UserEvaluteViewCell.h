@@ -10,4 +10,6 @@
 
 @interface UserEvaluteViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIView *bloodView;
+
 @end
