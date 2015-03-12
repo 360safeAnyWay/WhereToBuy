@@ -39,4 +39,10 @@
 
 - (CGFloat) folderSizeAtPath:(NSString*) folderPath;
 
+//返回一个复文本
++(NSMutableAttributedString *)textArr:(NSArray *)arr andColor:(UIColor *)color colorTextIndex:(NSInteger) index;
+
 @end
+
+
+

@@ -122,4 +122,34 @@
     return folderSize/(1024.0*1024.0);
 }
 
+//返回一个复文本
++(NSMutableAttributedString *)textArr:(NSArray *)arr andColor:(UIColor *)color colorTextIndex:(NSInteger) index
+{
+    NSInteger length = arr.count;
+    NSMutableString *str1 = [[NSMutableString alloc] initWithCapacity:100];
+    NSMutableString *str2 = [[NSMutableString alloc] initWithCapacity:100];//用来定位到加颜色字符串之前的所有的字符串，用来定位
+    NSInteger locate = 0;//用来记录哪个字符串需要加颜色
+    NSInteger size = 0;
+    for (NSInteger i = 0; i < length; i++) {
+        [str1 appendString:arr[i]];
+        if (i < index) {
+            [str2 appendString:arr[i]];
+        }
+    }
+    if (str2 != nil) {//如果不是指定第一个设置颜色
+        locate = str2.length;
+    }
+    str2 = arr[index];
+    size = str2.length;
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:str1];
+    if (locate > 0) {//如果指定的不是第一个，就设置前面的颜色为黑色
+        [str addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(0, locate)];
+    }
+    [str addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(locate, size)];
+    if ((locate + size) < str2.length) {//如果设置的不是最后一个，就设置最后面的为黑色
+        [str addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(locate + size, str1.length - locate - size)];
+    }
+    return str;
+}
+
 @end
