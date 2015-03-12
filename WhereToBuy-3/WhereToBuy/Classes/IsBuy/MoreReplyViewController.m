@@ -201,7 +201,6 @@ self.view.backgroundColor = [UIColor whiteColor];
 -(void)keyboardHide:(NSNotification *)note
 {
     [UIView animateWithDuration:[note.userInfo[UIKeyboardAnimationDurationUserInfoKey] floatValue] animations:^{
-        
         self.key.transform=CGAffineTransformIdentity;
     } completion:^(BOOL finished) {
         
