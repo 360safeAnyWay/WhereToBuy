@@ -17,4 +17,5 @@
 @property (nonatomic,retain)NSMutableArray  * reviewArray;
 @property (nonatomic, copy) NSString        * infoStr;//评论内容
 @property (nonatomic, retain)UILabel        * LCLabel;
+@property (nonatomic,retain)  UIButton        * MRBtn;
 @end

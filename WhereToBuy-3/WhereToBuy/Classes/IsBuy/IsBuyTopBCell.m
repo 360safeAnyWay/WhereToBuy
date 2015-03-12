@@ -7,10 +7,13 @@
 //
 
 #import "IsBuyTopBCell.h"
+#import "MoreReplyViewController.h"
 @implementation IsBuyTopBCell
 {
     CGRect  Inforect;
     CGFloat _Sheight;
+    CGFloat _lineOrigin;
+    CGFloat _lineOrigin2;
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -19,7 +22,7 @@
     if (self) {
         _infoStr     =  @"为德玛西亚的房价";
         Inforect = [self  cellHight:_infoStr Size:CGSizeMake(0, 0)];
-        _reviewArray = [[NSMutableArray alloc]initWithObjects:@"提莫     回复 @鸟鸟鸟 提莫露脸",@"德莱文  回复 @提莫 这不是提莫吗?",@"盲僧     回复 @德莱文 团战可以输提莫必须S团战可以输提莫必须S为什么提莫", nil];
+        _reviewArray = [[NSMutableArray alloc]initWithObjects:@"提莫     回复 @鸟鸟鸟 提莫露脸",@"德莱文  回复 @提莫 这不是提莫吗?",@"盲僧     回复 @德莱文 团战可以输提莫必须S团战可以输提莫必须S", nil];
         for (NSInteger i = 0; i <3; i++)
         {
             NSString * str = [_reviewArray objectAtIndex:i];
@@ -42,8 +45,9 @@
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-10, [UIScreen mainScreen].applicationFrame.size.width, 10)];
     [view setBackgroundColor:[Tools colorWithRed:240 angGreen:240 andBlue:240]];
 //   最下面的分割线
-    UIView *viewLDown = [[UIView alloc] initWithFrame:CGRectMake(0,view.frame.origin.y-30, [UIScreen mainScreen].applicationFrame.size.width, 1)];
+    UIView *viewLDown = [[UIView alloc] initWithFrame:CGRectMake(0,view.frame.origin.y-35, [UIScreen mainScreen].applicationFrame.size.width, 1)];
     [viewLDown setBackgroundColor:[Tools colorWithRed:236 angGreen:236 andBlue:236]];
+    _lineOrigin = viewLDown.frame.origin.y;
     [self addSubview:viewLDown];
     [self addSubview:view];
     UIButton *imageView = [[UIButton alloc] initWithFrame:CGRectMake(13, 15, 40, 40)];
@@ -87,6 +91,7 @@
     [self resetContent:infoLabel];
     UIView *viewDown = [[UIView alloc] initWithFrame:CGRectMake(0, infoLabel.frame.origin.y+infoLabel.frame.size.height+40, [UIScreen mainScreen].applicationFrame.size.width, 1)];
     [viewDown setBackgroundColor:[Tools colorWithRed:236 angGreen:236 andBlue:236]];
+    _lineOrigin2 = viewDown.frame.origin.y;
      [self addSubview:viewDown];
     PointLike * pl = [[PointLike alloc]initWithString:@"3332"];
     pl.frame = CGRectMake(self.frame.size.width-110, viewDown.frame.origin.y-30, 100, 25);
@@ -146,7 +151,14 @@
 }
 -(void)createReviewView
 {
-    
+    _MRBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, _lineOrigin2+10, [UIScreen mainScreen].bounds.size.width, _Sheight+60)];
+    _MRBtn.backgroundColor = [UIColor clearColor];
+    [_MRBtn addTarget:self action:@selector(PbtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:_MRBtn];
+    UILabel * lab = [[UILabel alloc]initWithFrame:CGRectMake(0, _lineOrigin, [UIScreen mainScreen].bounds.size.width, 35)];
+    lab.text = @"点击显示更多回复";
+    lab.font = [UIFont systemFontOfSize:13];
+    [self addSubview:lab];
 }
 - (void)resetContent:(UILabel *)lab{
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:lab.text];
@@ -157,6 +169,23 @@
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [lab.text length])];
     lab.attributedText = attributedString;
     [lab sizeToFit];
+}
+-(void)PbtnClick:(UIButton *)btn
+{
+    UIView * view = [[UIApplication sharedApplication].delegate.window viewWithTag:1975];
+    view.alpha = 0;
+    MoreReplyViewController * mrv = [[MoreReplyViewController alloc]init];
+    UIViewController * issBuyVC = [self viewController];
+    [issBuyVC.navigationController pushViewController:mrv animated:YES];
+}
+- (UIViewController*)viewController {
+    for (UIView* next = [[self superview] superview]; next; next = next.superview) {
+        UIResponder* nextResponder = [next nextResponder];
+        if ([nextResponder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController*)nextResponder;
+        }
+    }
+    return nil;
 }
 -(CGRect)cellHight:(NSString *)cellText Size:(CGSize)size
 {
