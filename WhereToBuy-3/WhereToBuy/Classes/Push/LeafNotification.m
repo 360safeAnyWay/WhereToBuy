@@ -1,18 +1,10 @@
-//
-//  LeafNotification.m
-//  LeafNotification
-//
-//  Created by Wang on 14-7-14.
-//  Copyright (c) 2014年 Wang. All rights reserved.
-//
-
 #import "LeafNotification.h"
 #define DEFAULT_EDGE 24.0f
 #define DEFAULT_SPACE_IMG_TEXT 22.0f
 #define DEFAULT_RATE_WIDTH 0.8f
 #define DEFAULT_DURATION 2.0f
 #define DEFAULT_ANIMATON_DURATION 2.0f
-#define DEFAULT_HEIGHT 45.0f
+#define DEFAULT_HEIGHT 35.0f
 
 @interface LeafNotification()
 @property(nonatomic,strong) UIViewController *controller;
@@ -28,13 +20,14 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.layer.backgroundColor = [UIColor blackColor].CGColor;
+        self.layer.backgroundColor = [UIColor orangeColor].CGColor;
         self.layer.cornerRadius = 5.0f;
-        self.layer.opacity = 0.25;
+        self.layer.opacity = 1.0f;
         
         _textLabel = [[UILabel alloc] initWithFrame:frame];
-//        self.textLabel.backgroundColor = [UIColor clearColor];
-        self.textLabel.textColor = [UIColor whiteColor];
+        //        self.textLabel.backgroundColor = [UIColor clearColor];
+        self.textLabel.textColor = [UIColor blackColor];
+        [self.textLabel setTextAlignment:NSTextAlignmentLeft];
         _flagImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, DEFAULT_EDGE, DEFAULT_EDGE)];
         self.duration = DEFAULT_DURATION;
         
@@ -44,16 +37,6 @@
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-
-    
-}
-*/
 -(void)setType:(LeafNotificationType)type{
     if(LeafNotificationTypeWarrning == type){
         self.flagImageView.image = [UIImage imageNamed:@"notification_warring"];
@@ -70,10 +53,10 @@
         [self.textLabel sizeToFit];
         CGSize size = self.textLabel.bounds.size;
         if(size.width>self.bounds.size.width-DEFAULT_EDGE-2*DEFAULT_SPACE_IMG_TEXT){
-            self.flagImageView.center = CGPointMake(DEFAULT_EDGE/2+DEFAULT_SPACE_IMG_TEXT, DEFAULT_HEIGHT/2+DEFAULT_SPACE_IMG_TEXT/2);
+            self.flagImageView.center = CGPointMake(DEFAULT_EDGE/2+DEFAULT_SPACE_IMG_TEXT, DEFAULT_HEIGHT/2+DEFAULT_SPACE_IMG_TEXT/2 - 10);
         }else{
             CGFloat edge_left = (self.bounds.size.width-size.width-DEFAULT_SPACE_IMG_TEXT*2-DEFAULT_EDGE)/2;
-            self.flagImageView.center = CGPointMake(edge_left+DEFAULT_SPACE_IMG_TEXT+DEFAULT_EDGE/2, DEFAULT_HEIGHT/2+DEFAULT_SPACE_IMG_TEXT/2);
+            self.flagImageView.center = CGPointMake(edge_left+DEFAULT_SPACE_IMG_TEXT+DEFAULT_EDGE/2, DEFAULT_HEIGHT/2+DEFAULT_SPACE_IMG_TEXT/2 - 10);
         }
         self.textLabel.center = CGPointMake(CGRectGetMaxX(self.flagImageView.frame)+DEFAULT_SPACE_IMG_TEXT+size.width/2, self.flagImageView.center.y);
         
@@ -84,7 +67,7 @@
 -(void)showWithAnimation:(BOOL)animation{
     CGRect frame = self.frame;
     if([self.controller.parentViewController isKindOfClass:[UINavigationController class]] && !self.controller.navigationController.navigationBar.isHidden){
-        frame.origin.y = 84-DEFAULT_SPACE_IMG_TEXT;
+        frame.origin.y = 64-DEFAULT_SPACE_IMG_TEXT;
     }else{
         frame.origin.y = DEFAULT_SPACE_IMG_TEXT;
     }
@@ -114,7 +97,7 @@
             [self removeFromSuperview];
         }];
     }else{
-//        self.frame = frame;
+        //        self.frame = frame;
         [self removeFromSuperview];
     }
 }

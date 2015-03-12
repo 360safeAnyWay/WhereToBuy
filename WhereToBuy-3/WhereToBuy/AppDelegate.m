@@ -75,7 +75,7 @@
              // Required
              categories:nil];
         }
-    [APService setAlias:@"wanghaichun" callbackSelector:nil object:nil];
+    [APService setAlias:@"yangwenjun" callbackSelector:nil object:nil];
     [APService setupWithOption:launchOptions];
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
@@ -150,7 +150,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     NSString *customizeField1 = [userInfo valueForKey:@"customizeField1"]; //自定义参数，key是自己定义的
     NSLog(@"content =[%@], badge=[%ld], sound=[%@], customize field  =[%@]",content,(long)badge,sound,customizeField1);
     [APService handleRemoteNotification:userInfo];
-    [LeafNotification showInController:self.window.rootViewController withText:content type:LeafNotificationTypeSuccess];
+    [LeafNotification showInController:self.window.rootViewController withText:content type:LeafNotificationTypeWarrning];
     completionHandler(UIBackgroundFetchResultNewData);
 }
 
