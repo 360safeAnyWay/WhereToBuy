@@ -1,4 +1,6 @@
 #import "LeafNotification.h"
+#import "PeronTipsViewController.h"
+
 #define DEFAULT_EDGE 24.0f
 #define DEFAULT_SPACE_IMG_TEXT 22.0f
 #define DEFAULT_RATE_WIDTH 0.8f
@@ -52,6 +54,12 @@
         self.flagImageView.image = [UIImage imageNamed:@"notification_warring"];
         [self.textLabel sizeToFit];
         CGSize size = self.textLabel.bounds.size;
+        
+        UIButton *pushBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [pushBtn setFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+        [pushBtn addTarget:self action:@selector(pushMyTips) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:pushBtn];
+        
         if(size.width>self.bounds.size.width-DEFAULT_EDGE-2*DEFAULT_SPACE_IMG_TEXT){
             self.flagImageView.center = CGPointMake(DEFAULT_EDGE/2+DEFAULT_SPACE_IMG_TEXT, DEFAULT_HEIGHT/2+DEFAULT_SPACE_IMG_TEXT/2 - 10);
         }else{
@@ -64,6 +72,13 @@
     }
     return self;
 }
+
+- (void)pushMyTips
+{
+    PeronTipsViewController *myTips = [[PeronTipsViewController alloc] init];
+    [self.controller presentViewController:myTips animated:YES completion:nil];
+}
+
 -(void)showWithAnimation:(BOOL)animation{
     CGRect frame = self.frame;
     if([self.controller.parentViewController isKindOfClass:[UINavigationController class]] && !self.controller.navigationController.navigationBar.isHidden){

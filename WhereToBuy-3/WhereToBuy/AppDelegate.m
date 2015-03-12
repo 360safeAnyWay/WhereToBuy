@@ -75,7 +75,7 @@
              // Required
              categories:nil];
         }
-    [APService setAlias:@"yangwenjun" callbackSelector:nil object:nil];
+    [APService setAlias:@"yangwenjun1" callbackSelector:nil object:nil];
     [APService setupWithOption:launchOptions];
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];

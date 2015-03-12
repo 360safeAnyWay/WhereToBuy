@@ -110,6 +110,22 @@ const int MaxCount4 = 5;
 // 67 34.5
 - (void) addUI
 {
+    UIView *navView = [[UIView alloc] initWithFrame:CGRectMake(0, 22, self.view.frame.size.width, 43)];
+    [navView setBackgroundColor:[UIColor whiteColor]];
+    [self.view addSubview:navView];
+    UIButton *itemBtn4 = [[UIButton alloc] initWithFrame:CGRectMake(17, 5, 11, 18)];
+    [itemBtn4 addTarget:self action:@selector(modalBack) forControlEvents:UIControlEventTouchUpInside];
+    [itemBtn4 setBackgroundImage:[UIImage imageNamed:@"leftBack.png"] forState:UIControlStateNormal];
+    [navView addSubview:itemBtn4];
+    
+    UILabel *myTipsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, 43)];
+    [myTipsLabel setTextAlignment:NSTextAlignmentCenter];
+    [myTipsLabel setFont:[UIFont systemFontOfSize:18]];
+    [myTipsLabel setTextColor:[UIColor blackColor]];
+    [myTipsLabel setText:@"我的提醒"];
+    [myTipsLabel setCenter:CGPointMake(self.view.center.x, myTipsLabel.center.y)];
+    [navView addSubview:myTipsLabel];
+    
     //显示内容得tableView(0, 99, self.view.frame.size.width, 425)
     UITableView *table = [[UITableView alloc] initWithFrame:CGRectMake(0, 65, self.view.frame.size.width, self.view.frame.size.height - 65) style:UITableViewStylePlain];
     table.delegate = self;
@@ -122,6 +138,12 @@ const int MaxCount4 = 5;
     self.tableView.backgroundView = nil;
     self.tableView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:table];
+}
+
+//模态试图返回
+- (void)modalBack
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark -- delegate & dataSource
