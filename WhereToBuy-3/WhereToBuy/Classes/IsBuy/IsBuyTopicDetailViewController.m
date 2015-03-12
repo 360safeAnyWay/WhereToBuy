@@ -31,11 +31,11 @@
 
 - (void)viewDidLoad
 {
-    _reviewArray = [[NSMutableArray alloc]initWithObjects:@"提莫     回复 @鸟鸟鸟 提莫露脸",@"德莱文  回复 @提莫 这不是提莫吗?",@"盲僧     回复 @德莱文 团战可以输提莫必须S团战可以输提莫必须S为什么提莫可以致盲盲人", nil];
+    _reviewArray = [[NSMutableArray alloc]initWithObjects:@"提莫     回复 @鸟鸟鸟 提莫露脸",@"德莱文  回复 @提莫 这不是提莫吗?",@"盲僧     回复 @德莱文 团战可以输提莫必须S团战可以输提莫必须S为什么提莫", nil];
     for (NSInteger i = 0; i <3; i++)
     {
         NSString * str = [_reviewArray objectAtIndex:i];
-        CGRect Rrect = [self cellHight:str Size:CGSizeMake(0, 0)];
+        CGRect Rrect = [self cellHight:str Size:CGSizeMake(210, 0)];
         CGFloat Sheight  = Rrect.size.height;
         _Sheight =_Sheight+Sheight;
     }
@@ -241,7 +241,6 @@
     }else{
         _infoStr     =  @"为德玛西亚的房价";
         Inforect = [self  cellHight:_infoStr Size:CGSizeMake(210, 0)];
-        //NSLog(@"%f",200+Inforect.size.height+_Sheight);
         return 200+Inforect.size.height+_Sheight;
 
     }
