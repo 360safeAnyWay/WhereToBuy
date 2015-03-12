@@ -64,12 +64,12 @@ const int MaxCount = 5;
 
 - (void)beginPullDownRefreshing {
     NSLog(@"下啦刷新");
-    [self performSelector:@selector(endRefresh) withObject:nil afterDelay:3];
+    [self performSelector:@selector(endRefresh) withObject:nil afterDelay:1];
 }
 - (void)beginPullUpLoading
 {
     NSLog(@"上啦加载更多");
-    [self performSelector:@selector(endLoadMore) withObject:nil afterDelay:3];
+    [self performSelector:@selector(endLoadMore) withObject:nil afterDelay:1];
 }
 
 //是显示更多

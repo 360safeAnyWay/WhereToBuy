@@ -268,6 +268,7 @@
         if (BCell == nil)
         {
             BCell = [[IsBuyTopBCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BCell"];
+            [BCell setSelectionStyle:UITableViewCellSelectionStyleNone];
         }
     BCell.LCLabel.text = [NSString stringWithFormat:@"%ld楼",(long)[indexPath row]];
     

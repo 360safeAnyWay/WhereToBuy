@@ -11,6 +11,7 @@
 		5974FD2B1AA9F52B00B2F306 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5974FD2A1AA9F52B00B2F306 /* Default-568h@2x.png */; };
 		597CC0301AB12F750026DA64 /* MoreReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 597CC02F1AB12F750026DA64 /* MoreReplyViewController.m */; };
 		597CC0321AB15C520026DA64 /* 我发表的主题.png in Resources */ = {isa = PBXBuildFile; fileRef = 597CC0311AB15C520026DA64 /* 我发表的主题.png */; };
+		597CC0391AB18F6D0026DA64 /* YcKeyBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 597CC0381AB18F6D0026DA64 /* YcKeyBoardView.m */; };
 		597D3B981AAE7E2D003F3871 /* gogogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 597D3B971AAE7E2D003F3871 /* gogogo.png */; };
 		597D3B9B1AAE89B9003F3871 /* PointLike.m in Sources */ = {isa = PBXBuildFile; fileRef = 597D3B9A1AAE89B9003F3871 /* PointLike.m */; };
 		597D3B9F1AAE9AB8003F3871 /* black.png in Resources */ = {isa = PBXBuildFile; fileRef = 597D3B9D1AAE9AB8003F3871 /* black.png */; };
@@ -287,6 +288,8 @@
 		597CC02E1AB12F750026DA64 /* MoreReplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreReplyViewController.h; sourceTree = "<group>"; };
 		597CC02F1AB12F750026DA64 /* MoreReplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreReplyViewController.m; sourceTree = "<group>"; };
 		597CC0311AB15C520026DA64 /* 我发表的主题.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我发表的主题.png"; sourceTree = "<group>"; };
+		597CC0371AB18F6D0026DA64 /* YcKeyBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YcKeyBoardView.h; sourceTree = "<group>"; };
+		597CC0381AB18F6D0026DA64 /* YcKeyBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YcKeyBoardView.m; sourceTree = "<group>"; };
 		597D3B971AAE7E2D003F3871 /* gogogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gogogo.png; sourceTree = "<group>"; };
 		597D3B991AAE89B9003F3871 /* PointLike.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointLike.h; sourceTree = "<group>"; };
 		597D3B9A1AAE89B9003F3871 /* PointLike.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointLike.m; sourceTree = "<group>"; };
@@ -1034,6 +1037,8 @@
 				932B2F631AA16A4B00BBD25E /* AnimationView.h */,
 				932B2F641AA16A4B00BBD25E /* AnimationView.m */,
 				9377D39E1A71E5BD0056B255 /* GTCommontHeader.h */,
+				597CC0371AB18F6D0026DA64 /* YcKeyBoardView.h */,
+				597CC0381AB18F6D0026DA64 /* YcKeyBoardView.m */,
 				9329A6E61AA2EDED005B7D70 /* PinYin */,
 				930A56CF1A9D9393005F86B3 /* NYSliderPopover */,
 			);
@@ -1680,6 +1685,7 @@
 				934FD0DE1A88A94800992BA6 /* VipEvaluteViewController.m in Sources */,
 				93A8B0731A64DE4E006D6A74 /* SelectCityViewController.m in Sources */,
 				F8AF54FA1AAAE41D0029435B /* BuilddingDetailViewController.m in Sources */,
+				597CC0391AB18F6D0026DA64 /* YcKeyBoardView.m in Sources */,
 				597CC0301AB12F750026DA64 /* MoreReplyViewController.m in Sources */,
 				F85905B61AB170110026B720 /* UserEvaluteViewCell.m in Sources */,
 				9337B9831A591982003A0884 /* NSString+WJ.m in Sources */,

@@ -5,6 +5,7 @@
 //  Created by MAXMFJ on 15/3/12.
 //  Copyright (c) 2015年 JingMo. All rights reserved.
 //
+#define kWinSize [UIScreen mainScreen].bounds.size
 
 #import "MoreReplyViewController.h"
 
@@ -16,6 +17,7 @@
 {
     NSString * _dataStr;
     CGFloat  _Porigin;
+    NSString * _flotStr;
 }
 - (instancetype)initWithstr:(NSString *)str WithFlot:(CGFloat)PFlot number:(NSString *)number;
 {
@@ -24,6 +26,7 @@
         _dataStr = str;
         _Porigin = PFlot;
         _LcStr   = number;
+        _dataArray = [[NSMutableArray alloc]initWithObjects:@"提莫",@" 回复 ",@"@鸡鸡鸡 :",@" 提莫露脸是大神大神大神大神的大神大神大神大神的是大神大神大神大神的大神大神大神大神的是大神大神大神大神的大神大神大神大神的是大神大神大神大神的大神大神大神大神的是大神大神大神大神的大神大神大神大神的是大神大神大神大神的大神大神大神大神的", nil];
     }
     return self;
 }
@@ -73,8 +76,21 @@ self.view.backgroundColor = [UIColor whiteColor];
     if (cell == nil)
     {
         cell= [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+
     }
+    cell.textLabel.attributedText  = [Tools textArr:_dataArray andColor:[UIColor orangeColor] colorTextIndex:2];
+    cell.textLabel.numberOfLines = 0;
+    cell.textLabel.font = [UIFont systemFontOfSize:14];
+    cell.textLabel.lineBreakMode =NSLineBreakByWordWrapping;
     return cell;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
+{
+
+    NSString * str = [[Tools textArr:_dataArray andColor:[UIColor orangeColor] colorTextIndex:2]string];
+    CGRect rect = [self cellHight:str Size:CGSizeMake(210, 0)];
+    return rect.size.height-10;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -129,10 +145,10 @@ self.view.backgroundColor = [UIColor whiteColor];
     [views addSubview:viewDown];
     UILabel * infoLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, viewDown.frame.origin.y+10, [UIScreen mainScreen].bounds.size.width, _Porigin)];
     infoLabel.text = _dataStr;
-    infoLabel.font = [UIFont systemFontOfSize:13];
+    infoLabel.font = [UIFont systemFontOfSize:15];
     infoLabel.textColor = [UIColor darkGrayColor];
     [views addSubview:infoLabel];
-    UIView *viewLDown = [[UIView alloc] initWithFrame:CGRectMake(0,views.frame.size.height-1, [UIScreen mainScreen].applicationFrame.size.width, 1)];
+    UIView *viewLDown = [[UIView alloc] initWithFrame:CGRectMake(0,views.frame.size.height-5, [UIScreen mainScreen].applicationFrame.size.width, 1)];
     [viewLDown setBackgroundColor:[Tools colorWithRed:236 angGreen:236 andBlue:236]];
     [views addSubview:viewLDown];
     UILabel * _LCLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, viewLDown.frame.origin.y-25, 80, 25)];
@@ -144,8 +160,63 @@ self.view.backgroundColor = [UIColor whiteColor];
 }
 -(void)PerFormKey
 {
-    NSLog(@"弹出键盘");
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardHide:) name:UIKeyboardWillHideNotification object:nil];
+    if(self.key==nil){
+        self.key=[[YcKeyBoardView alloc]initWithFrame:CGRectMake(0, kWinSize.height-44, kWinSize.width, 44)];
+    }
+    self.key.delegate=self;
+    [self.key.textView becomeFirstResponder];
+    self.key.textView.returnKeyType=UIReturnKeySend;
+    [self.view addSubview:self.key];
+
 }
+- (void)resetContent:(UILabel *)lab{
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:lab.text];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.alignment = NSTextAlignmentLeft;
+    paragraphStyle.maximumLineHeight = 60;  //最大的行高
+    paragraphStyle.lineSpacing = 1.5;  //行自定义行高度
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [lab.text length])];
+    lab.attributedText = attributedString;
+    [lab sizeToFit];
+}
+-(CGRect)cellHight:(NSString *)cellText Size:(CGSize)size
+{
+    CGRect rect = [cellText boundingRectWithSize:size options:
+                   NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil];
+    return rect;
+}
+#pragma mark- 评论键盘
+-(void)keyboardShow:(NSNotification *)note
+{
+    CGRect keyBoardRect=[note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGFloat deltaY=keyBoardRect.size.height;
+    self.keyBoardHeight=deltaY;
+    [UIView animateWithDuration:[note.userInfo[UIKeyboardAnimationDurationUserInfoKey] floatValue] animations:^{
+        
+        self.key.transform=CGAffineTransformMakeTranslation(0, -deltaY);
+    }];
+}
+-(void)keyboardHide:(NSNotification *)note
+{
+    [UIView animateWithDuration:[note.userInfo[UIKeyboardAnimationDurationUserInfoKey] floatValue] animations:^{
+        
+        self.key.transform=CGAffineTransformIdentity;
+    } completion:^(BOOL finished) {
+        
+        self.key.textView.text=@"";
+        [self.key removeFromSuperview];
+    }];
+    
+}
+-(void)keyBoardViewHide:(YcKeyBoardView *)keyBoardView textView:(UITextView *)contentView
+{
+    [contentView resignFirstResponder];
+    //接口请求
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

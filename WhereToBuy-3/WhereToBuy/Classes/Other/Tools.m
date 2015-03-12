@@ -123,7 +123,7 @@
 }
 
 //返回一个复文本
-+(NSMutableAttributedString *)textArr:(NSArray *)arr andColor:(UIColor *)color colorTextIndex:(NSInteger) index
++(NSMutableAttributedString *)textArr:(NSMutableArray *)arr andColor:(UIColor *)color colorTextIndex:(NSInteger) index
 {
     NSInteger length = arr.count;
     NSMutableString *str1 = [[NSMutableString alloc] initWithCapacity:100];
@@ -146,9 +146,14 @@
         [str addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(0, locate)];
     }
     [str addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(locate, size)];
-    if ((locate + size) < str2.length) {//如果设置的不是最后一个，就设置最后面的为黑色
-        [str addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(locate + size, str1.length - locate - size)];
+    if ((locate + size) < str1.length) {//如果设置的不是最后一个，就设置最后面的为黑色
+        [str addAttribute:NSForegroundColorAttributeName value:[self colorWithRed:100 angGreen:100 andBlue:100] range:NSMakeRange(locate + size, str1.length - locate - size)];
     }
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.alignment = NSTextAlignmentLeft;
+    paragraphStyle.maximumLineHeight = 60;  //最大的行高
+    paragraphStyle.lineSpacing = 2;  //行自定义行高度
+    [str addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [str length])];
     return str;
 }
 
