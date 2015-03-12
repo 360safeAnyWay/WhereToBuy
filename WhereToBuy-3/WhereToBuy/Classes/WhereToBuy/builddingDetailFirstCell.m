@@ -9,6 +9,10 @@
 #import "builddingDetailFirstCell.h"
 
 @implementation builddingDetailFirstCell
+//tag＝1 售价label     2  面积
+//    3  单价          4  装修
+//    5  户型          6  房型
+//    7  地址          8  备注
 
 - (void)awakeFromNib {
     // Initialization code

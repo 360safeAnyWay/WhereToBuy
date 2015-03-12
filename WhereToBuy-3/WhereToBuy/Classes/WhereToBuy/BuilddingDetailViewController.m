@@ -10,6 +10,7 @@
 #import "CLLRefreshHeadController.h"
 #import "Tools.h"
 #import "VipEvaluteCell.h"
+#import "builddingDetailFirstCell.h"
 
 const int MaxCount7 = 5;
 
@@ -22,7 +23,6 @@ const int MaxCount7 = 5;
     UIScrollView *_scroll;
     UIView *_segmentView;
 }
-@property (nonatomic,strong)CLLRefreshHeadController *refreshControll;
 @property (nonatomic, strong) NSMutableArray *dataArr;
 @property (weak, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) CLLRefreshHeadController *refreshControll2;
@@ -35,14 +35,6 @@ const int MaxCount7 = 5;
 @end
 
 @implementation BuilddingDetailViewController
-
-- (CLLRefreshHeadController *)refreshControl
-{
-    if (!_refreshControll) {
-        _refreshControll = [[CLLRefreshHeadController alloc] initWithScrollView:self.tableView viewDelegate:self];
-    }
-    return _refreshControll;
-}
 
 - (CLLRefreshHeadController *)refreshControl2
 {
@@ -96,11 +88,9 @@ const int MaxCount7 = 5;
     loadCount = 0;
     NSMutableArray *data = [[NSMutableArray alloc] initWithObjects:@"圣诞节撒的呢",@"那是你曾经开展农村",@"四川省你擦拭",@"删除MMC卡螺旋藻",@"飒飒大SD卡那是快乐的拉开",@"是你撒看见你的卡死你都看",@"萨达姆设计的",@"SD卡三季度",@"dsa9kdkfm",@"上次的事;分开拍151",@"上次的事sasa",@"上次的事sasa",@"上次的事sasa",@"上次的事sasa",@"上次的事sasa",@"上次的事sasa",@"上次的事sasa",@"上次的事sasa",@"上次的事sasa",@"上次的事sasa",@"上次的事sasa",@"上次的事sasa",@"上次的事sasa", nil];
     self.dataArr = data;
-    [self.tableView reloadData];
     [self.tableView2 reloadData];
     [self.tableView3 reloadData];
     
-    [self.refreshControll endPullDownRefreshing];
     [self.refreshControll2 endPullDownRefreshing];
     [self.refreshControll3 endPullDownRefreshing];
 }
@@ -109,11 +99,9 @@ const int MaxCount7 = 5;
     NSMutableArray *data = [[NSMutableArray alloc] initWithObjects:[NSString stringWithFormat:@"第%ld次就加载更多,共%d次",(long
 )loadCount,MaxCount7 ],@"更多1",@"更多2",@"更多3", nil];
     [self.dataArr addObjectsFromArray:data];
-    [self.tableView reloadData];
     [self.tableView2 reloadData];
     [self.tableView3 reloadData];
     
-    [self.refreshControll endPullUpLoading];
     [self.refreshControll2 endPullUpLoading];
     [self.refreshControll3 endPullUpLoading];
 }
@@ -122,9 +110,9 @@ const int MaxCount7 = 5;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.title = @"朗诗科技房";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"leftBack.png"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
     [self addUI];
-    [self refreshControl];
     [self refreshControl2];
     [self refreshControl3];
     
@@ -132,10 +120,15 @@ const int MaxCount7 = 5;
     [self.tableView reloadData];
 }
 
+//返回按钮
+- (void)back
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     NSLog(@"开始刷新");
-    [self.refreshControll startPullDownRefreshing];
 }
 
 // 67 34.5
@@ -185,7 +178,6 @@ const int MaxCount7 = 5;
     UITableView *table = [[UITableView alloc] initWithFrame:CGRectMake(0, 99, self.view.frame.size.width, 468.5) style:UITableViewStylePlain];
     table.delegate = self;
     table.dataSource = self;
-    table.rowHeight = 65;
     table.sectionHeaderHeight = 22.0f;
     table.sectionFooterHeight = 22.0f;
     table.tableHeaderView = [self BuilddingHeaderView];
@@ -318,25 +310,45 @@ const int MaxCount7 = 5;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (tableView == self.tableView) {
-//        if (indexPath.row == 0) {
-//            
-//        }else{
+        if (indexPath.row == 0) {
+            NSString *cellID = @"builddingDetailFirstCell";
+            builddingDetailFirstCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+            if (cell == nil) {
+                cell = (builddingDetailFirstCell *)[[[NSBundle mainBundle] loadNibNamed:@"builddingDetailFirstCell" owner:self options:nil] lastObject];
+                [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            }
+            return cell;
+        }else{
             NSString *cellID = @"cellID";
             VipEvaluteCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
             if (cell == nil) {
                 cell = [[VipEvaluteCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+                [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
                 [cell cellInitWithCell:_dataArr andIndex:indexPath.row];
             }
             return cell;
         }
-//    }
+    }
     return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView == self.tableView) {
+        if (indexPath.row == 0) {
+            return 275;
+        }else
+        {
+            return 65;
+        }
+    }
+    return 0;
 }
 
 //取消选中
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
 }
 
 //用于切换底部的控制条

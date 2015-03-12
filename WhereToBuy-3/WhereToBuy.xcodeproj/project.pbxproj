@@ -242,6 +242,9 @@
 		F85905AE1AB123EF0026B720 /* notification_success@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F85905AA1AB123EF0026B720 /* notification_success@2x.png */; };
 		F85905AF1AB123EF0026B720 /* notification_warring.png in Resources */ = {isa = PBXBuildFile; fileRef = F85905AB1AB123EF0026B720 /* notification_warring.png */; };
 		F85905B01AB123EF0026B720 /* notification_warring@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F85905AC1AB123EF0026B720 /* notification_warring@2x.png */; };
+		F85905B21AB16B420026B720 /* xiaomai@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F85905B11AB16B420026B720 /* xiaomai@2x.png */; };
+		F85905B61AB170110026B720 /* UserEvaluteViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F85905B41AB170110026B720 /* UserEvaluteViewCell.m */; };
+		F85905B71AB170110026B720 /* UserEvaluteViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F85905B51AB170110026B720 /* UserEvaluteViewCell.xib */; };
 		F86131111A6D291E0049FE21 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = F861310E1A6D291E0049FE21 /* Constants.m */; };
 		F86131121A6D291E0049FE21 /* KYCircleMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F86131101A6D291E0049FE21 /* KYCircleMenu.m */; };
 		F86131321A6D294B0049FE21 /* KYICircleMenuCenterButtonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = F86131221A6D294B0049FE21 /* KYICircleMenuCenterButtonBackground.png */; };
@@ -618,6 +621,10 @@
 		F85905AA1AB123EF0026B720 /* notification_success@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notification_success@2x.png"; sourceTree = "<group>"; };
 		F85905AB1AB123EF0026B720 /* notification_warring.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification_warring.png; sourceTree = "<group>"; };
 		F85905AC1AB123EF0026B720 /* notification_warring@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notification_warring@2x.png"; sourceTree = "<group>"; };
+		F85905B11AB16B420026B720 /* xiaomai@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xiaomai@2x.png"; sourceTree = "<group>"; };
+		F85905B31AB170110026B720 /* UserEvaluteViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserEvaluteViewCell.h; sourceTree = "<group>"; };
+		F85905B41AB170110026B720 /* UserEvaluteViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserEvaluteViewCell.m; sourceTree = "<group>"; };
+		F85905B51AB170110026B720 /* UserEvaluteViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserEvaluteViewCell.xib; sourceTree = "<group>"; };
 		F861310D1A6D291E0049FE21 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		F861310E1A6D291E0049FE21 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		F861310F1A6D291E0049FE21 /* KYCircleMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYCircleMenu.h; sourceTree = "<group>"; };
@@ -1120,6 +1127,9 @@
 				F8BB36351AAE827D004CD43E /* builddingDetailFirstCell.h */,
 				F8BB36361AAE827D004CD43E /* builddingDetailFirstCell.m */,
 				F8BB36371AAE827D004CD43E /* builddingDetailFirstCell.xib */,
+				F85905B31AB170110026B720 /* UserEvaluteViewCell.h */,
+				F85905B41AB170110026B720 /* UserEvaluteViewCell.m */,
+				F85905B51AB170110026B720 /* UserEvaluteViewCell.xib */,
 			);
 			path = WhereToBuy;
 			sourceTree = "<group>";
@@ -1233,6 +1243,7 @@
 		93DC782D1A5A2DE600092F2B /* WhereToBuy */ = {
 			isa = PBXGroup;
 			children = (
+				F85905B11AB16B420026B720 /* xiaomai@2x.png */,
 				930AA8791A68D05E00770125 /* searchSmall@2x.png */,
 				930AA8771A68BE6F00770125 /* selectCity@2x.png */,
 				934B68DD1A661EC500474A18 /* downQ@2x.png */,
@@ -1504,6 +1515,7 @@
 				93009FF61A7B7A14005B3085 /* say@2x.png in Resources */,
 				F86131321A6D294B0049FE21 /* KYICircleMenuCenterButtonBackground.png in Resources */,
 				93009FF21A7B72CD005B3085 /* zan_enable@2x.png in Resources */,
+				F85905B71AB170110026B720 /* UserEvaluteViewCell.xib in Resources */,
 				93A8B06C1A64CC60006D6A74 /* houseType@2x.png in Resources */,
 				93A8B06E1A64DA25006D6A74 /* searchBtn@2x.png in Resources */,
 				93A8B09A1A650F07006D6A74 /* isBuy_selected@2x.png in Resources */,
@@ -1554,6 +1566,7 @@
 				932B2F731AA1921000BBD25E /* down_highlighted@2x.png in Resources */,
 				934B68DC1A66074D00474A18 /* searchBarBack.png in Resources */,
 				597D3BA31AAEB7D3003F3871 /* begin2.png in Resources */,
+				F85905B21AB16B420026B720 /* xiaomai@2x.png in Resources */,
 				9332C2AD1A8853DF008D2DC4 /* vip2@2x.png in Resources */,
 				9332C2AC1A8853DF008D2DC4 /* vip1@2x.png in Resources */,
 				93EE20E41AA0318C007D1CD0 /* btn_close_selected@2x.png in Resources */,
@@ -1668,6 +1681,7 @@
 				93A8B0731A64DE4E006D6A74 /* SelectCityViewController.m in Sources */,
 				F8AF54FA1AAAE41D0029435B /* BuilddingDetailViewController.m in Sources */,
 				597CC0301AB12F750026DA64 /* MoreReplyViewController.m in Sources */,
+				F85905B61AB170110026B720 /* UserEvaluteViewCell.m in Sources */,
 				9337B9831A591982003A0884 /* NSString+WJ.m in Sources */,
 				9383DC271A79D74C001691BF /* WhereBuyMainVIewController.m in Sources */,
 				F89334FB1AAA06D1007005D0 /* DDMenuController.m in Sources */,
