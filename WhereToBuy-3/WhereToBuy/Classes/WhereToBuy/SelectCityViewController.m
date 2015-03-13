@@ -135,13 +135,7 @@
         {
             NSString *firstTime = [[NSUserDefaults standardUserDefaults] objectForKey:@"firstTime"];
             if (firstTime == nil) {
-                MainViewController *main = [[MainViewController alloc] initWithButtonCount:kKYCCircleMenuButtonsCount
-                                                                                                      menuSize:kKYCircleMenuSize
-                                                                                                    buttonSize:kKYCircleMenuButtonSize
-                                                                                         buttonImageNameFormat:kKYICircleMenuButtonImageNameFormat
-                                                                                              centerButtonSize:kKYCircleMenuCenterButtonSize
-                                                                                         centerButtonImageName:kKYICircleMenuCenterButton
-                                                                               centerButtonBackgroundImageName:kKYICircleMenuCenterButtonBackground];
+                MainViewController *main = [[MainViewController alloc] init];
                 // Set navigation controller as the root vc
                 [[UIApplication sharedApplication].windows[0] setRootViewController:main];
                 [[UIApplication sharedApplication].windows[0] makeKeyAndVisible];

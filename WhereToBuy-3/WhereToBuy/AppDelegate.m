@@ -39,13 +39,7 @@
     {
         
         // Circle Menu
-        MainViewController *circleMenuViewController = [[MainViewController alloc] initWithButtonCount:kKYCCircleMenuButtonsCount
-                                                                                              menuSize:kKYCircleMenuSize
-                                                                                            buttonSize:kKYCircleMenuButtonSize
-                                                                                 buttonImageNameFormat:kKYICircleMenuButtonImageNameFormat
-                                                                                      centerButtonSize:kKYCircleMenuCenterButtonSize
-                                                                                 centerButtonImageName:kKYICircleMenuCenterButton
-                                                                       centerButtonBackgroundImageName:kKYICircleMenuCenterButtonBackground];
+        MainViewController *circleMenuViewController = [[MainViewController alloc] init];
         // Set navigation controller as the root vc
         [self.window setRootViewController:circleMenuViewController];
     }
@@ -80,6 +74,42 @@
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
     [defaultCenter addObserver:self selector:@selector(networkDidReceiveMessage:) name:kJPFNetworkDidReceiveMessageNotification object:nil];
+    [UIView setAnimationDuration:0.0f];
+    //做开机启动动画
+    _imageView = [[UIImageView alloc] initWithFrame:self.window.bounds];
+    [_imageView setImage:[UIImage imageNamed:@"initAnimate.png"]];
+    [self.window addSubview:_imageView];
+    [self.window bringSubviewToFront:_imageView];
+    //logo动画
+    UIImageView *logo = [[UIImageView alloc] initWithFrame:CGRectMake(0, 220, 193, 53)];
+    [logo setImage:[UIImage imageNamed:@"initLogo.png"]];
+    [logo setCenter:CGPointMake(self.window.center.x, logo.center.y)];
+    [logo setAlpha:0.0f];
+    [_imageView addSubview:logo];
+    //那一行字
+    UIImageView *serve = [[UIImageView alloc] initWithFrame:CGRectMake(0, 568, 169, 15)];
+    [serve setImage:[UIImage imageNamed:@"initLogoName.png"]];
+    [serve setCenter:CGPointMake(self.window.center.x, serve.center.y)];
+    [_imageView addSubview:serve];
+    
+    //开始动画
+    [UIView animateWithDuration:1.0f animations:^{
+        [logo setAlpha:1.0f];
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:1.0f animations:^{
+            [serve setCenter:CGPointMake(logo.center.x, logo.center.y + logo.frame.size.height /2 + 20)];
+        } completion:^(BOOL finished) {
+            [NSThread sleepForTimeInterval:1.0f];
+            [UIView animateWithDuration:1.0f animations:^{
+                [_imageView setAlpha:0.0f];
+                [logo setAlpha:0.0f];
+                [serve setAlpha:0.0f];
+            } completion:^(BOOL finished) {
+                [_imageView removeFromSuperview];
+            }];
+        }];
+    }];
+    
     return YES;
 }
 
