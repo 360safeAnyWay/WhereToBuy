@@ -13,6 +13,8 @@
 #import "WBNavigationController.h"
 #import "IsBuyMainViewController.h"
 #import "DDMenuController.h"
+#import "FeedbackViewController.h"
+#import "MaiNaerMssViewController.h"
 
 @interface MainMoreViewController()<UITableViewDataSource, UITableViewDelegate>
 
@@ -22,7 +24,10 @@
 @end
 
 @implementation MainMoreViewController
-
+-(void)viewDidAppear:(BOOL)animated
+{
+    self.view.userInteractionEnabled = YES;
+}
 -(void)viewDidLoad
 {
     [super viewDidLoad];
@@ -103,16 +108,28 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    self.view.userInteractionEnabled = NO;
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     PeronTipsViewController *tips = [[PeronTipsViewController alloc] init];
+    MaiNaerMssViewController * mainaer = [[MaiNaerMssViewController alloc]init];
     DDMenuController *menu = self.view.window.rootViewController.childViewControllers[0];
     WBNavigationController *isBuyNav = (WBNavigationController *)menu.rootViewController;
     IsBuyMainViewController *isBuy = isBuyNav.childViewControllers[0];
+    FeedbackViewController * db = [[FeedbackViewController alloc]init];
     switch (indexPath.row) {
         case 5:
         {
-            NSLog(@"ajsldfjlasdjflasdf");
             [isBuy.navigationController pushViewController:tips animated:YES];
+        }
+            break;
+        case 10:
+        {
+            [isBuy.navigationController pushViewController:db animated:YES];
+        }
+            break;
+        case 9:
+        {
+            [isBuy.navigationController pushViewController:mainaer animated:YES];
         }
             break;
             

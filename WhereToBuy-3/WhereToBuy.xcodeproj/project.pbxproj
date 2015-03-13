@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		595C011A1AB27A3100769FE4 /* sendButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 595C01191AB27A3100769FE4 /* sendButton.png */; };
+		595C011E1AB2A85300769FE4 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 595C011D1AB2A85300769FE4 /* FeedbackViewController.m */; };
+		595C01211AB2ABCB00769FE4 /* MaiNaerMssViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 595C01201AB2ABCB00769FE4 /* MaiNaerMssViewController.m */; };
+		595C01231AB2B1FE00769FE4 /* y3关于买哪儿logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 595C01221AB2B1FE00769FE4 /* y3关于买哪儿logo.png */; };
 		595C50C31AB0308100E91511 /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 595C50C21AB0308100E91511 /* ReviewViewController.m */; };
 		5974FD2B1AA9F52B00B2F306 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5974FD2A1AA9F52B00B2F306 /* Default-568h@2x.png */; };
 		597CC0301AB12F750026DA64 /* MoreReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 597CC02F1AB12F750026DA64 /* MoreReplyViewController.m */; };
@@ -286,6 +289,11 @@
 
 /* Begin PBXFileReference section */
 		595C01191AB27A3100769FE4 /* sendButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sendButton.png; sourceTree = "<group>"; };
+		595C011C1AB2A85300769FE4 /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
+		595C011D1AB2A85300769FE4 /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
+		595C011F1AB2ABCB00769FE4 /* MaiNaerMssViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaiNaerMssViewController.h; sourceTree = "<group>"; };
+		595C01201AB2ABCB00769FE4 /* MaiNaerMssViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaiNaerMssViewController.m; sourceTree = "<group>"; };
+		595C01221AB2B1FE00769FE4 /* y3关于买哪儿logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "y3关于买哪儿logo.png"; sourceTree = "<group>"; };
 		595C50C11AB0308100E91511 /* ReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewViewController.h; sourceTree = "<group>"; };
 		595C50C21AB0308100E91511 /* ReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewViewController.m; sourceTree = "<group>"; };
 		5974FD2A1AA9F52B00B2F306 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -700,6 +708,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		595C011B1AB2937900769FE4 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				595C011C1AB2A85300769FE4 /* FeedbackViewController.h */,
+				595C011D1AB2A85300769FE4 /* FeedbackViewController.m */,
+				595C011F1AB2ABCB00769FE4 /* MaiNaerMssViewController.h */,
+				595C01201AB2ABCB00769FE4 /* MaiNaerMssViewController.m */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
 		595C50BA1AAFCEBE00E91511 /* Review */ = {
 			isa = PBXGroup;
 			children = (
@@ -801,6 +820,7 @@
 				93A697441A762E9500A9B894 /* yanzhengma@2x.png */,
 				93A6973C1A762DD700A9B894 /* aniublank_highlighted@2x.png */,
 				93A6973D1A762DD700A9B894 /* aniublank@2x.png */,
+				595C01221AB2B1FE00769FE4 /* y3关于买哪儿logo.png */,
 				930AA87C1A6902C500770125 /* logocaise@2x.png */,
 			);
 			path = Person;
@@ -1055,6 +1075,7 @@
 		9337B9321A5908D5003A0884 /* IsBuy */ = {
 			isa = PBXGroup;
 			children = (
+				595C011B1AB2937900769FE4 /* User */,
 				596D73B51AADBF18002A5215 /* IsbuyTopCell */,
 				9337B9431A590D09003A0884 /* IsBuyMainViewController.h */,
 				93B86BF71AA57F0C00A24353 /* IsBuyMainViewController.m */,
@@ -1551,6 +1572,7 @@
 				F85905B01AB123EF0026B720 /* notification_warring@2x.png in Resources */,
 				93F470F21A7789EB0012DC13 /* personBack@2x.png in Resources */,
 				93A8B0691A64C094006D6A74 /* location1@2x.png in Resources */,
+				595C01231AB2B1FE00769FE4 /* y3关于买哪儿logo.png in Resources */,
 				932B2F741AA1921000BBD25E /* up_highlighted@2x.png in Resources */,
 				93EE20E31AA0318C007D1CD0 /* btn_close_selected.png in Resources */,
 				931C917A1A639E940051496E /* rightBack@2x.png in Resources */,
@@ -1646,6 +1668,7 @@
 				93A697381A760FCC00A9B894 /* LoginViewController.m in Sources */,
 				939394B21A89C43B0039FFF3 /* PatternViewController.m in Sources */,
 				9337B9381A59093F003A0884 /* BaseViewController.m in Sources */,
+				595C011E1AB2A85300769FE4 /* FeedbackViewController.m in Sources */,
 				9337B9181A58FE61003A0884 /* AFNetworkReachabilityManager.m in Sources */,
 				9337B9201A58FE61003A0884 /* SDImageCache.m in Sources */,
 				93FCEBB81A7F17770091A448 /* CenterMainCell.m in Sources */,
@@ -1705,6 +1728,7 @@
 				9383DC271A79D74C001691BF /* WhereBuyMainVIewController.m in Sources */,
 				F89334FB1AAA06D1007005D0 /* DDMenuController.m in Sources */,
 				59DA38951AAD41B20041F71C /* IsBuyTopTableViewCell.m in Sources */,
+				595C01211AB2ABCB00769FE4 /* MaiNaerMssViewController.m in Sources */,
 				932F96F11A7F4ECF000C28B5 /* PersonTopicViewController.m in Sources */,
 				934345221A8CA7FD00E31F14 /* VipEvaluteCell.m in Sources */,
 				9337B91E1A58FE61003A0884 /* MKAnnotationView+WebCache.m in Sources */,
