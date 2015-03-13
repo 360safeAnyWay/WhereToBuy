@@ -12,6 +12,7 @@
 #import "VipEvaluteCell.h"
 #import "builddingDetailFirstCell.h"
 #import "UserEvaluteViewCell.h"
+#import "ExpertEvaluteDetailViewController.h"
 
 const int MaxCount7 = 5;
 
@@ -117,7 +118,7 @@ const int MaxCount7 = 5;
     [self refreshControl2];
     [self refreshControl3];
     
-    _dataArr = [[NSMutableArray alloc] initWithArray:@[@[@"3",@"小买吐槽:物业费比较贵，小买觉得不好"],@[@"4",@"小买吐槽:物业费比较贵，小买觉得不好"],@[@"7",@"小买吐槽:物业费比较贵，小买觉得不好"],@[@"2",@"小买吐槽:物业费比较贵，小买觉得不好"],@[@"8",@"小买吐槽:物业费比较贵，小买觉得不好"],@[@"2",@"小买吐槽:物业费比较贵，小买觉得不好"],@[@"9",@"小买吐槽:物业费比较贵，小买觉得不好"],@[@"4",@"小买吐槽:物业费比较贵，小买觉得不好"],@[@"6",@"小买吐槽:物业费比较贵，小买觉得不好"],@[@"7",@"小买吐槽:物业费比较贵，小买觉得不好"]]];
+    _dataArr = [[NSMutableArray alloc] initWithArray:@[@[@"3",@"点击查看更多专家回复"],@[@"4",@"点击查看更多专家回复"],@[@"7",@"点击查看更多专家回复"],@[@"2",@"点击查看更多专家回复"],@[@"8",@"点击查看更多专家回复"],@[@"2",@"点击查看更多专家回复"],@[@"9",@"点击查看更多专家回复"],@[@"4",@"点击查看更多专家回复"],@[@"6",@"点击查看更多专家回复"],@[@"7",@"点击查看更多专家回复"]]];
     [self.tableView reloadData];
 }
 
@@ -179,8 +180,6 @@ const int MaxCount7 = 5;
     UITableView *table = [[UITableView alloc] initWithFrame:CGRectMake(0, 99, self.view.frame.size.width, 468.5) style:UITableViewStylePlain];
     table.delegate = self;
     table.dataSource = self;
-    table.sectionHeaderHeight = 22.0f;
-    table.sectionFooterHeight = 22.0f;
     table.tableHeaderView = [self BuilddingHeaderView];
     [table setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     self.tableView = table;
@@ -193,8 +192,6 @@ const int MaxCount7 = 5;
     table2.delegate = self;
     table2.dataSource = self;
 //    table2.rowHeight = 100;
-    table2.sectionHeaderHeight = 0.0f;
-    table2.sectionFooterHeight = 0.0f;
     [table2 setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     self.tableView2 = table2;
     [self.view addSubview:table2];
@@ -203,11 +200,9 @@ const int MaxCount7 = 5;
     UITableView *table3 = [[UITableView alloc] initWithFrame:CGRectMake(self.view.frame.size.width*2, 99, self.view.frame.size.width, 468.5) style:UITableViewStylePlain];
     table3.delegate = self;
     table3.dataSource = self;
-    //    table2.rowHeight = 100;
-    table3.sectionHeaderHeight = 22.0f;
-    table3.sectionFooterHeight = 22.0f;
     [table3 setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     self.tableView3 = table3;
+    table3.tableHeaderView = [self expertHeaderView:@"该房产共有23名专家进行了点评"];
     self.tableView3.backgroundView = nil;
     self.tableView3.backgroundColor = [UIColor clearColor];
     [self.view addSubview:table3];
@@ -255,6 +250,24 @@ const int MaxCount7 = 5;
     return tableHearView;
 }
 
+//返回专家的headerView
+- (UIView *)expertHeaderView:(NSString *)str
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 150)];
+    UIImageView *image = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 120)];
+    [image setImage:[UIImage imageNamed:@"expertEvalute.png"]];
+    [view addSubview:image];
+    
+    UILabel *evalute = [[UILabel alloc] initWithFrame:CGRectMake(20, image.frame.origin.y + image.frame.size.height + 10, 200, 20)];
+    [evalute setTextAlignment:NSTextAlignmentLeft];
+    [evalute setFont:[UIFont systemFontOfSize:14]];
+    [evalute setTextColor:[UIColor lightGrayColor]];
+    [evalute setText:str];
+    [view addSubview:evalute];
+    
+    return view;
+}
+
 //点击不同得按钮，显示不同得内容
 - (void)showTopicByButton:(UIButton *)btn
 {
@@ -264,7 +277,7 @@ const int MaxCount7 = 5;
     }
     [btn setSelected:YES];
     if (btn.tag < _tag) {//向右边移动
-        [UIView animateWithDuration:0.5f animations:^{//点击待评价按钮，将已评价的table移入进来，带评价table移除出去
+        [UIView animateWithDuration:0.2f animations:^{//点击待评价按钮，将已评价的table移入进来，带评价table移除出去
             [self.tableView setCenter:CGPointMake(self.tableView.center.x + (_tag - btn.tag)*self.view.frame.size.width, self.tableView.center.y)];
             [self.tableView2 setCenter:CGPointMake(self.tableView2.center.x + (_tag - btn.tag)*self.view.frame.size.width, self.tableView2.center.y)];
             [self.tableView3 setCenter:CGPointMake(self.tableView3.center.x + (_tag - btn.tag)*self.view.frame.size.width, self.tableView3.center.y)];
@@ -277,7 +290,7 @@ const int MaxCount7 = 5;
         }];
     }else if (btn.tag > _tag)//向左边移动
     {
-        [UIView animateWithDuration:0.5f animations:^{//点击待评价按钮，将已评价的table移入进来，带评价table移除出去
+        [UIView animateWithDuration:0.2f animations:^{//点击待评价按钮，将已评价的table移入进来，带评价table移除出去
             [self.tableView setCenter:CGPointMake(self.tableView.center.x - (btn.tag - _tag)*self.view.frame.size.width, self.tableView.center.y)];
             [self.tableView2 setCenter:CGPointMake(self.tableView2.center.x - (btn.tag - _tag)*self.view.frame.size.width, self.tableView2.center.y)];
             [self.tableView3 setCenter:CGPointMake(self.tableView3.center.x - (btn.tag - _tag)*self.view.frame.size.width, self.tableView3.center.y)];
@@ -302,6 +315,9 @@ const int MaxCount7 = 5;
     if (tableView == self.tableView) {
         return 10;
     }else if (tableView == self.tableView2)
+    {
+        return 10;
+    }else if (tableView == self.tableView3)
     {
         return 10;
     }
@@ -338,6 +354,16 @@ const int MaxCount7 = 5;
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         }
         return cell;
+    }else if (tableView == self.tableView3)
+    {
+        NSString *cellID = @"cellID3";
+        VipEvaluteCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        if (cell == nil) {
+            cell = [[VipEvaluteCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            [cell cellInitWithCell:_dataArr andIndex:indexPath.row];
+        }
+        return cell;
     }
     return nil;
 }
@@ -354,6 +380,9 @@ const int MaxCount7 = 5;
     }else if (tableView == self.tableView2)
     {
         return 120;
+    }else if (tableView == self.tableView3)
+    {
+        return 65;
     }
     return 0;
 }
@@ -361,7 +390,10 @@ const int MaxCount7 = 5;
 //取消选中
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (tableView == self.tableView3) {
+        ExpertEvaluteDetailViewController *expertDetail = [[ExpertEvaluteDetailViewController alloc] init];
+        [self.navigationController pushViewController:expertDetail animated:YES];
+    }
 }
 
 //用于切换底部的控制条

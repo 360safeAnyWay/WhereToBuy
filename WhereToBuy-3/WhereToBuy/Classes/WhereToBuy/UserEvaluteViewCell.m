@@ -20,7 +20,7 @@
     [Tools setUIViewLine:[self.contentView viewWithTag:1] cornerRadius:30 with:0 color:[UIColor whiteColor]];
     [self.contentView viewWithTag:1].clipsToBounds = YES;
     NSInteger i = arc4random_uniform(100);
-    [UIView animateWithDuration:10.0f animations:^{
+    [UIView animateWithDuration:1.0f animations:^{
         [_bloodView setFrame:CGRectMake(0, 0, i, 10)];
         [_bloodView setBackgroundColor:[UIColor orangeColor]];
         NSLog(@"之后%f",_bloodView.frame.size.width);
