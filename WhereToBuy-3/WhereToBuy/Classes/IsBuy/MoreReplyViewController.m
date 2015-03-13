@@ -103,6 +103,11 @@ self.view.backgroundColor = [UIColor whiteColor];
     [self addUI:view];
     return view;
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self PerFormKey:indexPath];
+}
+#pragma mark- ADDUI
 -(void)addUI:(UIView *)views
 {
     UIButton *imageView = [[UIButton alloc] initWithFrame:CGRectMake(13, 15, 40, 40)];
@@ -123,7 +128,7 @@ self.view.backgroundColor = [UIColor whiteColor];
     [views addSubview:HFlabel];
     UIButton *  HFbtn = [UIButton buttonWithType:UIButtonTypeCustom];
     HFbtn.frame = CGRectMake([UIScreen mainScreen].bounds.size.width-75, 15, 75, 30);
-    [HFbtn addTarget:self action:@selector(PerFormKey) forControlEvents:UIControlEventTouchUpInside];
+    [HFbtn addTarget:self action:@selector(PerFormKey:) forControlEvents:UIControlEventTouchUpInside];
     [views addSubview:HFbtn];
     UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(imageView.frame.origin.x+imageView.frame.size.width+5,imageView.frame.origin.y+5 , 93, 12)];
     [nameLabel setText:@"鸟鸟鸟"];
@@ -158,12 +163,14 @@ self.view.backgroundColor = [UIColor whiteColor];
     [views addSubview:_LCLabel];
 
 }
--(void)PerFormKey
+//回复响应事件
+-(void)PerFormKey:(NSIndexPath *)indexPath
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardHide:) name:UIKeyboardWillHideNotification object:nil];
     if(self.key==nil){
-        self.key=[[YcKeyBoardView alloc]initWithFrame:CGRectMake(0, kWinSize.height-44, kWinSize.width, 44)];
+        self.key =[[YcKeyBoardView alloc]initWithFrame:CGRectMake(0, kWinSize.height-44, kWinSize.width, 44)];
+        [self.key.sendButton addTarget:self action:@selector(sendButton:) forControlEvents:UIControlEventTouchUpInside];
     }
     self.key.delegate=self;
     [self.key.textView becomeFirstResponder];
@@ -206,6 +213,7 @@ self.view.backgroundColor = [UIColor whiteColor];
         
         self.key.textView.text=@"";
         [self.key removeFromSuperview];
+        self.key = nil;
     }];
     
 }
@@ -215,7 +223,12 @@ self.view.backgroundColor = [UIColor whiteColor];
     //接口请求
     
 }
-
+-(void)sendButton:(UIButton *)btn
+{
+    [self.key removeFromSuperview];
+    self.key = nil;
+    NSLog(@"send");
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

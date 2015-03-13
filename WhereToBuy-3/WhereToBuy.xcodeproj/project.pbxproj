@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		595C011A1AB27A3100769FE4 /* sendButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 595C01191AB27A3100769FE4 /* sendButton.png */; };
 		595C50C31AB0308100E91511 /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 595C50C21AB0308100E91511 /* ReviewViewController.m */; };
 		5974FD2B1AA9F52B00B2F306 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5974FD2A1AA9F52B00B2F306 /* Default-568h@2x.png */; };
 		597CC0301AB12F750026DA64 /* MoreReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 597CC02F1AB12F750026DA64 /* MoreReplyViewController.m */; };
@@ -282,6 +283,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		595C01191AB27A3100769FE4 /* sendButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sendButton.png; sourceTree = "<group>"; };
 		595C50C11AB0308100E91511 /* ReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewViewController.h; sourceTree = "<group>"; };
 		595C50C21AB0308100E91511 /* ReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewViewController.m; sourceTree = "<group>"; };
 		5974FD2A1AA9F52B00B2F306 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -1185,6 +1187,7 @@
 		9383DC2F1A7A0C90001691BF /* IsBuy */ = {
 			isa = PBXGroup;
 			children = (
+				595C01191AB27A3100769FE4 /* sendButton.png */,
 				59C5C20E1AAED9570042382F /* Zdown.png */,
 				59C5C20F1AAED9570042382F /* Zup.png */,
 				597D3BA41AAEBC96003F3871 /* rightarrow.png */,
@@ -1467,6 +1470,7 @@
 				93009FF51A7B7A14005B3085 /* eye@2x.png in Resources */,
 				F86131331A6D294B0049FE21 /* KYICircleMenuCenterButtonBackground@2x.png in Resources */,
 				932F96EC1A7F4BB6000C28B5 /* 1dian.png in Resources */,
+				595C011A1AB27A3100769FE4 /* sendButton.png in Resources */,
 				932B2F6E1AA18C8100BBD25E /* writeTitle@2x.png in Resources */,
 				930AA87A1A68D05E00770125 /* searchSmall@2x.png in Resources */,
 				934FD0DB1A8887F600992BA6 /* yipingjia@2x.png in Resources */,

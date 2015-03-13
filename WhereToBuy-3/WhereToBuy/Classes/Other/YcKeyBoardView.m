@@ -27,16 +27,28 @@
     }
     return self;
 }
+//初始化view 创建ui
 -(void)initTextView:(CGRect)frame
 {
+    NSLog(@"%f",self.frame.origin.y);
     self.textView=[[UITextView alloc]init];
     self.textView.delegate=self;
+    self.textView.layer.cornerRadius =self.frame.size.height/2-15;
     CGFloat textX=kStartLocation*0.5;
-    self.textViewWidth=frame.size.width-2*textX;
-    self.textView.frame=CGRectMake(textX, kStartLocation*0.2,self.textViewWidth , frame.size.height-2*kStartLocation*0.2);
+    self.textViewWidth=frame.size.width-2*textX-10;
+    self.textView.frame=CGRectMake(textX, kStartLocation*0.2,self.textViewWidth -60, frame.size.height-2*kStartLocation*0.2);
     self.textView.font=[UIFont systemFontOfSize:20.0];
     [self addSubview:self.textView];
+    self.backgroundColor  = [UIColor lightGrayColor];
+    self.sendButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.sendButton.frame  = CGRectMake(self.textView.frame.size.width+20, self.textView.frame.origin.y, 65, frame.size.height-2*kStartLocation*0.2);
+    self.sendButton.layer.cornerRadius = 5;
+    self.sendButton.clipsToBounds = YES;
+    [self.sendButton setBackgroundImage:[UIImage imageNamed:@"sendButton.png"] forState:0];
+    [self addSubview:self.sendButton];
+   
 }
+//判断换行
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
     
     if ([text isEqualToString:@"\n"]){
@@ -50,12 +62,14 @@
     
     return YES;
 }
+//换行时 改变Frame的大小
 -(void)textViewDidChange:(UITextView *)textView
 {
       NSString *content=textView.text;
     CGSize contentSize=[content sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20]}];
-     // CGSize contentSize=[content sizeWithFont:[UIFont systemFontOfSize:20.0]];
-      if(contentSize.width>self.textViewWidth){
+    NSLog(@"%f",contentSize.width);
+    NSLog(@"%f",self.textViewWidth-70);
+      if(contentSize.width>self.textViewWidth-70){
           
           if(!self.isChange){
               
@@ -74,7 +88,7 @@
             }
       }
     
-    if(contentSize.width<=self.textViewWidth){
+    if(contentSize.width+70<=self.textViewWidth){
         
         if(self.reduce){
             

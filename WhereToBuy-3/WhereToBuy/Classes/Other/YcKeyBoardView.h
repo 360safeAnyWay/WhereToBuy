@@ -15,6 +15,9 @@
 @end
 
 @interface YcKeyBoardView : UIView
+//文本框赋值
 @property (nonatomic,strong) UITextView *textView;
+//发送按钮发送请求
+@property (nonatomic,strong) UIButton   *sendButton;
 @property (nonatomic,assign) id<YcKeyBoardViewDelegate> delegate;
 @end
