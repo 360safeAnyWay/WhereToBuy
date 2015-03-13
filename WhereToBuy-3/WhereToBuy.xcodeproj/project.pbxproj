@@ -11,6 +11,12 @@
 		595C011E1AB2A85300769FE4 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 595C011D1AB2A85300769FE4 /* FeedbackViewController.m */; };
 		595C01211AB2ABCB00769FE4 /* MaiNaerMssViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 595C01201AB2ABCB00769FE4 /* MaiNaerMssViewController.m */; };
 		595C01231AB2B1FE00769FE4 /* y3关于买哪儿logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 595C01221AB2B1FE00769FE4 /* y3关于买哪儿logo.png */; };
+		595C01261AB2C9A100769FE4 /* MyRemindRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 595C01251AB2C9A100769FE4 /* MyRemindRViewController.m */; };
+		595C012E1AB2CCC700769FE4 /* RemindTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 595C012C1AB2CCC700769FE4 /* RemindTableViewCell.m */; };
+		595C012F1AB2CCC700769FE4 /* RemindTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 595C012D1AB2CCC700769FE4 /* RemindTableViewCell.xib */; };
+		595C01311AB2CF3400769FE4 /* say.png in Resources */ = {isa = PBXBuildFile; fileRef = 595C01301AB2CF3400769FE4 /* say.png */; };
+		595C01351AB2E6CF00769FE4 /* ZanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 595C01331AB2E6CF00769FE4 /* ZanTableViewCell.m */; };
+		595C01361AB2E6CF00769FE4 /* ZanTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 595C01341AB2E6CF00769FE4 /* ZanTableViewCell.xib */; };
 		595C50C31AB0308100E91511 /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 595C50C21AB0308100E91511 /* ReviewViewController.m */; };
 		5974FD2B1AA9F52B00B2F306 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5974FD2A1AA9F52B00B2F306 /* Default-568h@2x.png */; };
 		597CC0301AB12F750026DA64 /* MoreReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 597CC02F1AB12F750026DA64 /* MoreReplyViewController.m */; };
@@ -297,6 +303,15 @@
 		595C011F1AB2ABCB00769FE4 /* MaiNaerMssViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaiNaerMssViewController.h; sourceTree = "<group>"; };
 		595C01201AB2ABCB00769FE4 /* MaiNaerMssViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaiNaerMssViewController.m; sourceTree = "<group>"; };
 		595C01221AB2B1FE00769FE4 /* y3关于买哪儿logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "y3关于买哪儿logo.png"; sourceTree = "<group>"; };
+		595C01241AB2C9A100769FE4 /* MyRemindRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRemindRViewController.h; sourceTree = "<group>"; };
+		595C01251AB2C9A100769FE4 /* MyRemindRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRemindRViewController.m; sourceTree = "<group>"; };
+		595C012B1AB2CCC700769FE4 /* RemindTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemindTableViewCell.h; sourceTree = "<group>"; };
+		595C012C1AB2CCC700769FE4 /* RemindTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemindTableViewCell.m; sourceTree = "<group>"; };
+		595C012D1AB2CCC700769FE4 /* RemindTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RemindTableViewCell.xib; sourceTree = "<group>"; };
+		595C01301AB2CF3400769FE4 /* say.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = say.png; sourceTree = "<group>"; };
+		595C01321AB2E6CF00769FE4 /* ZanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZanTableViewCell.h; sourceTree = "<group>"; };
+		595C01331AB2E6CF00769FE4 /* ZanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZanTableViewCell.m; sourceTree = "<group>"; };
+		595C01341AB2E6CF00769FE4 /* ZanTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZanTableViewCell.xib; sourceTree = "<group>"; };
 		595C50C11AB0308100E91511 /* ReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewViewController.h; sourceTree = "<group>"; };
 		595C50C21AB0308100E91511 /* ReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewViewController.m; sourceTree = "<group>"; };
 		5974FD2A1AA9F52B00B2F306 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -717,12 +732,28 @@
 		595C011B1AB2937900769FE4 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				595C01271AB2CBC800769FE4 /* MyReminde */,
 				595C011C1AB2A85300769FE4 /* FeedbackViewController.h */,
 				595C011D1AB2A85300769FE4 /* FeedbackViewController.m */,
 				595C011F1AB2ABCB00769FE4 /* MaiNaerMssViewController.h */,
 				595C01201AB2ABCB00769FE4 /* MaiNaerMssViewController.m */,
+				595C01241AB2C9A100769FE4 /* MyRemindRViewController.h */,
+				595C01251AB2C9A100769FE4 /* MyRemindRViewController.m */,
 			);
 			name = User;
+			sourceTree = "<group>";
+		};
+		595C01271AB2CBC800769FE4 /* MyReminde */ = {
+			isa = PBXGroup;
+			children = (
+				595C012B1AB2CCC700769FE4 /* RemindTableViewCell.h */,
+				595C012C1AB2CCC700769FE4 /* RemindTableViewCell.m */,
+				595C012D1AB2CCC700769FE4 /* RemindTableViewCell.xib */,
+				595C01321AB2E6CF00769FE4 /* ZanTableViewCell.h */,
+				595C01331AB2E6CF00769FE4 /* ZanTableViewCell.m */,
+				595C01341AB2E6CF00769FE4 /* ZanTableViewCell.xib */,
+			);
+			name = MyReminde;
 			sourceTree = "<group>";
 		};
 		595C50BA1AAFCEBE00E91511 /* Review */ = {
@@ -788,6 +819,7 @@
 		930AA87B1A69024000770125 /* Person */ = {
 			isa = PBXGroup;
 			children = (
+				595C01301AB2CF3400769FE4 /* say.png */,
 				93EE20D31AA00D4A007D1CD0 /* 1dian_green@2x.png */,
 				93EE20D41AA00D4A007D1CD0 /* 6_selected@2x.png */,
 				93EE20D51AA00D4A007D1CD0 /* 6@2x.png */,
@@ -1555,6 +1587,7 @@
 				93B86C061AA5A88700A24353 /* isBuy_6@2x.png in Resources */,
 				932F96D91A7F2754000C28B5 /* reply@2x.png in Resources */,
 				932F96E81A7F4582000C28B5 /* 2@2x.png in Resources */,
+				595C01361AB2E6CF00769FE4 /* ZanTableViewCell.xib in Resources */,
 				932DCB611AA6B29500134D5E /* mainMoreCell@2x.png in Resources */,
 				932B2F611AA15C3A00BBD25E /* down@2x.png in Resources */,
 				F8BB36391AAE827D004CD43E /* builddingDetailFirstCell.xib in Resources */,
@@ -1579,6 +1612,7 @@
 				93A8B06E1A64DA25006D6A74 /* searchBtn@2x.png in Resources */,
 				93A8B09A1A650F07006D6A74 /* isBuy_selected@2x.png in Resources */,
 				93DA090D1A6DF0BC00A26CD2 /* KYICircleMenuButton02@2x.png in Resources */,
+				595C01311AB2CF3400769FE4 /* say.png in Resources */,
 				93B86C081AA5A88700A24353 /* isBuy_2@2x.png in Resources */,
 				93A8B06A1A64C094006D6A74 /* price@2x.png in Resources */,
 				931C91661A638D1E0051496E /* navigationbar_button_background_pushed.png in Resources */,
@@ -1617,6 +1651,7 @@
 				F8AF54F71AAABDA20029435B /* SearchDetailCell.xib in Resources */,
 				934B68E01A661EC500474A18 /* up@2x.png in Resources */,
 				93B33A3C1A9F1D0400EB7F6A /* 4_selected@2x.png in Resources */,
+				595C012F1AB2CCC700769FE4 /* RemindTableViewCell.xib in Resources */,
 				93B86C0E1AA5B80E00A24353 /* mainMoreHeader@2x.png in Resources */,
 				9383DC371A7A0C9A001691BF /* searchS@2x.png in Resources */,
 				9304A8271A8DBD8A00824CF6 /* progressBack@2x.png in Resources */,
@@ -1669,6 +1704,7 @@
 				9337B9151A58FE61003A0884 /* AFHTTPRequestOperation.m in Sources */,
 				9329A6F51AA2EDED005B7D70 /* NSString+PinYin4Cocoa.m in Sources */,
 				930A56D51A9D9394005F86B3 /* NYSliderPopover.m in Sources */,
+				595C01351AB2E6CF00769FE4 /* ZanTableViewCell.m in Sources */,
 				93009FE61A7B2152005B3085 /* CLLRefreshCircleView.m in Sources */,
 				931C91721A639B130051496E /* SearchViewController.m in Sources */,
 				93C05EAA1AA2BF5100E46309 /* IsBuySearchViewController.m in Sources */,
@@ -1682,8 +1718,10 @@
 				93EF040D1A84C02000FD97B2 /* PersonIntroViewController.m in Sources */,
 				9337B9271A58FE61003A0884 /* UIButton+WebCache.m in Sources */,
 				595C50C31AB0308100E91511 /* ReviewViewController.m in Sources */,
+				595C01261AB2C9A100769FE4 /* MyRemindRViewController.m in Sources */,
 				9337B9241A58FE61003A0884 /* SDWebImageDownloaderOperation.m in Sources */,
 				93F470EA1A7764C50012DC13 /* MBProgressHUD.m in Sources */,
+				595C012E1AB2CCC700769FE4 /* RemindTableViewCell.m in Sources */,
 				F86131121A6D291E0049FE21 /* KYCircleMenu.m in Sources */,
 				93A697381A760FCC00A9B894 /* LoginViewController.m in Sources */,
 				939394B21A89C43B0039FFF3 /* PatternViewController.m in Sources */,

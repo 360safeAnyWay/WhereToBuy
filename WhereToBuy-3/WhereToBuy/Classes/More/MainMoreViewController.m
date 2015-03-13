@@ -15,6 +15,7 @@
 #import "DDMenuController.h"
 #import "FeedbackViewController.h"
 #import "MaiNaerMssViewController.h"
+#import "MyRemindRViewController.h"
 
 @interface MainMoreViewController()<UITableViewDataSource, UITableViewDelegate>
 
@@ -112,6 +113,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     PeronTipsViewController *tips = [[PeronTipsViewController alloc] init];
     MaiNaerMssViewController * mainaer = [[MaiNaerMssViewController alloc]init];
+    MyRemindRViewController * myRemind = [[MyRemindRViewController alloc]init];
     DDMenuController *menu = self.view.window.rootViewController.childViewControllers[0];
     WBNavigationController *isBuyNav = (WBNavigationController *)menu.rootViewController;
     IsBuyMainViewController *isBuy = isBuyNav.childViewControllers[0];
@@ -130,6 +132,11 @@
         case 9:
         {
             [isBuy.navigationController pushViewController:mainaer animated:YES];
+        }
+            break;
+        case 6:
+        {
+            [isBuy.navigationController pushViewController:myRemind animated:YES];
         }
             break;
             

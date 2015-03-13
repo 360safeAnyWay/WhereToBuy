@@ -67,8 +67,6 @@
 {
       NSString *content=textView.text;
     CGSize contentSize=[content sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20]}];
-    NSLog(@"%f",contentSize.width);
-    NSLog(@"%f",self.textViewWidth-70);
       if(contentSize.width>self.textViewWidth-70){
           
           if(!self.isChange){
