@@ -116,6 +116,7 @@
     MaiNaerMssViewController * mainaer = [[MaiNaerMssViewController alloc]init];
     MyRemindRViewController * myRemind = [[MyRemindRViewController alloc]init];
     FeedbackViewController * db = [[FeedbackViewController alloc]init];
+<<<<<<< HEAD
     UIViewController *controller = nil;
     DDMenuController *menu = nil;
     if (self.index == 1) {
@@ -131,6 +132,12 @@
         controller = whertBuy;
     }
     
+=======
+
+    DDMenuController *menu = self.view.window.rootViewController.childViewControllers[0];
+    WBNavigationController *isBuyNav = (WBNavigationController *)menu.rootViewController;
+    IsBuyMainViewController *isBuy = isBuyNav.childViewControllers[0];
+>>>>>>> origin/master
     switch (indexPath.row) {
         case 5:
         {
