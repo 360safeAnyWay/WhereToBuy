@@ -8,9 +8,12 @@
 
 #ifndef WhereToBuy_PrefixHeader_pch
 #define WhereToBuy_PrefixHeader_pch
+#define kWinSize [UIScreen mainScreen].bounds.size
+
 #import "Tools.h"
 #import "PointLike.h"
 #import "CLLRefreshHeadController.h"
+#import "YcKeyBoardView.h"
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #endif

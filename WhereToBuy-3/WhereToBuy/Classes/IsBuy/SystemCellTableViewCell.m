@@ -1,19 +1,17 @@
 //
-//  ZanTableViewCell.m
+//  SystemCellTableViewCell.m
 //  WhereToBuy
 //
-//  Created by MAXMFJ on 15/3/13.
+//  Created by MAXMFJ on 15/3/14.
 //  Copyright (c) 2015年 JingMo. All rights reserved.
 //
 
-#import "ZanTableViewCell.h"
+#import "SystemCellTableViewCell.h"
 
-@implementation ZanTableViewCell
+@implementation SystemCellTableViewCell
 
 - (void)awakeFromNib {
-    _ZTView.layer.cornerRadius = 10;
-    _TxButton.layer.cornerRadius = 25;
-
+    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

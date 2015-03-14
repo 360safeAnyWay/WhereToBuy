@@ -14,6 +14,7 @@
 {
        self.TxButton.layer.cornerRadius = 25;
        self.isEq.layer.cornerRadius = 10;
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -25,6 +26,7 @@
 - (IBAction)review:(id)sender
 {
     
+
 }
 - (IBAction)TXButton:(id)sender
 {

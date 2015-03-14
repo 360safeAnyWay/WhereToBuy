@@ -65,6 +65,7 @@
     //[NSHomeDirectory() stringByAppendingPathComponent:@"Library"];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
     NSString *libraryDirectory = [paths objectAtIndex:0];
+    NSLog(@"%@",libraryDirectory);
 }
 
 //获取Cache目录
@@ -78,6 +79,8 @@
 +(void)dirTmp{
     //[NSHomeDirectory() stringByAppendingPathComponent:@"tmp"];
     NSString *tmpDirectory = NSTemporaryDirectory();
+    NSLog(@"%@",tmpDirectory);
+
 }
 
 ///计算缓存文件的大小的M

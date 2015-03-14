@@ -17,6 +17,8 @@
 		595C01311AB2CF3400769FE4 /* say.png in Resources */ = {isa = PBXBuildFile; fileRef = 595C01301AB2CF3400769FE4 /* say.png */; };
 		595C01351AB2E6CF00769FE4 /* ZanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 595C01331AB2E6CF00769FE4 /* ZanTableViewCell.m */; };
 		595C01361AB2E6CF00769FE4 /* ZanTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 595C01341AB2E6CF00769FE4 /* ZanTableViewCell.xib */; };
+		595C01471AB3E67B00769FE4 /* SystemCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 595C01451AB3E67B00769FE4 /* SystemCellTableViewCell.m */; };
+		595C01481AB3E67B00769FE4 /* SystemCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 595C01461AB3E67B00769FE4 /* SystemCellTableViewCell.xib */; };
 		595C50C31AB0308100E91511 /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 595C50C21AB0308100E91511 /* ReviewViewController.m */; };
 		5974FD2B1AA9F52B00B2F306 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5974FD2A1AA9F52B00B2F306 /* Default-568h@2x.png */; };
 		597CC0301AB12F750026DA64 /* MoreReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 597CC02F1AB12F750026DA64 /* MoreReplyViewController.m */; };
@@ -312,6 +314,9 @@
 		595C01321AB2E6CF00769FE4 /* ZanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZanTableViewCell.h; sourceTree = "<group>"; };
 		595C01331AB2E6CF00769FE4 /* ZanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZanTableViewCell.m; sourceTree = "<group>"; };
 		595C01341AB2E6CF00769FE4 /* ZanTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZanTableViewCell.xib; sourceTree = "<group>"; };
+		595C01441AB3E67B00769FE4 /* SystemCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemCellTableViewCell.h; sourceTree = "<group>"; };
+		595C01451AB3E67B00769FE4 /* SystemCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemCellTableViewCell.m; sourceTree = "<group>"; };
+		595C01461AB3E67B00769FE4 /* SystemCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SystemCellTableViewCell.xib; sourceTree = "<group>"; };
 		595C50C11AB0308100E91511 /* ReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewViewController.h; sourceTree = "<group>"; };
 		595C50C21AB0308100E91511 /* ReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewViewController.m; sourceTree = "<group>"; };
 		5974FD2A1AA9F52B00B2F306 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -752,6 +757,9 @@
 				595C01321AB2E6CF00769FE4 /* ZanTableViewCell.h */,
 				595C01331AB2E6CF00769FE4 /* ZanTableViewCell.m */,
 				595C01341AB2E6CF00769FE4 /* ZanTableViewCell.xib */,
+				595C01441AB3E67B00769FE4 /* SystemCellTableViewCell.h */,
+				595C01451AB3E67B00769FE4 /* SystemCellTableViewCell.m */,
+				595C01461AB3E67B00769FE4 /* SystemCellTableViewCell.xib */,
 			);
 			name = MyReminde;
 			sourceTree = "<group>";
@@ -1532,6 +1540,7 @@
 				9329A6F81AA2EDED005B7D70 /* unicode_to_hanyu_pinyin.txt in Resources */,
 				93A697461A762E9500A9B894 /* yanzhengma@2x.png in Resources */,
 				F8A1DE291AB2BB86008474F7 /* initAnimate@2x.png in Resources */,
+				595C01481AB3E67B00769FE4 /* SystemCellTableViewCell.xib in Resources */,
 				F85905AD1AB123EF0026B720 /* notification_success.png in Resources */,
 				93F497F01A70DCBE00D58433 /* KYICircleMenuCenterButton@2x.png in Resources */,
 				938AF1631A8071F70087811E /* 3_selected@2x.png in Resources */,
@@ -1724,6 +1733,7 @@
 				595C012E1AB2CCC700769FE4 /* RemindTableViewCell.m in Sources */,
 				F86131121A6D291E0049FE21 /* KYCircleMenu.m in Sources */,
 				93A697381A760FCC00A9B894 /* LoginViewController.m in Sources */,
+				595C01471AB3E67B00769FE4 /* SystemCellTableViewCell.m in Sources */,
 				939394B21A89C43B0039FFF3 /* PatternViewController.m in Sources */,
 				9337B9381A59093F003A0884 /* BaseViewController.m in Sources */,
 				595C011E1AB2A85300769FE4 /* FeedbackViewController.m in Sources */,

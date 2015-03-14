@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyRemindRViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface MyRemindRViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,YcKeyBoardViewDelegate>
 @property (nonatomic,copy)NSString * infoStr;
 @property (nonatomic,copy)NSString * CellType;
+@property (nonatomic,strong)YcKeyBoardView *key;
+@property (nonatomic,assign) CGFloat keyBoardHeight;
+
 @end

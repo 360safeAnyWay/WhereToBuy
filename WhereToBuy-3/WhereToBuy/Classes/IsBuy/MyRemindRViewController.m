@@ -9,6 +9,8 @@
 #import "MyRemindRViewController.h"
 #import "RemindTableViewCell.h"
 #import "ZanTableViewCell.h"
+#import "SystemCellTableViewCell.h"
+#import "IsBuyTopicDetailViewController.h"
 @interface MyRemindRViewController ()
 {
     UITableView * _myTableView;
@@ -19,7 +21,11 @@
 @end
 
 @implementation MyRemindRViewController
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    [_myTableView reloadData];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"我的提醒";
@@ -57,7 +63,8 @@
     }else if ([_CellType isEqualToString:@"2"]){
         return 80;
     }else{
-        return 100;
+        
+        return 90;
     }
     
 }
@@ -69,6 +76,10 @@
     }else{
         _CellType = @"1";
     }
+    if ([indexPath row ]== 3)
+    {
+        _CellType = @"3";
+    }
     if ([_CellType isEqualToString:@"1"])
     {
         static NSString * str = @"RemindCell";
@@ -76,20 +87,24 @@
         if (cell == nil)
         {
             cell = [[[NSBundle mainBundle]loadNibNamed:@"RemindTableViewCell" owner:nil options:nil]objectAtIndex:0];
-            cell.infoLabel.text = _infoStr;
-            [self  resetContent:cell.infoLabel];
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+
             
         }
+        cell.infoLabel.text = _infoStr;
+        [self  resetContent:cell.infoLabel];
+        [cell.Review addTarget:self action:@selector(CellReview:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
 
-    }else
-//        if([_CellType isEqual:@"2"])
+    }else if([_CellType isEqual:@"2"])
         {
         static NSString * str = @"ZanCell";
         ZanTableViewCell * zcell = [tableView dequeueReusableCellWithIdentifier:str];
         if (zcell == nil)
         {
             zcell = [[[NSBundle mainBundle]loadNibNamed:@"ZanTableViewCell" owner:nil options:nil]objectAtIndex:0];
+            [zcell setSelectionStyle:UITableViewCellSelectionStyleNone];
+
         }
             if ([indexPath row] == 1)
             {
@@ -100,8 +115,32 @@
                 zcell.info.text = @"踩啦你的回复";
             }
         return zcell;
-    }
+        }else{
+            static NSString * str =@"SystemCell";
+            SystemCellTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:str];
+            if (cell == nil)
+            {
+                cell =[[[NSBundle mainBundle]loadNibNamed:@"SystemCellTableViewCell" owner:nil options:nil]objectAtIndex:0];
+                [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+
+            }
+            cell.info.text = _infoStr;
+            [cell.XButton addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
+            return cell;
+        }
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([_CellType isEqualToString:@"1"]||[_CellType isEqualToString:@"2"])
+    {
+        IsBuyTopicDetailViewController * isbuy = [[IsBuyTopicDetailViewController alloc]init];
+        [self.navigationController pushViewController:isbuy animated:YES];
+        [_myTableView reloadData];
+
+    }
+    
+}
+#pragma mark- toots
 - (void)resetContent:(UILabel *)lab{
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:lab.text];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
@@ -115,12 +154,66 @@
 -(CGRect)cellHight:(NSString *)cellText Size:(CGSize)size
 {
     CGRect rect = [cellText boundingRectWithSize:size options:
-                   NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17]} context:nil];
+                   NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil];
     return rect;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(void)CellReview:(UIButton *)btn
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardHide:) name:UIKeyboardWillHideNotification object:nil];
+    if(self.key==nil){
+        self.key =[[YcKeyBoardView alloc]initWithFrame:CGRectMake(0, kWinSize.height-44, kWinSize.width, 44)];
+        [self.key.sendButton addTarget:self action:@selector(sendButton:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    self.key.delegate=self;
+    [self.key.textView becomeFirstResponder];
+    self.key.textView.returnKeyType=UIReturnKeySend;
+    [self.view addSubview:self.key];
+}
+#warning 这里有个WEB页面+++++++++++++++++++++++++++++++++++++++++++++++
+#pragma button事件
+-(void)btnClick
+{
+    
+}
+#pragma mark- 评论键盘
+-(void)keyboardShow:(NSNotification *)note
+{
+    CGRect keyBoardRect=[note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGFloat deltaY=keyBoardRect.size.height;
+    self.keyBoardHeight=deltaY;
+    [UIView animateWithDuration:[note.userInfo[UIKeyboardAnimationDurationUserInfoKey] floatValue] animations:^{
+        
+        self.key.transform=CGAffineTransformMakeTranslation(0, -deltaY);
+    }];
+}
+-(void)keyboardHide:(NSNotification *)note
+{
+    [UIView animateWithDuration:[note.userInfo[UIKeyboardAnimationDurationUserInfoKey] floatValue] animations:^{
+        self.key.transform=CGAffineTransformIdentity;
+    } completion:^(BOOL finished) {
+        
+        self.key.textView.text=@"";
+        [self.key removeFromSuperview];
+        self.key = nil;
+    }];
+    
+}
+-(void)keyBoardViewHide:(YcKeyBoardView *)keyBoardView textView:(UITextView *)contentView
+{
+    [contentView resignFirstResponder];
+    //接口请求
+    
+}
+-(void)sendButton:(UIButton *)btn
+{
+    [self.key removeFromSuperview];
+    self.key = nil;
+    NSLog(@"send");
 }
 
 /*

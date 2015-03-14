@@ -5,7 +5,6 @@
 //  Created by MAXMFJ on 15/3/12.
 //  Copyright (c) 2015年 JingMo. All rights reserved.
 //
-#define kWinSize [UIScreen mainScreen].bounds.size
 
 #import "MoreReplyViewController.h"
 

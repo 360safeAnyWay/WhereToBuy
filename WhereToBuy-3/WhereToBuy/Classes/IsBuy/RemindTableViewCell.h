@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface RemindTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIButton *Review;
 - (IBAction)review:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *infoLabel;
 - (IBAction)TXButton:(id)sender;
