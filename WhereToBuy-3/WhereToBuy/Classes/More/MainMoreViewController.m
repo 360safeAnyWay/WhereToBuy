@@ -17,6 +17,7 @@
 #import "MaiNaerMssViewController.h"
 #import "MyRemindRViewController.h"
 #import "WhereBuyMainVIewController.h"
+#import "LikeViewController.h"
 
 @interface MainMoreViewController()<UITableViewDataSource, UITableViewDelegate>
 
@@ -116,7 +117,7 @@
     MaiNaerMssViewController * mainaer = [[MaiNaerMssViewController alloc]init];
     MyRemindRViewController * myRemind = [[MyRemindRViewController alloc]init];
     FeedbackViewController * db = [[FeedbackViewController alloc]init];
-
+    LikeViewController     * like = [[LikeViewController alloc]init];
     UIViewController *controller = nil;
     DDMenuController *menu = nil;
     if (self.index == 1) {
@@ -152,7 +153,11 @@
             [controller.navigationController pushViewController:myRemind animated:YES];
         }
             break;
-            
+        case 2:
+        {
+            [controller.navigationController pushViewController:like animated:YES];
+        }
+            break;
         default:
             break;
     }

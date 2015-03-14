@@ -7,42 +7,162 @@
 //
 
 #import "LikeViewController.h"
-
+#import "SearchDetailEvaluteCell.h"
+#import "SearchDetailCell.h"
+#import "BuilddingDetailViewController.h"
 @interface LikeViewController ()
 {
-    UITableView * _myTableView;
-
+    NSInteger loadCount;
+    NSInteger _tag;//用于标定是否
 }
+
 
 @end
 
 @implementation LikeViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    [self createTableView];
+    self.navigationItem.title = @"猜你喜欢";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"leftBack.png"] style:UIBarButtonItemStylePlain target:self action:@selector(backMain)];
+    [self addUI];
+}
 
-}
--(void)createTableView
+- (void)addUI
 {
-    _myTableView = [[UITableView alloc]initWithFrame:CGRectMake(0,0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
-    _myTableView.delegate = self;
-    _myTableView.dataSource = self;
-    _myTableView.rowHeight = UITableViewAutomaticDimension;
-    _myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.view addSubview:_myTableView];
+    NSDictionary *dic = @{@"Cell": @"MainCell",@"isAttached":@(NO)};
+    NSArray * array = @[dic,dic,dic,dic,dic,dic];
+    
+    self.dataArray = [[NSMutableArray alloc]init];
+    self.dataArray = [NSMutableArray arrayWithArray:array];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushBuilddingDetail:) name:@"pushDetail" object:nil];
+    
+    
+    
+    UITableView *table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+    table.delegate = self;
+    table.dataSource = self;
+    table.sectionHeaderHeight = 0.0f;
+    table.sectionFooterHeight = 0.0f;
+    self.tableView1 = table;
+    [self.view addSubview:table];
 }
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
+
+//返回
+- (void)backMain
 {
-    return 10;
+    [self.navigationController popViewControllerAnimated:YES];
 }
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
-//{
-//    
-//}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+//展开侧边栏
+- (void)more
+{
+    
+}
+
+#pragma mark -- delegate & dataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.dataArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    
+    if ([[self.dataArray[indexPath.row] objectForKey:@"Cell"] isEqualToString:@"MainCell"])
+    {
+        
+        static NSString *CellIdentifier = @"SearchDetailCell";
+        
+        SearchDetailCell *cell = (SearchDetailCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        if (cell == nil) {
+            cell = (SearchDetailCell *)[[[NSBundle mainBundle] loadNibNamed:@"SearchDetailCell" owner:self options:nil] lastObject];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        
+        return cell;
+        
+    }else if([[self.dataArray[indexPath.row] objectForKey:@"Cell"] isEqualToString:@"AttachedCell"]){
+        
+        static NSString *CellIdentifier = @"SearchDetailEvaluteCell";
+        
+        SearchDetailEvaluteCell *cell = (SearchDetailEvaluteCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = (SearchDetailEvaluteCell *)[[[NSBundle mainBundle] loadNibNamed:@"SearchDetailEvaluteCell" owner:self options:nil] lastObject];
+            
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        
+        return cell;
+        
+    }
+    
+    return nil;
+}
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    NSIndexPath *path = nil;
+    
+    if ([[self.dataArray[indexPath.row] objectForKey:@"Cell"] isEqualToString:@"MainCell"]) {
+        path = [NSIndexPath indexPathForItem:(indexPath.row+1) inSection:indexPath.section];
+    }else{
+        path = indexPath;
+    }
+    
+    if ([[self.dataArray[indexPath.row] objectForKey:@"isAttached"] boolValue]) {
+        // 关闭附加cell
+        NSDictionary * dic = @{@"Cell": @"MainCell",@"isAttached":@(NO)};
+        self.dataArray[(path.row-1)] = dic;
+        [self.dataArray removeObjectAtIndex:path.row];
+        
+        [self.tableView1 beginUpdates];
+        [self.tableView1 deleteRowsAtIndexPaths:@[path]  withRowAnimation:UITableViewRowAnimationMiddle];
+        [self.tableView1 endUpdates];
+        
+    }else{
+        // 打开附加cell
+        NSDictionary * dic = @{@"Cell": @"MainCell",@"isAttached":@(YES)};
+        self.dataArray[(path.row-1)] = dic;
+        NSDictionary * addDic = @{@"Cell": @"AttachedCell",@"isAttached":@(YES)};
+        [self.dataArray insertObject:addDic atIndex:path.row];
+        
+        
+        [self.tableView1 beginUpdates];
+        [self.tableView1 insertRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationMiddle];
+        [self.tableView1 endUpdates];
+        
+    }
+}
+
+- (void)pushBuilddingDetail:(NSNotification *)userInfo
+{
+    NSLog(@"%@",[userInfo object]);
+    BuilddingDetailViewController *detail = [[BuilddingDetailViewController alloc] init];
+    [self.navigationController pushViewController:detail animated:YES];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([[self.dataArray[indexPath.row] objectForKey:@"Cell"] isEqualToString:@"MainCell"])
+    {
+        return 248;
+    }else{
+        return 112;
+    }
 }
 
 /*
