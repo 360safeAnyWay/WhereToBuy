@@ -73,42 +73,42 @@
 - (void)cellInitWithCell:(NSArray *)arr andIndex:(NSInteger) row
 {
     NSArray *tempArr = arr[row];
-        if (row == 0) {
+        if (row == 1) {
             [_titleLabel setText:@"性 价 比"];
             
-        }else if(row == 1)
+        }else if(row == 2)
         {
             [_titleLabel setText:@"户      型"];
             
-        }else if (row == 2)
+        }else if (row == 3)
         {
             [_titleLabel setText:@"房屋质量"];
             
-        }else if (row == 3)
+        }else if (row == 4)
         {
             [_titleLabel setText:@"物业管理"];
             
-        }else if (row == 4)
+        }else if (row == 5)
         {
             [_titleLabel setText:@"交通地铁"];
             
-        }else if (row == 5)
+        }else if (row == 6)
         {
             [_titleLabel setText:@"周边配套"];
             
-        }else if (row == 6)
+        }else if (row == 7)
         {
             [_titleLabel setText:@"学      区"];
             
-        }else if (row == 7)
+        }else if (row == 8)
         {
             [_titleLabel setText:@"绿化景观"];
             
-        }else if (row == 8)
+        }else if (row == 9)
         {
             [_titleLabel setText:@"开发品牌"];
             
-        }else if (row == 9)
+        }else if (row == 10)
         {
             [_titleLabel setText:@"区域发展"];
             

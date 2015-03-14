@@ -24,6 +24,7 @@ const int MaxCount7 = 5;
     NSInteger _tag;//用于判定当前选中的事哪一个标签，用于控制table得移动
     UIScrollView *_scroll;
     UIView *_segmentView;
+    NSArray *_backTitleArr;//专家点评页面，进入详细页面时候返回名称
 }
 @property (nonatomic, strong) NSMutableArray *dataArr;
 @property (weak, nonatomic) UITableView *tableView;
@@ -120,6 +121,7 @@ const int MaxCount7 = 5;
     
     _dataArr = [[NSMutableArray alloc] initWithArray:@[@[@"3",@"点击查看更多专家回复"],@[@"4",@"点击查看更多专家回复"],@[@"7",@"点击查看更多专家回复"],@[@"2",@"点击查看更多专家回复"],@[@"8",@"点击查看更多专家回复"],@[@"2",@"点击查看更多专家回复"],@[@"9",@"点击查看更多专家回复"],@[@"4",@"点击查看更多专家回复"],@[@"6",@"点击查看更多专家回复"],@[@"7",@"点击查看更多专家回复"]]];
     [self.tableView reloadData];
+    _backTitleArr = @[@"性价比",@"户型",@"房屋质量",@"物业管理",@"交通地铁",@"周边配套",@"学区",@"绿化景观",@"开发品牌",@"区域发展"];
 }
 
 //返回按钮
@@ -313,13 +315,13 @@ const int MaxCount7 = 5;
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView == self.tableView) {
-        return 10;
+        return 11;
     }else if (tableView == self.tableView2)
     {
         return 10;
     }else if (tableView == self.tableView3)
     {
-        return 10;
+//        return 10;
     }
     return 0;
 }
@@ -328,12 +330,8 @@ const int MaxCount7 = 5;
 {
     if (tableView == self.tableView) {
         if (indexPath.row == 0) {
-            NSString *cellID = @"builddingDetailFirstCell";
-            builddingDetailFirstCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-            if (cell == nil) {
-                cell = (builddingDetailFirstCell *)[[[NSBundle mainBundle] loadNibNamed:@"builddingDetailFirstCell" owner:self options:nil] lastObject];
-                [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-            }
+            builddingDetailFirstCell *cell = (builddingDetailFirstCell *)[[[NSBundle mainBundle] loadNibNamed:@"builddingDetailFirstCell" owner:self options:nil] lastObject];
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             return cell;
         }else{
             NSString *cellID = @"cellID";
@@ -356,14 +354,14 @@ const int MaxCount7 = 5;
         return cell;
     }else if (tableView == self.tableView3)
     {
-        NSString *cellID = @"cellID3";
-        VipEvaluteCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-        if (cell == nil) {
-            cell = [[VipEvaluteCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-            [cell cellInitWithCell:_dataArr andIndex:indexPath.row];
-        }
-        return cell;
+//        NSString *cellID1 = @"cellID3";
+//        VipEvaluteCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID1];
+//        if (cell == nil) {
+//            cell = [[VipEvaluteCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID1];
+//            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+//            [cell cellInitWithCell:_dataArr andIndex:indexPath.row];
+//        }
+//        return cell;
     }
     return nil;
 }
@@ -392,6 +390,7 @@ const int MaxCount7 = 5;
 {
     if (tableView == self.tableView3) {
         ExpertEvaluteDetailViewController *expertDetail = [[ExpertEvaluteDetailViewController alloc] init];
+        expertDetail.name = _backTitleArr[indexPath.row];
         [self.navigationController pushViewController:expertDetail animated:YES];
     }
 }

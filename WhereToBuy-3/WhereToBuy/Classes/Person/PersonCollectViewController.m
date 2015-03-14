@@ -18,6 +18,7 @@ const NSInteger MaxCount3 = 5;
 @interface PersonCollectViewController()<UITableViewDataSource, UITableViewDelegate, CLLRefreshHeadControllerDelegate>
 {
     NSInteger loadCount;
+    UIButton *_btn;
 }
 @property (nonatomic,strong)CLLRefreshHeadController *refreshControll;
 @property (nonatomic, strong) NSMutableArray *dataArr;
@@ -170,6 +171,7 @@ const NSInteger MaxCount3 = 5;
         }else if(i == 2)
         {
             [btn setTitle:@"话题收藏" forState:UIControlStateNormal];
+            _btn = btn;
         }
         [view insertSubview:btn atIndex:0];
     }
@@ -199,6 +201,7 @@ const NSInteger MaxCount3 = 5;
     self.tableView2.backgroundView = nil;
     self.tableView2.backgroundColor = [UIColor clearColor];
     [self.view addSubview:table2];
+
 }
 
 //点击不同得按钮，显示不同得内容
@@ -232,10 +235,6 @@ const NSInteger MaxCount3 = 5;
 }
 
 #pragma mark -- delegate & dataSource
-- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -244,34 +243,23 @@ const NSInteger MaxCount3 = 5;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    NSString *cellID = @"cellID";
-//    EvaluteCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-//    if (cell == nil) {
-//        cell = [[EvaluteCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-//    }
-//    if (tableView == self.tableView2) {//如果是已验证的列表就显示已已验证图片
-//        [cell cellInitWithCell:self.dataArr2 andIndex:0];
-//    }
-//    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-//    return cell;
-    UITableViewCell *cell = nil;
         if (tableView == self.tableView) {
             NSString *cellID1 = @"cellID1";
             EvaluteCell *cell1 = [tableView dequeueReusableCellWithIdentifier:cellID1];
             if (cell1 == nil) {
                 cell1 = [[EvaluteCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID1];
-                cell = cell1;
             }
+            return cell1;
         }else if (tableView == self.tableView2)
         {
             NSString *cellID2 = @"cellID2";
             TopicCell *cell2 = [tableView dequeueReusableCellWithIdentifier:cellID2];;
             if (cell2 == nil) {
                 cell2 = [[TopicCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID2];
-                cell = cell2;
             }
+            return cell2;
         }
-    return cell;
+    return nil;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

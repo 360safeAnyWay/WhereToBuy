@@ -263,7 +263,8 @@
 		F86131121A6D291E0049FE21 /* KYCircleMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F86131101A6D291E0049FE21 /* KYCircleMenu.m */; };
 		F86131321A6D294B0049FE21 /* KYICircleMenuCenterButtonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = F86131221A6D294B0049FE21 /* KYICircleMenuCenterButtonBackground.png */; };
 		F86131331A6D294B0049FE21 /* KYICircleMenuCenterButtonBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F86131231A6D294B0049FE21 /* KYICircleMenuCenterButtonBackground@2x.png */; };
-		F8632F861AB3E82F0078ECFD /* ExpertEvaluteDetailViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F8632F851AB3E82F0078ECFD /* ExpertEvaluteDetailViewCell.m */; };
+		F8632FA01AB423360078ECFD /* ExpertDetailViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F8632F9E1AB423360078ECFD /* ExpertDetailViewCell.m */; };
+		F8632FA11AB423360078ECFD /* ExpertDetailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8632F9F1AB423360078ECFD /* ExpertDetailViewCell.xib */; };
 		F88990371AB00A6000DC9513 /* libPushSDK-1.8.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F88990361AB00A6000DC9513 /* libPushSDK-1.8.2.a */; };
 		F889903C1AB00CDA00DC9513 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F889903B1AB00CDA00DC9513 /* CFNetwork.framework */; };
 		F889903E1AB00CE700DC9513 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F889903D1AB00CE700DC9513 /* CoreFoundation.framework */; };
@@ -673,8 +674,9 @@
 		F86131101A6D291E0049FE21 /* KYCircleMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYCircleMenu.m; sourceTree = "<group>"; };
 		F86131221A6D294B0049FE21 /* KYICircleMenuCenterButtonBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KYICircleMenuCenterButtonBackground.png; sourceTree = "<group>"; };
 		F86131231A6D294B0049FE21 /* KYICircleMenuCenterButtonBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KYICircleMenuCenterButtonBackground@2x.png"; sourceTree = "<group>"; };
-		F8632F841AB3E82F0078ECFD /* ExpertEvaluteDetailViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertEvaluteDetailViewCell.h; sourceTree = "<group>"; };
-		F8632F851AB3E82F0078ECFD /* ExpertEvaluteDetailViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertEvaluteDetailViewCell.m; sourceTree = "<group>"; };
+		F8632F9D1AB423360078ECFD /* ExpertDetailViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertDetailViewCell.h; sourceTree = "<group>"; };
+		F8632F9E1AB423360078ECFD /* ExpertDetailViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertDetailViewCell.m; sourceTree = "<group>"; };
+		F8632F9F1AB423360078ECFD /* ExpertDetailViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpertDetailViewCell.xib; sourceTree = "<group>"; };
 		F88990351AB00A6000DC9513 /* APService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APService.h; sourceTree = "<group>"; };
 		F88990361AB00A6000DC9513 /* libPushSDK-1.8.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPushSDK-1.8.2.a"; sourceTree = "<group>"; };
 		F889903B1AB00CDA00DC9513 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -1220,8 +1222,9 @@
 				F85905B31AB170110026B720 /* UserEvaluteViewCell.h */,
 				F85905B41AB170110026B720 /* UserEvaluteViewCell.m */,
 				F85905B51AB170110026B720 /* UserEvaluteViewCell.xib */,
-				F8632F841AB3E82F0078ECFD /* ExpertEvaluteDetailViewCell.h */,
-				F8632F851AB3E82F0078ECFD /* ExpertEvaluteDetailViewCell.m */,
+				F8632F9D1AB423360078ECFD /* ExpertDetailViewCell.h */,
+				F8632F9E1AB423360078ECFD /* ExpertDetailViewCell.m */,
+				F8632F9F1AB423360078ECFD /* ExpertDetailViewCell.xib */,
 			);
 			path = WhereToBuy;
 			sourceTree = "<group>";
@@ -1642,6 +1645,7 @@
 				59C5C2101AAED9570042382F /* Zdown.png in Resources */,
 				93DA09111A6DF0BC00A26CD2 /* KYICircleMenuButton03@2x.png in Resources */,
 				93A6973F1A762DD700A9B894 /* aniublank@2x.png in Resources */,
+				F8632FA11AB423360078ECFD /* ExpertDetailViewCell.xib in Resources */,
 				F85905B01AB123EF0026B720 /* notification_warring@2x.png in Resources */,
 				93F470F21A7789EB0012DC13 /* personBack@2x.png in Resources */,
 				93A8B0691A64C094006D6A74 /* location1@2x.png in Resources */,
@@ -1740,7 +1744,6 @@
 				595C50C31AB0308100E91511 /* ReviewViewController.m in Sources */,
 				595C01261AB2C9A100769FE4 /* MyRemindRViewController.m in Sources */,
 				9337B9241A58FE61003A0884 /* SDWebImageDownloaderOperation.m in Sources */,
-				F8632F861AB3E82F0078ECFD /* ExpertEvaluteDetailViewCell.m in Sources */,
 				93F470EA1A7764C50012DC13 /* MBProgressHUD.m in Sources */,
 				595C012E1AB2CCC700769FE4 /* RemindTableViewCell.m in Sources */,
 				F86131121A6D291E0049FE21 /* KYCircleMenu.m in Sources */,
@@ -1789,6 +1792,7 @@
 				9337B9291A58FE61003A0884 /* UIImage+MultiFormat.m in Sources */,
 				9337B9481A590FC1003A0884 /* Dock.m in Sources */,
 				9337B91B1A58FE61003A0884 /* AFURLRequestSerialization.m in Sources */,
+				F8632FA01AB423360078ECFD /* ExpertDetailViewCell.m in Sources */,
 				9337B9261A58FE61003A0884 /* SDWebImagePrefetcher.m in Sources */,
 				F889904F1AB0408300DC9513 /* LeafNotification.m in Sources */,
 				9332C2B41A885AAE008D2DC4 /* EvaluteCell.m in Sources */,

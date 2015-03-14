@@ -10,4 +10,6 @@
 
 @interface ExpertEvaluteDetailViewController : BaseViewController
 
+@property (strong, nonatomic) NSString *name;
+
 @end

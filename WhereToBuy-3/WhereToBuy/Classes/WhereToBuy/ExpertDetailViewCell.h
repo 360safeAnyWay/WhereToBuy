@@ -1,5 +1,5 @@
 //
-//  ExpertEvaluteDetailViewCell.h
+//  ExpertDetailViewCell.h
 //  WhereToBuy
 //
 //  Created by ywj on 15-3-14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ExpertEvaluteDetailViewCell : UITableViewCell
+@interface ExpertDetailViewCell : UITableViewCell
 
 @end
