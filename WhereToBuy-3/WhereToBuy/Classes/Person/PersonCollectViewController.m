@@ -164,18 +164,62 @@ const NSInteger MaxCount3 = 5;
         [btn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
         [btn.titleLabel setTextAlignment:NSTextAlignmentCenter];
-        if (i == 1) {
-            [btn setTitle:@"楼盘收藏" forState:UIControlStateNormal];
-            btn.selected = YES;
-            btn.userInteractionEnabled = NO;
-        }else if(i == 2)
+        if (_indexPath == 7)
         {
-            [btn setTitle:@"话题收藏" forState:UIControlStateNormal];
-            _btn = btn;
+            if (i == 1) {
+                [btn setTitle:@"楼盘收藏" forState:UIControlStateNormal];
+                btn.selected = YES;
+                btn.userInteractionEnabled = NO;
+            }else if(i == 2)
+            {
+                [btn setTitle:@"话题收藏" forState:UIControlStateNormal];
+                _btn = btn;
+                [self showTopicByButton:btn];
+            }
+            [view insertSubview:btn atIndex:0];
+        }else{
+            if (i == 1) {
+                [btn setTitle:@"楼盘收藏" forState:UIControlStateNormal];
+                btn.selected = YES;
+                btn.userInteractionEnabled = NO;
+            }else if(i == 2)
+            {
+                [btn setTitle:@"话题收藏" forState:UIControlStateNormal];
+                _btn = btn;
+            }
+            [view insertSubview:btn atIndex:0];
         }
-        [view insertSubview:btn atIndex:0];
+       
     }
-    
+    if (_indexPath  == 7)
+    {
+        //显示内容得tableView(0, 99, self.view.frame.size.width, 425)
+        UITableView *table = [[UITableView alloc] initWithFrame:CGRectMake(-(self.view.frame.size.width), 99, self.view.frame.size.width, 503) style:UITableViewStylePlain];
+        table.delegate = self;
+        table.dataSource = self;
+        table.rowHeight = 100;
+        table.sectionHeaderHeight = 22.0f;
+        table.sectionFooterHeight = 22.0f;
+        [table setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+        self.tableView = table;
+        self.tableView.backgroundView = nil;
+        self.tableView.backgroundColor = [UIColor clearColor];
+        [self.view addSubview:table];
+        
+        //显示内容得tableView(0, 99, self.view.frame.size.width, 425)
+        UITableView *table2 = [[UITableView alloc] initWithFrame:CGRectMake(0, 99, self.view.frame.size.width, 503) style:UITableViewStylePlain];
+        table2.delegate = self;
+        table2.dataSource = self;
+        table2.rowHeight = 180;
+        table2.sectionHeaderHeight = 22.0f;
+        table2.sectionFooterHeight = 22.0f;
+        [table2 setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+        self.tableView2 = table2;
+        self.tableView2.backgroundView = nil;
+        self.tableView2.backgroundColor = [UIColor clearColor];
+        [self.view addSubview:table2];
+
+    }else{
     //显示内容得tableView(0, 99, self.view.frame.size.width, 425)
     UITableView *table = [[UITableView alloc] initWithFrame:CGRectMake(0, 99, self.view.frame.size.width, 503) style:UITableViewStylePlain];
     table.delegate = self;
@@ -201,6 +245,7 @@ const NSInteger MaxCount3 = 5;
     self.tableView2.backgroundView = nil;
     self.tableView2.backgroundColor = [UIColor clearColor];
     [self.view addSubview:table2];
+    }
 
 }
 

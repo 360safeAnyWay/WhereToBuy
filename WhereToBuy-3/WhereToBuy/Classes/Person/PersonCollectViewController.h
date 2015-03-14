@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface PersonCollectViewController : BaseViewController
-
+@property (nonatomic,assign)NSInteger indexPath;
 @end

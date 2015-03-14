@@ -18,6 +18,7 @@
 #import "MyRemindRViewController.h"
 #import "WhereBuyMainVIewController.h"
 #import "LikeViewController.h"
+#import "PersonCollectViewController.h"
 
 @interface MainMoreViewController()<UITableViewDataSource, UITableViewDelegate>
 
@@ -118,6 +119,7 @@
     MyRemindRViewController * myRemind = [[MyRemindRViewController alloc]init];
     FeedbackViewController * db = [[FeedbackViewController alloc]init];
     LikeViewController     * like = [[LikeViewController alloc]init];
+    PersonCollectViewController * pc = [[PersonCollectViewController alloc]init];
     UIViewController *controller = nil;
     DDMenuController *menu = nil;
     if (self.index == 1) {
@@ -156,6 +158,18 @@
         case 2:
         {
             [controller.navigationController pushViewController:like animated:YES];
+        }
+            break;
+        case 3:
+        {
+            pc.indexPath = [indexPath row];
+            [controller.navigationController pushViewController:pc animated:YES];
+        }
+            break;
+        case 7:
+        {
+            pc.indexPath = [indexPath row];
+            [controller.navigationController pushViewController:pc animated:YES];
         }
             break;
         default:
