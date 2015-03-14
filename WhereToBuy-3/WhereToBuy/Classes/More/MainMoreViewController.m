@@ -114,10 +114,11 @@
     PeronTipsViewController *tips = [[PeronTipsViewController alloc] init];
     MaiNaerMssViewController * mainaer = [[MaiNaerMssViewController alloc]init];
     MyRemindRViewController * myRemind = [[MyRemindRViewController alloc]init];
+    FeedbackViewController * db = [[FeedbackViewController alloc]init];
+
     DDMenuController *menu = self.view.window.rootViewController.childViewControllers[0];
     WBNavigationController *isBuyNav = (WBNavigationController *)menu.rootViewController;
     IsBuyMainViewController *isBuy = isBuyNav.childViewControllers[0];
-    FeedbackViewController * db = [[FeedbackViewController alloc]init];
     switch (indexPath.row) {
         case 5:
         {
