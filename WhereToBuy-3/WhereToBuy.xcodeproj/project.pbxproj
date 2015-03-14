@@ -19,6 +19,7 @@
 		595C01361AB2E6CF00769FE4 /* ZanTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 595C01341AB2E6CF00769FE4 /* ZanTableViewCell.xib */; };
 		595C01471AB3E67B00769FE4 /* SystemCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 595C01451AB3E67B00769FE4 /* SystemCellTableViewCell.m */; };
 		595C01481AB3E67B00769FE4 /* SystemCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 595C01461AB3E67B00769FE4 /* SystemCellTableViewCell.xib */; };
+		595C014B1AB4145700769FE4 /* LikeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 595C014A1AB4145700769FE4 /* LikeViewController.m */; };
 		595C50C31AB0308100E91511 /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 595C50C21AB0308100E91511 /* ReviewViewController.m */; };
 		5974FD2B1AA9F52B00B2F306 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5974FD2A1AA9F52B00B2F306 /* Default-568h@2x.png */; };
 		597CC0301AB12F750026DA64 /* MoreReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 597CC02F1AB12F750026DA64 /* MoreReplyViewController.m */; };
@@ -318,6 +319,8 @@
 		595C01441AB3E67B00769FE4 /* SystemCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemCellTableViewCell.h; sourceTree = "<group>"; };
 		595C01451AB3E67B00769FE4 /* SystemCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemCellTableViewCell.m; sourceTree = "<group>"; };
 		595C01461AB3E67B00769FE4 /* SystemCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SystemCellTableViewCell.xib; sourceTree = "<group>"; };
+		595C01491AB4145700769FE4 /* LikeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikeViewController.h; sourceTree = "<group>"; };
+		595C014A1AB4145700769FE4 /* LikeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeViewController.m; sourceTree = "<group>"; };
 		595C50C11AB0308100E91511 /* ReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewViewController.h; sourceTree = "<group>"; };
 		595C50C21AB0308100E91511 /* ReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewViewController.m; sourceTree = "<group>"; };
 		5974FD2A1AA9F52B00B2F306 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -747,6 +750,8 @@
 				595C01201AB2ABCB00769FE4 /* MaiNaerMssViewController.m */,
 				595C01241AB2C9A100769FE4 /* MyRemindRViewController.h */,
 				595C01251AB2C9A100769FE4 /* MyRemindRViewController.m */,
+				595C01491AB4145700769FE4 /* LikeViewController.h */,
+				595C014A1AB4145700769FE4 /* LikeViewController.m */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -1711,6 +1716,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9329A6F71AA2EDED005B7D70 /* PinyinHelper.m in Sources */,
+				595C014B1AB4145700769FE4 /* LikeViewController.m in Sources */,
 				9383DC2A1A79D843001691BF /* PersonMainViewController.m in Sources */,
 				93009FE71A7B2152005B3085 /* CLLRefreshFooterView.m in Sources */,
 				93EE20EC1AA06FF0007D1CD0 /* IsBuyTopicDetailViewController.m in Sources */,
