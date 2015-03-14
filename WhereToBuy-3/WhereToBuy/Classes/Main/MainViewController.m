@@ -85,6 +85,7 @@
 //    [self addChildViewController:isBuyNav];
     DDMenuController *menu1 = [[DDMenuController alloc] initWithRootViewController:isBuyNav];
     MainMoreViewController *right = [[MainMoreViewController alloc] init];
+    right.index = 1;
     [menu1 setRightViewController:right];
     [self addChildViewController:menu1];
     
@@ -93,7 +94,9 @@
         WBNavigationController *whereBuyNav = [[WBNavigationController alloc] initWithRootViewController:whereBuy];
     whereBuyNav.delegate = self;
     DDMenuController *menu2 = [[DDMenuController alloc] initWithRootViewController:whereBuyNav];
-    [menu2 setRightViewController:right];
+    MainMoreViewController *right1 = [[MainMoreViewController alloc] init];
+    right1.index = 2;
+    [menu2 setRightViewController:right1];
     [self addChildViewController:menu2];
     
     //会员中心控制器

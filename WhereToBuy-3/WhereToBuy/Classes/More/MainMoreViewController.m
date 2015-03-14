@@ -16,6 +16,7 @@
 #import "FeedbackViewController.h"
 #import "MaiNaerMssViewController.h"
 #import "MyRemindRViewController.h"
+#import "WhereBuyMainVIewController.h"
 
 @interface MainMoreViewController()<UITableViewDataSource, UITableViewDelegate>
 
@@ -114,29 +115,41 @@
     PeronTipsViewController *tips = [[PeronTipsViewController alloc] init];
     MaiNaerMssViewController * mainaer = [[MaiNaerMssViewController alloc]init];
     MyRemindRViewController * myRemind = [[MyRemindRViewController alloc]init];
-    DDMenuController *menu = self.view.window.rootViewController.childViewControllers[0];
-    WBNavigationController *isBuyNav = (WBNavigationController *)menu.rootViewController;
-    IsBuyMainViewController *isBuy = isBuyNav.childViewControllers[0];
     FeedbackViewController * db = [[FeedbackViewController alloc]init];
+    UIViewController *controller = nil;
+    DDMenuController *menu = nil;
+    if (self.index == 1) {
+        menu = self.view.window.rootViewController.childViewControllers[0];
+        WBNavigationController *isBuyNav = (WBNavigationController *)menu.rootViewController;
+        IsBuyMainViewController *isBuy = isBuyNav.childViewControllers[0];
+        controller = isBuy;
+    }else if (self.index == 2)
+    {
+        menu = self.view.window.rootViewController.childViewControllers[1];
+        WBNavigationController *whereToBuyNav = (WBNavigationController *)menu.rootViewController;
+        IsBuyMainViewController *whertBuy = whereToBuyNav.childViewControllers[1];
+        controller = whertBuy;
+    }
+    
     switch (indexPath.row) {
         case 5:
         {
-            [isBuy.navigationController pushViewController:tips animated:YES];
+            [controller.navigationController pushViewController:tips animated:YES];
         }
             break;
         case 10:
         {
-            [isBuy.navigationController pushViewController:db animated:YES];
+            [controller.navigationController pushViewController:db animated:YES];
         }
             break;
         case 9:
         {
-            [isBuy.navigationController pushViewController:mainaer animated:YES];
+            [controller.navigationController pushViewController:mainaer animated:YES];
         }
             break;
         case 6:
         {
-            [isBuy.navigationController pushViewController:myRemind animated:YES];
+            [controller.navigationController pushViewController:myRemind animated:YES];
         }
             break;
             

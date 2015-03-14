@@ -10,4 +10,6 @@
 
 @interface MainMoreViewController : BaseViewController
 
+@property (assign, nonatomic) NSInteger index;//用于判别是什么控制器
+
 @end
