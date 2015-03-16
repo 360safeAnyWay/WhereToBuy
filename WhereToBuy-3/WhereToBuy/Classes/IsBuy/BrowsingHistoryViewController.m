@@ -4,7 +4,7 @@
 //
 //  Created by MAXMFJ on 15/3/16.
 //  Copyright (c) 2015年 JingMo. All rights reserved.
-//
+//  
 
 #import "BrowsingHistoryViewController.h"
 #import "CLLRefreshHeadController.h"
@@ -101,7 +101,7 @@ const NSInteger MaxCount3 = 5;
     [super viewDidLoad];
     [self.view setBackgroundColor: [UIColor whiteColor]];
     // Do any additional setup after loading the view.
-    self.title = @"我的收藏";
+    self.title = @"历史记录";
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"leftBack.png"] style:UIBarButtonItemStyleDone target:self action:@selector(back)];
     self.navigationItem.leftBarButtonItem = item;
     
