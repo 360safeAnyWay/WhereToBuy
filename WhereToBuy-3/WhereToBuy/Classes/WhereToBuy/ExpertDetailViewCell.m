@@ -28,10 +28,4 @@
     [((UILabel *)[self.contentView viewWithTag:6]) setText:[NSString stringWithFormat:@"%ld分",(long)i]];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
 @end

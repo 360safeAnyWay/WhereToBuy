@@ -19,7 +19,7 @@
         self.titleLabel.textAlignment = NSTextAlignmentLeft;
         self.titleLabel.font = [UIFont systemFontOfSize:20];
         self.imageView.contentMode = UIViewContentModeCenter;
-        [self setBackgroundColor:[UIColor whiteColor]];
+        [self setBackgroundColor:[UIColor clearColor]];
     }
     return self;
 }

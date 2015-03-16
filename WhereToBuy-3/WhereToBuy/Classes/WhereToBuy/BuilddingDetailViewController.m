@@ -321,7 +321,7 @@ const int MaxCount7 = 5;
         return 10;
     }else if (tableView == self.tableView3)
     {
-//        return 10;
+        return 10;
     }
     return 0;
 }
@@ -354,14 +354,14 @@ const int MaxCount7 = 5;
         return cell;
     }else if (tableView == self.tableView3)
     {
-//        NSString *cellID1 = @"cellID3";
-//        VipEvaluteCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID1];
-//        if (cell == nil) {
-//            cell = [[VipEvaluteCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID1];
-//            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-//            [cell cellInitWithCell:_dataArr andIndex:indexPath.row];
-//        }
-//        return cell;
+        NSString *cellID1 = @"cellID3";
+        VipEvaluteCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID1];
+        if (cell == nil) {
+            cell = [[VipEvaluteCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID1];
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            [cell cellInitWithCell:_dataArr andIndex:indexPath.row];
+        }
+        return cell;
     }
     return nil;
 }
