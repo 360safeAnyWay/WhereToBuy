@@ -19,7 +19,7 @@
 #import "WhereBuyMainVIewController.h"
 #import "LikeViewController.h"
 #import "PersonCollectViewController.h"
-
+#import "BrowsingHistoryViewController.h"
 @interface MainMoreViewController()<UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) UITableView *table;
@@ -114,12 +114,12 @@
 {
     self.view.userInteractionEnabled = NO;
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    PeronTipsViewController *tips = [[PeronTipsViewController alloc] init];
     MaiNaerMssViewController * mainaer = [[MaiNaerMssViewController alloc]init];
     MyRemindRViewController * myRemind = [[MyRemindRViewController alloc]init];
     FeedbackViewController * db = [[FeedbackViewController alloc]init];
     LikeViewController     * like = [[LikeViewController alloc]init];
     PersonCollectViewController * pc = [[PersonCollectViewController alloc]init];
+    BrowsingHistoryViewController * bh= [[BrowsingHistoryViewController alloc]init];
     UIViewController *controller = nil;
     DDMenuController *menu = nil;
     if (self.index == 1) {
@@ -135,9 +135,16 @@
         controller = whertBuy;
     }
     switch (indexPath.row) {
+        case 1:
+        {
+            bh.indexPath = [indexPath row];
+            [controller.navigationController pushViewController:bh animated:YES];
+        }
+            break;
         case 5:
         {
-            [controller.navigationController pushViewController:tips animated:YES];
+            bh.indexPath = [indexPath row];
+            [controller.navigationController pushViewController:bh animated:YES];
         }
             break;
         case 10:

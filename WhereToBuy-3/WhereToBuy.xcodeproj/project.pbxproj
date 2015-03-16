@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5959121C1AB66743007B7854 /* BrowsingHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5959121B1AB66743007B7854 /* BrowsingHistoryViewController.m */; };
 		595C011A1AB27A3100769FE4 /* sendButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 595C01191AB27A3100769FE4 /* sendButton.png */; };
 		595C011E1AB2A85300769FE4 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 595C011D1AB2A85300769FE4 /* FeedbackViewController.m */; };
 		595C01211AB2ABCB00769FE4 /* MaiNaerMssViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 595C01201AB2ABCB00769FE4 /* MaiNaerMssViewController.m */; };
@@ -302,6 +303,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5959121A1AB66743007B7854 /* BrowsingHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowsingHistoryViewController.h; sourceTree = "<group>"; };
+		5959121B1AB66743007B7854 /* BrowsingHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowsingHistoryViewController.m; sourceTree = "<group>"; };
 		595C01191AB27A3100769FE4 /* sendButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sendButton.png; sourceTree = "<group>"; };
 		595C011C1AB2A85300769FE4 /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
 		595C011D1AB2A85300769FE4 /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
@@ -754,6 +757,8 @@
 				595C01251AB2C9A100769FE4 /* MyRemindRViewController.m */,
 				595C01491AB4145700769FE4 /* LikeViewController.h */,
 				595C014A1AB4145700769FE4 /* LikeViewController.m */,
+				5959121A1AB66743007B7854 /* BrowsingHistoryViewController.h */,
+				5959121B1AB66743007B7854 /* BrowsingHistoryViewController.m */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -1791,6 +1796,7 @@
 				9337B9281A58FE61003A0884 /* UIImage+GIF.m in Sources */,
 				9337B9291A58FE61003A0884 /* UIImage+MultiFormat.m in Sources */,
 				9337B9481A590FC1003A0884 /* Dock.m in Sources */,
+				5959121C1AB66743007B7854 /* BrowsingHistoryViewController.m in Sources */,
 				9337B91B1A58FE61003A0884 /* AFURLRequestSerialization.m in Sources */,
 				F8632FA01AB423360078ECFD /* ExpertDetailViewCell.m in Sources */,
 				9337B9261A58FE61003A0884 /* SDWebImagePrefetcher.m in Sources */,
