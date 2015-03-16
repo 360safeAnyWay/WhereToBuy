@@ -13,7 +13,7 @@
 #import "EvaluteCell.h"
 #import "TopicCell.h"
 
-const NSInteger MaxCount3 = 5;
+const NSInteger MaxCount13 = 5;
 
 @interface PersonCollectViewController()<UITableViewDataSource, UITableViewDelegate, CLLRefreshHeadControllerDelegate>
 {
@@ -73,7 +73,7 @@ const NSInteger MaxCount3 = 5;
 
 //是显示更多
 - (BOOL)hasRefreshFooterView {
-    if (self.dataArr.count > 0 && loadCount < MaxCount3) {
+    if (self.dataArr.count > 0 && loadCount < MaxCount13) {
         return YES;
     }
     return NO;
@@ -91,7 +91,7 @@ const NSInteger MaxCount3 = 5;
 }
 - (void)endLoadMore {
     loadCount ++;
-    NSMutableArray *data = [[NSMutableArray alloc] initWithObjects:[NSString stringWithFormat:@"第%ld次就加载更多,共%ld次",(long)loadCount,(long)MaxCount3 ],@"更多1",@"更多2",@"更多3", nil];
+    NSMutableArray *data = [[NSMutableArray alloc] initWithObjects:[NSString stringWithFormat:@"第%ld次就加载更多,共%ld次",(long)loadCount,(long)MaxCount13 ],@"更多1",@"更多2",@"更多3", nil];
     [self.dataArr addObjectsFromArray:data];
     [self.tableView reloadData];
     [self.tableView2 reloadData];
