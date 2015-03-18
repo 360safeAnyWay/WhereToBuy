@@ -223,6 +223,7 @@
     //添加搜索按钮,下面大的搜索按钮
     UIButton *searchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [searchBtn setFrame:GTRectMake(GTFixWidthFlaot(35), GTFixWidthFlaot(307), 250, 45)];
+    searchBtn.layer.cornerRadius = 10;
     [searchBtn setBackgroundImage:[UIImage imageNamed:@"searchBtn.png"] forState:UIControlStateNormal];
     [searchBtn setBackgroundImage:[UIImage imageNamed:@"searchBtn_selected.png"] forState:(UIControlStateHighlighted)];
     [searchBtn addTarget:self action:@selector(searchSource) forControlEvents:UIControlEventTouchUpInside];
