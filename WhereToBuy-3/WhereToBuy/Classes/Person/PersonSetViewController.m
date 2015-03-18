@@ -41,9 +41,16 @@
 
 - (void) addUI
 {
+    //添加scroView，用来支持4s的滑动，否则会进行遮盖
+    UIScrollView *scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    if (self.view.frame.size.height < 568) {
+        [scroll setContentSize:CGSizeMake(self.view.frame.size.width, self.view.frame.size.height + 30)];
+    }
+    [self.view addSubview:scroll];
+    
     //个人头像
     UIButton *imageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [imageBtn setFrame:CGRectMake(97.5, 83, 125, 125)];
+    [imageBtn setFrame:CGRectMake(97.5, 15, 125, 125)];
     [imageBtn setTitle:@"上传头像" forState:UIControlStateNormal];
     [imageBtn setTitleEdgeInsets:UIEdgeInsetsMake(70, 0, 0, 0)];
     [imageBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
@@ -52,20 +59,20 @@
     imageBtn.clipsToBounds = YES;
     [Tools setUIViewLine:imageBtn cornerRadius:125 / 2.0f with:1 color:[UIColor lightGrayColor]];
     [imageBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:@"http://f.hiphotos.baidu.com/image/pic/item/a8773912b31bb0517547fc2f357adab44aede052.jpg"] forState:UIControlStateNormal];
-    [self.view addSubview:imageBtn];
+    [scroll addSubview:imageBtn];
     
     //绑定手机标
     UILabel *phoneLabel = [[UILabel alloc] initWithFrame:CGRectMake(13, imageBtn.frame.origin.y + imageBtn.frame.size.height + 13, 70, 40)];
     [phoneLabel setText:@"绑定手机"];
     [phoneLabel setFont:[UIFont systemFontOfSize:14]];
     [phoneLabel setTextColor:[UIColor lightGrayColor]];
-    [self.view addSubview:phoneLabel];
+    [scroll addSubview:phoneLabel];
     
     //手机号码输入框
     UITextField *phoneTextField = [[UITextField alloc] initWithFrame:CGRectMake(phoneLabel.frame.origin.x + phoneLabel.frame.size.width + 10, phoneLabel.frame.origin.y, 140, 40)];
     [phoneTextField setText:@"13812345678"];
     phoneTextField.delegate = self;
-    [self.view addSubview:phoneTextField];
+    [scroll addSubview:phoneTextField];
     
     //获取验证码按钮
     UIButton *getTokenBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -74,13 +81,13 @@
     [getTokenBtn setTitleColor:[Tools colorWithRed:53 angGreen:115 andBlue:254] forState:UIControlStateNormal];
     [getTokenBtn addTarget:self action:@selector(getTokenNum) forControlEvents:UIControlEventTouchUpInside];
     getTokenBtn.tag = 40;
-    [self.view addSubview:getTokenBtn];
+    [scroll addSubview:getTokenBtn];
     
     //输入验证码的textField
     UITextField *tokenTextFiled = [[UITextField alloc] initWithFrame:CGRectMake(phoneTextField.frame.origin.x, phoneTextField.frame.origin.y + phoneTextField.frame.size.height, phoneTextField.frame.size.width, phoneTextField.frame.size.height)];
     [tokenTextFiled setPlaceholder:@"请输入验证码"];
     tokenTextFiled.delegate = self;
-    [self.view addSubview:tokenTextFiled];
+    [scroll addSubview:tokenTextFiled];
     
     //提交按钮
     UIButton *submitBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -90,13 +97,13 @@
     [submitBtn setBackgroundImage:[UIImage imageNamed:@"1dian.png"] forState:UIControlStateNormal];
     [submitBtn setBackgroundImage:[UIImage imageNamed:@"red.png"] forState:UIControlStateHighlighted];
     [submitBtn addTarget:self action:@selector(submit) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:submitBtn];
+    [scroll addSubview:submitBtn];
     
     //两个短的下划线
     for (NSInteger i = 0; i <= 1; i++) {
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(phoneTextField.frame.origin.x, phoneTextField.frame.origin.y + phoneTextField.frame.size.height + i * 40, phoneTextField.frame.size.width + getTokenBtn.frame.size.width, 1)];
         [view setBackgroundColor:[UIColor lightGrayColor]];
-        [self.view addSubview:view];
+        [scroll addSubview:view];
     }
     UITableView *table = [[UITableView alloc] initWithFrame:CGRectMake(10, tokenTextFiled.frame.origin.y + tokenTextFiled.frame.size.height - 40 + 1, 300, 280) style:UITableViewStylePlain];
     table.rowHeight = 40.0f;
@@ -104,7 +111,7 @@
     table.delegate = self;
     table.scrollEnabled = NO;
     table.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.view addSubview:table];
+    [scroll addSubview:table];
     _table = table;
 }
 
