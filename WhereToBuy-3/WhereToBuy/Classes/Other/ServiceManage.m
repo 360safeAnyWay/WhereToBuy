@@ -85,7 +85,7 @@
 {
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parmers];
     [dic setObject:@"HePd443Mnd" forKey:@"overifyname"];
-    [self requestMethod:@"GET" serviceName:@"/cpanel/index.php/buyc_interface/getCity/" parmers:dic completeBlock:^(id obj) {
+    [self requestMethod:@"GET" serviceName:@"/cpanel/index.php/buyc_interface1/getCity/" parmers:dic completeBlock:^(id obj) {
         ERROR_CODE code = ERROR_CODE_NONE;
         if (obj && obj[@"data"]) {
             code = [obj[@"code"] intValue];
@@ -99,7 +99,7 @@
 {
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parmers];
     [dic setObject:@"HePd443Mnd" forKey:@"overifyname"];
-    [self requestMethod:@"GET" serviceName:@"/cpanel/index.php/buyc_interface/getLMprice/" parmers:dic completeBlock:^(id obj) {
+    [self requestMethod:@"GET" serviceName:@"/cpanel/index.php/buyc_interface1/getLMprice/" parmers:dic completeBlock:^(id obj) {
         ERROR_CODE code = ERROR_CODE_RROR;
         if (obj && obj[@"data"]) {
             code = [obj[@"code"] intValue];
@@ -113,7 +113,7 @@
 {
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parmers];
     [dic setObject:@"HePd443Mnd" forKey:@"overifyname"];
-    [self requestMethod:@"GET" serviceName:@"/cpanel/index.php/buyc_interface/getLMarea/" parmers:dic completeBlock:^(id obj) {
+    [self requestMethod:@"GET" serviceName:@"/cpanel/index.php/buyc_interface1/getLMarea/" parmers:dic completeBlock:^(id obj) {
         ERROR_CODE code = ERROR_CODE_RROR;
         if (obj && obj[@"data"]) {
             code = [obj[@"code"] intValue];
@@ -127,7 +127,7 @@
 {
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parmers];
     [dic setObject:@"HePd443Mnd" forKey:@"overifyname"];
-    [self requestMethod:@"GET" serviceName:@"/cpanel/index.php/buyc_interface/getLMtype/" parmers:dic completeBlock:^(id obj) {
+    [self requestMethod:@"GET" serviceName:@"/cpanel/index.php/buyc_interface1/getLMtype/" parmers:dic completeBlock:^(id obj) {
         ERROR_CODE code = ERROR_CODE_RROR;
         if (obj && obj[@"data"]) {
             code = [obj[@"code"] intValue];
@@ -141,7 +141,7 @@
 {
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parmers];
     [dic setObject:@"HePd443Mnd" forKey:@"overifyname"];
-    [self requestMethod:@"GET" serviceName:@"/cpanel/index.php/buyc_interface/getDistrict/" parmers:dic completeBlock:^(id obj) {
+    [self requestMethod:@"GET" serviceName:@"/cpanel/index.php/buyc_interface1/getDistrict/" parmers:dic completeBlock:^(id obj) {
         ERROR_CODE code = ERROR_CODE_RROR;
         if (obj && obj[@"data"]) {
             code = [obj[@"code"] intValue];
@@ -155,7 +155,7 @@
 {
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parmers];
     [dic setObject:@"HePd443Mnd" forKey:@"overifyname"];
-    [self requestMethod:@"GET" serviceName:@"/cpanel/index.php/buyc_interface/listResAndSub/" parmers:dic completeBlock:^(id obj) {
+    [self requestMethod:@"GET" serviceName:@"/cpanel/index.php/buyc_interface1/listResAndSub/" parmers:dic completeBlock:^(id obj) {
         ERROR_CODE code = ERROR_CODE_RROR;
         if (obj && obj[@"data"]) {
             code = [obj[@"code"] intValue];
@@ -169,7 +169,7 @@
 {
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parmers];
     [dic setObject:@"HePd443Mnd" forKey:@"overifyname"];
-    [self requestMethod:@"POST" serviceName:@"/cpanel/index.php/buyc_interface/loginToMainaer/" parmers:dic completeBlock:^(id obj) {
+    [self requestMethod:@"POST" serviceName:@"/cpanel/index.php/buyc_interface1/loginToMainaer/" parmers:dic completeBlock:^(id obj) {
         ERROR_CODE code = ERROR_CODE_RROR;
         if (obj && obj[@"message"]) {
             code = [obj[@"code"] intValue];
@@ -183,7 +183,7 @@
 {
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parmers];
     [dic setObject:@"HePd443Mnd" forKey:@"overifyname"];
-    [self requestMethod:@"GET" serviceName:@"/cpanel/index.php/buyc_interface/getVerifyCode/" parmers:dic completeBlock:^(id obj) {
+    [self requestMethod:@"GET" serviceName:@"/cpanel/index.php/buyc_interface1/getVerifyCode/" parmers:dic completeBlock:^(id obj) {
         ERROR_CODE code = ERROR_CODE_RROR;
         if (obj && obj[@"message"]) {
             code = [obj[@"code"] intValue];
@@ -197,7 +197,7 @@
 {
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parmers];
     [dic setObject:@"HePd443Mnd" forKey:@"overifyname"];
-    [self requestMethod:@"GET" serviceName:@"/cpanel/index.php/buyc_interface/registerResUser/" parmers:dic completeBlock:^(id obj) {
+    [self requestMethod:@"GET" serviceName:@"/cpanel/index.php/buyc_interface1/registerResUser/" parmers:dic completeBlock:^(id obj) {
         ERROR_CODE code = ERROR_CODE_RROR;
         if (obj && obj[@"message"]) {
             code = [obj[@"code"] intValue];

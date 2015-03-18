@@ -253,6 +253,11 @@
 		93F497EF1A70DCBE00D58433 /* KYICircleMenuCenterButton_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93F497ED1A70DCBE00D58433 /* KYICircleMenuCenterButton_highlighted@2x.png */; };
 		93F497F01A70DCBE00D58433 /* KYICircleMenuCenterButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93F497EE1A70DCBE00D58433 /* KYICircleMenuCenterButton@2x.png */; };
 		93FCEBB81A7F17770091A448 /* CenterMainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93FCEBB71A7F17770091A448 /* CenterMainCell.m */; };
+		F81545AD1AB921CF009CF568 /* showExpertEva@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F81545AC1AB921CF009CF568 /* showExpertEva@2x.png */; };
+		F81545AF1AB92218009CF568 /* serchPic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F81545AE1AB92218009CF568 /* serchPic@2x.png */; };
+		F81545B31AB92299009CF568 /* whereBuy1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F81545B01AB92299009CF568 /* whereBuy1@2x.png */; };
+		F81545B41AB92299009CF568 /* whereBuy2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F81545B11AB92299009CF568 /* whereBuy2@2x.png */; };
+		F81545B51AB92299009CF568 /* whereBuy3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F81545B21AB92299009CF568 /* whereBuy3@2x.png */; };
 		F85905AD1AB123EF0026B720 /* notification_success.png in Resources */ = {isa = PBXBuildFile; fileRef = F85905A91AB123EF0026B720 /* notification_success.png */; };
 		F85905AE1AB123EF0026B720 /* notification_success@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F85905AA1AB123EF0026B720 /* notification_success@2x.png */; };
 		F85905AF1AB123EF0026B720 /* notification_warring.png in Resources */ = {isa = PBXBuildFile; fileRef = F85905AB1AB123EF0026B720 /* notification_warring.png */; };
@@ -663,6 +668,11 @@
 		93F497EE1A70DCBE00D58433 /* KYICircleMenuCenterButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KYICircleMenuCenterButton@2x.png"; sourceTree = "<group>"; };
 		93FCEBB61A7F17760091A448 /* CenterMainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterMainCell.h; sourceTree = "<group>"; };
 		93FCEBB71A7F17770091A448 /* CenterMainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterMainCell.m; sourceTree = "<group>"; };
+		F81545AC1AB921CF009CF568 /* showExpertEva@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "showExpertEva@2x.png"; sourceTree = "<group>"; };
+		F81545AE1AB92218009CF568 /* serchPic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "serchPic@2x.png"; sourceTree = "<group>"; };
+		F81545B01AB92299009CF568 /* whereBuy1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whereBuy1@2x.png"; sourceTree = "<group>"; };
+		F81545B11AB92299009CF568 /* whereBuy2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whereBuy2@2x.png"; sourceTree = "<group>"; };
+		F81545B21AB92299009CF568 /* whereBuy3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whereBuy3@2x.png"; sourceTree = "<group>"; };
 		F85905A91AB123EF0026B720 /* notification_success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification_success.png; sourceTree = "<group>"; };
 		F85905AA1AB123EF0026B720 /* notification_success@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notification_success@2x.png"; sourceTree = "<group>"; };
 		F85905AB1AB123EF0026B720 /* notification_warring.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification_warring.png; sourceTree = "<group>"; };
@@ -1344,6 +1354,11 @@
 		93DC782D1A5A2DE600092F2B /* WhereToBuy */ = {
 			isa = PBXGroup;
 			children = (
+				F81545B01AB92299009CF568 /* whereBuy1@2x.png */,
+				F81545B11AB92299009CF568 /* whereBuy2@2x.png */,
+				F81545B21AB92299009CF568 /* whereBuy3@2x.png */,
+				F81545AE1AB92218009CF568 /* serchPic@2x.png */,
+				F81545AC1AB921CF009CF568 /* showExpertEva@2x.png */,
 				F8A1DE201AB2803F008474F7 /* expertEvalute@2x.png */,
 				F85905B11AB16B420026B720 /* xiaomai@2x.png */,
 				930AA8791A68D05E00770125 /* searchSmall@2x.png */,
@@ -1653,8 +1668,10 @@
 				F8632FA11AB423360078ECFD /* ExpertDetailViewCell.xib in Resources */,
 				F85905B01AB123EF0026B720 /* notification_warring@2x.png in Resources */,
 				93F470F21A7789EB0012DC13 /* personBack@2x.png in Resources */,
+				F81545B41AB92299009CF568 /* whereBuy2@2x.png in Resources */,
 				93A8B0691A64C094006D6A74 /* location1@2x.png in Resources */,
 				595C01231AB2B1FE00769FE4 /* y3关于买哪儿logo.png in Resources */,
+				F81545B51AB92299009CF568 /* whereBuy3@2x.png in Resources */,
 				932B2F741AA1921000BBD25E /* up_highlighted@2x.png in Resources */,
 				93EE20E31AA0318C007D1CD0 /* btn_close_selected.png in Resources */,
 				931C917A1A639E940051496E /* rightBack@2x.png in Resources */,
@@ -1672,10 +1689,12 @@
 				93A8B09B1A650F07006D6A74 /* isBuy@2x.png in Resources */,
 				93B86C071AA5A88700A24353 /* isBuy_1@2x.png in Resources */,
 				930A56D71A9D9E1F005F86B3 /* paopao@2x.png in Resources */,
+				F81545B31AB92299009CF568 /* whereBuy1@2x.png in Resources */,
 				597D3B9F1AAE9AB8003F3871 /* black.png in Resources */,
 				93EE20E11AA0318C007D1CD0 /* btn_close_normal.png in Resources */,
 				5974FD2B1AA9F52B00B2F306 /* Default-568h@2x.png in Resources */,
 				934FD0DA1A8887F600992BA6 /* goDetail@2x.png in Resources */,
+				F81545AF1AB92218009CF568 /* serchPic@2x.png in Resources */,
 				F8AF54F71AAABDA20029435B /* SearchDetailCell.xib in Resources */,
 				934B68E01A661EC500474A18 /* up@2x.png in Resources */,
 				93B33A3C1A9F1D0400EB7F6A /* 4_selected@2x.png in Resources */,
@@ -1687,6 +1706,7 @@
 				932F96DA1A7F2754000C28B5 /* title@2x.png in Resources */,
 				938AF1601A8071F70087811E /* 1_selected@2x.png in Resources */,
 				932B2F731AA1921000BBD25E /* down_highlighted@2x.png in Resources */,
+				F81545AD1AB921CF009CF568 /* showExpertEva@2x.png in Resources */,
 				934B68DC1A66074D00474A18 /* searchBarBack.png in Resources */,
 				597D3BA31AAEB7D3003F3871 /* begin2.png in Resources */,
 				F85905B21AB16B420026B720 /* xiaomai@2x.png in Resources */,

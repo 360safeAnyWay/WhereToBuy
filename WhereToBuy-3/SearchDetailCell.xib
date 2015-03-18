@@ -14,9 +14,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yeC-7r-0CH">
+                    <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="serchPic.png" translatesAutoresizingMaskIntoConstraints="NO" id="yeC-7r-0CH">
                         <rect key="frame" x="17" y="43" width="286" height="140"/>
-                        <color key="backgroundColor" red="1" green="0.50489711189999997" blue="0.13928061280000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="万裕龙庭水岸  20000/平方" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Zd-h3-HtD">
                         <rect key="frame" x="17" y="15" width="250" height="20"/>
@@ -32,8 +32,8 @@
                     </label>
                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Lc-Rg-L5r">
                         <rect key="frame" x="17" y="217" width="10" height="10"/>
-                        <color key="backgroundColor" red="1" green="0.50489711189999997" blue="0.13928061280000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <state key="normal">
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <state key="normal" backgroundImage="whereBuy1.png">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
@@ -45,8 +45,8 @@
                     </label>
                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NeE-Vm-FQc">
                         <rect key="frame" x="60" y="217" width="10" height="10"/>
-                        <color key="backgroundColor" red="1" green="0.50489711189999997" blue="0.13928061280000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <state key="normal">
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <state key="normal" backgroundImage="whereBuy2.png">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
@@ -58,8 +58,8 @@
                     </label>
                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwJ-nb-xgS">
                         <rect key="frame" x="103" y="217" width="10" height="10"/>
-                        <color key="backgroundColor" red="1" green="0.50489711189999997" blue="0.13928061280000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <state key="normal">
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <state key="normal" backgroundImage="whereBuy3.png">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
@@ -69,19 +69,11 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9oH-4e-7vI">
-                        <rect key="frame" x="0.0" y="0.0" width="284" height="247"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
-                        <connections>
-                            <action selector="pushDetail:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="b4q-Ml-Z5E"/>
-                        </connections>
-                    </button>
                     <button opaque="NO" userInteractionEnabled="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0kf-3P-dio">
                         <rect key="frame" x="292" y="8" width="20" height="20"/>
-                        <color key="backgroundColor" red="1" green="0.50489711189999997" blue="0.13928061280000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <state key="normal" title="Button">
-                            <color key="titleColor" red="1" green="0.50489711189999997" blue="0.13928061280000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <state key="normal" backgroundImage="showExpertEva.png">
+                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
@@ -95,9 +87,24 @@
                             <action selector="pushDetail:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Q0l-ae-Hh6"/>
                         </connections>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9oH-4e-7vI">
+                        <rect key="frame" x="0.0" y="0.0" width="284" height="247"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                        <connections>
+                            <action selector="pushDetail:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="b4q-Ml-Z5E"/>
+                        </connections>
+                    </button>
                 </subviews>
             </tableViewCellContentView>
             <point key="canvasLocation" x="211" y="255"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="serchPic.png" width="286" height="140"/>
+        <image name="showExpertEva.png" width="20" height="20"/>
+        <image name="whereBuy1.png" width="10" height="10"/>
+        <image name="whereBuy2.png" width="10" height="10"/>
+        <image name="whereBuy3.png" width="10" height="10"/>
+    </resources>
 </document>
