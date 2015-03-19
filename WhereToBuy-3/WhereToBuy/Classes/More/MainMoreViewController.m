@@ -9,7 +9,6 @@
 #import "MainMoreViewController.h"
 #import "Tools.h"
 #import "MainMoreCell.h"
-#import "PeronTipsViewController.h"
 #import "WBNavigationController.h"
 #import "IsBuyMainViewController.h"
 #import "DDMenuController.h"

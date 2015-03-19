@@ -69,6 +69,7 @@
     _anImage.image = [UIImage imageNamed:@"begin2.png"];
     [view addSubview:_anImage];
     
+    
 }
 //windowView 控件
 -(void)createWindowViewAddUI
@@ -216,8 +217,16 @@
     [backBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [backBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
-    
     [self.view setBackgroundColor:[UIColor whiteColor]];
+    UIButton *itemBtn2 = [[UIButton alloc] initWithFrame:CGRectMake(245, 8, 20, 30)];
+    [itemBtn2 setBackgroundImage:[UIImage imageNamed:@"more.png"] forState:UIControlStateNormal];
+    [itemBtn2 addTarget:self action:@selector(rightButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *more = [[UIBarButtonItem alloc] initWithCustomView:itemBtn2];
+    self.navigationItem.rightBarButtonItem = more;
+}
+-(void)rightButtonClick:(UIButton *)btn
+{
+    NSLog(@"1111");
 }
 //返回
 - (void)back
