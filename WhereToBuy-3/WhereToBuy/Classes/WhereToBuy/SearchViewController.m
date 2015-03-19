@@ -209,14 +209,14 @@
     //搜索框中的两个小竖线
     for (NSInteger i = 0; i <= 1; i++) {
         UIView *views = [[UIView alloc] initWithFrame:GTRectMake(i * GTFixWidthFlaot(260) + GTFixWidthFlaot(10), GTFixHeightFlaot(28), 1, 12)];
-        [views setBackgroundColor:[UIColor lightGrayColor]];
+        [views setBackgroundColor:kMainColor];
         [searchView addSubview:views];
     }
     
     //添加线条，下面的下划线
     for (NSInteger i = 1; i < 6; i++) {
         UIView *view1 = [[UIView alloc] initWithFrame:GTRectMake(GTFixWidthFlaot(30), GTFixHeightFlaot(85)  + (i * GTFixHeightFlaot(40)), 260, 1)];
-        [view1 setBackgroundColor:[UIColor lightGrayColor]];
+        [view1 setBackgroundColor:kMainColor];
         [self.view addSubview:view1];
     }
     

@@ -69,7 +69,7 @@
     [btn setBackgroundImage:@"aniublank.png"];
     [loginView addSubview:btn];
     
-    //忘记密码安妮
+    //忘记密码按钮
     UIImage *imageForget = [UIImage imageNamed:@"forget.png"];
     UIButton *forgetSecret = [UIButton buttonWithType:UIButtonTypeCustom];
     [forgetSecret setFrame:CGRectMake(0, 0, imageForget.size.width, imageForget.size.height)];

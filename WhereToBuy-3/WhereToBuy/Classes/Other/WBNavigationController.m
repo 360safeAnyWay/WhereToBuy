@@ -25,8 +25,11 @@
 //    [barItem setBackgroundImage:[UIImage imageNamed:@"navigationbar_button_background.png"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 //    [barItem setBackgroundImage:[UIImage imageNamed:@"navigationbar_button_background_pushed.png"] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
     [barItem setTitleTextAttributes:@{
-                                      NSForegroundColorAttributeName : [UIColor darkGrayColor]
+                                      NSForegroundColorAttributeName : [UIColor whiteColor]
                                       } forState:UIControlStateNormal];
+    [bar setTitleTextAttributes:@{
+                                  NSForegroundColorAttributeName : [UIColor whiteColor]
+                                  }];
 }
 
 @end

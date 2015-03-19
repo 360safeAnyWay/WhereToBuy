@@ -107,12 +107,6 @@ const NSInteger MaxCount13 = 5;
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"leftBack.png"] style:UIBarButtonItemStyleDone target:self action:@selector(back)];
     self.navigationItem.leftBarButtonItem = item;
     
-    UIButton *itemBtn3 = [[UIButton alloc] initWithFrame:CGRectMake(245, 5, 4, 22)];
-    [itemBtn3 setBackgroundImage:[UIImage imageNamed:@"more.png"] forState:UIControlStateNormal];
-    [itemBtn3 addTarget:self action:@selector(more) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *more = [[UIBarButtonItem alloc] initWithCustomView:itemBtn3];
-    self.navigationItem.rightBarButtonItem = more;
-    
     self.dataArr= [NSMutableArray array];
     loadCount = 0;
     

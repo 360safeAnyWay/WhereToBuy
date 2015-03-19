@@ -32,7 +32,7 @@
         [price setText:@"20000元/平方"];
         [price setFont:[UIFont systemFontOfSize:16] fromIndex:0 length:6];
         [price setFont:[UIFont systemFontOfSize:14] fromIndex:6 length:3];
-        [price setColor:[Tools colorWithRed:251 angGreen:79 andBlue:0] fromIndex:0 length:9];
+        [price setColor:kMainColor fromIndex:0 length:9];
         [self.contentView addSubview:price];
         
         //房型
