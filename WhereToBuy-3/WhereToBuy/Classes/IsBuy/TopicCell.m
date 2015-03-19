@@ -66,7 +66,7 @@
         
         //分割线   底部长线
         UIView *viewDown = [[UIView alloc] initWithFrame:CGRectMake(0, 138, [UIScreen mainScreen].applicationFrame.size.width, 1)];
-        [viewDown setBackgroundColor:[Tools colorWithRed:236 angGreen:236 andBlue:236]];
+        [viewDown setBackgroundColor:kMainColor];
         [self addSubview:viewDown];
         
         //标题1
@@ -88,7 +88,7 @@
         //标签1
         UIButton *mark1 = [[UIButton alloc] initWithFrame:CGRectMake(titleLabel2.frame.origin.x, titleLabel2.frame.origin.y + titleLabel2.frame.size.height + 5, 80, 26)];
         [Tools setUIViewLine:mark1 cornerRadius:4 with:1 color:[UIColor clearColor]];
-        [mark1 setBackgroundColor:[Tools colorWithRed:253 angGreen:134 andBlue:40]];
+        [mark1 setBackgroundColor:kMainColor];
         [mark1 setTitle:@"＃当代旭辉墅" forState:UIControlStateNormal];
         [mark1 setUserInteractionEnabled:NO];
         [mark1.titleLabel setFont:[UIFont systemFontOfSize:13]];
@@ -98,7 +98,7 @@
         //标签1
         UIButton *mark2 = [[UIButton alloc] initWithFrame:CGRectMake(mark1.frame.origin.x + mark1.frame.size.width + 5, mark1.frame.origin.y, 80, 26)];
         [Tools setUIViewLine:mark2 cornerRadius:4 with:1 color:[UIColor clearColor]];
-        [mark2 setBackgroundColor:[Tools colorWithRed:253 angGreen:134 andBlue:40]];
+        [mark2 setBackgroundColor:kMainColor];
         [mark2 setTitle:@"＃当代旭辉墅" forState:UIControlStateNormal];
         [mark2 setUserInteractionEnabled:NO];
         [mark2.titleLabel setFont:[UIFont systemFontOfSize:13]];

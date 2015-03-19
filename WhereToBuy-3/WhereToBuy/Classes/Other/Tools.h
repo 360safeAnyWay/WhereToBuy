@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#define kMainColor [Tools colorWithRed:77 angGreen:215 andBlue:116]
+
 @interface Tools : NSObject
 
 +(instancetype)shareInstance;

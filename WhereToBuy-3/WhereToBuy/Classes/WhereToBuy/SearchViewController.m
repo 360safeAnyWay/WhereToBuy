@@ -226,7 +226,7 @@
     [searchBtn setBackgroundImage:[UIImage imageNamed:@"searchBtn.png"] forState:UIControlStateNormal];
     [searchBtn setBackgroundImage:[UIImage imageNamed:@"searchBtn_selected.png"] forState:(UIControlStateHighlighted)];
     [searchBtn addTarget:self action:@selector(searchSource) forControlEvents:UIControlEventTouchUpInside];
-    [searchBtn setBackgroundColor:[UIColor redColor]];
+    [searchBtn setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview:searchBtn];
     
     //选择器封装视图

@@ -40,7 +40,7 @@
         
         //带颜色的进度条
         UIView *progress = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, progressView.frame.size.height)];
-        [progress setBackgroundColor:[Tools colorWithRed:255 angGreen:153 andBlue:52]];
+        [progress setBackgroundColor:kMainColor];
         [progressView addSubview:progress];
         progress.layer.cornerRadius = 5;
         progress.clipsToBounds = YES;
@@ -51,7 +51,7 @@
         point.text = str;
         [point setTextAlignment:NSTextAlignmentCenter];
         [point setFont:[UIFont systemFontOfSize:14]];
-        [point setTextColor:[UIColor orangeColor]];
+        [point setTextColor:kMainColor];
         [self.contentView addSubview:point];
         _point = point;
         

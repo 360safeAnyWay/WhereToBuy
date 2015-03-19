@@ -19,7 +19,9 @@
         UIView *view = [self.contentView viewWithTag:i];
         [Tools setUIViewLine:view cornerRadius:5 with:0 color:[UIColor whiteColor]];
         view.clipsToBounds = YES;
+        [[self.contentView viewWithTag:i+2] setBackgroundColor:kMainColor];
     }
+    
     [UIView animateWithDuration:1.0f animations:^{
         [[self.contentView viewWithTag:3] setFrame:CGRectMake(0, 0, arc4random_uniform(205), 10)];
         [[self.contentView viewWithTag:4] setFrame:CGRectMake(0, 0, arc4random_uniform(205), 10)];

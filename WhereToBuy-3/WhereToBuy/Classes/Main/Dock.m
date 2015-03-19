@@ -23,7 +23,7 @@
     DockItem *item = [[DockItem alloc] init];
     [item setTitle:title forState:UIControlStateNormal];
     [item setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [item setTitleColor:[UIColor colorWithRed:251 / 255.0 green:78 / 255.0 blue:10 / 255.0 alpha:1.0] forState:UIControlStateSelected];
+    [item setTitleColor:kMainColor forState:UIControlStateSelected];
     [item setImage:[UIImage imageNamed:icon] forState:UIControlStateNormal];
     [item setImage:[UIImage imageNamed:[icon fileApped:@"_selected"]] forState:UIControlStateSelected];
     //监听Item的点击

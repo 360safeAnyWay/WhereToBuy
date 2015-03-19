@@ -10,8 +10,6 @@
 
 @implementation Tools
 
-
-
 +(instancetype)shareInstance
 {
     static Tools *tool = nil;

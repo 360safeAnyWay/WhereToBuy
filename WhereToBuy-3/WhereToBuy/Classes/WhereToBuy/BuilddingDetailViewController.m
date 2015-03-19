@@ -145,7 +145,7 @@ const int MaxCount7 = 5;
     
     //下面得哪个橙色线
     UIView *lineDown = [[UIView alloc] initWithFrame:CGRectMake(0, 33, self.view.frame.size.width, 2)];
-    [lineDown setBackgroundColor:[Tools colorWithRed:253 angGreen:134 andBlue:40]];
+    [lineDown setBackgroundColor:kMainColor];
     [view addSubview:lineDown];
     
     //2个按钮标签
@@ -244,7 +244,7 @@ const int MaxCount7 = 5;
         [segmentView addSubview:LineView];
     }
     
-    [segmentView viewWithTag:1].backgroundColor = [Tools colorWithRed:255 angGreen:102 andBlue:49];
+    [segmentView viewWithTag:1].backgroundColor = kMainColor;
     [segmentView setCenter:CGPointMake(self.view.frame.size.width / 2, 220)];
     _segmentView = segmentView;
     [tableHearView addSubview:segmentView];
@@ -403,7 +403,7 @@ const int MaxCount7 = 5;
         for (NSInteger i = 1; i <= 6; i++) {
             [_segmentView viewWithTag:i].backgroundColor = [UIColor whiteColor];
         }
-        [_segmentView viewWithTag:x + 1].backgroundColor = [Tools colorWithRed:255 angGreen:102 andBlue:49];
+        [_segmentView viewWithTag:x + 1].backgroundColor = kMainColor;
     }
 }
 

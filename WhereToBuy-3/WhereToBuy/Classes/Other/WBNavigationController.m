@@ -19,7 +19,7 @@
     [super viewDidLoad];
         UINavigationBar *bar = [UINavigationBar appearance];
         //    [bar setBackgroundImage:[UIImage imageNamed:@"navigationbar_background.png"] forBarMetrics:UIBarMetricsDefault];
-        [bar setBarTintColor:[UIColor whiteColor]];
+        [bar setBarTintColor:[Tools colorWithRed:77 angGreen:215 andBlue:116]];
     //设置所有的左右侧按钮的返回背景图片
     UIBarButtonItem *barItem = [UIBarButtonItem appearance];
 //    [barItem setBackgroundImage:[UIImage imageNamed:@"navigationbar_button_background.png"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];

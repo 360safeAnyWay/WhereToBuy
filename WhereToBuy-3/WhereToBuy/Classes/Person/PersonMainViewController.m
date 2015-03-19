@@ -29,7 +29,6 @@
     
     PersonCenterViewController *personCenter = [[PersonCenterViewController alloc] init];
     [self addChildViewController:personCenter];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated

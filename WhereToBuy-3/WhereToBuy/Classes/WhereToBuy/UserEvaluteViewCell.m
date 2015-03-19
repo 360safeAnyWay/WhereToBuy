@@ -22,7 +22,7 @@
     NSInteger i = arc4random_uniform(100);
     [UIView animateWithDuration:1.0f animations:^{
         [_bloodView setFrame:CGRectMake(0, 0, i, 10)];
-        [_bloodView setBackgroundColor:[UIColor orangeColor]];
+        [_bloodView setBackgroundColor:kMainColor];
         NSLog(@"之后%f",_bloodView.frame.size.width);
     } completion:nil];
     i = i / 10;

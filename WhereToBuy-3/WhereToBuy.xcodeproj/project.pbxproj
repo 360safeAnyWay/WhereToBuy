@@ -197,8 +197,6 @@
 		93A8B0691A64C094006D6A74 /* location1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A8B0651A64C094006D6A74 /* location1@2x.png */; };
 		93A8B06A1A64C094006D6A74 /* price@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A8B0661A64C094006D6A74 /* price@2x.png */; };
 		93A8B06C1A64CC60006D6A74 /* houseType@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A8B06B1A64CC60006D6A74 /* houseType@2x.png */; };
-		93A8B06E1A64DA25006D6A74 /* searchBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A8B06D1A64DA25006D6A74 /* searchBtn@2x.png */; };
-		93A8B0701A64DC22006D6A74 /* searchBtn_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A8B06F1A64DC22006D6A74 /* searchBtn_selected@2x.png */; };
 		93A8B0731A64DE4E006D6A74 /* SelectCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A8B0721A64DE4E006D6A74 /* SelectCityViewController.m */; };
 		93A8B0751A64F7E3006D6A74 /* refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A8B0741A64F7E3006D6A74 /* refresh@2x.png */; };
 		93A8B09A1A650F07006D6A74 /* isBuy_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A8B0941A650F07006D6A74 /* isBuy_selected@2x.png */; };
@@ -271,6 +269,8 @@
 		F86131331A6D294B0049FE21 /* KYICircleMenuCenterButtonBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F86131231A6D294B0049FE21 /* KYICircleMenuCenterButtonBackground@2x.png */; };
 		F8632FA01AB423360078ECFD /* ExpertDetailViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F8632F9E1AB423360078ECFD /* ExpertDetailViewCell.m */; };
 		F8632FA11AB423360078ECFD /* ExpertDetailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8632F9F1AB423360078ECFD /* ExpertDetailViewCell.xib */; };
+		F881053F1ABAA7220070BAF6 /* searchBtn_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F881053D1ABAA7220070BAF6 /* searchBtn_selected@2x.png */; };
+		F88105401ABAA7220070BAF6 /* searchBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F881053E1ABAA7220070BAF6 /* searchBtn@2x.png */; };
 		F88990371AB00A6000DC9513 /* libPushSDK-1.8.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F88990361AB00A6000DC9513 /* libPushSDK-1.8.2.a */; };
 		F889903C1AB00CDA00DC9513 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F889903B1AB00CDA00DC9513 /* CFNetwork.framework */; };
 		F889903E1AB00CE700DC9513 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F889903D1AB00CE700DC9513 /* CoreFoundation.framework */; };
@@ -597,8 +597,6 @@
 		93A8B0651A64C094006D6A74 /* location1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location1@2x.png"; sourceTree = "<group>"; };
 		93A8B0661A64C094006D6A74 /* price@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "price@2x.png"; sourceTree = "<group>"; };
 		93A8B06B1A64CC60006D6A74 /* houseType@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "houseType@2x.png"; sourceTree = "<group>"; };
-		93A8B06D1A64DA25006D6A74 /* searchBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchBtn@2x.png"; sourceTree = "<group>"; };
-		93A8B06F1A64DC22006D6A74 /* searchBtn_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchBtn_selected@2x.png"; sourceTree = "<group>"; };
 		93A8B0711A64DE4E006D6A74 /* SelectCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCityViewController.h; sourceTree = "<group>"; };
 		93A8B0721A64DE4E006D6A74 /* SelectCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCityViewController.m; sourceTree = "<group>"; };
 		93A8B0741A64F7E3006D6A74 /* refresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "refresh@2x.png"; sourceTree = "<group>"; };
@@ -690,6 +688,8 @@
 		F8632F9D1AB423360078ECFD /* ExpertDetailViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertDetailViewCell.h; sourceTree = "<group>"; };
 		F8632F9E1AB423360078ECFD /* ExpertDetailViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertDetailViewCell.m; sourceTree = "<group>"; };
 		F8632F9F1AB423360078ECFD /* ExpertDetailViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpertDetailViewCell.xib; sourceTree = "<group>"; };
+		F881053D1ABAA7220070BAF6 /* searchBtn_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchBtn_selected@2x.png"; sourceTree = "<group>"; };
+		F881053E1ABAA7220070BAF6 /* searchBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchBtn@2x.png"; sourceTree = "<group>"; };
 		F88990351AB00A6000DC9513 /* APService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APService.h; sourceTree = "<group>"; };
 		F88990361AB00A6000DC9513 /* libPushSDK-1.8.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPushSDK-1.8.2.a"; sourceTree = "<group>"; };
 		F889903B1AB00CDA00DC9513 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -1367,10 +1367,10 @@
 				934B68DE1A661EC500474A18 /* up@2x.png */,
 				934B68DB1A66074D00474A18 /* searchBarBack.png */,
 				93A8B0741A64F7E3006D6A74 /* refresh@2x.png */,
-				93A8B06F1A64DC22006D6A74 /* searchBtn_selected@2x.png */,
-				93A8B06D1A64DA25006D6A74 /* searchBtn@2x.png */,
 				93A8B06B1A64CC60006D6A74 /* houseType@2x.png */,
 				93A8B0631A64C094006D6A74 /* area@2x.png */,
+				F881053D1ABAA7220070BAF6 /* searchBtn_selected@2x.png */,
+				F881053E1ABAA7220070BAF6 /* searchBtn@2x.png */,
 				930A56D61A9D9E1F005F86B3 /* paopao@2x.png */,
 				93A8B0651A64C094006D6A74 /* location1@2x.png */,
 				93A8B0661A64C094006D6A74 /* price@2x.png */,
@@ -1642,7 +1642,7 @@
 				93009FEE1A7B5624005B3085 /* diandian@2x.png in Resources */,
 				9337B8C41A58FD3E003A0884 /* Images.xcassets in Resources */,
 				938AF1621A8071F70087811E /* 2_selected@2x.png in Resources */,
-				93A8B0701A64DC22006D6A74 /* searchBtn_selected@2x.png in Resources */,
+				F88105401ABAA7220070BAF6 /* searchBtn@2x.png in Resources */,
 				932F96DE1A7F4175000C28B5 /* downP@2x.png in Resources */,
 				F889904A1AB017C600DC9513 /* PushConfig.plist in Resources */,
 				932F96E71A7F4582000C28B5 /* 2_2@2x.png in Resources */,
@@ -1651,7 +1651,7 @@
 				93009FF21A7B72CD005B3085 /* zan_enable@2x.png in Resources */,
 				F85905B71AB170110026B720 /* UserEvaluteViewCell.xib in Resources */,
 				93A8B06C1A64CC60006D6A74 /* houseType@2x.png in Resources */,
-				93A8B06E1A64DA25006D6A74 /* searchBtn@2x.png in Resources */,
+				F881053F1ABAA7220070BAF6 /* searchBtn_selected@2x.png in Resources */,
 				93A8B09A1A650F07006D6A74 /* isBuy_selected@2x.png in Resources */,
 				93DA090D1A6DF0BC00A26CD2 /* KYICircleMenuButton02@2x.png in Resources */,
 				595C01311AB2CF3400769FE4 /* say.png in Resources */,
