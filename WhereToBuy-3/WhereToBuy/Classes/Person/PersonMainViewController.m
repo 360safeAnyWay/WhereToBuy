@@ -33,8 +33,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-//    [DataCenter instance].user = [[UserDao alloc] init];
-   // [self judgeLogin];
+    [DataCenter instance].user = [[UserDao alloc] init];
+    [self judgeLogin];
 
 }
 
