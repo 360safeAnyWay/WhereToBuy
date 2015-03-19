@@ -56,7 +56,7 @@
     [self.view addSubview:btn];
     
     //左侧切换城市状态按钮
-    UIBarButtonItem *itemLeftPic = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"location.png"] style:UIBarButtonItemStylePlain target:self action:@selector(setLocation)];
+    UIBarButtonItem *itemLeftPic = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"location.png"] style:UIBarButtonItemStyleDone target:self action:@selector(setLocation)];
     NSString *str = [[NSUserDefaults standardUserDefaults] objectForKey:@"city"];
     UIBarButtonItem *itemLeftTitle = [[UIBarButtonItem alloc] initWithTitle:str style:UIBarButtonItemStylePlain target:self action:nil];
     self.navigationItem.leftBarButtonItems = @[itemLeftPic,itemLeftTitle];
