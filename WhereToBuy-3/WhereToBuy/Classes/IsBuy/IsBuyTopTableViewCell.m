@@ -71,7 +71,7 @@
     [self addSubview:dateLabel];
     UIButton *mark1 = [[UIButton alloc] initWithFrame:CGRectMake(imageView.frame.size.width+15, dateLabel.frame.origin.y + dateLabel.frame.size.height + 5, 80, 26)];
     [Tools setUIViewLine:mark1 cornerRadius:4 with:1 color:[UIColor clearColor]];
-    [mark1 setBackgroundColor:[Tools colorWithRed:253 angGreen:134 andBlue:40]];
+    [mark1 setBackgroundColor:kMainColor];
     [mark1 setTitle:_markString1 forState:UIControlStateNormal];
     [mark1 setUserInteractionEnabled:NO];
     [mark1.titleLabel setFont:[UIFont systemFontOfSize:13]];
@@ -79,7 +79,7 @@
     [self addSubview:mark1];
     UIButton *mark2 = [[UIButton alloc] initWithFrame:CGRectMake(mark1.frame.origin.x + mark1.frame.size.width + 5, mark1.frame.origin.y, 80, 26)];
     [Tools setUIViewLine:mark2 cornerRadius:4 with:1 color:[UIColor clearColor]];
-    [mark2 setBackgroundColor:[Tools colorWithRed:253 angGreen:134 andBlue:40]];
+    [mark2 setBackgroundColor:kMainColor];
     [mark2 setTitle:_markString2 forState:UIControlStateNormal];
     [mark2 setUserInteractionEnabled:NO];
     [mark2.titleLabel setFont:[UIFont systemFontOfSize:13]];
@@ -94,7 +94,7 @@
     [self addSubview:title];
 //    分割线
     UIView *viewDown = [[UIView alloc] initWithFrame:CGRectMake(0, title.frame.origin.y+title.frame.size.height, [UIScreen mainScreen].applicationFrame.size.width, 1)];
-    [viewDown setBackgroundColor:[Tools colorWithRed:236 angGreen:236 andBlue:236]];
+    [viewDown setBackgroundColor:kMainColor];
     [self addSubview:viewDown];
     [self createInfoStr:viewDown.frame.origin.y+10];
     

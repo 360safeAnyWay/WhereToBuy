@@ -148,7 +148,7 @@ const NSInteger MaxCount13 = 5;
     
     //下面得哪个橙色线
     UIView *lineDown = [[UIView alloc] initWithFrame:CGRectMake(0, 33, self.view.frame.size.width, 2)];
-    [lineDown setBackgroundColor:[Tools colorWithRed:253 angGreen:134 andBlue:40]];
+    [lineDown setBackgroundColor:kMainColor];
     [view addSubview:lineDown];
     
     //三个按钮标签

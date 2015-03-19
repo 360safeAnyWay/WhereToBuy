@@ -26,7 +26,6 @@
     LoginViewController *login = [[LoginViewController alloc] init];
     login.delegate = self;
     [self addChildViewController:login];
-    
     PersonCenterViewController *personCenter = [[PersonCenterViewController alloc] init];
     [self addChildViewController:personCenter];
 }
@@ -35,7 +34,7 @@
 {
     [super viewWillAppear:animated];
 //    [DataCenter instance].user = [[UserDao alloc] init];
-    [self judgeLogin];
+   // [self judgeLogin];
 
 }
 

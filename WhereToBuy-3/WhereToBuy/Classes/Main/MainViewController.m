@@ -37,6 +37,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"asdad";
     [self.view setBackgroundColor:[UIColor blackColor]];
     //1.导入其他控制器的view
     [self addAllChildViewControllers];

@@ -18,6 +18,7 @@
 #import "DXAlertView.h"
 #import "MBProgressHUD.h"
 #import "SDImageCache.h"
+#import "MyRemindRViewController.h"
 
 @interface PersonCenterViewController()<UITableViewDataSource, UITableViewDelegate>
 {
@@ -326,7 +327,7 @@
             
             break;
         case 1:{
-            PeronTipsViewController *personTips = [[PeronTipsViewController alloc] init];
+            MyRemindRViewController *personTips = [[MyRemindRViewController alloc] init];
             [self.navigationController pushViewController:personTips animated:YES];
             break;
         }

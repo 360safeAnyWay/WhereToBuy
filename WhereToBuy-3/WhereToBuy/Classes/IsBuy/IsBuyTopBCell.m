@@ -72,7 +72,7 @@
     [self addSubview:dateLabel];
     //    分割线
     UIView *viewDown = [[UIView alloc] initWithFrame:CGRectMake(0, imageView.frame.origin.y+imageView.frame.size.height+10, [UIScreen mainScreen].applicationFrame.size.width, 1)];
-    [viewDown setBackgroundColor:[Tools colorWithRed:236 angGreen:236 andBlue:236]];
+    [viewDown setBackgroundColor:kMainColor];
     [self addSubview:viewDown];
     [self infoLabel:viewDown.frame.origin.y+10];
 

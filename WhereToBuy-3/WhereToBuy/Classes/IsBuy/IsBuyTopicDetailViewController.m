@@ -213,7 +213,7 @@
     NavBackButton *backBtn = [[NavBackButton alloc] initWithFrame:CGRectMake(0, 0, 105, 26)];
     [backBtn setImage:[UIImage imageNamed:@"leftBack.png"] forState:UIControlStateNormal];
     [backBtn setTitle:@"主题内容" forState:UIControlStateNormal];
-    [backBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [backBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [backBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     

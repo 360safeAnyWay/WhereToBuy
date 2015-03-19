@@ -48,8 +48,8 @@
 //返回按钮
 -(void)createBlack
 {
-self.title = @"详细回复";
-self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"leftBack.png"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+    self.navigationItem.title = @"详细回复";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"leftBack.png"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
 self.view.backgroundColor = [UIColor whiteColor];
 }
 - (void)back
@@ -78,7 +78,7 @@ self.view.backgroundColor = [UIColor whiteColor];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 
     }
-    cell.textLabel.attributedText  = [Tools textArr:_dataArray andColor:[UIColor orangeColor] colorTextIndex:2];
+    cell.textLabel.attributedText  = [Tools textArr:_dataArray andColor:kMainColor colorTextIndex:2];
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.font = [UIFont systemFontOfSize:14];
     cell.textLabel.lineBreakMode =NSLineBreakByWordWrapping;
@@ -87,7 +87,7 @@ self.view.backgroundColor = [UIColor whiteColor];
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
 
-    NSString * str = [[Tools textArr:_dataArray andColor:[UIColor orangeColor] colorTextIndex:2]string];
+    NSString * str = [[Tools textArr:_dataArray andColor:kMainColor colorTextIndex:2]string];
     CGRect rect = [self cellHight:str Size:CGSizeMake(210, 0)];
     return rect.size.height-10;
 }
@@ -145,7 +145,7 @@ self.view.backgroundColor = [UIColor whiteColor];
     [views addSubview:dateLabel];
     //    分割线
     UIView *viewDown = [[UIView alloc] initWithFrame:CGRectMake(0, imageView.frame.origin.y+imageView.frame.size.height+10, [UIScreen mainScreen].applicationFrame.size.width, 1)];
-    [viewDown setBackgroundColor:[Tools colorWithRed:236 angGreen:236 andBlue:236]];
+    [viewDown setBackgroundColor:kMainColor];
     [views addSubview:viewDown];
     UILabel * infoLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, viewDown.frame.origin.y+10, [UIScreen mainScreen].bounds.size.width, _Porigin)];
     infoLabel.text = _dataStr;

@@ -28,7 +28,6 @@
     _labelView.text = @"请输入反馈内容";
     _labelView.textColor = [UIColor grayColor];
     [self.view addSubview:_labelView];
-    
 }
 
 - (void)addUI
