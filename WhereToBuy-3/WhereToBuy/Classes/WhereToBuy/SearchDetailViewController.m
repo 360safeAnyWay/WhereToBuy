@@ -13,6 +13,7 @@
 #import "SearchDetailEvaluteCell.h"
 #import "SearchDetailCell.h"
 #import "BuilddingDetailViewController.h"
+#import "DDMenuController.h"
 
 const NSInteger MaxCount6 = 5;
 
@@ -158,7 +159,8 @@ const NSInteger MaxCount6 = 5;
 //展开侧边栏
 - (void)more
 {
-    
+    DDMenuController *menu = self.view.window.rootViewController.childViewControllers[1];
+    [menu showRightController:YES];
 }
 
 #pragma mark -- delegate & dataSource

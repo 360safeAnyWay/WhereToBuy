@@ -15,6 +15,7 @@
 #import "DDMenuController.h"
 #import "WBNavigationController.h"
 #import "MainMoreViewController.h"
+#import "NavBackButton.h"
 
 @interface WhereBuyMainVIewController()<SelectCityDelegate>
 
@@ -56,10 +57,10 @@
     [self.view addSubview:btn];
     
     //左侧切换城市状态按钮
-    UIBarButtonItem *itemLeftPic = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"location.png"] style:UIBarButtonItemStyleDone target:self action:@selector(setLocation)];
-    NSString *str = [[NSUserDefaults standardUserDefaults] objectForKey:@"city"];
-    UIBarButtonItem *itemLeftTitle = [[UIBarButtonItem alloc] initWithTitle:str style:UIBarButtonItemStylePlain target:self action:nil];
-    self.navigationItem.leftBarButtonItems = @[itemLeftPic,itemLeftTitle];
+//    UIBarButtonItem *itemLeftPic = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"location.png"] style:UIBarButtonItemStyleDone target:self action:@selector(setLocation)];
+//    NSString *str = [[NSUserDefaults standardUserDefaults] objectForKey:@"city"];
+//    UIBarButtonItem *itemLeftTitle = [[UIBarButtonItem alloc] initWithTitle:str style:UIBarButtonItemStylePlain target:self action:nil];
+//    self.navigationItem.leftBarButtonItems = @[itemLeftPic,itemLeftTitle];
     
 //    //右侧切换图片的按钮
 //    UIButton *itemBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 5, 22, 22)];
@@ -67,6 +68,18 @@
 //    [itemBtn addTarget:self action:@selector(changePicture) forControlEvents:UIControlEventTouchUpInside];
 //    UIBarButtonItem *itemRight = [[UIBarButtonItem alloc] initWithCustomView:itemBtn];
 //    self.navigationItem.rightBarButtonItem = itemRight;
+    UIButton *itemBtn4 = [[UIButton alloc] initWithFrame:CGRectMake(17, 5, 15, 21)];
+    [itemBtn4 setBackgroundImage:[UIImage imageNamed:@"location.png"] forState:UIControlStateNormal];
+    UIBarButtonItem *isBuyFlag = [[UIBarButtonItem alloc] initWithCustomView:itemBtn4];
+    
+    NSString *str = [[NSUserDefaults standardUserDefaults] objectForKey:@"city"];
+    UIButton *itemBtn5 = [[UIButton alloc] initWithFrame:CGRectMake(32, 5, 60, 17)];
+    [itemBtn5 setTitle:str forState:UIControlStateNormal];
+    [itemBtn5 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [itemBtn5.titleLabel setTextAlignment:NSTextAlignmentLeft];
+    UIBarButtonItem *isBuy = [[UIBarButtonItem alloc] initWithCustomView:itemBtn5];
+    
+    self.navigationItem.leftBarButtonItems = @[isBuyFlag,isBuy];
 }
 
 //搜索房源
@@ -93,7 +106,6 @@
 {
     
 }
-
 
 //选择城市代理方法，将值传回来
 - (void)pushSelectRowValueToMain:(NSString *)city

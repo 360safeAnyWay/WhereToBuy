@@ -109,7 +109,7 @@ const int MaxCount = 5;
     
     UIButton *itemBtn5 = [[UIButton alloc] initWithFrame:CGRectMake(22, 5, 40, 17)];
     [itemBtn5 setTitle:@"买否" forState:UIControlStateNormal];
-    [itemBtn5 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [itemBtn5 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     UIBarButtonItem *isBuy = [[UIBarButtonItem alloc] initWithCustomView:itemBtn5];
     
     self.navigationItem.leftBarButtonItems = @[isBuyFlag,isBuy];

@@ -107,12 +107,6 @@ const NSInteger MaxCount2 = 5;
     
     self.navigationItem.leftBarButtonItems = @[item1, item2];
     
-    UIButton *itemBtn3 = [[UIButton alloc] initWithFrame:CGRectMake(245, 5, 4, 22)];
-    [itemBtn3 setBackgroundImage:[UIImage imageNamed:@"more.png"] forState:UIControlStateNormal];
-    [itemBtn3 addTarget:self action:@selector(more) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *more = [[UIBarButtonItem alloc] initWithCustomView:itemBtn3];
-    self.navigationItem.rightBarButtonItem = more;
-    
     self.dataArr= [NSMutableArray array];
     loadCount = 0;
     
@@ -142,7 +136,7 @@ const NSInteger MaxCount2 = 5;
     
     //下面得哪个橙色线
     UIView *lineDown = [[UIView alloc] initWithFrame:CGRectMake(0, 33, self.view.frame.size.width, 2)];
-    [lineDown setBackgroundColor:[Tools colorWithRed:253 angGreen:134 andBlue:40]];
+    [lineDown setBackgroundColor:kMainColor];
     [view addSubview:lineDown];
     
     //2个按钮标签

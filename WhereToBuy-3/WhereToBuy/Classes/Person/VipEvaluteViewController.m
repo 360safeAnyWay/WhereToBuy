@@ -72,7 +72,7 @@
         [segmentView addSubview:LineView];
     }
     
-    [segmentView viewWithTag:1].backgroundColor = [Tools colorWithRed:255 angGreen:102 andBlue:49];
+    [segmentView viewWithTag:1].backgroundColor = kMainColor;
     [segmentView setCenter:CGPointMake(self.view.frame.size.width / 2, 220)];
     _segmentView = segmentView;
     [tableHearView addSubview:segmentView];
@@ -177,7 +177,7 @@
         for (NSInteger i = 1; i <= 6; i++) {
             [_segmentView viewWithTag:i].backgroundColor = [UIColor whiteColor];
         }
-        [_segmentView viewWithTag:x + 1].backgroundColor = [Tools colorWithRed:255 angGreen:102 andBlue:49];
+        [_segmentView viewWithTag:x + 1].backgroundColor = kMainColor;
     }
 }
 
