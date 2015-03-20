@@ -14,7 +14,7 @@
 #import "PersonIntroViewController.h"
 #import "UIButton+WebCache.h"
 
-@interface PersonSetViewController()<UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate,UIImagePickerControllerDelegate>
+@interface PersonSetViewController()<UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
     NSInteger _seconds;
     NSArray *_arr;
@@ -131,6 +131,7 @@
 {
     UIImagePickerController * imagePicker = [[UIImagePickerController alloc]init];
     imagePicker.delegate = self;
+    
     imagePicker.allowsEditing = YES;
     [self presentViewController:imagePicker animated:YES completion:nil];
 }

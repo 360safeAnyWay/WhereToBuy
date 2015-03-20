@@ -12,7 +12,7 @@
 
 @interface VipEvaluteViewController : BaseViewController
 
-@property (assign, nonatomic)id<VipEvaluteDelegate>delegate;
+@property (assign, nonatomic)id delegate;
 
 @end
 
