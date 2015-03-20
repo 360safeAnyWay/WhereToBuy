@@ -15,8 +15,8 @@
 #import "APService.h"
 #import "LeafNotification.h"
 
-#define kCurrentPattern												@"KeyForCurrentPatternToUnlock"
-#define kCurrentPatternTemp										@"KeyForCurrentPatternToUnlockTemp"
+#define kCurrentPattern						    @"KeyForCurrentPatternToUnlock"
+#define kCurrentPatternTemp						@"KeyForCurrentPatternToUnlockTemp"
 
 @interface AppDelegate ()
 
@@ -28,6 +28,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [application setStatusBarHidden:NO];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window setBackgroundColor:[UIColor blackColor]];
     NSString *firstTime = [[NSUserDefaults standardUserDefaults] objectForKey:@"firstTime"];//是否第一次进入软件
@@ -106,6 +107,7 @@
                 [serve setAlpha:0.0f];
             } completion:^(BOOL finished) {
                 [_imageView removeFromSuperview];
+                
             }];
         }];
     }];
@@ -116,6 +118,7 @@
 - (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
     return YES;
 }
 
