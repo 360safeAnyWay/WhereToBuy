@@ -11,7 +11,7 @@
 @protocol VipEvaluteDetailDelegate;
 @interface VipEvaluteDetailViewContrller : BaseViewController
 
-@property (weak, nonatomic) id<VipEvaluteDetailDelegate>delegate;
+@property (weak, nonatomic) id delegate;
 
 @end
 

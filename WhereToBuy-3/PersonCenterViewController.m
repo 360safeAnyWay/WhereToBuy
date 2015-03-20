@@ -20,7 +20,7 @@
 #import "SDImageCache.h"
 #import "MyRemindRViewController.h"
 
-@interface PersonCenterViewController()<UITableViewDataSource, UITableViewDelegate>
+@interface PersonCenterViewController()
 {
     UITableView *_tableView;
     NSMutableDictionary *dic;//存对应的数据

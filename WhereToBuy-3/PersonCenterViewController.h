@@ -9,9 +9,9 @@
 #import "BaseViewController.h"
 @protocol PersonTopicAndFeedbackDelegate;
 
-@interface PersonCenterViewController : BaseViewController
+@interface PersonCenterViewController : BaseViewController<UITableViewDataSource, UITableViewDelegate>
 
-@property (assign, nonatomic) id<PersonTopicAndFeedbackDelegate>delegate;
+@property (assign, nonatomic) id delegate;
 
 @end
 
