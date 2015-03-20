@@ -41,11 +41,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"搜索";
-//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"leftBack.png"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
     UIButton *itemBtn4 = [[UIButton alloc] initWithFrame:CGRectMake(17, 5, 10.5, 18)];
     [itemBtn4 setBackgroundImage:[UIImage imageNamed:@"leftBack.png"] forState:UIControlStateNormal];
+    [itemBtn4 addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:itemBtn4];
     self.navigationItem.leftBarButtonItem = back;
+    
     [self addUI];
     _isUpFlag = YES;
     _indexTable = 0;

@@ -102,8 +102,11 @@ const NSInteger MaxCount3 = 5;
     [self.view setBackgroundColor: [UIColor whiteColor]];
     // Do any additional setup after loading the view.
     self.title = @"历史记录";
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"leftBack.png"] style:UIBarButtonItemStyleDone target:self action:@selector(back)];
-    self.navigationItem.leftBarButtonItem = item;
+    UIButton *itemBtn4 = [[UIButton alloc] initWithFrame:CGRectMake(17, 5, 10.5, 18)];
+    [itemBtn4 setBackgroundImage:[UIImage imageNamed:@"leftBack.png"] forState:UIControlStateNormal];
+    [itemBtn4 addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:itemBtn4];
+    self.navigationItem.leftBarButtonItem= back;
     
     UIButton *itemBtn3 = [[UIButton alloc] initWithFrame:CGRectMake(245, 5, 4, 22)];
     [itemBtn3 setBackgroundImage:[UIImage imageNamed:@"more.png"] forState:UIControlStateNormal];

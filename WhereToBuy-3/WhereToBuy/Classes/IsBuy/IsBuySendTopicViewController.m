@@ -27,16 +27,16 @@
     NavBackButton *backBtn = [[NavBackButton alloc] initWithFrame:CGRectMake(0, 0, 105, 26)];
     [backBtn setImage:[UIImage imageNamed:@"leftBack.png"] forState:UIControlStateNormal];
     [backBtn setTitle:@"发表主题" forState:UIControlStateNormal];
-    [backBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [backBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [backBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     
     UIButton *itemBtn1 = [[UIButton alloc] initWithFrame:CGRectMake(235, 5, 70, 30)];
     [itemBtn1 setTitle:@"提交内容" forState:UIControlStateNormal];
     [itemBtn1.titleLabel setFont:[UIFont systemFontOfSize:14]];
-    [itemBtn1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [itemBtn1 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [itemBtn1 addTarget:self action:@selector(sendTitle) forControlEvents:UIControlEventTouchUpInside];
-    [Tools setUIViewLine:itemBtn1 cornerRadius:5 with:1 color:[Tools colorWithRed:209 angGreen:209 andBlue:209]];
+    [Tools setUIViewLine:itemBtn1 cornerRadius:5 with:1 color:[UIColor whiteColor]];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:itemBtn1];
     
     [self.view setBackgroundColor:[UIColor whiteColor]];

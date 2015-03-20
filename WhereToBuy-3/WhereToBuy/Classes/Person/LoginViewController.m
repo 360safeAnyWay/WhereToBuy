@@ -192,7 +192,11 @@
     } completion:^(BOOL finished) {
         NSLog(@"结束了");
         [_loginView setCenter:CGPointMake(_loginView.center.x - self.view.frame.size.width, _loginView.center.y)];
-        self.parentViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"leftBack.png"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+        UIButton *itemBtn4 = [[UIButton alloc] initWithFrame:CGRectMake(17, 5, 10.5, 18)];
+        [itemBtn4 setBackgroundImage:[UIImage imageNamed:@"leftBack.png"] forState:UIControlStateNormal];
+        [itemBtn4 addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:itemBtn4];
+        self.parentViewController.navigationItem.leftBarButtonItem= back;
     }];
 }
 

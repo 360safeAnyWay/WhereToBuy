@@ -104,8 +104,11 @@ const NSInteger MaxCount13 = 5;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"我的收藏";
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"leftBack.png"] style:UIBarButtonItemStyleDone target:self action:@selector(back)];
-    self.navigationItem.leftBarButtonItem = item;
+    UIButton *itemBtn4 = [[UIButton alloc] initWithFrame:CGRectMake(17, 5, 10.5, 18)];
+    [itemBtn4 setBackgroundImage:[UIImage imageNamed:@"leftBack.png"] forState:UIControlStateNormal];
+    [itemBtn4 addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:itemBtn4];
+    self.navigationItem.leftBarButtonItem= back;
     
     self.dataArr= [NSMutableArray array];
     loadCount = 0;

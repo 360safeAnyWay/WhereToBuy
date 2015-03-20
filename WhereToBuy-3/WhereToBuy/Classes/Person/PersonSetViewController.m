@@ -14,7 +14,7 @@
 #import "PersonIntroViewController.h"
 #import "UIButton+WebCache.h"
 
-@interface PersonSetViewController()<UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface PersonSetViewController()<UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate,UIImagePickerControllerDelegate>
 {
     NSInteger _seconds;
     NSArray *_arr;
@@ -22,6 +22,7 @@
 }
 
 @property (weak, nonatomic) UITableView *table;
+@property (weak, nonatomic) UIButton *headImage;//用户头像
 
 @end
 
@@ -31,7 +32,11 @@
 {
     [super viewDidLoad];
     self.title = @"个人设置";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"leftBack.png"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+    UIButton *itemBtn4 = [[UIButton alloc] initWithFrame:CGRectMake(17, 5, 10.5, 18)];
+    [itemBtn4 setBackgroundImage:[UIImage imageNamed:@"leftBack.png"] forState:UIControlStateNormal];
+    [itemBtn4 addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:itemBtn4];
+    self.navigationItem.leftBarButtonItem= back;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideKeyBorard:) name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showKeyBorard:) name:UIKeyboardWillShowNotification object:nil];
     _flag = YES;
@@ -53,13 +58,13 @@
     [imageBtn setFrame:CGRectMake(97.5, 15, 125, 125)];
     [imageBtn setTitle:@"上传头像" forState:UIControlStateNormal];
     [imageBtn setTitleEdgeInsets:UIEdgeInsetsMake(70, 0, 0, 0)];
+    [imageBtn addTarget:self action:@selector(uploadImage) forControlEvents:UIControlEventTouchUpInside];
     [imageBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
-//    [imageBtn setBackgroundImage:[UIImage imageNamed:@"moren.png"] forState:UIControlStateNormal];
-//    [imageBtn setBackgroundImage:[UIImage imageNamed:@"moren.png"] forState:UIControlStateHighlighted];
     imageBtn.clipsToBounds = YES;
     [Tools setUIViewLine:imageBtn cornerRadius:125 / 2.0f with:1 color:[UIColor lightGrayColor]];
     [imageBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:@"http://f.hiphotos.baidu.com/image/pic/item/a8773912b31bb0517547fc2f357adab44aede052.jpg"] forState:UIControlStateNormal];
     [scroll addSubview:imageBtn];
+    self.headImage = imageBtn;
     
     //绑定手机标
     UILabel *phoneLabel = [[UILabel alloc] initWithFrame:CGRectMake(13, imageBtn.frame.origin.y + imageBtn.frame.size.height + 13, 70, 40)];
@@ -119,6 +124,22 @@
 - (void)back
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+//上传用户头像
+- (void)uploadImage
+{
+    UIImagePickerController * imagePicker = [[UIImagePickerController alloc]init];
+    imagePicker.delegate = self;
+    imagePicker.allowsEditing = YES;
+    [self presentViewController:imagePicker animated:YES completion:nil];
+}
+
+//选择图片后的回调方法
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
+{
+    [self.headImage setImage:image forState:UIControlStateNormal];
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)getTokenNum

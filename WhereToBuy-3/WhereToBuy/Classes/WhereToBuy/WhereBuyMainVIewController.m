@@ -19,6 +19,8 @@
 
 @interface WhereBuyMainVIewController()<SelectCityDelegate>
 
+@property (weak, nonatomic) UIButton *cityNameBtn;
+
 @end
 
 @implementation WhereBuyMainVIewController
@@ -33,7 +35,7 @@
 {
     [super viewWillAppear:animated];
     NSString *cityName = [[NSUserDefaults standardUserDefaults] objectForKey:@"city"];//每次在搜索视图或者搜索详情视图中选择的城市，在主界面再次启动的时候设置为该城市
-    [self.navigationItem.leftBarButtonItems[1] setTitle:cityName];
+    [self.cityNameBtn setTitle:cityName forState:UIControlStateNormal];
 }
 
 - (void)addUI
@@ -56,27 +58,18 @@
     [btn addTarget:self action:@selector(search) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
     
-    //左侧切换城市状态按钮
-//    UIBarButtonItem *itemLeftPic = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"location.png"] style:UIBarButtonItemStyleDone target:self action:@selector(setLocation)];
-//    NSString *str = [[NSUserDefaults standardUserDefaults] objectForKey:@"city"];
-//    UIBarButtonItem *itemLeftTitle = [[UIBarButtonItem alloc] initWithTitle:str style:UIBarButtonItemStylePlain target:self action:nil];
-//    self.navigationItem.leftBarButtonItems = @[itemLeftPic,itemLeftTitle];
-    
-//    //右侧切换图片的按钮
-//    UIButton *itemBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 5, 22, 22)];
-//    [itemBtn setBackgroundImage:[UIImage imageNamed:@"skin.png"] forState:UIControlStateNormal];
-//    [itemBtn addTarget:self action:@selector(changePicture) forControlEvents:UIControlEventTouchUpInside];
-//    UIBarButtonItem *itemRight = [[UIBarButtonItem alloc] initWithCustomView:itemBtn];
-//    self.navigationItem.rightBarButtonItem = itemRight;
+    //左侧切换城市
     UIButton *itemBtn4 = [[UIButton alloc] initWithFrame:CGRectMake(17, 5, 15, 21)];
     [itemBtn4 setBackgroundImage:[UIImage imageNamed:@"location.png"] forState:UIControlStateNormal];
+    [itemBtn4 addTarget:self action:@selector(setLocation) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *isBuyFlag = [[UIBarButtonItem alloc] initWithCustomView:itemBtn4];
     
     NSString *str = [[NSUserDefaults standardUserDefaults] objectForKey:@"city"];
-    UIButton *itemBtn5 = [[UIButton alloc] initWithFrame:CGRectMake(32, 5, 60, 17)];
+    UIButton *itemBtn5 = [[UIButton alloc] initWithFrame:CGRectMake(27, 5, 60, 17)];
     [itemBtn5 setTitle:str forState:UIControlStateNormal];
     [itemBtn5 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [itemBtn5.titleLabel setTextAlignment:NSTextAlignmentLeft];
+    self.cityNameBtn = itemBtn5;
     UIBarButtonItem *isBuy = [[UIBarButtonItem alloc] initWithCustomView:itemBtn5];
     
     self.navigationItem.leftBarButtonItems = @[isBuyFlag,isBuy];

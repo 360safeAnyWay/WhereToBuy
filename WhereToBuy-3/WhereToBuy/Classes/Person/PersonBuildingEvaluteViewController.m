@@ -102,10 +102,14 @@ const NSInteger MaxCount2 = 5;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    UIBarButtonItem *item1 = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"leftBack.png"] style:UIBarButtonItemStyleDone target:self action:@selector(back)];
+    UIButton *itemBtn4 = [[UIButton alloc] initWithFrame:CGRectMake(17, 5, 10.5, 18)];
+    [itemBtn4 setBackgroundImage:[UIImage imageNamed:@"leftBack.png"] forState:UIControlStateNormal];
+    [itemBtn4 addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:itemBtn4];
+
     UIBarButtonItem *item2 = [[UIBarButtonItem alloc] initWithTitle:@"楼盘评价" style:UIBarButtonItemStylePlain target:nil action:nil];
     
-    self.navigationItem.leftBarButtonItems = @[item1, item2];
+    self.navigationItem.leftBarButtonItems = @[back, item2];
     
     self.dataArr= [NSMutableArray array];
     loadCount = 0;
