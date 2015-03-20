@@ -54,6 +54,9 @@
     //数据源
     self.dataTableArr = [[NSMutableArray alloc] initWithArray:@[@"location1.png",@"区域",@"全部",@"area.png",@"面积",@"全部",@"price.png",@"价格",@"全部",@"houseType.png",@"个性",@"全部"]];
     self.dataPickerArrs = [[NSMutableArray alloc] initWithCapacity:4];
+    for (NSInteger i = 0; i < 4; i++) {
+        [self.dataPickerArrs addObject:@[]];
+    }
     self.dataPcikerArr = [[NSMutableArray alloc] init];
     self.housesData = [[NSMutableArray alloc] init];
     [self getCity];
@@ -125,22 +128,22 @@
         if (code == ERROR_CODE_NONE) {
             NSMutableArray *arr = [[NSMutableArray alloc] initWithArray:obj[@"district"]];
             [arr insertObject:@"全部" atIndex:0];
-            [self.dataPickerArrs addObject:arr];
+            [self.dataPickerArrs replaceObjectAtIndex:0 withObject:arr];//
             [[ServiceManage shareInstance] DidGetArea:nil completion:^(ERROR_CODE code, id obj) {
                 if (code == ERROR_CODE_NONE) {
                     NSMutableArray *arr = [self exchangeArr:obj[@"area"] withEndStr:@"平方"];
                     [arr insertObject:@"全部" atIndex:0];
-                    [self.dataPickerArrs addObject:arr];
+                    [self.dataPickerArrs replaceObjectAtIndex:1 withObject:arr];//
                     [[ServiceManage shareInstance] DidGetPrice:nil completion:^(ERROR_CODE code, id obj) {
                         if (code == ERROR_CODE_NONE) {
                             NSMutableArray *arr = [self exchangeArr:obj[@"price"] withEndStr:@"万"];
                             [arr insertObject:@"全部" atIndex:0];
-                            [self.dataPickerArrs addObject:arr];
+                            [self.dataPickerArrs replaceObjectAtIndex:2 withObject:arr];//
                             [[ServiceManage shareInstance] DidGetType:nil completion:^(ERROR_CODE code, id obj) {
                                 if (code == ERROR_CODE_NONE) {
                                     NSMutableArray *arr = [[NSMutableArray alloc] initWithArray:obj[@"type"]];
                                     [arr insertObject:@"全部" atIndex:0];
-                                    [self.dataPickerArrs addObject:arr];
+                                    [self.dataPickerArrs replaceObjectAtIndex:3 withObject:arr];
                                 }
                             }];
                         }

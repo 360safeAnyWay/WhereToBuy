@@ -20,6 +20,7 @@
 @interface WhereBuyMainVIewController()<SelectCityDelegate>
 
 @property (weak, nonatomic) UIButton *cityNameBtn;
+@property (assign, nonatomic) BOOL isPush;//防止点击按钮，多次进行push操作
 
 @end
 
@@ -34,6 +35,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    _isPush = NO;
     NSString *cityName = [[NSUserDefaults standardUserDefaults] objectForKey:@"city"];//每次在搜索视图或者搜索详情视图中选择的城市，在主界面再次启动的时候设置为该城市
     [self.cityNameBtn setTitle:cityName forState:UIControlStateNormal];
 }
@@ -89,9 +91,13 @@
     //////////////跳到子页面得时候，将main中得滚动Button设置透明度为0///////////////
 //    MainViewController *main = (MainViewController *)self.parentViewController.parentViewController;
 //    [main.centerButton setAlpha:0.0f];
-    SelectCityViewController *selectCity = [[SelectCityViewController alloc] init];
-    selectCity.delegate = self;
-    [self.navigationController pushViewController:selectCity animated:YES];
+    if (!_isPush) {
+        SelectCityViewController *selectCity = [[SelectCityViewController alloc] init];
+        selectCity.delegate = self;
+        [self.navigationController pushViewController:selectCity animated:YES];
+        _isPush = YES;
+    }
+    
 }
 
 //切换图片监听方法

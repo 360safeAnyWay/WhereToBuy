@@ -35,7 +35,7 @@
         UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:itemBtn4];
         self.navigationItem.leftBarButtonItem = back;
     }
-    UITableView *table = [[UITableView alloc] initWithFrame:CGRectMake(0, 65, self.view.frame.size.width, self.view.frame.size.height - 65) style:UITableViewStylePlain];
+    UITableView *table = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - 65) style:UITableViewStylePlain];
     table.delegate = self;
     table.dataSource = self;
     [table setContentInset:UIEdgeInsetsMake(-64, 0, 64, 0)];
@@ -106,7 +106,7 @@
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     }
     if (indexPath.row ==0 || indexPath.row == 2) {
-        [cell setBackgroundColor:[UIColor colorWithRed:253 / 255.0 green:147 / 255.0 blue:40 / 255.0 alpha:1.0]];
+        [cell setBackgroundColor:kMainColor];
     }
     if (indexPath.row == 1) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:GTRectMake(GTFixWidthFlaot(210), GTFixHeightFlaot(8), 25, 25)];

@@ -115,7 +115,7 @@
     //已发表的话题
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:@"已发表42次话题"];
     [str addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(0, 3)];
-    [str addAttribute:NSForegroundColorAttributeName value:[Tools colorWithRed:251 angGreen:119 andBlue:0] range:NSMakeRange(3, 2)];
+    [str addAttribute:NSForegroundColorAttributeName value:kMainColor range:NSMakeRange(3, 2)];
     [str addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(5, 3)];
     UILabel *topicLabel = [[UILabel alloc] initWithFrame:CGRectMake(180, 10, 100, 20)];
     [topicLabel setAttributedText:str];
@@ -125,7 +125,7 @@
     //已发表的回复
     str = [[NSMutableAttributedString alloc] initWithString:@"已发表9421次回复"];
     [str addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(0, 3)];
-    [str addAttribute:NSForegroundColorAttributeName value:[Tools colorWithRed:251 angGreen:119 andBlue:0] range:NSMakeRange(3, 4)];
+    [str addAttribute:NSForegroundColorAttributeName value:kMainColor range:NSMakeRange(3, 4)];
     [str addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(7, 3)];
     UILabel *feedLabel = [[UILabel alloc] initWithFrame:CGRectMake(topicLabel.frame.origin.x, topicLabel.frame.origin.y + topicLabel.frame.size.height, 100, 20)];
     [feedLabel setAttributedText:str];
