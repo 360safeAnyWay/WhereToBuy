@@ -75,6 +75,7 @@
     [viewDown setBackgroundColor:kMainColor];
     [self addSubview:viewDown];
     [self infoLabel:viewDown.frame.origin.y+10];
+    
 
 }
 -(void)infoLabel:(CGFloat)y
