@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		591BDFD81ABFD83800ACE95D /* MoreReplyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 591BDFD61ABFD83800ACE95D /* MoreReplyTableViewCell.m */; };
-		591BDFD91ABFD83800ACE95D /* MoreReplyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 591BDFD71ABFD83800ACE95D /* MoreReplyTableViewCell.xib */; };
 		5959121C1AB66743007B7854 /* BrowsingHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5959121B1AB66743007B7854 /* BrowsingHistoryViewController.m */; };
 		595C011A1AB27A3100769FE4 /* sendButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 595C01191AB27A3100769FE4 /* sendButton.png */; };
 		595C011E1AB2A85300769FE4 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 595C011D1AB2A85300769FE4 /* FeedbackViewController.m */; };
@@ -25,7 +23,6 @@
 		595C014B1AB4145700769FE4 /* LikeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 595C014A1AB4145700769FE4 /* LikeViewController.m */; };
 		595C50C31AB0308100E91511 /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 595C50C21AB0308100E91511 /* ReviewViewController.m */; };
 		5974FD2B1AA9F52B00B2F306 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5974FD2A1AA9F52B00B2F306 /* Default-568h@2x.png */; };
-		597CC0301AB12F750026DA64 /* MoreReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 597CC02F1AB12F750026DA64 /* MoreReplyViewController.m */; };
 		597CC0321AB15C520026DA64 /* 我发表的主题.png in Resources */ = {isa = PBXBuildFile; fileRef = 597CC0311AB15C520026DA64 /* 我发表的主题.png */; };
 		597CC0391AB18F6D0026DA64 /* YcKeyBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 597CC0381AB18F6D0026DA64 /* YcKeyBoardView.m */; };
 		597D3B981AAE7E2D003F3871 /* gogogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 597D3B971AAE7E2D003F3871 /* gogogo.png */; };
@@ -34,6 +31,11 @@
 		597D3BA11AAE9D6D003F3871 /* backG.png in Resources */ = {isa = PBXBuildFile; fileRef = 597D3BA01AAE9D6D003F3871 /* backG.png */; };
 		597D3BA31AAEB7D3003F3871 /* begin2.png in Resources */ = {isa = PBXBuildFile; fileRef = 597D3BA21AAEB7D3003F3871 /* begin2.png */; };
 		597D3BA51AAEBC96003F3871 /* rightarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 597D3BA41AAEBC96003F3871 /* rightarrow.png */; };
+		599B9CBA1AC0014500740E51 /* MoreReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 599B9CB91AC0014500740E51 /* MoreReplyViewController.m */; };
+		599B9CBF1AC0027C00740E51 /* MoreReplyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 599B9CBD1AC0027C00740E51 /* MoreReplyTableViewCell.m */; };
+		599B9CC01AC0027C00740E51 /* MoreReplyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 599B9CBE1AC0027C00740E51 /* MoreReplyTableViewCell.xib */; };
+		599B9CC71AC002E600740E51 /* MoreRRTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 599B9CC51AC002E600740E51 /* MoreRRTableViewCell.m */; };
+		599B9CC81AC002E600740E51 /* MoreRRTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 599B9CC61AC002E600740E51 /* MoreRRTableViewCell.xib */; };
 		59C5C2101AAED9570042382F /* Zdown.png in Resources */ = {isa = PBXBuildFile; fileRef = 59C5C20E1AAED9570042382F /* Zdown.png */; };
 		59C5C2111AAED9570042382F /* Zup.png in Resources */ = {isa = PBXBuildFile; fileRef = 59C5C20F1AAED9570042382F /* Zup.png */; };
 		59C5C2131AAEDDD50042382F /* huifulouzhu.png in Resources */ = {isa = PBXBuildFile; fileRef = 59C5C2121AAEDDD50042382F /* huifulouzhu.png */; };
@@ -310,9 +312,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		591BDFD51ABFD83800ACE95D /* MoreReplyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreReplyTableViewCell.h; sourceTree = "<group>"; };
-		591BDFD61ABFD83800ACE95D /* MoreReplyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreReplyTableViewCell.m; sourceTree = "<group>"; };
-		591BDFD71ABFD83800ACE95D /* MoreReplyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreReplyTableViewCell.xib; sourceTree = "<group>"; };
 		5959121A1AB66743007B7854 /* BrowsingHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowsingHistoryViewController.h; sourceTree = "<group>"; };
 		5959121B1AB66743007B7854 /* BrowsingHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowsingHistoryViewController.m; sourceTree = "<group>"; };
 		595C01191AB27A3100769FE4 /* sendButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sendButton.png; sourceTree = "<group>"; };
@@ -338,8 +337,6 @@
 		595C50C11AB0308100E91511 /* ReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewViewController.h; sourceTree = "<group>"; };
 		595C50C21AB0308100E91511 /* ReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewViewController.m; sourceTree = "<group>"; };
 		5974FD2A1AA9F52B00B2F306 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
-		597CC02E1AB12F750026DA64 /* MoreReplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreReplyViewController.h; sourceTree = "<group>"; };
-		597CC02F1AB12F750026DA64 /* MoreReplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreReplyViewController.m; sourceTree = "<group>"; };
 		597CC0311AB15C520026DA64 /* 我发表的主题.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我发表的主题.png"; sourceTree = "<group>"; };
 		597CC0371AB18F6D0026DA64 /* YcKeyBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YcKeyBoardView.h; sourceTree = "<group>"; };
 		597CC0381AB18F6D0026DA64 /* YcKeyBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YcKeyBoardView.m; sourceTree = "<group>"; };
@@ -350,6 +347,14 @@
 		597D3BA01AAE9D6D003F3871 /* backG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backG.png; sourceTree = "<group>"; };
 		597D3BA21AAEB7D3003F3871 /* begin2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = begin2.png; sourceTree = "<group>"; };
 		597D3BA41AAEBC96003F3871 /* rightarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightarrow.png; sourceTree = "<group>"; };
+		599B9CB81AC0014500740E51 /* MoreReplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreReplyViewController.h; sourceTree = "<group>"; };
+		599B9CB91AC0014500740E51 /* MoreReplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreReplyViewController.m; sourceTree = "<group>"; };
+		599B9CBC1AC0027C00740E51 /* MoreReplyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreReplyTableViewCell.h; sourceTree = "<group>"; };
+		599B9CBD1AC0027C00740E51 /* MoreReplyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreReplyTableViewCell.m; sourceTree = "<group>"; };
+		599B9CBE1AC0027C00740E51 /* MoreReplyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreReplyTableViewCell.xib; sourceTree = "<group>"; };
+		599B9CC41AC002E600740E51 /* MoreRRTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreRRTableViewCell.h; sourceTree = "<group>"; };
+		599B9CC51AC002E600740E51 /* MoreRRTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreRRTableViewCell.m; sourceTree = "<group>"; };
+		599B9CC61AC002E600740E51 /* MoreRRTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreRRTableViewCell.xib; sourceTree = "<group>"; };
 		59C5C20E1AAED9570042382F /* Zdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zdown.png; sourceTree = "<group>"; };
 		59C5C20F1AAED9570042382F /* Zup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zup.png; sourceTree = "<group>"; };
 		59C5C2121AAEDDD50042382F /* huifulouzhu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = huifulouzhu.png; sourceTree = "<group>"; };
@@ -797,10 +802,11 @@
 		595C50BA1AAFCEBE00E91511 /* Review */ = {
 			isa = PBXGroup;
 			children = (
+				599B9CBB1AC0025B00740E51 /* MoCell */,
 				595C50C11AB0308100E91511 /* ReviewViewController.h */,
 				595C50C21AB0308100E91511 /* ReviewViewController.m */,
-				597CC02E1AB12F750026DA64 /* MoreReplyViewController.h */,
-				597CC02F1AB12F750026DA64 /* MoreReplyViewController.m */,
+				599B9CB81AC0014500740E51 /* MoreReplyViewController.h */,
+				599B9CB91AC0014500740E51 /* MoreReplyViewController.m */,
 			);
 			name = Review;
 			sourceTree = "<group>";
@@ -813,11 +819,21 @@
 				59DA38941AAD41B20041F71C /* IsBuyTopTableViewCell.m */,
 				59C5C2171AAEE97D0042382F /* IsBuyTopBCell.h */,
 				59C5C2181AAEE97D0042382F /* IsBuyTopBCell.m */,
-				591BDFD51ABFD83800ACE95D /* MoreReplyTableViewCell.h */,
-				591BDFD61ABFD83800ACE95D /* MoreReplyTableViewCell.m */,
-				591BDFD71ABFD83800ACE95D /* MoreReplyTableViewCell.xib */,
 			);
 			name = IsbuyTopCell;
+			sourceTree = "<group>";
+		};
+		599B9CBB1AC0025B00740E51 /* MoCell */ = {
+			isa = PBXGroup;
+			children = (
+				599B9CBC1AC0027C00740E51 /* MoreReplyTableViewCell.h */,
+				599B9CBD1AC0027C00740E51 /* MoreReplyTableViewCell.m */,
+				599B9CBE1AC0027C00740E51 /* MoreReplyTableViewCell.xib */,
+				599B9CC41AC002E600740E51 /* MoreRRTableViewCell.h */,
+				599B9CC51AC002E600740E51 /* MoreRRTableViewCell.m */,
+				599B9CC61AC002E600740E51 /* MoreRRTableViewCell.xib */,
+			);
+			name = MoCell;
 			sourceTree = "<group>";
 		};
 		93009FDC1A7B2152005B3085 /* RefreshHeadView */ = {
@@ -1613,6 +1629,7 @@
 				F8A1DE2B1AB2BB86008474F7 /* initLogoName@2x.png in Resources */,
 				930AA8801A6909E700770125 /* WhereToBuyInfo.plist in Resources */,
 				93009FF11A7B72CD005B3085 /* zan_disable@2x.png in Resources */,
+				599B9CC81AC002E600740E51 /* MoreRRTableViewCell.xib in Resources */,
 				93B86C0A1AA5A88700A24353 /* isBuy_7@2x.png in Resources */,
 				9383DC3B1A7A3A2E001691BF /* avatar@2x.png in Resources */,
 				932F96EA1A7F4582000C28B5 /* 5@2x.png in Resources */,
@@ -1693,7 +1710,7 @@
 				93A8B09B1A650F07006D6A74 /* isBuy@2x.png in Resources */,
 				93B86C071AA5A88700A24353 /* isBuy_1@2x.png in Resources */,
 				930A56D71A9D9E1F005F86B3 /* paopao@2x.png in Resources */,
-				591BDFD91ABFD83800ACE95D /* MoreReplyTableViewCell.xib in Resources */,
+				599B9CC01AC0027C00740E51 /* MoreReplyTableViewCell.xib in Resources */,
 				F81545B31AB92299009CF568 /* whereBuy1@2x.png in Resources */,
 				597D3B9F1AAE9AB8003F3871 /* black.png in Resources */,
 				F8332ADA1ABAB83C00A0AEC8 /* searchSmall@2x.png in Resources */,
@@ -1758,7 +1775,7 @@
 				9383DC2A1A79D843001691BF /* PersonMainViewController.m in Sources */,
 				93009FE71A7B2152005B3085 /* CLLRefreshFooterView.m in Sources */,
 				93EE20EC1AA06FF0007D1CD0 /* IsBuyTopicDetailViewController.m in Sources */,
-				591BDFD81ABFD83800ACE95D /* MoreReplyTableViewCell.m in Sources */,
+				599B9CBF1AC0027C00740E51 /* MoreReplyTableViewCell.m in Sources */,
 				9329A6F41AA2EDED005B7D70 /* HanyuPinyinOutputFormat.m in Sources */,
 				9337B9151A58FE61003A0884 /* AFHTTPRequestOperation.m in Sources */,
 				9329A6F51AA2EDED005B7D70 /* NSString+PinYin4Cocoa.m in Sources */,
@@ -1842,7 +1859,6 @@
 				93A8B0731A64DE4E006D6A74 /* SelectCityViewController.m in Sources */,
 				F8AF54FA1AAAE41D0029435B /* BuilddingDetailViewController.m in Sources */,
 				597CC0391AB18F6D0026DA64 /* YcKeyBoardView.m in Sources */,
-				597CC0301AB12F750026DA64 /* MoreReplyViewController.m in Sources */,
 				F85905B61AB170110026B720 /* UserEvaluteViewCell.m in Sources */,
 				9337B9831A591982003A0884 /* NSString+WJ.m in Sources */,
 				9383DC271A79D74C001691BF /* WhereBuyMainVIewController.m in Sources */,
@@ -1854,8 +1870,10 @@
 				9337B91E1A58FE61003A0884 /* MKAnnotationView+WebCache.m in Sources */,
 				9337B92C1A58FE61003A0884 /* UIImageView+WebCache.m in Sources */,
 				F8A1DE241AB28AF7008474F7 /* ExpertEvaluteDetailViewController.m in Sources */,
+				599B9CC71AC002E600740E51 /* MoreRRTableViewCell.m in Sources */,
 				93B33A401A9F22E300EB7F6A /* PersonCollectViewController.m in Sources */,
 				9337B92D1A58FE61003A0884 /* UIView+WebCacheOperation.m in Sources */,
+				599B9CBA1AC0014500740E51 /* MoreReplyViewController.m in Sources */,
 				9329A6FB1AA2EE50005B7D70 /* ChineseInclude.m in Sources */,
 				9383DC211A79D28A001691BF /* DockViewController.m in Sources */,
 				939394A91A89B8370039FFF3 /* NormalCircle.m in Sources */,

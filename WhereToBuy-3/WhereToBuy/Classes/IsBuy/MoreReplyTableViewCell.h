@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MoreReplyTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *infos;
+@property (weak, nonatomic) IBOutlet UILabel *infoMessages;
 
 @end
