@@ -7,7 +7,7 @@
 //
 
 #import "MoreReplyViewController.h"
-
+#import "MoreReplyTableViewCell.h"
 @interface MoreReplyViewController ()
 
 @end
@@ -27,7 +27,7 @@
         _dataStr = str;
         _Porigin = PFlot;
         _LcStr   = number;
-        _dataArray = [[NSMutableArray alloc]initWithObjects:@"提莫",@" 回复 ",@"@鸡鸡鸡 :",@" 提莫露脸是大神大神大神大神的大神大神大神大神的是大神大神大神大神的大神大神大神大神的是大神大神大神大神的大神大神大神大神的是大神大神大神大神的大神大神大神大神的是大神大神大神大神的大神大神大神大神的是大神大神大神大神的大神大神大神大神的", nil];
+        _dataArray = [[NSMutableArray alloc]initWithObjects:@"提莫",@" 回复 ",@"@鸡鸡鸡 :",@"提莫露脸", nil];
     }
     return self;
 }
@@ -76,18 +76,17 @@ self.view.backgroundColor = [UIColor whiteColor];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
-    static NSString * str = @"cell";
-    UITableViewCell * cell =[tableView dequeueReusableCellWithIdentifier:str];
+    static NSString * str = @"MoreReplyTableViewCell";
+    MoreReplyTableViewCell * cell =[tableView dequeueReusableCellWithIdentifier:str];
     if (cell == nil)
     {
-        cell= [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str];
+        cell= [[[NSBundle mainBundle]loadNibNamed:@"MoreReplyTableViewCell" owner:nil options:nil]objectAtIndex:0];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 
     }
-    cell.textLabel.attributedText  = [Tools textArr:_dataArray andColor:kMainColor colorTextIndex:2];
-    cell.textLabel.numberOfLines = 0;
-    cell.textLabel.font = [UIFont systemFontOfSize:14];
-    cell.textLabel.lineBreakMode =NSLineBreakByWordWrapping;
+    cell.infos.attributedText  = [Tools textArr:_dataArray andColor:kMainColor colorTextIndex:2];
+    cell.infos.font = [UIFont systemFontOfSize:14];
+    cell.infos.lineBreakMode =NSLineBreakByWordWrapping;
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
@@ -95,7 +94,7 @@ self.view.backgroundColor = [UIColor whiteColor];
 
     NSString * str = [[Tools textArr:_dataArray andColor:kMainColor colorTextIndex:2]string];
     CGRect rect = [self cellHight:str Size:CGSizeMake(210, 0)];
-    return rect.size.height-10;
+    return rect.size.height;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -120,7 +119,7 @@ self.view.backgroundColor = [UIColor whiteColor];
         self.key = nil;
         _isOpen = NO;
     }
-
+    [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 #pragma mark- ADDUI
 -(void)addUI:(UIView *)views
@@ -139,7 +138,7 @@ self.view.backgroundColor = [UIColor whiteColor];
     UILabel * HFlabel = [[UILabel alloc]initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width-55, 18, 60, 30)];
     HFlabel.text = @"回复ta";
     HFlabel.textColor = [UIColor darkGrayColor];
-    HFlabel.font = [UIFont systemFontOfSize:13];
+    HFlabel.font = [UIFont systemFontOfSize:14];
     [views addSubview:HFlabel];
     UIButton *  HFbtn = [UIButton buttonWithType:UIButtonTypeCustom];
     HFbtn.frame = CGRectMake([UIScreen mainScreen].bounds.size.width-75, 15, 75, 30);
@@ -197,7 +196,7 @@ self.view.backgroundColor = [UIColor whiteColor];
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:lab.text];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.alignment = NSTextAlignmentLeft;
-    paragraphStyle.maximumLineHeight = 60;  //最大的行高
+    //paragraphStyle.maximumLineHeight = 60;  //最大的行高
     paragraphStyle.lineSpacing = 1.5;  //行自定义行高度
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [lab.text length])];
     lab.attributedText = attributedString;

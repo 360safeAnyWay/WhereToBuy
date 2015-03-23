@@ -172,7 +172,9 @@
 - (void)registerNewAccount
 {
     NSLog(@"注册新用户");
-//    [ServiceManage shareInstance] DidRegister:@{} completion:<#^(ERROR_CODE code, id obj)callBack#>
+    [[ServiceManage shareInstance] DidRegister:@{} completion:^(ERROR_CODE code, id obj) {
+        
+    }];
 }
 
 //从忘记密码中返回
