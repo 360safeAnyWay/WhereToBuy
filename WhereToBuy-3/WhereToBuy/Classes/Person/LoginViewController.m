@@ -127,7 +127,7 @@
     UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn1 setFrame:CGRectMake(20, [self.view viewWithTag:13].frame.origin.y + [self.view viewWithTag:13].frame.size.height + 15, self.view.frame.size.width - 40, 45)];
     [btn1 setTitle:@"确定" forState:UIControlStateNormal];
-    [btn1 addTarget:self action:@selector(refindSecret) forControlEvents:UIControlEventTouchUpInside];
+    [btn1 addTarget:self action:@selector(registerNewAccount) forControlEvents:UIControlEventTouchUpInside];
     [btn1 setBackgroundImage:@"aniublank.png"];
     [forgetView addSubview:btn1];
     
@@ -167,6 +167,12 @@
 //    {
 //        [Tools showAlertView:@"用户名或者密码错误！"];
 //    }
+}
+
+- (void)registerNewAccount
+{
+    NSLog(@"注册新用户");
+//    [ServiceManage shareInstance] DidRegister:@{} completion:<#^(ERROR_CODE code, id obj)callBack#>
 }
 
 //从忘记密码中返回

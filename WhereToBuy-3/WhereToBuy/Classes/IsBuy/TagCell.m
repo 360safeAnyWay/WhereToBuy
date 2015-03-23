@@ -25,7 +25,7 @@
         UILabel *tagName = [[UILabel alloc] initWithFrame:CGRectZero];
         [tagName setCenter:CGPointMake(tagName.center.x, self.contentView.center.y)];
         [tagName setFont:[UIFont systemFontOfSize:16]];
-        [tagName setTextColor:[UIColor orangeColor]];
+        [tagName setTextColor:kMainColor];
         [self.contentView addSubview:tagName];
         self.tagName = tagName;
         

@@ -126,6 +126,39 @@ const int MaxCount7 = 5;
     _dataArr = [[NSMutableArray alloc] initWithArray:@[@[@"3",@"点击查看更多专家回复"],@[@"4",@"点击查看更多专家回复"],@[@"7",@"点击查看更多专家回复"],@[@"2",@"点击查看更多专家回复"],@[@"8",@"点击查看更多专家回复"],@[@"2",@"点击查看更多专家回复"],@[@"9",@"点击查看更多专家回复"],@[@"4",@"点击查看更多专家回复"],@[@"6",@"点击查看更多专家回复"],@[@"7",@"点击查看更多专家回复"]]];
     [self.tableView reloadData];
     _backTitleArr = @[@"性价比",@"户型",@"房屋质量",@"物业管理",@"交通地铁",@"周边配套",@"学区",@"绿化景观",@"开发品牌",@"区域发展"];
+    
+    //增加滑动手势
+    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipe:)];
+    swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+    swipeLeft.numberOfTouchesRequired = 1;
+    [self.view addGestureRecognizer:swipeLeft];
+    
+    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipe:)];
+    swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
+    swipeRight.numberOfTouchesRequired = 1;
+    [self.view addGestureRecognizer:swipeRight];
+}
+
+- (void)swipe:(UISwipeGestureRecognizer *)gesture
+{
+    if (gesture.direction == UISwipeGestureRecognizerDirectionLeft) {
+        NSLog(@"向左滑动");
+        if (((UIButton *)[self.view viewWithTag:2]).userInteractionEnabled == YES && ((UIButton *)[self.view viewWithTag:3]).userInteractionEnabled == YES) {
+            [self showTopicByButton:((UIButton *)[self.view viewWithTag:2])];
+        }else if (((UIButton *)[self.view viewWithTag:3]).userInteractionEnabled == YES && ((UIButton *)[self.view viewWithTag:2]).userInteractionEnabled == NO)
+        {
+            [self showTopicByButton:((UIButton *)[self.view viewWithTag:3])];
+        }
+    }else if (gesture.direction == UISwipeGestureRecognizerDirectionRight)
+    {
+        if (((UIButton *)[self.view viewWithTag:1]).userInteractionEnabled == YES && ((UIButton *)[self.view viewWithTag:2]).userInteractionEnabled == YES) {
+            [self showTopicByButton:((UIButton *)[self.view viewWithTag:2])];
+        }else if (((UIButton *)[self.view viewWithTag:1]).userInteractionEnabled == YES && ((UIButton *)[self.view viewWithTag:2]).userInteractionEnabled == NO)
+        {
+            [self showTopicByButton:((UIButton *)[self.view viewWithTag:1])];
+        }
+        NSLog(@"向右滑动");
+    }
 }
 
 //返回按钮
@@ -283,7 +316,7 @@ const int MaxCount7 = 5;
     }
     [btn setSelected:YES];
     if (btn.tag < _tag) {//向右边移动
-        [UIView animateWithDuration:0.2f animations:^{//点击待评价按钮，将已评价的table移入进来，带评价table移除出去
+        [UIView animateWithDuration:0.1f animations:^{//点击待评价按钮，将已评价的table移入进来，带评价table移除出去
             [self.tableView setCenter:CGPointMake(self.tableView.center.x + (_tag - btn.tag)*self.view.frame.size.width, self.tableView.center.y)];
             [self.tableView2 setCenter:CGPointMake(self.tableView2.center.x + (_tag - btn.tag)*self.view.frame.size.width, self.tableView2.center.y)];
             [self.tableView3 setCenter:CGPointMake(self.tableView3.center.x + (_tag - btn.tag)*self.view.frame.size.width, self.tableView3.center.y)];
@@ -296,7 +329,7 @@ const int MaxCount7 = 5;
         }];
     }else if (btn.tag > _tag)//向左边移动
     {
-        [UIView animateWithDuration:0.2f animations:^{//点击待评价按钮，将已评价的table移入进来，带评价table移除出去
+        [UIView animateWithDuration:0.1f animations:^{//点击待评价按钮，将已评价的table移入进来，带评价table移除出去
             [self.tableView setCenter:CGPointMake(self.tableView.center.x - (btn.tag - _tag)*self.view.frame.size.width, self.tableView.center.y)];
             [self.tableView2 setCenter:CGPointMake(self.tableView2.center.x - (btn.tag - _tag)*self.view.frame.size.width, self.tableView2.center.y)];
             [self.tableView3 setCenter:CGPointMake(self.tableView3.center.x - (btn.tag - _tag)*self.view.frame.size.width, self.tableView3.center.y)];

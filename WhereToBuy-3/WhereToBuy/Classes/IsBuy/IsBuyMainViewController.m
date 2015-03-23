@@ -137,6 +137,33 @@ const int MaxCount = 5;
     [self addUI];
     [self refreshControl1];
     [self refreshControl2];
+    
+    //增加滑动手势
+    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipe:)];
+    swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+    swipeLeft.numberOfTouchesRequired = 1;
+    [self.view addGestureRecognizer:swipeLeft];
+    
+    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipe:)];
+    swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
+    swipeRight.numberOfTouchesRequired = 1;
+    [self.view addGestureRecognizer:swipeRight];
+}
+
+- (void)swipe:(UISwipeGestureRecognizer *)gesture
+{
+    if (gesture.direction == UISwipeGestureRecognizerDirectionLeft) {
+        NSLog(@"向左滑动");
+        if (((UIButton *)[self.view viewWithTag:2]).userInteractionEnabled == YES) {
+            [self showTopicByButton:((UIButton *)[self.view viewWithTag:2])];
+        }
+    }else if (gesture.direction == UISwipeGestureRecognizerDirectionRight)
+    {
+        if (((UIButton *)[self.view viewWithTag:1]).userInteractionEnabled == YES) {
+            [self showTopicByButton:((UIButton *)[self.view viewWithTag:1])];
+        }
+        NSLog(@"向右滑动");
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -217,7 +244,7 @@ const int MaxCount = 5;
     }
     [btn setSelected:YES];
     if (btn.tag ==1) {
-        [UIView animateWithDuration:0.5f animations:^{//点击待评价按钮，将已评价的table移入进来，带评价table移除出去
+        [UIView animateWithDuration:0.1f animations:^{//点击待评价按钮，将已评价的table移入进来，带评价table移除出去
             [self.view bringSubviewToFront:self.tableView];
             [self.tableView setCenter:CGPointMake(self.tableView.center.x + self.view.frame.size.width, self.tableView.center.y)];
             [self.tableView2 setCenter:CGPointMake(self.tableView2.center.x + self.view.frame.size.width, self.tableView2.center.y)];
@@ -227,7 +254,7 @@ const int MaxCount = 5;
         }];
     }else if (btn.tag == 2)
     {
-        [UIView animateWithDuration:0.5f animations:^{//点击待评价按钮，将待评价的table移入进来，已评价table移除出去
+        [UIView animateWithDuration:0.1f animations:^{//点击待评价按钮，将待评价的table移入进来，已评价table移除出去
             [self.view bringSubviewToFront:self.tableView2];
             [self.tableView2 setCenter:CGPointMake(self.tableView2.center.x - self.view.frame.size.width, self.tableView2.center.y)];
             [self.tableView setCenter:CGPointMake(self.tableView.center.x - self.view.frame.size.width, self.tableView.center.y)];

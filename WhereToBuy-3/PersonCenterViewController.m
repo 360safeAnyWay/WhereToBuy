@@ -60,6 +60,7 @@
         _tilteColor = [UIColor whiteColor];
         _iconImage = [UIImage imageNamed:@"6_selected.png"];
         _cacheSize = size;
+        titleDataArray[5] = @"清除缓存";
         [_tableView reloadData];
     }
 }
