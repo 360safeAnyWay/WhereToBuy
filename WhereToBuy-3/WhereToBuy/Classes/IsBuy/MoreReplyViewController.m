@@ -17,6 +17,8 @@
     NSString * _dataStr;
     CGFloat  _Porigin;
     NSString * _flotStr;
+    CGFloat    _deltaY;
+    BOOL       _isOpen;
 }
 - (instancetype)initWithstr:(NSString *)str WithFlot:(CGFloat)PFlot number:(NSString *)number;
 {
@@ -108,7 +110,17 @@ self.view.backgroundColor = [UIColor whiteColor];
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self PerFormKey:indexPath];
+    if (_isOpen == NO)
+    {
+        [self PerFormKey:indexPath];
+
+        _isOpen = YES;
+    }else{
+        [self.key removeFromSuperview];
+        self.key = nil;
+        _isOpen = NO;
+    }
+
 }
 #pragma mark- ADDUI
 -(void)addUI:(UIView *)views
@@ -201,11 +213,13 @@ self.view.backgroundColor = [UIColor whiteColor];
 -(void)keyboardShow:(NSNotification *)note
 {
     CGRect keyBoardRect=[note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    CGFloat deltaY=keyBoardRect.size.height;
-    self.keyBoardHeight=deltaY;
+    _deltaY =keyBoardRect.size.height;
+    self.keyBoardHeight=_deltaY;
+    CGRect rect = _myTableView.frame;
+    rect.size.height = [UIScreen mainScreen].bounds.size.height-_deltaY;
+    _myTableView.frame = rect;
     [UIView animateWithDuration:[note.userInfo[UIKeyboardAnimationDurationUserInfoKey] floatValue] animations:^{
-        
-        self.key.transform=CGAffineTransformMakeTranslation(0, -deltaY);
+        self.key.transform=CGAffineTransformMakeTranslation(0, -_deltaY);
     }];
 }
 -(void)keyboardHide:(NSNotification *)note
@@ -213,21 +227,27 @@ self.view.backgroundColor = [UIColor whiteColor];
     [UIView animateWithDuration:[note.userInfo[UIKeyboardAnimationDurationUserInfoKey] floatValue] animations:^{
         self.key.transform=CGAffineTransformIdentity;
     } completion:^(BOOL finished) {
-        
         self.key.textView.text=@"";
         [self.key removeFromSuperview];
         self.key = nil;
+        CGRect rect = _myTableView.frame;
+        rect.size.height = [UIScreen mainScreen].bounds.size.height;
+        _myTableView.frame = rect;
+        _isOpen = NO;
     }];
     
 }
 -(void)keyBoardViewHide:(YcKeyBoardView *)keyBoardView textView:(UITextView *)contentView
 {
     [contentView resignFirstResponder];
+    [self.key removeFromSuperview];
+    _isOpen = NO;
     //接口请求
     
 }
 -(void)sendButton:(UIButton *)btn
 {
+    _isOpen = NO;
     [self.key removeFromSuperview];
     self.key = nil;
     NSLog(@"send");
