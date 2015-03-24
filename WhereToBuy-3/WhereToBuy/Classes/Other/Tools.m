@@ -152,11 +152,11 @@
     if ((locate + size) < str1.length) {//如果设置的不是最后一个，就设置最后面的为黑色
         [str addAttribute:NSForegroundColorAttributeName value:[self colorWithRed:100 angGreen:100 andBlue:100] range:NSMakeRange(locate + size, str1.length - locate - size)];
     }
-//    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-//    paragraphStyle.alignment = NSTextAlignmentJustified;
-//    paragraphStyle.maximumLineHeight = 60;  //最大的行高
-//    paragraphStyle.lineSpacing = 2;  //行自定义行高度
-//    [str addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [str length])];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.alignment = NSTextAlignmentJustified;
+    paragraphStyle.maximumLineHeight = 60;  //最大的行高
+    paragraphStyle.lineSpacing = 2;  //行自定义行高度
+    [str addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [str length])];
     return str;
 }
 
