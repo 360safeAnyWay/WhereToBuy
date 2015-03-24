@@ -252,7 +252,7 @@
     //向下选择
     UIButton *down = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [down setFrame:CGRectMake(40, 5, 30, 30)];
-    [down setBackgroundImage:[UIImage imageNamed:@"down.png"] forState:UIControlStateNormal];
+    [down setBackgroundImage:[UIImage imageNamed:@"downQ.png"] forState:UIControlStateNormal];
     [down addTarget:self action:@selector(down) forControlEvents:UIControlEventTouchUpInside];
     down.tag = 2;
     [headerView addSubview:down];

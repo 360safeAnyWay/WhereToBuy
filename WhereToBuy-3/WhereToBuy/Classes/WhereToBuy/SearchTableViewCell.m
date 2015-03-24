@@ -39,6 +39,7 @@
         self.imageView1 = imageView;
         
         UILabel *nameLabel = [[UILabel alloc] initWithFrame:GTRectMake(GTFixWidthFlaot(45), GTFixHeightFlaot(7), 40, 30)];
+        [nameLabel setTextColor:kMainColor];
         [self addSubview:nameLabel];
         self.nameLabel = nameLabel;
         
