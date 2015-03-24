@@ -64,10 +64,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bIk-hw-KHH">
-                        <rect key="frame" x="0.0" y="124" width="320" height="10"/>
+                        <rect key="frame" x="0.0" y="130" width="320" height="5"/>
                         <color key="backgroundColor" red="0.26274509800000001" green="0.82352941180000006" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="10" id="Jil-8l-ZCP"/>
+                            <constraint firstAttribute="height" constant="5" id="Jil-8l-ZCP"/>
                             <constraint firstAttribute="height" constant="10" id="eNl-eO-987"/>
                         </constraints>
                         <variation key="default">
@@ -108,7 +108,7 @@
                     <constraint firstItem="uqg-kd-qIL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="02M-Do-UP9"/>
                     <constraint firstAttribute="bottomMargin" secondItem="bIk-hw-KHH" secondAttribute="bottom" constant="-8" id="13P-YB-iGb"/>
                     <constraint firstItem="tDT-st-yKy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="1Uz-VT-jpX"/>
-                    <constraint firstItem="bIk-hw-KHH" firstAttribute="top" secondItem="TDu-Fh-wYb" secondAttribute="bottom" constant="43" id="2fb-dR-iFk"/>
+                    <constraint firstItem="bIk-hw-KHH" firstAttribute="top" secondItem="TDu-Fh-wYb" secondAttribute="bottom" constant="49" id="2fb-dR-iFk"/>
                     <constraint firstAttribute="trailingMargin" secondItem="pgJ-AE-CId" secondAttribute="trailing" constant="-8" id="2gY-mN-8er"/>
                     <constraint firstItem="pgJ-AE-CId" firstAttribute="top" secondItem="yDk-tW-Nco" secondAttribute="bottom" constant="5" id="448-Oo-Ppb"/>
                     <constraint firstItem="pgJ-AE-CId" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="6GV-Wv-4gi"/>
