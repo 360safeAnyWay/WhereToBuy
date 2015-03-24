@@ -41,14 +41,14 @@
     if ([indexPath row] == 0)
     {
         MoreRRTableViewCell * mrr = [[[NSBundle mainBundle]loadNibNamed:@"MoreRRTableViewCell" owner:nil options:nil]objectAtIndex:0];
-        [mrr setSelectionStyle:UITableViewCellSelectionStyleNone];
+       // [mrr setSelectionStyle:UITableViewCellSelectionStyleNone];
         mrr.infoMessage.text = _infoMessage_Str;
         [self resetContent:mrr.infoMessage];
         return mrr;
     }else{
       MoreReplyTableViewCell * mr = [[[NSBundle mainBundle]loadNibNamed:@"MoreReplyTableViewCell" owner:nil options:nil]objectAtIndex:0];
         mr.infoMessages.attributedText  = [Tools textArr:_sStrArray andColor:kMainColor colorTextIndex:2];
-      [mr setSelectionStyle:UITableViewCellSelectionStyleNone];
+      //[mr setSelectionStyle:UITableViewCellSelectionStyleNone];
       return mr;
 
     }
@@ -58,7 +58,7 @@
     if (indexPath.row == 0)
     {
       CGRect rect = [self cellHight:_infoMessage_Str Size:CGSizeMake(210, 0)];
-        return rect.size.height+134;
+        return rect.size.height+114;
     }
     NSString * str = [NSString stringWithFormat:@"%@%@%@%@",[_sStrArray objectAtIndex:0],[_sStrArray objectAtIndex:1],[_sStrArray objectAtIndex:2],_sStrArray[3]];
     CGRect rect = [self cellHight:str Size:CGSizeMake(210, 0)];
