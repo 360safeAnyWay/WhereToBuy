@@ -160,7 +160,7 @@
 - (void)pushTagValue:(NSString *)str
 {
     [((UIButton *)[self.view viewWithTag:_tag]) setTitle:str forState:UIControlStateNormal];
-    [((UIButton *)[self.view viewWithTag:_tag]) setBackgroundColor:[UIColor orangeColor]];
+    [((UIButton *)[self.view viewWithTag:_tag]) setBackgroundColor:kMainColor];
     //小叉叉
     UIButton *xxBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [xxBtn setFrame:CGRectMake(90, 0, 33, 20)];
