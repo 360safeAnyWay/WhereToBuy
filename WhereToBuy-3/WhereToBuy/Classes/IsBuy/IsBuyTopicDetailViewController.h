@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface IsBuyTopicDetailViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
+@interface IsBuyTopicDetailViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource,ISSShareViewDelegate>
 @property (nonatomic, copy) NSString * infoStr;
 @property (nonatomic,retain)NSMutableArray  * reviewArray;
 

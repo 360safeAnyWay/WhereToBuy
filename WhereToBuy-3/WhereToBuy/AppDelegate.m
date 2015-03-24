@@ -14,7 +14,6 @@
 #import <math.h>
 #import "APService.h"
 #import "LeafNotification.h"
-
 #define kCurrentPattern						    @"KeyForCurrentPatternToUnlock"
 #define kCurrentPatternTemp						@"KeyForCurrentPatternToUnlockTemp"
 
@@ -111,10 +110,29 @@
             }];
         }];
     }];
+    [ShareSDK registerApp:@"64dbbd6e67b6"];//字符串api20为您的ShareSDK的AppKey
     
+    [ShareSDK connectSinaWeiboWithAppKey:@"4118636406"appSecret:@"3a78cbfcf7a5555a3070ab3ff2187bce"
+                             redirectUri:@"http://www.mainaer.net"];
     return YES;
 }
+- (BOOL)application:(UIApplication *)application
+      handleOpenURL:(NSURL *)url
+{
+    return [ShareSDK handleOpenURL:url
+            wxDelegate:self];
+}
 
+- (BOOL)application:(UIApplication *)application
+openURL:(NSURL *)url
+sourceApplication:(NSString *)sourceApplication
+annotation:(id)annotation
+{
+    return [ShareSDK handleOpenURL:url
+            sourceApplication:sourceApplication
+            annotation:annotation
+            wxDelegate:self];
+}
 - (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];

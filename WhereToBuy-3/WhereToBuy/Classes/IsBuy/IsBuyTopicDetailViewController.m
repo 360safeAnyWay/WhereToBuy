@@ -31,7 +31,7 @@
 
 - (void)viewDidLoad
 {
-    _reviewArray = [[NSMutableArray alloc]initWithObjects:@"提莫     回复 @鸟鸟鸟 提莫露脸团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S",@"德莱文  回复 @提莫 这不是提莫吗?团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S",@"盲僧     回复 @德莱文 团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S", nil];
+    _reviewArray = [[NSMutableArray alloc]initWithObjects:@"提莫     回复 @鸟鸟鸟 提莫露脸团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S",@"德莱文  回复 @提莫 这不是提莫吗?团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S",@"盲僧     回复 @德莱文 团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S", nil];
     for (NSInteger i = 0; i <3; i++)
     {
         NSString * str = [_reviewArray objectAtIndex:i];
@@ -218,6 +218,48 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     
     [self.view setBackgroundColor:[UIColor whiteColor]];
+    NavBackButton *backBtn1 = [[NavBackButton alloc] initWithFrame:CGRectMake(0, 0, 105, 26)];
+    [backBtn1 setImage:[UIImage imageNamed:@"leftBack.png"] forState:UIControlStateNormal];
+    [backBtn1 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [backBtn1 addTarget:self action:@selector(FXBtn:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn1];
+    
+    [self.view setBackgroundColor:[UIColor whiteColor]];
+}
+-(void)FXBtn:(id)sender
+{
+    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"ShareSDK" ofType:@"png"];
+    
+    //构造分享内容
+    id<ISSContent> publishContent = [ShareSDK content:@"分享内容"
+                                       defaultContent:@"测试一下"
+                                                image:[ShareSDK imageWithPath:imagePath]
+                                                title:@"ShareSDK"
+                                                  url:@"http://www.mob.com"
+                                          description:@"这是一条测试信息"
+                                            mediaType:SSPublishContentMediaTypeNews];
+    //创建弹出菜单容器
+    id<ISSContainer> container = [ShareSDK container];
+    [container setIPadContainerWithView:sender arrowDirect:UIPopoverArrowDirectionUp];
+    
+    //弹出分享菜单
+    [ShareSDK showShareActionSheet:container
+                         shareList:nil
+                           content:publishContent
+                     statusBarTips:YES
+                       authOptions:nil
+                      shareOptions:nil
+                            result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
+                                
+                                if (state == SSResponseStateSuccess)
+                                {
+                                    NSLog(NSLocalizedString(@"TEXT_ShARE_SUC", @"分享成功"));
+                                }
+                                else if (state == SSResponseStateFail)
+                                {
+                                    NSLog(NSLocalizedString(@"TEXT_ShARE_FAI", @"分享失败,错误码:%d,错误描述:%@"), [error errorCode], [error errorDescription]);
+                                }
+                            }];
 }
 //返回
 - (void)back
@@ -238,7 +280,7 @@
     return 200+Inforect.size.height;
         
     }else{
-        _infoStr     =  @"我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。";
+        _infoStr     =  @"我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。";
         Inforect = [self  cellHight:_infoStr Size:CGSizeMake(210, 0)];
         return 260+Inforect.size.height+_Sheight;
 
@@ -317,6 +359,18 @@
     view.alpha = 0;
     ReviewViewController * review = [[ReviewViewController alloc]init];
     [self.navigationController pushViewController:review animated:YES];
+    
+}
+- (void)viewOnWillDisplay:(UIViewController *)viewController shareType:(ShareType)shareType
+
+{
+    
+    //修改分享编辑框的标题栏颜色
+    viewController.navigationController.navigationBar.barTintColor = [UIColor redColor];
+    
+    //将分享编辑框的标题栏替换为图片
+        UIImage *image = [UIImage imageNamed:@"iPhoneNavigationBarBG.png"];
+        [viewController.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
     
 }
 @end
