@@ -227,37 +227,95 @@
     [self.view setBackgroundColor:[UIColor whiteColor]];
 }
 -(void)FXBtn:(id)sender
-{
-    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"ShareSDK" ofType:@"png"];
+{   
+//    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"ShareSDK" ofType:@"png"];
+//    
+//    //构造分享内容
+//    id<ISSContent> publishContent = [ShareSDK content:@"分享内容"
+//                                       defaultContent:@"测试一下"
+//                                                image:[ShareSDK imageWithPath:imagePath]
+//                                                title:@"ShareSDK"
+//                                                  url:@"http://www.mob.com"
+//                                          description:@"这是一条测试信息"
+//                                            mediaType:SSPublishContentMediaTypeNews];
+//    //创建弹出菜单容器
+//    id<ISSContainer> container = [ShareSDK container];
+//    [container setIPadContainerWithView:sender arrowDirect:UIPopoverArrowDirectionUp];
+//    
+//    //弹出分享菜单
+//    [ShareSDK showShareActionSheet:container
+//                         shareList:nil
+//                           content:publishContent
+//                     statusBarTips:YES
+//                       authOptions:nil
+//                      shareOptions:nil
+//                            result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
+//                                
+//                                if (state == SSResponseStateSuccess)
+//                                {
+//                                    NSLog(NSLocalizedString(@"TEXT_ShARE_SUC", @"分享成功"));
+//
+//                                    [alv show];
+//                                }
+//                                else if (state == SSResponseStateFail)
+//                                {
+//                                    NSLog(NSLocalizedString(@"TEXT_ShARE_FAI", @"分享失败,错误码:%d,错误描述:%@"), [error errorCode], [error errorDescription]);
+//
+//                                }
+//                            }];
+    //只需要在响应分享按钮的方法中添加以下代码即可
+    NSString *img = [[NSBundle mainBundle] pathForResource:@"mm" ofType:@"png"];
     
     //构造分享内容
-    id<ISSContent> publishContent = [ShareSDK content:@"分享内容"
-                                       defaultContent:@"测试一下"
-                                                image:[ShareSDK imageWithPath:imagePath]
-                                                title:@"ShareSDK"
-                                                  url:@"http://www.mob.com"
-                                          description:@"这是一条测试信息"
+    id<ISSContent> publishContent = [ShareSDK content:@"感谢分享买哪儿"
+                                       defaultContent:@""
+                                                image:[ShareSDK imageWithPath:img]
+                                                title:@"演示Demo中的标题"
+                                                  url:@"http://www.mainaer.net"
+                                          description:@""
                                             mediaType:SSPublishContentMediaTypeNews];
+    
     //创建弹出菜单容器
     id<ISSContainer> container = [ShareSDK container];
     [container setIPadContainerWithView:sender arrowDirect:UIPopoverArrowDirectionUp];
+    
+    //自定义标题栏相关委托
+    id<ISSAuthOptions> authOptions = [ShareSDK authOptionsWithAutoAuth:YES
+                                                         allowCallback:NO
+                                                         authViewStyle:SSAuthViewStyleFullScreenPopup
+                                                          viewDelegate:nil
+                                               authManagerViewDelegate:nil];
+    //自定义标题栏相关委托
+    id<ISSShareOptions> shareOptions = [ShareSDK defaultShareOptionsWithTitle:@"买哪儿分享"
+                                                              oneKeyShareList:[NSArray defaultOneKeyShareList]
+                                                               qqButtonHidden:YES
+                                                        wxSessionButtonHidden:YES
+                                                       wxTimelineButtonHidden:YES
+                                                         showKeyboardOnAppear:NO
+                                                            shareViewDelegate:self
+                                                          friendsViewDelegate:nil
+                                                        picViewerViewDelegate:nil];
     
     //弹出分享菜单
     [ShareSDK showShareActionSheet:container
                          shareList:nil
                            content:publishContent
                      statusBarTips:YES
-                       authOptions:nil
-                      shareOptions:nil
+                       authOptions:authOptions
+                      shareOptions:shareOptions
                             result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
                                 
                                 if (state == SSResponseStateSuccess)
                                 {
                                     NSLog(NSLocalizedString(@"TEXT_ShARE_SUC", @"分享成功"));
+                                     UIAlertView * alv = [[UIAlertView alloc]initWithTitle:@"分享结果" message:@"分享成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                                    [alv show];
                                 }
                                 else if (state == SSResponseStateFail)
                                 {
                                     NSLog(NSLocalizedString(@"TEXT_ShARE_FAI", @"分享失败,错误码:%d,错误描述:%@"), [error errorCode], [error errorDescription]);
+                                    UIAlertView * alv = [[UIAlertView alloc]initWithTitle:@"分享结果" message:@"分享失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                                    [alv show];
                                 }
                             }];
 }
@@ -366,11 +424,11 @@
 {
     
     //修改分享编辑框的标题栏颜色
-    viewController.navigationController.navigationBar.barTintColor = [UIColor redColor];
+    viewController.navigationController.navigationBar.barTintColor = kMainColor;
     
     //将分享编辑框的标题栏替换为图片
-        UIImage *image = [UIImage imageNamed:@"iPhoneNavigationBarBG.png"];
-        [viewController.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    //    UIImage *image = [UIImage imageNamed:@"iPhoneNavigationBarBG.png"];
+    //    [viewController.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
     
 }
 @end
