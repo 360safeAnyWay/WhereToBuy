@@ -32,11 +32,12 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     
     UIButton *itemBtn1 = [[UIButton alloc] initWithFrame:CGRectMake(235, 5, 70, 30)];
-    [itemBtn1 setTitle:@"提交内容" forState:UIControlStateNormal];
-    [itemBtn1.titleLabel setFont:[UIFont systemFontOfSize:14]];
+    [itemBtn1 setTitle:@"提交" forState:UIControlStateNormal];
+    [itemBtn1.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    [itemBtn1.titleLabel setFont:[UIFont systemFontOfSize:18]];
     [itemBtn1 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [itemBtn1 addTarget:self action:@selector(sendTitle) forControlEvents:UIControlEventTouchUpInside];
-    [Tools setUIViewLine:itemBtn1 cornerRadius:5 with:1 color:[UIColor whiteColor]];
+//    [Tools setUIViewLine:itemBtn1 cornerRadius:5 with:1 color:[UIColor whiteColor]];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:itemBtn1];
     
     [self.view setBackgroundColor:[UIColor whiteColor]];
@@ -101,6 +102,13 @@
     [tokenBtn2 setBackgroundColor:[Tools colorWithRed:195 angGreen:195 andBlue:195]];
     [Tools setUIViewLine:tokenBtn2 cornerRadius:5 with:1 color:[Tools colorWithRed:195 angGreen:195 andBlue:195]];
     [titleView2 addSubview:tokenBtn2];
+    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn addTarget:self action:@selector(ATButton:) forControlEvents:UIControlEventTouchUpInside];
+    btn.frame = CGRectMake([UIScreen mainScreen].bounds.size.width-47, tokenBtn2.frame.origin.y , 25, 25);
+    [btn setTitle:@"@" forState:0];
+    btn.titleLabel.font = [UIFont systemFontOfSize:25];
+    [btn setTitleColor:kMainColor forState:0];
+    [titleView2 addSubview:btn];
     
     UITextView *contentView = [[UITextView alloc] initWithFrame:CGRectMake(0, titleView2.frame.origin.y + titleView2.frame.size.height, self.view.frame.size.width, 210)];
     [contentView setText:@"请输入内容"];
@@ -109,7 +117,11 @@
     [self.view addSubview:contentView];
     self.contentView = contentView;
 }
-
+//艾特按钮
+-(void)ATButton:(UIButton*)btn
+{
+    
+}
 // 返回按钮
 - (void)back
 {
