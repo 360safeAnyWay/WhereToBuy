@@ -175,7 +175,7 @@ const int MaxCount = 5;
 //    _tips = tips;
 
     UIImageView *image = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height + 65)];
-    [image setImage:[UIImage imageNamed:@"xiaomai.png"]];
+    [image setImage:[UIImage imageNamed:@"xiaomai1.png"]];
     [image setUserInteractionEnabled:YES];
     [main addSubview:image];
     _tips = image;
