@@ -240,7 +240,6 @@
                                                   url:Base_Url
                                           description:@""
                                             mediaType:SSPublishContentMediaTypeNews];
-    
     //创建弹出菜单容器
     id<ISSContainer> container = [ShareSDK container];
     [container setIPadContainerWithView:sender arrowDirect:UIPopoverArrowDirectionUp];
@@ -261,7 +260,6 @@
                                                             shareViewDelegate:self
                                                           friendsViewDelegate:nil
                                                         picViewerViewDelegate:nil];
-    
     //弹出分享菜单
     [ShareSDK showShareActionSheet:container
                          shareList:nil
@@ -284,6 +282,7 @@
                                     [alv show];
                                 }
                             }];
+
 }
 //返回
 - (void)back
