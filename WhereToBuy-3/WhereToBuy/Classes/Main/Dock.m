@@ -22,7 +22,7 @@
     //创建Item
     DockItem *item = [[DockItem alloc] init];
     [item setTitle:title forState:UIControlStateNormal];
-    [item setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [item setTitleColor:kMainTextColor forState:UIControlStateNormal];
     [item setTitleColor:kMainColor forState:UIControlStateSelected];
     [item setImage:[UIImage imageNamed:icon] forState:UIControlStateNormal];
     [item setImage:[UIImage imageNamed:[icon fileApped:@"_selected"]] forState:UIControlStateSelected];

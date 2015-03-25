@@ -53,7 +53,7 @@
         //用户名
         UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, imageView.frame.origin.y + imageView.frame.size.height + 10, 93, 12)];
         [nameLabel setText:@"好名没得取"];
-        [nameLabel setTextColor:[UIColor darkGrayColor]];
+        [nameLabel setTextColor:kMainTextColor];
         [nameLabel setFont:[UIFont systemFontOfSize:14]];
         [nameLabel setTextAlignment:NSTextAlignmentCenter];
         self.nameLabel = nameLabel;
@@ -109,7 +109,7 @@
         UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(mark1.frame.origin.x, mark1.frame.origin.y + mark1.frame.size.height, 200, 50)];
         [textView setText:@"我们都是什么啥意思你试试墅地方撒旦发阿三地方阿三地方撒旦发撒旦发阿三地方阿三地方阿三大发撒旦发撒。。。"];
         [textView setFont:[UIFont systemFontOfSize:12]];
-        [textView setTextColor:[UIColor darkGrayColor]];
+        [textView setTextColor:kMainTextColor];
         [textView setUserInteractionEnabled:NO];
         self.detailTextView = textView;
         [self addSubview:textView];
@@ -131,6 +131,7 @@
         //点赞数
         UILabel *numZan = [[UILabel alloc] initWithFrame:CGRectMake(plusBtn.frame.origin.x + plusBtn.frame.size.width, plusBtn.frame.origin.y, 45, plusBtn.frame.size.height)];
         [numZan setText:@"33652"];
+        [numZan setTextColor:kMainTextColor];
         [numZan setFont:[UIFont systemFontOfSize:12]];
         [numZan setTextAlignment:NSTextAlignmentCenter];
         [viewFrameDown addSubview:numZan];
@@ -153,7 +154,7 @@
         UIButton *viewCount = [UIButton buttonWithType:UIButtonTypeCustom];
         [viewCount setFrame:CGRectMake(126, 7, 85, 20)];
         [viewCount setTitle:@"    44256次浏览" forState:UIControlStateNormal];//一共12个数字
-        [viewCount setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+        [viewCount setTitleColor:kMainTextColor forState:UIControlStateNormal];
         [viewCount.titleLabel setFont:[UIFont systemFontOfSize:12]];
         self.viewCount = viewCount;
         [viewFrameDown addSubview:viewCount];
@@ -167,7 +168,7 @@
         UIButton *commentCount = [UIButton buttonWithType:UIButtonTypeCustom];
         [commentCount setFrame:CGRectMake(viewCount.frame.origin.x + viewCount.frame.size.width + 22, viewCount.frame.origin.y, 85, 20)];
         [commentCount setTitle:@"    44256次评论" forState:UIControlStateNormal];//一共12个数字
-        [commentCount setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+        [commentCount setTitleColor:kMainTextColor forState:UIControlStateNormal];
         [commentCount.titleLabel setFont:[UIFont systemFontOfSize:12]];
         self.commentCount = commentCount;
         [viewFrameDown addSubview:commentCount];

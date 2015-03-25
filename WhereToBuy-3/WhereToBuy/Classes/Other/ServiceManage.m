@@ -206,6 +206,20 @@
     }];
 }
 
+//获取用户个人信息
+-(void)DidUserInfo:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE code, id obj)) callBack
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parmers];
+    [dic setObject:@"HePd443Mnd" forKey:@"overifyname"];
+    [self requestMethod:@"GET" serviceName:@"/cpanel/index.php/buyc_interface1/registerResUser/" parmers:dic completeBlock:^(id obj) {
+        ERROR_CODE code = ERROR_CODE_RROR;
+        if (obj && obj[@"message"]) {
+            code = [obj[@"code"] intValue];
+        }
+        callBack(code, obj);
+    }];
+}
+
 @end
 
 

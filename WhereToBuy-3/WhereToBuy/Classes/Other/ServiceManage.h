@@ -47,4 +47,7 @@ typedef enum {
 //注册
 -(void)DidRegister:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE code, id obj)) callBack;
 
+//获取用户个人信息
+-(void)DidUserInfo:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE code, id obj)) callBack;
+
 @end

@@ -14,13 +14,14 @@
 #import "IsBuySendTopicViewController.h"
 #import "IsBuySearchViewController.h"
 #import "DDMenuController.h"
+#import "DataCenter.h"
 
 const int MaxCount = 5;
 
 @interface IsBuyMainViewController ()
 {
     NSInteger loadCount;
-    
+    UIImageView *_tips;//第一次进入买否，提示用户输入昵称
 }
 
 @property (nonatomic,strong)CLLRefreshHeadController *refreshControll1;
@@ -88,7 +89,16 @@ const int MaxCount = 5;
     
     [self.refreshControll1 endPullDownRefreshing];
     [self.refreshControll2 endPullDownRefreshing];
+    
+    static int i = 1;
+    if (i == 1) {
+        //判断是否需要加上蒙板
+        [self isAutoGiveTheTips];
+        i++;
+    }
+    
 }
+
 - (void)endLoadMore {
     loadCount ++;
     NSMutableArray *data = [[NSMutableArray alloc] initWithObjects:[NSString stringWithFormat:@"第%ld次就加载更多,共%d次",(long)loadCount,MaxCount ],@"更多1",@"更多2",@"更多3", nil];
@@ -148,6 +158,57 @@ const int MaxCount = 5;
     swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
     swipeRight.numberOfTouchesRequired = 1;
     [self.view addGestureRecognizer:swipeRight];
+    
+}
+
+//判断是否需要加上蒙板,弹起让输入用户昵称
+- (void)isAutoGiveTheTips
+{
+//    UIControl *tips = [[UIControl alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height + 65)];
+//    [tips setBackgroundColor:[UIColor blackColor]];
+////    [tips setAlpha:0.8f];
+//    [tips addTarget:self action:@selector(removeTips) forControlEvents:UIControlEventTouchUpInside];
+////    [self.view.window.rootViewController.view addSubview:tipsImage];
+    UIWindow *main = [UIApplication sharedApplication].keyWindow;
+//    [main addSubview:tips];
+//    [main bringSubviewToFront:tips];
+//    _tips = tips;
+
+    UIImageView *image = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height + 65)];
+    [image setImage:[UIImage imageNamed:@"xiaomai.png"]];
+    [image setUserInteractionEnabled:YES];
+    [main addSubview:image];
+    _tips = image;
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(125, 200, 185, 40)];
+    [view setBackgroundColor:[UIColor whiteColor]];
+    [image addSubview:view];
+    [view setAlpha:1.0f];
+    
+    UITextField *inputText = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 130, 40)];
+    [view addSubview:inputText];
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [btn setFrame:CGRectMake(130, 0, 55, 40)];
+    [btn setTitle:@"提交" forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [btn setBackgroundColor:kMainColor];
+    [view addSubview:btn];
+    
+    UITapGestureRecognizer *removeTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeTips)];
+    [removeTap setNumberOfTapsRequired:1];
+    [image addGestureRecognizer:removeTap];
+}
+
+//移除提示的蒙板的方法
+-(void)removeTips
+{
+    [UIView animateWithDuration:0.5f animations:^{
+        [_tips setAlpha:0.0f];
+    } completion:^(BOOL finished) {
+        [_tips removeFromSuperview];
+    }];
+    NSLog(@"移除页面");
 }
 
 - (void)swipe:(UISwipeGestureRecognizer *)gesture

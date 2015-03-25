@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 
 #define kMainColor [Tools colorWithRed:77 angGreen:215 andBlue:116]
+#define kMainTextColor [Tools colorWithRed:135 angGreen:135 andBlue:135]
 
 @interface Tools : NSObject
 

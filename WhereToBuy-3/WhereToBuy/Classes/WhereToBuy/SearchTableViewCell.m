@@ -45,6 +45,7 @@
         
         UILabel *infoLabel = [[UILabel alloc] initWithFrame:GTRectMake(GTFixWidthFlaot(100), GTFixHeightFlaot(7), 150, 30)];
         [infoLabel setTextAlignment:NSTextAlignmentRight];
+        [infoLabel setTextColor:kMainTextColor];
         [self addSubview:infoLabel];
         self.infoLabel = infoLabel;
     }
