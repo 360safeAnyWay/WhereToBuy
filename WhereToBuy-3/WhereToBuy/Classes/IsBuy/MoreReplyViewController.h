@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YcKeyBoardView.h"
 
-@interface MoreReplyViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
-@property (nonatomic,copy)NSString * infoMessage_Str;
+@interface MoreReplyViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,YcKeyBoardViewDelegate>
+@property (nonatomic,copy)NSString                  *   infoMessage_Str;
+@property (nonatomic,strong)YcKeyBoardView          *   key;
+@property (nonatomic,assign) CGFloat                    keyBoardHeight;
+
+
 
 @end

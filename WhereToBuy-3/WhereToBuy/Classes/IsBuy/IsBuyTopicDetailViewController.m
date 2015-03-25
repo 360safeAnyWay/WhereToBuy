@@ -228,50 +228,16 @@
 }
 -(void)FXBtn:(id)sender
 {   
-//    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"ShareSDK" ofType:@"png"];
-//    
-//    //构造分享内容
-//    id<ISSContent> publishContent = [ShareSDK content:@"分享内容"
-//                                       defaultContent:@"测试一下"
-//                                                image:[ShareSDK imageWithPath:imagePath]
-//                                                title:@"ShareSDK"
-//                                                  url:@"http://www.mob.com"
-//                                          description:@"这是一条测试信息"
-//                                            mediaType:SSPublishContentMediaTypeNews];
-//    //创建弹出菜单容器
-//    id<ISSContainer> container = [ShareSDK container];
-//    [container setIPadContainerWithView:sender arrowDirect:UIPopoverArrowDirectionUp];
-//    
-//    //弹出分享菜单
-//    [ShareSDK showShareActionSheet:container
-//                         shareList:nil
-//                           content:publishContent
-//                     statusBarTips:YES
-//                       authOptions:nil
-//                      shareOptions:nil
-//                            result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
-//                                
-//                                if (state == SSResponseStateSuccess)
-//                                {
-//                                    NSLog(NSLocalizedString(@"TEXT_ShARE_SUC", @"分享成功"));
-//
-//                                    [alv show];
-//                                }
-//                                else if (state == SSResponseStateFail)
-//                                {
-//                                    NSLog(NSLocalizedString(@"TEXT_ShARE_FAI", @"分享失败,错误码:%d,错误描述:%@"), [error errorCode], [error errorDescription]);
-//
-//                                }
-//                            }];
+
     //只需要在响应分享按钮的方法中添加以下代码即可
-    NSString *img = [[NSBundle mainBundle] pathForResource:@"mm" ofType:@"png"];
-    
+    NSString *img = [[NSBundle mainBundle] pathForResource:@"logoFX" ofType:@"png"];
+    //NSString *img = @"http://pica.nipic.com/2007-11-09/2007119124513598_2.jpg";
     //构造分享内容
     id<ISSContent> publishContent = [ShareSDK content:@"感谢分享买哪儿"
                                        defaultContent:@""
                                                 image:[ShareSDK imageWithPath:img]
-                                                title:@"演示Demo中的标题"
-                                                  url:@"http://www.mainaer.net"
+                                                title:@"买哪网欢迎你!"
+                                                  url:Base_Url
                                           description:@""
                                             mediaType:SSPublishContentMediaTypeNews];
     

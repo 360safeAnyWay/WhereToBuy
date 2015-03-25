@@ -13,6 +13,11 @@
 {
     UITableView             * _myTableView;
     NSMutableArray          * _sStrArray;
+    CGFloat                   _deltaY;
+//    取消键盘事件
+    UIControl               * _ct;
+
+
 }
 
 @end
@@ -41,17 +46,48 @@
     if ([indexPath row] == 0)
     {
         MoreRRTableViewCell * mrr = [[[NSBundle mainBundle]loadNibNamed:@"MoreRRTableViewCell" owner:nil options:nil]objectAtIndex:0];
-       // [mrr setSelectionStyle:UITableViewCellSelectionStyleNone];
+        [mrr setSelectionStyle:UITableViewCellSelectionStyleNone];
         mrr.infoMessage.text = _infoMessage_Str;
         [self resetContent:mrr.infoMessage];
         return mrr;
     }else{
       MoreReplyTableViewCell * mr = [[[NSBundle mainBundle]loadNibNamed:@"MoreReplyTableViewCell" owner:nil options:nil]objectAtIndex:0];
         mr.infoMessages.attributedText  = [Tools textArr:_sStrArray andColor:kMainColor colorTextIndex:2];
-      //[mr setSelectionStyle:UITableViewCellSelectionStyleNone];
+      [mr setSelectionStyle:UITableViewCellSelectionStyleNone];
       return mr;
 
     }
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self PerFormKey:indexPath];
+    [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+}
+-(void)PerFormKey:(NSIndexPath *)indexPath
+{
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardHide:) name:UIKeyboardWillHideNotification object:nil];
+    if(self.key==nil){
+        self.key =[[YcKeyBoardView alloc]initWithFrame:CGRectMake(0, kWinSize.height-44, kWinSize.width, 44)];
+        [self.key.sendButton addTarget:self action:@selector(sendButton:) forControlEvents:UIControlEventTouchUpInside];
+        _ct = [[UIControl alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+        [_ct addTarget:self action:@selector(clearKey:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    self.key.delegate=self;
+    [self.key.textView becomeFirstResponder];
+    self.key.textView.returnKeyType=UIReturnKeySend;
+    [self.view addSubview:self.key];
+    [self.view addSubview:_ct];
+
+    
+}
+#pragma mark- 键盘的撤销事件
+-(void)clearKey:(id)ct
+{
+    [_ct removeFromSuperview];
+    [self.key removeFromSuperview];
+
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
@@ -83,6 +119,44 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+#pragma mark- 评论键盘
+-(void)keyboardShow:(NSNotification *)note
+{
+    CGRect keyBoardRect=[note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    _deltaY =keyBoardRect.size.height;
+    self.keyBoardHeight=_deltaY;
+    CGRect rect = _myTableView.frame;
+    rect.size.height = [UIScreen mainScreen].bounds.size.height-_deltaY;
+    _myTableView.frame = rect;
+    [UIView animateWithDuration:[note.userInfo[UIKeyboardAnimationDurationUserInfoKey] floatValue] animations:^{
+        self.key.transform=CGAffineTransformMakeTranslation(0, -_deltaY);
+    }];
+}
+-(void)keyboardHide:(NSNotification *)note
+{
+    [UIView animateWithDuration:[note.userInfo[UIKeyboardAnimationDurationUserInfoKey] floatValue] animations:^{
+        self.key.transform=CGAffineTransformIdentity;
+    } completion:^(BOOL finished) {
+        self.key.textView.text=@"";
+        [self.key removeFromSuperview];
+        CGRect rect = _myTableView.frame;
+        rect.size.height = [UIScreen mainScreen].bounds.size.height;
+        _myTableView.frame = rect;
+    }];
+    
+}
+-(void)keyBoardViewHide:(YcKeyBoardView *)keyBoardView textView:(UITextView *)contentView
+{
+    [contentView resignFirstResponder];
+    [self.key removeFromSuperview];
+    //接口请求
+    
+}
+-(void)sendButton:(UIButton *)btn
+{
+    [self.key removeFromSuperview];
+    NSLog(@"send");
 }
 
 /*

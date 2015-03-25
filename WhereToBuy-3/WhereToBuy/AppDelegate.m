@@ -14,6 +14,8 @@
 #import <math.h>
 #import "APService.h"
 #import "LeafNotification.h"
+#import "WeiboSDK.h"
+#import "WXApi.h"
 #define kCurrentPattern						    @"KeyForCurrentPatternToUnlock"
 #define kCurrentPatternTemp						@"KeyForCurrentPatternToUnlockTemp"
 
@@ -114,6 +116,9 @@
     
     [ShareSDK connectSinaWeiboWithAppKey:@"4118636406"appSecret:@"3a78cbfcf7a5555a3070ab3ff2187bce"
                              redirectUri:@"http://www.mainaer.net"];
+    [ShareSDK connectWeChatWithAppId:@"wx2136f96bda0598c6"   //微信APPID
+                           appSecret:@"e61745800e5887253e6af842ec575d3f"  //微信APPSecret
+                           wechatCls:[WXApi class]];
     return YES;
 }
 - (BOOL)application:(UIApplication *)application
@@ -214,5 +219,22 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     [LeafNotification showInController:self.window.rootViewController withText:content type:LeafNotificationTypeWarrning];
     completionHandler(UIBackgroundFetchResultNewData);
 }
+//- (BOOL)application:(UIApplication *)application
+//      handleOpenURL:(NSURL *)url
+//{
+//    return [ShareSDK handleOpenURL:url
+//                        wxDelegate:self];
+//}
+//
+//- (BOOL)application:(UIApplication *)application
+//            openURL:(NSURL *)url
+//  sourceApplication:(NSString *)sourceApplication
+//         annotation:(id)annotation
+//{
+//    return [ShareSDK handleOpenURL:url
+//                 sourceApplication:sourceApplication
+//                        annotation:annotation
+//                        wxDelegate:self];
+//}
 
 @end

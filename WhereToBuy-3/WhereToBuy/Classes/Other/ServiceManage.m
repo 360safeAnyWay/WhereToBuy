@@ -14,7 +14,7 @@
 //#define Base_Url @"http://www.weather.com.cn/data/sk/101010100.html"
 //#define Base_Url @"http://www.usuda.cn/funcms/index.php/controller_getjson/"
 //#define Base_Url @"http://www.fangyuan1314.com/test/list1.php"
-#define Base_Url @"http://www.mainaer.net"
+
 
 @interface ServiceManage()
 
