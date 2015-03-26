@@ -30,6 +30,11 @@
     [super viewDidLoad];
     self.title = [[DataCenter instance] getStringForKey:@"whereBuyMainNavTitle"];
     [self addUI];
+    
+    //测试我的微软雅黑font字体
+    UIFont *font = [UIFont fontWithName:@"wyyh" size:18];
+    NSLog(@"我需要的字体是微软雅黑%@",font);
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated

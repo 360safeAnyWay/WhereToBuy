@@ -72,7 +72,7 @@
         //标题1
         UILabel *titleLabel1 = [[UILabel alloc] initWithFrame:CGRectMake(106, 17, 140, 12)];
         [titleLabel1 setText:@"点燃全北京得别墅,"];
-        [titleLabel1 setFont:[UIFont systemFontOfSize:15]];
+        [titleLabel1 setFont:[UIFont systemFontOfSize:14]];
         [titleLabel1 setTextColor:[UIColor blackColor]];
         self.titleLabel1 = titleLabel1;
         [self addSubview:titleLabel1];
@@ -80,7 +80,7 @@
         //标题2
         UILabel *titleLabel2 = [[UILabel alloc] initWithFrame:CGRectMake(106, titleLabel1.frame.origin.y + titleLabel1.frame.size.height + 5, 140, 12)];
         [titleLabel2 setText:@"当代旭辉墅很牛！"];
-        [titleLabel2 setFont:[UIFont systemFontOfSize:15]];
+        [titleLabel2 setFont:[UIFont systemFontOfSize:14]];
         [titleLabel2 setTextColor:[UIColor blackColor]];
         self.titleLabel2 = titleLabel2;
         [self addSubview:titleLabel2];
@@ -107,8 +107,9 @@
         
         //detailTextView
         UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(mark1.frame.origin.x, mark1.frame.origin.y + mark1.frame.size.height, 200, 50)];
-        [textView setText:@"我们都是什么啥意思你试试墅地方撒旦发阿三地方阿三地方撒旦发撒旦发阿三地方阿三地方阿三大发撒旦发撒。。。"];
-        [textView setFont:[UIFont systemFontOfSize:12]];
+        [textView setText:@"我们都是什么啥意思你试试墅地方撒旦发阿三地方阿三地方撒旦发撒旦发阿三地方阿三地方阿三大发撒旦发撒aksjdfljasldfjlasjdfljsa"];
+        textView.editable = NO;
+        [textView setFont:kMainFont(16)];
         [textView setTextColor:kMainTextColor];
         [textView setUserInteractionEnabled:NO];
         self.detailTextView = textView;

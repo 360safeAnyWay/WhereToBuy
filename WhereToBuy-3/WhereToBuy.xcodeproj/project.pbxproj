@@ -318,6 +318,7 @@
 		F8AF54FA1AAAE41D0029435B /* BuilddingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AF54F91AAAE41D0029435B /* BuilddingDetailViewController.m */; };
 		F8BB36381AAE827D004CD43E /* builddingDetailFirstCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F8BB36361AAE827D004CD43E /* builddingDetailFirstCell.m */; };
 		F8BB36391AAE827D004CD43E /* builddingDetailFirstCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8BB36371AAE827D004CD43E /* builddingDetailFirstCell.xib */; };
+		F8DD8A631AC3C43800B7F3C9 /* wyyh.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8DD8A621AC3C43800B7F3C9 /* wyyh.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -776,6 +777,7 @@
 		F8BB36351AAE827D004CD43E /* builddingDetailFirstCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = builddingDetailFirstCell.h; sourceTree = "<group>"; };
 		F8BB36361AAE827D004CD43E /* builddingDetailFirstCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = builddingDetailFirstCell.m; sourceTree = "<group>"; };
 		F8BB36371AAE827D004CD43E /* builddingDetailFirstCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = builddingDetailFirstCell.xib; sourceTree = "<group>"; };
+		F8DD8A621AC3C43800B7F3C9 /* wyyh.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = wyyh.ttf; path = ../../wyyh.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1152,8 +1154,8 @@
 		9337B8B61A58FD3D003A0884 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5974FD2A1AA9F52B00B2F306 /* Default-568h@2x.png */,
 				9337B8B71A58FD3E003A0884 /* Info.plist */,
+				5974FD2A1AA9F52B00B2F306 /* Default-568h@2x.png */,
 				9337B8B81A58FD3E003A0884 /* main.m */,
 				59DA389A1AAD463C0041F71C /* PrefixHeader.pch */,
 				F88990491AB017C600DC9513 /* PushConfig.plist */,
@@ -1277,6 +1279,7 @@
 		9337B9141A58FE61003A0884 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				F8DD8A621AC3C43800B7F3C9 /* wyyh.ttf */,
 				F8A1DE251AB2BB7E008474F7 /* Init */,
 				93EE20DC1AA03180007D1CD0 /* Other */,
 				9383DC2F1A7A0C90001691BF /* IsBuy */,
@@ -1801,6 +1804,7 @@
 				93B86C101AA5B8AA00A24353 /* mainMorePhoto@2x.png in Resources */,
 				597D3BA11AAE9D6D003F3871 /* backG.png in Resources */,
 				9306778B1A6FA5BF00A1A597 /* WhereToBuy.sqlite in Resources */,
+				F8DD8A631AC3C43800B7F3C9 /* wyyh.ttf in Resources */,
 				93EE20D71AA00D4A007D1CD0 /* 6_selected@2x.png in Resources */,
 				F8A1DE211AB2803F008474F7 /* expertEvalute@2x.png in Resources */,
 				597D3B981AAE7E2D003F3871 /* gogogo.png in Resources */,

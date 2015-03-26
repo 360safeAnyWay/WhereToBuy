@@ -11,6 +11,7 @@
 
 #define kMainColor [Tools colorWithRed:77 angGreen:215 andBlue:116]
 #define kMainTextColor [Tools colorWithRed:135 angGreen:135 andBlue:135]
+#define kMainFont(s) [UIFont fontWithName:@"MicrosoftYaHei" size:s]
 
 @interface Tools : NSObject
 
