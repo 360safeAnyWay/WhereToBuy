@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FeedbackViewController : UIViewController<UITextViewDelegate>
+@interface FeedbackViewController : UIViewController<UITextViewDelegate,UITextFieldDelegate>
+
+
 
 @end

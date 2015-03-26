@@ -51,6 +51,9 @@
 		599B9CC01AC0027C00740E51 /* MoreReplyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 599B9CBE1AC0027C00740E51 /* MoreReplyTableViewCell.xib */; };
 		599B9CC71AC002E600740E51 /* MoreRRTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 599B9CC51AC002E600740E51 /* MoreRRTableViewCell.m */; };
 		599B9CC81AC002E600740E51 /* MoreRRTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 599B9CC61AC002E600740E51 /* MoreRRTableViewCell.xib */; };
+		59AEE0931AC3E59F00E3AF95 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 59AEE0911AC3E59F00E3AF95 /* share.png */; };
+		59AEE0941AC3E59F00E3AF95 /* shoucang.png in Resources */ = {isa = PBXBuildFile; fileRef = 59AEE0921AC3E59F00E3AF95 /* shoucang.png */; };
+		59AEE0971AC3EAF400E3AF95 /* MFTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 59AEE0961AC3EAF400E3AF95 /* MFTextView.m */; };
 		59C5C2101AAED9570042382F /* Zdown.png in Resources */ = {isa = PBXBuildFile; fileRef = 59C5C20E1AAED9570042382F /* Zdown.png */; };
 		59C5C2111AAED9570042382F /* Zup.png in Resources */ = {isa = PBXBuildFile; fileRef = 59C5C20F1AAED9570042382F /* Zup.png */; };
 		59C5C2131AAEDDD50042382F /* huifulouzhu.png in Resources */ = {isa = PBXBuildFile; fileRef = 59C5C2121AAEDDD50042382F /* huifulouzhu.png */; };
@@ -392,6 +395,10 @@
 		599B9CC41AC002E600740E51 /* MoreRRTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreRRTableViewCell.h; sourceTree = "<group>"; };
 		599B9CC51AC002E600740E51 /* MoreRRTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreRRTableViewCell.m; sourceTree = "<group>"; };
 		599B9CC61AC002E600740E51 /* MoreRRTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreRRTableViewCell.xib; sourceTree = "<group>"; };
+		59AEE0911AC3E59F00E3AF95 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
+		59AEE0921AC3E59F00E3AF95 /* shoucang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoucang.png; sourceTree = "<group>"; };
+		59AEE0951AC3EAF400E3AF95 /* MFTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFTextView.h; sourceTree = "<group>"; };
+		59AEE0961AC3EAF400E3AF95 /* MFTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFTextView.m; sourceTree = "<group>"; };
 		59C5C20E1AAED9570042382F /* Zdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zdown.png; sourceTree = "<group>"; };
 		59C5C20F1AAED9570042382F /* Zup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zup.png; sourceTree = "<group>"; };
 		59C5C2121AAEDDD50042382F /* huifulouzhu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = huifulouzhu.png; sourceTree = "<group>"; };
@@ -1319,6 +1326,8 @@
 				597CC0381AB18F6D0026DA64 /* YcKeyBoardView.m */,
 				9329A6E61AA2EDED005B7D70 /* PinYin */,
 				930A56CF1A9D9393005F86B3 /* NYSliderPopover */,
+				59AEE0951AC3EAF400E3AF95 /* MFTextView.h */,
+				59AEE0961AC3EAF400E3AF95 /* MFTextView.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -1469,6 +1478,8 @@
 		9383DC2F1A7A0C90001691BF /* IsBuy */ = {
 			isa = PBXGroup;
 			children = (
+				59AEE0911AC3E59F00E3AF95 /* share.png */,
+				59AEE0921AC3E59F00E3AF95 /* shoucang.png */,
 				F87DEFAB1AC2773D0038AF05 /* xiaomai1@2x.png */,
 				595C01191AB27A3100769FE4 /* sendButton.png */,
 				59C5C20E1AAED9570042382F /* Zdown.png */,
@@ -1776,6 +1787,7 @@
 				93009FF51A7B7A14005B3085 /* eye@2x.png in Resources */,
 				F86131331A6D294B0049FE21 /* KYICircleMenuCenterButtonBackground@2x.png in Resources */,
 				932F96EC1A7F4BB6000C28B5 /* 1dian.png in Resources */,
+				59AEE0931AC3E59F00E3AF95 /* share.png in Resources */,
 				595C011A1AB27A3100769FE4 /* sendButton.png in Resources */,
 				F8332ADE1ABABA7400A0AEC8 /* isBuy_selected@2x.png in Resources */,
 				932B2F6E1AA18C8100BBD25E /* writeTitle@2x.png in Resources */,
@@ -1845,6 +1857,7 @@
 				595C01311AB2CF3400769FE4 /* say.png in Resources */,
 				93B86C081AA5A88700A24353 /* isBuy_2@2x.png in Resources */,
 				931C91661A638D1E0051496E /* navigationbar_button_background_pushed.png in Resources */,
+				59AEE0941AC3E59F00E3AF95 /* shoucang.png in Resources */,
 				F85905AE1AB123EF0026B720 /* notification_success@2x.png in Resources */,
 				F85905AF1AB123EF0026B720 /* notification_warring.png in Resources */,
 				931C91651A638D1E0051496E /* navigationbar_button_background@2x.png in Resources */,
@@ -2050,6 +2063,7 @@
 				939394AA1A89B8370039FFF3 /* SPLine.m in Sources */,
 				93B33A391A9F118E00EB7F6A /* PeronTipsViewController.m in Sources */,
 				930A56D41A9D9394005F86B3 /* NYPopover.m in Sources */,
+				59AEE0971AC3EAF400E3AF95 /* MFTextView.m in Sources */,
 				9332C2B11A8854BD008D2DC4 /* PersonBuildingEvaluteViewController.m in Sources */,
 				939394AC1A89B8370039FFF3 /* SPLockScreen.m in Sources */,
 				932B2F651AA16A4B00BBD25E /* AnimationView.m in Sources */,

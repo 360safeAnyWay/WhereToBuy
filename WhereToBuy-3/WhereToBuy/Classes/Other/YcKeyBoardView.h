@@ -7,7 +7,7 @@
 //
 #define kStartLocation 20
 #import <UIKit/UIKit.h>
-
+#import "MFTextView.h"
 @class YcKeyBoardView;
 @protocol YcKeyBoardViewDelegate <NSObject>
 
@@ -16,7 +16,7 @@
 
 @interface YcKeyBoardView : UIView
 //文本框赋值
-@property (nonatomic,strong) UITextView *textView;
+@property (nonatomic,strong) MFTextView *textView;
 //发送按钮发送请求
 @property (nonatomic,strong) UIButton   *sendButton;
 @property (nonatomic,assign) id<YcKeyBoardViewDelegate> delegate;

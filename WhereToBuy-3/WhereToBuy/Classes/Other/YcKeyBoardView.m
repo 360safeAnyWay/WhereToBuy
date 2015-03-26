@@ -31,8 +31,9 @@
 -(void)initTextView:(CGRect)frame
 {
     NSLog(@"%f",self.frame.origin.y);
-    self.textView=[[UITextView alloc]init];
+    self.textView=[[MFTextView alloc]init];
     self.textView.delegate=self;
+    self.textView.placeholderTextColor = [UIColor lightGrayColor];
     self.textView.layer.cornerRadius =self.frame.size.height/2-15;
     CGFloat textX=kStartLocation*0.5;
     self.textViewWidth=frame.size.width-2*textX-10;

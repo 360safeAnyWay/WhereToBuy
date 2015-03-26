@@ -36,7 +36,7 @@
     {
         NSString * str = [_reviewArray objectAtIndex:i];
         CGRect Rrect = [self cellHight:str Size:CGSizeMake(210, 0)];
-        CGFloat Sheight  = Rrect.size.height;
+        CGFloat Sheight  = ceilf(Rrect.size.height);
         _Sheight =_Sheight+Sheight;
     }
     //   导航返回
@@ -218,13 +218,22 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    NavBackButton *backBtn1 = [[NavBackButton alloc] initWithFrame:CGRectMake(0, 0, 105, 26)];
-    [backBtn1 setImage:[UIImage imageNamed:@"leftBack.png"] forState:UIControlStateNormal];
-    [backBtn1 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [backBtn1 addTarget:self action:@selector(FXBtn:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn1];
+    UIButton *itemBtn2 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [itemBtn2 setBackgroundImage:[UIImage imageNamed:@"share.png"] forState:UIControlStateNormal];
+    [itemBtn2 addTarget:self action:@selector(FXBtn:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *more = [[UIBarButtonItem alloc] initWithCustomView:itemBtn2];
+    UIButton *itemBtn3 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [itemBtn3 setBackgroundImage:[UIImage imageNamed:@"shoucang.png"] forState:UIControlStateNormal];
     
+    [itemBtn3 addTarget:self action:@selector(SCBtn:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *more1 = [[UIBarButtonItem alloc] initWithCustomView:itemBtn3];
+    self.navigationItem.rightBarButtonItems = @[more,more1];
     [self.view setBackgroundColor:[UIColor whiteColor]];
+}
+#pragma mark- TopButton
+-(void)SCBtn:(id)sender
+{
+    
 }
 -(void)FXBtn:(id)sender
 {   
@@ -293,6 +302,7 @@
 
     
 }
+#pragma mark- 代理
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
     if ([indexPath row] == 0)
@@ -305,11 +315,10 @@
     }else{
         _infoStr     =  @"我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。";
         Inforect = [self  cellHight:_infoStr Size:CGSizeMake(210, 0)];
-        return 260+Inforect.size.height+_Sheight;
+        return 200+Inforect.size.height+_Sheight;
 
     }
 }
-#pragma mark- 代理
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 {
     return 10;
@@ -333,7 +342,7 @@
         if (BCell == nil)
         {
             BCell = [[IsBuyTopBCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BCell"];
-            [BCell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            //[BCell setSelectionStyle:UITableViewCellSelectionStyleNone];
         }
     BCell.LCLabel.text = [NSString stringWithFormat:@"%ld楼",(long)[indexPath row]];
     

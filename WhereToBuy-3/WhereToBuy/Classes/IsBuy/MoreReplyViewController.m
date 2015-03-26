@@ -70,6 +70,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardHide:) name:UIKeyboardWillHideNotification object:nil];
     if(self.key==nil){
         self.key =[[YcKeyBoardView alloc]initWithFrame:CGRectMake(0, kWinSize.height-44, kWinSize.width, 44)];
+        self.key.textView.placeholder = @"回复 人人人";
         [self.key.sendButton addTarget:self action:@selector(sendButton:) forControlEvents:UIControlEventTouchUpInside];
         _ct = [[UIControl alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
         [_ct addTarget:self action:@selector(clearKey:) forControlEvents:UIControlEventTouchUpInside];
@@ -126,9 +127,6 @@
     CGRect keyBoardRect=[note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
     _deltaY =keyBoardRect.size.height;
     self.keyBoardHeight=_deltaY;
-    CGRect rect = _myTableView.frame;
-    rect.size.height = [UIScreen mainScreen].bounds.size.height-_deltaY;
-    _myTableView.frame = rect;
     [UIView animateWithDuration:[note.userInfo[UIKeyboardAnimationDurationUserInfoKey] floatValue] animations:^{
         self.key.transform=CGAffineTransformMakeTranslation(0, -_deltaY);
     }];
@@ -138,11 +136,8 @@
     [UIView animateWithDuration:[note.userInfo[UIKeyboardAnimationDurationUserInfoKey] floatValue] animations:^{
         self.key.transform=CGAffineTransformIdentity;
     } completion:^(BOOL finished) {
-        self.key.textView.text=@"";
         [self.key removeFromSuperview];
-        CGRect rect = _myTableView.frame;
-        rect.size.height = [UIScreen mainScreen].bounds.size.height;
-        _myTableView.frame = rect;
+        self.key.textView.text=@"";
     }];
     
 }

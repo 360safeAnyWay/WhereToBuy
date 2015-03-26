@@ -23,7 +23,7 @@
         _infoStr     =  @"我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。";
         Inforect = [self  cellHight:_infoStr Size:CGSizeMake(0, 0)];
         NSLog(@"%f",Inforect.size.height);
-        _reviewArray = [[NSMutableArray alloc]initWithObjects:@"提莫     回复 @鸟鸟鸟 提莫露脸团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S",@"德莱文  回复 @提莫 这不是提莫吗?团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S",@"盲僧     回复 @德莱文 团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S", nil];
+        _reviewArray = [[NSMutableArray alloc]initWithObjects:@"提莫     回复 @鸟鸟鸟 提莫露脸团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战",@"德莱文  回复 @提莫 这不是提莫吗?团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须",@"盲僧     回复 @德莱文 团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S团战可以输提莫必须S", nil];
         for (NSInteger i = 0; i <3; i++)
         {
             NSString * str = [_reviewArray objectAtIndex:i];
@@ -104,7 +104,7 @@
         NSInteger heightes;
         NSInteger Ry;
         NSString * str = [_reviewArray objectAtIndex:i];
-        CGRect Rrect = [self cellHight:str Size:CGSizeMake(210, 0)];
+        CGRect Rrect = [self cellHight:str Size:CGSizeMake(210, 1000)];
         if (i == 0)
         {
             UILabel * reviewLabel = [[UILabel alloc]initWithFrame:CGRectMake(5,viewDown.frame.origin.y+10,[UIScreen mainScreen].bounds.size.width-5, Rrect.size.height)];
@@ -115,12 +115,12 @@
             reviewLabel.font = [UIFont systemFontOfSize:14];
             reviewLabel.text = str;
             reviewLabel.numberOfLines = 0;
-            reviewLabel.textColor = [UIColor darkGrayColor];
+            reviewLabel.textColor = [UIColor lightGrayColor];
             [self addSubview:reviewLabel];
             [self resetContent:reviewLabel];
 
         }else if(i == 1){
-            UILabel * reviewLabel = [[UILabel alloc]initWithFrame:CGRectMake(5,Ry+heightes+5,[UIScreen mainScreen].bounds.size.width-10, Rrect.size.height)];
+            UILabel * reviewLabel = [[UILabel alloc]initWithFrame:CGRectMake(5,Ry+heightes+15,[UIScreen mainScreen].bounds.size.width-10, Rrect.size.height)];
             reviewLabel.text = str;
             reviewLabel.numberOfLines = 0;
             Ry = reviewLabel.frame.origin.y;
@@ -128,18 +128,18 @@
             reviewLabel.lineBreakMode = NSLineBreakByWordWrapping;
             reviewLabel.font = [UIFont systemFontOfSize:14];
             reviewLabel.text = str;
-            reviewLabel.textColor = [UIColor darkGrayColor];
+            reviewLabel.textColor = [UIColor lightGrayColor];
             [self addSubview:reviewLabel];
             [self resetContent:reviewLabel];
         }else{
-            UILabel * reviewLabel = [[UILabel alloc]initWithFrame:CGRectMake(5,Ry+heightes+5,[UIScreen mainScreen].bounds.size.width-10, Rrect.size.height)];
+            UILabel * reviewLabel = [[UILabel alloc]initWithFrame:CGRectMake(5,Ry+heightes+15,[UIScreen mainScreen].bounds.size.width-10, Rrect.size.height)];
             reviewLabel.text = str;
             heightLabel = Ry+heightes+Rrect.size.height+60;
             reviewLabel.numberOfLines = 0;
             reviewLabel.lineBreakMode = NSLineBreakByWordWrapping;
             reviewLabel.font = [UIFont systemFontOfSize:14];
             reviewLabel.text = str;
-            reviewLabel.textColor = [UIColor darkGrayColor];
+            reviewLabel.textColor = [UIColor lightGrayColor];
             [self addSubview:reviewLabel];
             [self resetContent:reviewLabel];
 

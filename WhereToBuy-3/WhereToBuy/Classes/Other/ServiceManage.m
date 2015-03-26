@@ -205,7 +205,6 @@
         callBack(code, obj);
     }];
 }
-
 //获取用户个人信息
 -(void)DidUserInfo:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE code, id obj)) callBack
 {
