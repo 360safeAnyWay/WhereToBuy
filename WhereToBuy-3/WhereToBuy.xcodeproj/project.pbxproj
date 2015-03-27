@@ -51,6 +51,7 @@
 		599B9CC01AC0027C00740E51 /* MoreReplyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 599B9CBE1AC0027C00740E51 /* MoreReplyTableViewCell.xib */; };
 		599B9CC71AC002E600740E51 /* MoreRRTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 599B9CC51AC002E600740E51 /* MoreRRTableViewCell.m */; };
 		599B9CC81AC002E600740E51 /* MoreRRTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 599B9CC61AC002E600740E51 /* MoreRRTableViewCell.xib */; };
+		59A2AEB81AC4E88A00DD4C1E /* SpecialistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A2AEB71AC4E88A00DD4C1E /* SpecialistViewController.m */; };
 		59AEE0931AC3E59F00E3AF95 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 59AEE0911AC3E59F00E3AF95 /* share.png */; };
 		59AEE0941AC3E59F00E3AF95 /* shoucang.png in Resources */ = {isa = PBXBuildFile; fileRef = 59AEE0921AC3E59F00E3AF95 /* shoucang.png */; };
 		59AEE0971AC3EAF400E3AF95 /* MFTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 59AEE0961AC3EAF400E3AF95 /* MFTextView.m */; };
@@ -395,6 +396,8 @@
 		599B9CC41AC002E600740E51 /* MoreRRTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreRRTableViewCell.h; sourceTree = "<group>"; };
 		599B9CC51AC002E600740E51 /* MoreRRTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreRRTableViewCell.m; sourceTree = "<group>"; };
 		599B9CC61AC002E600740E51 /* MoreRRTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreRRTableViewCell.xib; sourceTree = "<group>"; };
+		59A2AEB61AC4E88A00DD4C1E /* SpecialistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialistViewController.h; sourceTree = "<group>"; };
+		59A2AEB71AC4E88A00DD4C1E /* SpecialistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialistViewController.m; sourceTree = "<group>"; };
 		59AEE0911AC3E59F00E3AF95 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
 		59AEE0921AC3E59F00E3AF95 /* shoucang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoucang.png; sourceTree = "<group>"; };
 		59AEE0951AC3EAF400E3AF95 /* MFTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFTextView.h; sourceTree = "<group>"; };
@@ -960,6 +963,15 @@
 			name = MoCell;
 			sourceTree = "<group>";
 		};
+		59A2AEB91AC4E94100DD4C1E /* Specialist */ = {
+			isa = PBXGroup;
+			children = (
+				59A2AEB61AC4E88A00DD4C1E /* SpecialistViewController.h */,
+				59A2AEB71AC4E88A00DD4C1E /* SpecialistViewController.m */,
+			);
+			name = Specialist;
+			sourceTree = "<group>";
+		};
 		59FF4B581AC27A34001E7CA4 /* ShareSDKWeChart */ = {
 			isa = PBXGroup;
 			children = (
@@ -1335,6 +1347,7 @@
 		9337B9321A5908D5003A0884 /* IsBuy */ = {
 			isa = PBXGroup;
 			children = (
+				59A2AEB91AC4E94100DD4C1E /* Specialist */,
 				595C011B1AB2937900769FE4 /* User */,
 				596D73B51AADBF18002A5215 /* IsbuyTopCell */,
 				9337B9431A590D09003A0884 /* IsBuyMainViewController.h */,
@@ -2022,6 +2035,7 @@
 				930EF8301A8338D3006F315E /* PersonSetCell.m in Sources */,
 				9383DC2D1A79FE12001691BF /* TopicCell.m in Sources */,
 				9337B9281A58FE61003A0884 /* UIImage+GIF.m in Sources */,
+				59A2AEB81AC4E88A00DD4C1E /* SpecialistViewController.m in Sources */,
 				9337B9291A58FE61003A0884 /* UIImage+MultiFormat.m in Sources */,
 				9337B9481A590FC1003A0884 /* Dock.m in Sources */,
 				5959121C1AB66743007B7854 /* BrowsingHistoryViewController.m in Sources */,

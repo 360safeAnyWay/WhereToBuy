@@ -10,8 +10,11 @@
 #import "NavBackButton.h"
 #import "Tools.h"
 #import "IsBuySearchViewController.h"
-
+#import "SpecialistViewController.h"
 @interface IsBuySendTopicViewController()<UITextFieldDelegate, IsBuySearchViewControllerDelegate>
+{
+    UITextView *_contentViews;
+}
 
 @property (weak, nonatomic) UITextField *titleTextfiled;
 @property (weak, nonatomic)UITextView *contentView;//发表的内容
@@ -110,17 +113,28 @@
     [btn setTitleColor:kMainColor forState:0];
     [titleView2 addSubview:btn];
     
-    UITextView *contentView = [[UITextView alloc] initWithFrame:CGRectMake(0, titleView2.frame.origin.y + titleView2.frame.size.height, self.view.frame.size.width, 210)];
-    [contentView setText:@"请输入内容"];
-    [contentView setFont:[UIFont systemFontOfSize:14]];
-    [contentView setTextColor:[Tools colorWithRed:195 angGreen:195 andBlue:195]];
-    [self.view addSubview:contentView];
-    self.contentView = contentView;
+    _contentViews = [[UITextView alloc] initWithFrame:CGRectMake(0, titleView2.frame.origin.y + titleView2.frame.size.height, self.view.frame.size.width, 210)];
+    [_contentViews setText:@"请输入内容"];
+    [_contentViews setFont:[UIFont systemFontOfSize:14]];
+    [_contentViews setTextColor:[Tools colorWithRed:195 angGreen:195 andBlue:195]];
+    [self.view addSubview:_contentViews];
+   // self.contentView = contentView;
+    
 }
 //艾特按钮
 -(void)ATButton:(UIButton*)btn
 {
-    
+    SpecialistViewController * spe = [[SpecialistViewController alloc]init];
+    [self.navigationController pushViewController:spe animated:YES];
+ 
+}
+-(void)SpecialistNameWithindex:(NSIndexPath *)indexPath tableView:(UITableView *)tableView block:(SPECIALISTNAME)block
+{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSString * str = cell.textLabel.text;
+    [_contentViews setText:str];
+    NSLog(@"%@",str);
+    block(str);
 }
 // 返回按钮
 - (void)back
