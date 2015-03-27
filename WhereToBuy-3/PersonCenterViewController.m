@@ -394,7 +394,7 @@
     {
         progress += 0.01f;
         _HUD.progress = progress;
-        usleep(5000);
+        usleep(10000);
     }
     // The sample image is based on the work by www.pixelpressicons.com, http://creativecommons.org/licenses/by/2.5/ca/
     // Make the customViews 37 by 37 pixels for best results (those are the bounds of the build-in progress indicators)

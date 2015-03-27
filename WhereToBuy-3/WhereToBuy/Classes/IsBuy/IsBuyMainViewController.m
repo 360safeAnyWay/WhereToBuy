@@ -305,7 +305,7 @@ const int MaxCount = 5;
     }
     [btn setSelected:YES];
     if (btn.tag ==1) {
-        [UIView animateWithDuration:0.1f animations:^{//点击待评价按钮，将已评价的table移入进来，带评价table移除出去
+        [UIView animateWithDuration:0.5f animations:^{//点击待评价按钮，将已评价的table移入进来，带评价table移除出去
             [self.view bringSubviewToFront:self.tableView];
             [self.tableView setCenter:CGPointMake(self.tableView.center.x + self.view.frame.size.width, self.tableView.center.y)];
             [self.tableView2 setCenter:CGPointMake(self.tableView2.center.x + self.view.frame.size.width, self.tableView2.center.y)];
@@ -315,7 +315,7 @@ const int MaxCount = 5;
         }];
     }else if (btn.tag == 2)
     {
-        [UIView animateWithDuration:0.1f animations:^{//点击待评价按钮，将待评价的table移入进来，已评价table移除出去
+        [UIView animateWithDuration:0.5f animations:^{//点击待评价按钮，将待评价的table移入进来，已评价table移除出去
             [self.view bringSubviewToFront:self.tableView2];
             [self.tableView2 setCenter:CGPointMake(self.tableView2.center.x - self.view.frame.size.width, self.tableView2.center.y)];
             [self.tableView setCenter:CGPointMake(self.tableView.center.x - self.view.frame.size.width, self.tableView.center.y)];

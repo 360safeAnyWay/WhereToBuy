@@ -316,7 +316,7 @@ const int MaxCount7 = 5;
     }
     [btn setSelected:YES];
     if (btn.tag < _tag) {//向右边移动
-        [UIView animateWithDuration:0.1f animations:^{//点击待评价按钮，将已评价的table移入进来，带评价table移除出去
+        [UIView animateWithDuration:0.5f animations:^{//点击待评价按钮，将已评价的table移入进来，带评价table移除出去
             [self.tableView setCenter:CGPointMake(self.tableView.center.x + (_tag - btn.tag)*self.view.frame.size.width, self.tableView.center.y)];
             [self.tableView2 setCenter:CGPointMake(self.tableView2.center.x + (_tag - btn.tag)*self.view.frame.size.width, self.tableView2.center.y)];
             [self.tableView3 setCenter:CGPointMake(self.tableView3.center.x + (_tag - btn.tag)*self.view.frame.size.width, self.tableView3.center.y)];
@@ -329,7 +329,7 @@ const int MaxCount7 = 5;
         }];
     }else if (btn.tag > _tag)//向左边移动
     {
-        [UIView animateWithDuration:0.1f animations:^{//点击待评价按钮，将已评价的table移入进来，带评价table移除出去
+        [UIView animateWithDuration:0.5f animations:^{//点击待评价按钮，将已评价的table移入进来，带评价table移除出去
             [self.tableView setCenter:CGPointMake(self.tableView.center.x - (btn.tag - _tag)*self.view.frame.size.width, self.tableView.center.y)];
             [self.tableView2 setCenter:CGPointMake(self.tableView2.center.x - (btn.tag - _tag)*self.view.frame.size.width, self.tableView2.center.y)];
             [self.tableView3 setCenter:CGPointMake(self.tableView3.center.x - (btn.tag - _tag)*self.view.frame.size.width, self.tableView3.center.y)];

@@ -13,8 +13,9 @@
 #import "DBAccess.h"
 #import "GTCommontHeader.h"
 #import "MainViewController.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface SelectCityViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface SelectCityViewController ()<UITableViewDataSource, UITableViewDelegate,CLLocationManagerDelegate>
 
 @property (strong, nonatomic) NSMutableArray *dataArr;
 @property (weak, nonatomic) UITableView *table;
@@ -42,6 +43,66 @@
     [self.view addSubview:table];
     self.table = table;
     [self getCityFromDB];
+    
+    [self setUpGps];
+}
+
+//设置使用GPS
+- (void)setUpGps
+{
+    CLLocationManager *locationManager = [[CLLocationManager alloc] init];//创建位置管理器
+    locationManager.delegate=self;
+    locationManager.desiredAccuracy=kCLLocationAccuracyBest;
+    locationManager.distanceFilter=1000.0f;
+    [locationManager startUpdatingLocation];
+}
+
+//定位城市得代理方法
+-(void)locationManager:(CLLocationManager *)manager
+
+   didUpdateToLocation:(CLLocation *)newLocation
+
+          fromLocation:(CLLocation *)oldLocation
+
+{
+    
+    //    当前的经度
+    
+    NSString *currentLatitude = [[NSString alloc]
+                                 
+                                 initWithFormat:@"%g",
+                                 
+                                 newLocation.coordinate.latitude];
+    
+    NSLog(@"当前得经度是%@",currentLatitude);
+    
+    //    当前的纬度
+    
+    NSString *currentLongitude = [[NSString alloc]
+                                  
+                                  initWithFormat:@"%g",
+                                  
+                                  newLocation.coordinate.longitude];
+    NSLog(@"当前得经度是%@",currentLongitude);
+    
+    //定位城市通过CLGeocoder
+    CLGeocoder * geoCoder = [[CLGeocoder alloc] init];
+    
+    [geoCoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+        
+        for (CLPlacemark * placemark in placemarks) {
+            
+            
+            
+            NSString *test = [placemark locality];
+            
+            NSLog(@"%@", test);
+            
+            
+        }    
+        
+    }];
+    
 }
 
 - (void) getCityFromNet

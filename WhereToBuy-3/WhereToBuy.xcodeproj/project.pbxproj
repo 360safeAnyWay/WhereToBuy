@@ -293,6 +293,7 @@
 		F86131331A6D294B0049FE21 /* KYICircleMenuCenterButtonBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F86131231A6D294B0049FE21 /* KYICircleMenuCenterButtonBackground@2x.png */; };
 		F8632FA01AB423360078ECFD /* ExpertDetailViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F8632F9E1AB423360078ECFD /* ExpertDetailViewCell.m */; };
 		F8632FA11AB423360078ECFD /* ExpertDetailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8632F9F1AB423360078ECFD /* ExpertDetailViewCell.xib */; };
+		F8645DEF1AC504270052CEA0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8645DEE1AC504270052CEA0 /* CoreLocation.framework */; };
 		F87C749F1ABBB86100309B25 /* location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F87C749E1ABBB86100309B25 /* location@2x.png */; };
 		F87DEFAC1AC2773D0038AF05 /* xiaomai1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F87DEFAB1AC2773D0038AF05 /* xiaomai1@2x.png */; };
 		F87F65681ABFB78A007F5200 /* logocaise@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F87F65671ABFB78A007F5200 /* logocaise@2x.png */; };
@@ -748,6 +749,7 @@
 		F8632F9D1AB423360078ECFD /* ExpertDetailViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertDetailViewCell.h; sourceTree = "<group>"; };
 		F8632F9E1AB423360078ECFD /* ExpertDetailViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertDetailViewCell.m; sourceTree = "<group>"; };
 		F8632F9F1AB423360078ECFD /* ExpertDetailViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpertDetailViewCell.xib; sourceTree = "<group>"; };
+		F8645DEE1AC504270052CEA0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F87C749E1ABBB86100309B25 /* location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location@2x.png"; sourceTree = "<group>"; };
 		F87DEFAB1AC2773D0038AF05 /* xiaomai1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xiaomai1@2x.png"; sourceTree = "<group>"; };
 		F87F65671ABFB78A007F5200 /* logocaise@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logocaise@2x.png"; sourceTree = "<group>"; };
@@ -795,6 +797,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8645DEF1AC504270052CEA0 /* CoreLocation.framework in Frameworks */,
 				F88990441AB00D1300DC9513 /* Security.framework in Frameworks */,
 				59613E2F1AC1310D00CABA3B /* ShareSDKShareActionSheet.framework in Frameworks */,
 				59FF4B611AC27A34001E7CA4 /* libWeChatSDK.a in Frameworks */,
@@ -1656,6 +1659,7 @@
 		F889903A1AB00C5200DC9513 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F8645DEE1AC504270052CEA0 /* CoreLocation.framework */,
 				59613E1D1AC1281200CABA3B /* ImageIO.framework */,
 				59613E1B1AC1115E00CABA3B /* libz.1.2.5.dylib */,
 				59613E191AC1115100CABA3B /* libicucore.dylib */,

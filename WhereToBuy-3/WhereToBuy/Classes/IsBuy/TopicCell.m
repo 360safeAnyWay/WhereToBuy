@@ -109,7 +109,7 @@
         UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(mark1.frame.origin.x, mark1.frame.origin.y + mark1.frame.size.height, 200, 50)];
         [textView setText:@"我们都是什么啥意思你试试墅地方撒旦发阿三地方阿三地方撒旦发撒旦发阿三地方阿三地方阿三大发撒旦发撒aksjdfljasldfjlasjdfljsa"];
         textView.editable = NO;
-        [textView setFont:kMainFont(16)];
+        [textView setFont:kMainFont(11)];
         [textView setTextColor:kMainTextColor];
         [textView setUserInteractionEnabled:NO];
         self.detailTextView = textView;
