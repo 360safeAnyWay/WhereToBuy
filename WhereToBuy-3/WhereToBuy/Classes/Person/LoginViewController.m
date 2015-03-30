@@ -13,6 +13,7 @@
 #import "MBProgressHUD.h"
 #import "Tools.h"
 #import "UserDao.h"
+#import "LoginesViewController.h"
 
 @interface LoginViewController ()<UITextFieldDelegate>
 {
@@ -181,7 +182,7 @@
 - (void)back
 {
     self.parentViewController.navigationItem.leftBarButtonItem = nil;
-    [UIView animateWithDuration:1.0f animations:^{
+    [UIView animateWithDuration:0.3f animations:^{
         [self.view bringSubviewToFront:_loginView];
         [_loginView setCenter:CGPointMake(_loginView.center.x + self.view.frame.size.width, _loginView.center.y)];
     } completion:^(BOOL finished) {
@@ -192,20 +193,22 @@
 
 - (void)refindSecret
 {
-    NSLog(@"找回密码");
-    self.parentViewController.navigationItem.rightBarButtonItem = nil;
-    [UIView animateWithDuration:1.0f animations:^{
-        [self.view bringSubviewToFront:_forgetView];
-        [_forgetView setCenter:CGPointMake(_forgetView.center.x - self.view.frame.size.width, _forgetView.center.y)];
-    } completion:^(BOOL finished) {
-        NSLog(@"结束了");
-        [_loginView setCenter:CGPointMake(_loginView.center.x - self.view.frame.size.width, _loginView.center.y)];
-        UIButton *itemBtn4 = [[UIButton alloc] initWithFrame:CGRectMake(17, 5, 10.5, 18)];
-        [itemBtn4 setBackgroundImage:[UIImage imageNamed:@"leftBack.png"] forState:UIControlStateNormal];
-        [itemBtn4 addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-        UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:itemBtn4];
-        self.parentViewController.navigationItem.leftBarButtonItem= back;
-    }];
+//    NSLog(@"找回密码");
+//    self.parentViewController.navigationItem.rightBarButtonItem = nil;
+//    [UIView animateWithDuration:0.3f animations:^{
+//        [self.view bringSubviewToFront:_forgetView];
+//        [_forgetView setCenter:CGPointMake(_forgetView.center.x - self.view.frame.size.width, _forgetView.center.y)];
+//    } completion:^(BOOL finished) {
+//        NSLog(@"结束了");
+//        [_loginView setCenter:CGPointMake(_loginView.center.x - self.view.frame.size.width, _loginView.center.y)];
+//        UIButton *itemBtn4 = [[UIButton alloc] initWithFrame:CGRectMake(17, 5, 10.5, 18)];
+//        [itemBtn4 setBackgroundImage:[UIImage imageNamed:@"leftBack.png"] forState:UIControlStateNormal];
+//        [itemBtn4 addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+//        UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:itemBtn4];
+//        self.parentViewController.navigationItem.leftBarButtonItem= back;
+//    }];
+    LoginesViewController * logines = [[LoginesViewController alloc]init];
+    [self.navigationController pushViewController:logines animated:YES];
 }
 
 ////现在去注册，push方式推入

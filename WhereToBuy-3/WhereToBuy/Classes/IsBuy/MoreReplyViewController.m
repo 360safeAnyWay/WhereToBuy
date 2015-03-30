@@ -30,12 +30,24 @@
 }
 - (void)createTableView
 {
+    UIButton *itemBtn4 = [[UIButton alloc] initWithFrame:CGRectMake(17, 5, 10.5, 18)];
+    [itemBtn4 setBackgroundImage:[UIImage imageNamed:@"leftBack.png"] forState:UIControlStateNormal];
+    [itemBtn4 addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:itemBtn4];
+    self.navigationItem.leftBarButtonItem= back;
+
     _sStrArray = [[NSMutableArray alloc]initWithObjects:@"人人人",@" 回复 ",@"@花花花",@":此处省略好多字!此处省略好多字!此处省略好多字!此处省略好多字!此处省略好多字!此处省略好多字!", nil];
     _myTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
     _myTableView.delegate = self;
     _myTableView.dataSource = self;
     _myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_myTableView];
+}
+- (void)back
+{
+    [self.navigationController popViewControllerAnimated:YES];
+    UIView * view = [[UIApplication sharedApplication].delegate.window viewWithTag:1975];
+    view.alpha = 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 {

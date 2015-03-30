@@ -134,23 +134,23 @@
 //    }];
 //}
 
-////当用户点击申请验证码的时候，60秒后可以再次申请，期间秒数下降，时间到后恢复汉字，并且可以点击
-//-(void)updateSecondes{
-//    if (_seconds < 0)
-//    {
-//        [((UIButton *)[self.view viewWithTag:4]) setTitle:[[DataCenter instance] getStringForKey:@"getTokenNum"] forState:UIControlStateNormal];//停止
-//        [((UIButton *)[self.view viewWithTag:4]) setBackgroundImage:@"aniublank.png"];
-//        ((UIButton *)[self.view viewWithTag:4]).userInteractionEnabled = YES;
-//    }else
-//    {
-//        [((UIButton *)[self.view viewWithTag:4]) setTitle:[NSString stringWithFormat:@"%lds后请求",(long)_seconds] forState:UIControlStateNormal];
-//        [((UIButton *)[self.view viewWithTag:4]) setBackgroundImage:nil];
-//        [((UIButton *)[self.view viewWithTag:4]) setBackgroundColor:[UIColor lightGrayColor]];
-//        [self performSelector:@selector(updateSecondes) withObject:nil afterDelay:1];
-//        ((UIButton *)[self.view viewWithTag:4]).userInteractionEnabled = NO;
-//    }
-//    _seconds--;
-//}
+//当用户点击申请验证码的时候，60秒后可以再次申请，期间秒数下降，时间到后恢复汉字，并且可以点击
+-(void)updateSecondes{
+    if (_seconds < 0)
+    {
+        [((UIButton *)[self.view viewWithTag:4]) setTitle:[[DataCenter instance] getStringForKey:@"getTokenNum"] forState:UIControlStateNormal];//停止
+        [((UIButton *)[self.view viewWithTag:4]) setBackgroundImage:@"aniublank.png"];
+        ((UIButton *)[self.view viewWithTag:4]).userInteractionEnabled = YES;
+    }else
+    {
+        [((UIButton *)[self.view viewWithTag:4]) setTitle:[NSString stringWithFormat:@"%lds后请求",(long)_seconds] forState:UIControlStateNormal];
+        [((UIButton *)[self.view viewWithTag:4]) setBackgroundImage:nil];
+        [((UIButton *)[self.view viewWithTag:4]) setBackgroundColor:[UIColor lightGrayColor]];
+        [self performSelector:@selector(updateSecondes) withObject:nil afterDelay:1];
+        ((UIButton *)[self.view viewWithTag:4]).userInteractionEnabled = NO;
+    }
+    _seconds--;
+}
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {

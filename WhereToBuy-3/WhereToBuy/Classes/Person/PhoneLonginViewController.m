@@ -1,0 +1,96 @@
+//
+//  PhoneLonginViewController.m
+//  WhereToBuy
+//
+//  Created by MAXMFJ on 15/3/30.
+//  Copyright (c) 2015年 JingMo. All rights reserved.
+//
+
+#import "PhoneLonginViewController.h"
+#import "DataCenter.h"
+#import "UIButton+WJ.h"
+#import "MBProgressHUD.h"
+@interface PhoneLonginViewController ()
+{
+    NSInteger _seconds;
+    NSInteger _token;//验证码
+
+
+}
+
+@end
+
+@implementation PhoneLonginViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self createBtn];
+
+}
+- (void)createBtn
+{
+    _seconds = 60;
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setFrame:CGRectMake(200,130, 91, 28)];
+    [btn setTitle:[[DataCenter instance] getStringForKey:@"getTokenNum"] forState:UIControlStateNormal];
+    btn.titleLabel.font = [UIFont systemFontOfSize:14.0f];
+    [btn setBackgroundImage:@"yanzhengma.png"];
+    btn.tag = 4;
+    [btn addTarget:self action:@selector(requestToken) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
+    [self updateSecondes];
+}
+- (void)requestToken
+{
+        if (((UITextField *)[self.view viewWithTag:1]).text.length != 11) {
+            [Tools showAlertView:[[DataCenter instance] getStringForKey:@"insertPhoneNumTip"]];
+            return;
+        }
+        [self updateSecondes];
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [[ServiceManage shareInstance] DidRequestToken:@{@"tel":((UITextField *)[self.view viewWithTag:1]).text} completion:^(ERROR_CODE code, id obj) {
+            if (code == ERROR_CODE_NONE) {
+                NSLog(@"验证码－－－－－%@",obj[@"message"]);
+                _token = [obj[@"message"] intValue];
+                [Tools showAlertView:[[DataCenter instance] getStringForKey:@"successGetToken"]];
+            }else
+            {
+                [Tools showAlertView:obj[@"message"]];
+            }
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        }];
+
+}
+-(void)updateSecondes{
+    if (_seconds < 0)
+    {
+        [((UIButton *)[self.view viewWithTag:4]) setTitle:[[DataCenter instance] getStringForKey:@"getTokenNum"] forState:UIControlStateNormal];//停止
+        [((UIButton *)[self.view viewWithTag:4]) setBackgroundImage:@"aniublank.png"];
+        ((UIButton *)[self.view viewWithTag:4]).userInteractionEnabled = YES;
+    }else
+    {
+        [((UIButton *)[self.view viewWithTag:4]) setTitle:[NSString stringWithFormat:@"%lds后请求",(long)_seconds] forState:UIControlStateNormal];
+        [((UIButton *)[self.view viewWithTag:4]) setBackgroundImage:nil];
+        [((UIButton *)[self.view viewWithTag:4]) setBackgroundColor:[UIColor lightGrayColor]];
+        [self performSelector:@selector(updateSecondes) withObject:nil afterDelay:1];
+        ((UIButton *)[self.view viewWithTag:4]).userInteractionEnabled = NO;
+    }
+    _seconds--;
+
+}
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end

@@ -17,7 +17,9 @@
 #import <ShareSDK/ShareSDK.h>
 #import "WXApi.h"
 #import "MFTextView.h"
+#import "ServiceManage.h"
 #define Base_Url @"http://www.mainaer.com"
+#define SHOWALERT(messageString)    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"小白提示" message:messageString delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];[alert show];
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #endif
