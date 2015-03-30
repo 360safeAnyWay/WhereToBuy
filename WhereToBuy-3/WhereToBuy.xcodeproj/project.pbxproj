@@ -59,6 +59,8 @@
 		59C34D641AC8F4E500507A9A /* LoginesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59C34D621AC8F4E500507A9A /* LoginesViewController.xib */; };
 		59C34D681AC9011A00507A9A /* PhoneLonginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C34D661AC9011A00507A9A /* PhoneLonginViewController.m */; };
 		59C34D691AC9011A00507A9A /* PhoneLonginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59C34D671AC9011A00507A9A /* PhoneLonginViewController.xib */; };
+		59C34D6D1AC917A700507A9A /* UserNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C34D6B1AC917A700507A9A /* UserNameViewController.m */; };
+		59C34D6E1AC917A700507A9A /* UserNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59C34D6C1AC917A700507A9A /* UserNameViewController.xib */; };
 		59C5C2101AAED9570042382F /* Zdown.png in Resources */ = {isa = PBXBuildFile; fileRef = 59C5C20E1AAED9570042382F /* Zdown.png */; };
 		59C5C2111AAED9570042382F /* Zup.png in Resources */ = {isa = PBXBuildFile; fileRef = 59C5C20F1AAED9570042382F /* Zup.png */; };
 		59C5C2131AAEDDD50042382F /* huifulouzhu.png in Resources */ = {isa = PBXBuildFile; fileRef = 59C5C2121AAEDDD50042382F /* huifulouzhu.png */; };
@@ -413,6 +415,9 @@
 		59C34D651AC9011A00507A9A /* PhoneLonginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneLonginViewController.h; sourceTree = "<group>"; };
 		59C34D661AC9011A00507A9A /* PhoneLonginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneLonginViewController.m; sourceTree = "<group>"; };
 		59C34D671AC9011A00507A9A /* PhoneLonginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhoneLonginViewController.xib; sourceTree = "<group>"; };
+		59C34D6A1AC917A700507A9A /* UserNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserNameViewController.h; sourceTree = "<group>"; };
+		59C34D6B1AC917A700507A9A /* UserNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserNameViewController.m; sourceTree = "<group>"; };
+		59C34D6C1AC917A700507A9A /* UserNameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserNameViewController.xib; sourceTree = "<group>"; };
 		59C5C20E1AAED9570042382F /* Zdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zdown.png; sourceTree = "<group>"; };
 		59C5C20F1AAED9570042382F /* Zup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zup.png; sourceTree = "<group>"; };
 		59C5C2121AAEDDD50042382F /* huifulouzhu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = huifulouzhu.png; sourceTree = "<group>"; };
@@ -994,6 +999,9 @@
 				59C34D651AC9011A00507A9A /* PhoneLonginViewController.h */,
 				59C34D661AC9011A00507A9A /* PhoneLonginViewController.m */,
 				59C34D671AC9011A00507A9A /* PhoneLonginViewController.xib */,
+				59C34D6A1AC917A700507A9A /* UserNameViewController.h */,
+				59C34D6B1AC917A700507A9A /* UserNameViewController.m */,
+				59C34D6C1AC917A700507A9A /* UserNameViewController.xib */,
 			);
 			name = longinRegister;
 			sourceTree = "<group>";
@@ -1877,6 +1885,7 @@
 				932B2F611AA15C3A00BBD25E /* down@2x.png in Resources */,
 				F8BB36391AAE827D004CD43E /* builddingDetailFirstCell.xib in Resources */,
 				F8332AE11ABAC72700A0AEC8 /* main_bg1_568@2x.jpg in Resources */,
+				59C34D6E1AC917A700507A9A /* UserNameViewController.xib in Resources */,
 				93DA090E1A6DF0BC00A26CD2 /* KYICircleMenuButton01_highlighted@2x.png in Resources */,
 				9362A5991A832B80005233EE /* red@2x.png in Resources */,
 				93A8B0751A64F7E3006D6A74 /* refresh@2x.png in Resources */,
@@ -1994,6 +2003,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59C34D6D1AC917A700507A9A /* UserNameViewController.m in Sources */,
 				9329A6F71AA2EDED005B7D70 /* PinyinHelper.m in Sources */,
 				595C014B1AB4145700769FE4 /* LikeViewController.m in Sources */,
 				9383DC2A1A79D843001691BF /* PersonMainViewController.m in Sources */,

@@ -39,7 +39,7 @@
                     <rect key="frame" x="27" y="175" width="267" height="40"/>
                     <color key="backgroundColor" red="0.26274509800000001" green="0.82352941180000006" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="下一步">
-                        <color key="titleColor" red="0.962725795" green="0.962725795" blue="0.962725795" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>

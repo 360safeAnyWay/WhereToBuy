@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhoneLonginViewController">
             <connections>
+                <outlet property="codePhone" destination="e0i-xC-KQk" id="RMk-am-69M"/>
+                <outlet property="nextBtn" destination="wJe-tM-ApR" id="Of8-7w-0HP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,15 +27,20 @@
                     <rect key="frame" x="18" y="165" width="285" height="40"/>
                     <color key="backgroundColor" red="0.26274509800000001" green="0.82352941180000006" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="下一步">
-                        <color key="titleColor" red="0.962725795" green="0.962725795" blue="0.962725795" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e0i-xC-KQk">
-                    <rect key="frame" x="18" y="127" width="285" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入验证码   (请确认手机号)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e0i-xC-KQk">
+                    <rect key="frame" x="18" y="127" width="187" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Itg-zZ-RM9">
+                    <rect key="frame" x="18" y="155" width="285" height="2"/>
+                    <color key="progressTintColor" red="0.84009884560000003" green="0.84009884560000003" blue="0.84009884560000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="trackTintColor" red="0.86207268650000002" green="0.86207268650000002" blue="0.86207268650000002" alpha="1" colorSpace="calibratedRGB"/>
+                </progressView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

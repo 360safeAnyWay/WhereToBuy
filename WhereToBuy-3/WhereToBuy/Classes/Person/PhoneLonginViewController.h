@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PhoneLonginViewController : UIViewController
-
+@interface PhoneLonginViewController : UIViewController<UIAlertViewDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *codePhone;
+@property (weak, nonatomic) IBOutlet UIButton *nextBtn;
+@property (nonatomic,copy)           NSString   *phone;
 @end
