@@ -16,6 +16,7 @@
 #import "WBNavigationController.h"
 #import "MainMoreViewController.h"
 #import "NavBackButton.h"
+#import "ServiceManage.h"
 
 @interface WhereBuyMainVIewController()<SelectCityDelegate>
 
@@ -30,6 +31,10 @@
     [super viewDidLoad];
     self.title = [[DataCenter instance] getStringForKey:@"whereBuyMainNavTitle"];
     [self addUI];
+    
+    [[ServiceManage shareInstance] DidConnectServer:@{} completion:^(ERROR_CODE code, id obj) {
+        
+    }];
     
     //测试我的微软雅黑font字体
     UIFont *font = [UIFont fontWithName:@"wyyh" size:18];

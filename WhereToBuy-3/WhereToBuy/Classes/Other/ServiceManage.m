@@ -64,21 +64,13 @@
     }
 }
 
+//链接服务器得测试
 -(void)DidConnectServer:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE code, id obj)) callBack
 {
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parmers];
-    [dic setObject:@"HePd443Mnd" forKey:@"overifyname"];
-    [self requestMethod:@"GET" serviceName:@"" parmers:dic completeBlock:^(id obj) {
-        ERROR_CODE code = ERROR_CODE_RROR;
-        if (obj && obj[@"data"]) {
-            code = [obj[@"code"] intValue];
-        }
-        NSLog(@"%@",obj);
-        NSArray *arr = obj[@"key"];
-        NSDictionary *dic1 = arr[16];
-        NSLog(@"%@",dic1[@"name"]);
-        callBack(code, obj[@"data"]);
-    }];
+    [self requestMethod:@"PUT" serviceName:@"/api.php/user/144" parmers:dic completeBlock:^(id obj) {
+            NSLog(@"asdfjlasjdfla%@",obj);
+        }];
 }
 //获取城市
 -(void)DidGetCity:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE code, id obj)) callBack
