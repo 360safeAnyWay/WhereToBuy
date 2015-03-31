@@ -174,12 +174,12 @@
 -(void)DidRequestToken:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE code, id obj)) callBack
 {
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parmers];
-    [dic setObject:@"HePd443Mnd" forKey:@"overifyname"];
-    [self requestMethod:@"GET" serviceName:@"/cpanel/index.php/buyc_interface1/getVerifyCode/" parmers:dic completeBlock:^(id obj) {
+    [self requestMethod:@"POST" serviceName:@"/api.php/verify/phone" parmers:dic completeBlock:^(id obj) {
         ERROR_CODE code = ERROR_CODE_RROR;
         if (obj && obj[@"message"]) {
             code = [obj[@"code"] intValue];
         }
+        NSLog(@"%@",obj);
         callBack(code, obj);
     }];
 }
