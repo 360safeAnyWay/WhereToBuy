@@ -5,6 +5,7 @@
 //  Created by xiang ying on 14-8-3.
 //  Copyright (c) 2014年 xiang ying. All rights reserved.
 //
+typedef void(^DATAARRAY)(NSMutableArray  * array,NSString       * error);
 
 #import <Foundation/Foundation.h>
 
@@ -49,5 +50,8 @@ typedef enum {
 
 //获取用户个人信息
 -(void)DidUserInfo:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE code, id obj)) callBack;
+//获取短信验证
++(void)FinancialManageGET:(NSString *)GET block:(DATAARRAY)block;
+
 
 @end

@@ -43,7 +43,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     IsBuySendTopicViewController * is = [self.navigationController.viewControllers objectAtIndex: ([self.navigationController.viewControllers count] -2)];
-    [is SpecialistNameWithindex:indexPath tableView:tableView block:nil];
+    [is SpecialistNameWithindex:indexPath tableView:tableView block:^(NSString *name) {
+        
+    }];
     [self.navigationController popViewControllerAnimated:YES] ;
 }
 - (void)didReceiveMemoryWarning {

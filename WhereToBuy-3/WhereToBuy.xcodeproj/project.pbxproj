@@ -55,6 +55,12 @@
 		59AEE0931AC3E59F00E3AF95 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 59AEE0911AC3E59F00E3AF95 /* share.png */; };
 		59AEE0941AC3E59F00E3AF95 /* shoucang.png in Resources */ = {isa = PBXBuildFile; fileRef = 59AEE0921AC3E59F00E3AF95 /* shoucang.png */; };
 		59AEE0971AC3EAF400E3AF95 /* MFTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 59AEE0961AC3EAF400E3AF95 /* MFTextView.m */; };
+		59C34D631AC8F4E500507A9A /* LoginesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C34D611AC8F4E500507A9A /* LoginesViewController.m */; };
+		59C34D641AC8F4E500507A9A /* LoginesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59C34D621AC8F4E500507A9A /* LoginesViewController.xib */; };
+		59C34D681AC9011A00507A9A /* PhoneLonginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C34D661AC9011A00507A9A /* PhoneLonginViewController.m */; };
+		59C34D691AC9011A00507A9A /* PhoneLonginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59C34D671AC9011A00507A9A /* PhoneLonginViewController.xib */; };
+		59C34D6D1AC917A700507A9A /* UserNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C34D6B1AC917A700507A9A /* UserNameViewController.m */; };
+		59C34D6E1AC917A700507A9A /* UserNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59C34D6C1AC917A700507A9A /* UserNameViewController.xib */; };
 		59C5C2101AAED9570042382F /* Zdown.png in Resources */ = {isa = PBXBuildFile; fileRef = 59C5C20E1AAED9570042382F /* Zdown.png */; };
 		59C5C2111AAED9570042382F /* Zup.png in Resources */ = {isa = PBXBuildFile; fileRef = 59C5C20F1AAED9570042382F /* Zup.png */; };
 		59C5C2131AAEDDD50042382F /* huifulouzhu.png in Resources */ = {isa = PBXBuildFile; fileRef = 59C5C2121AAEDDD50042382F /* huifulouzhu.png */; };
@@ -403,6 +409,15 @@
 		59AEE0921AC3E59F00E3AF95 /* shoucang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoucang.png; sourceTree = "<group>"; };
 		59AEE0951AC3EAF400E3AF95 /* MFTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFTextView.h; sourceTree = "<group>"; };
 		59AEE0961AC3EAF400E3AF95 /* MFTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFTextView.m; sourceTree = "<group>"; };
+		59C34D601AC8F4E500507A9A /* LoginesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginesViewController.h; sourceTree = "<group>"; };
+		59C34D611AC8F4E500507A9A /* LoginesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginesViewController.m; sourceTree = "<group>"; };
+		59C34D621AC8F4E500507A9A /* LoginesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginesViewController.xib; sourceTree = "<group>"; };
+		59C34D651AC9011A00507A9A /* PhoneLonginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneLonginViewController.h; sourceTree = "<group>"; };
+		59C34D661AC9011A00507A9A /* PhoneLonginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneLonginViewController.m; sourceTree = "<group>"; };
+		59C34D671AC9011A00507A9A /* PhoneLonginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhoneLonginViewController.xib; sourceTree = "<group>"; };
+		59C34D6A1AC917A700507A9A /* UserNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserNameViewController.h; sourceTree = "<group>"; };
+		59C34D6B1AC917A700507A9A /* UserNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserNameViewController.m; sourceTree = "<group>"; };
+		59C34D6C1AC917A700507A9A /* UserNameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserNameViewController.xib; sourceTree = "<group>"; };
 		59C5C20E1AAED9570042382F /* Zdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zdown.png; sourceTree = "<group>"; };
 		59C5C20F1AAED9570042382F /* Zup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zup.png; sourceTree = "<group>"; };
 		59C5C2121AAEDDD50042382F /* huifulouzhu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = huifulouzhu.png; sourceTree = "<group>"; };
@@ -975,6 +990,22 @@
 			name = Specialist;
 			sourceTree = "<group>";
 		};
+		59C34D5F1AC8F4B400507A9A /* longinRegister */ = {
+			isa = PBXGroup;
+			children = (
+				59C34D601AC8F4E500507A9A /* LoginesViewController.h */,
+				59C34D611AC8F4E500507A9A /* LoginesViewController.m */,
+				59C34D621AC8F4E500507A9A /* LoginesViewController.xib */,
+				59C34D651AC9011A00507A9A /* PhoneLonginViewController.h */,
+				59C34D661AC9011A00507A9A /* PhoneLonginViewController.m */,
+				59C34D671AC9011A00507A9A /* PhoneLonginViewController.xib */,
+				59C34D6A1AC917A700507A9A /* UserNameViewController.h */,
+				59C34D6B1AC917A700507A9A /* UserNameViewController.m */,
+				59C34D6C1AC917A700507A9A /* UserNameViewController.xib */,
+			);
+			name = longinRegister;
+			sourceTree = "<group>";
+		};
 		59FF4B581AC27A34001E7CA4 /* ShareSDKWeChart */ = {
 			isa = PBXGroup;
 			children = (
@@ -1372,6 +1403,7 @@
 		9337B9331A5908D5003A0884 /* Person */ = {
 			isa = PBXGroup;
 			children = (
+				59C34D5F1AC8F4B400507A9A /* longinRegister */,
 				9383DC281A79D843001691BF /* PersonMainViewController.h */,
 				9383DC291A79D843001691BF /* PersonMainViewController.m */,
 				93A697361A760FCC00A9B894 /* LoginViewController.h */,
@@ -1842,6 +1874,7 @@
 				93A8B09C1A650F07006D6A74 /* person_selected@2x.png in Resources */,
 				93009FEA1A7B2152005B3085 /* ReadMe.strings in Resources */,
 				932F96DF1A7F4175000C28B5 /* right@2x.png in Resources */,
+				59C34D641AC8F4E500507A9A /* LoginesViewController.xib in Resources */,
 				931C916F1A6394D40051496E /* skin@2x.png in Resources */,
 				931C917E1A63A8480051496E /* s@2x.png in Resources */,
 				93B86C061AA5A88700A24353 /* isBuy_6@2x.png in Resources */,
@@ -1852,6 +1885,7 @@
 				932B2F611AA15C3A00BBD25E /* down@2x.png in Resources */,
 				F8BB36391AAE827D004CD43E /* builddingDetailFirstCell.xib in Resources */,
 				F8332AE11ABAC72700A0AEC8 /* main_bg1_568@2x.jpg in Resources */,
+				59C34D6E1AC917A700507A9A /* UserNameViewController.xib in Resources */,
 				93DA090E1A6DF0BC00A26CD2 /* KYICircleMenuButton01_highlighted@2x.png in Resources */,
 				9362A5991A832B80005233EE /* red@2x.png in Resources */,
 				93A8B0751A64F7E3006D6A74 /* refresh@2x.png in Resources */,
@@ -1906,6 +1940,7 @@
 				93A8B09B1A650F07006D6A74 /* isBuy@2x.png in Resources */,
 				93B86C071AA5A88700A24353 /* isBuy_1@2x.png in Resources */,
 				930A56D71A9D9E1F005F86B3 /* paopao@2x.png in Resources */,
+				59C34D691AC9011A00507A9A /* PhoneLonginViewController.xib in Resources */,
 				599B9CC01AC0027C00740E51 /* MoreReplyTableViewCell.xib in Resources */,
 				F81545B31AB92299009CF568 /* whereBuy1@2x.png in Resources */,
 				597D3B9F1AAE9AB8003F3871 /* black.png in Resources */,
@@ -1968,6 +2003,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59C34D6D1AC917A700507A9A /* UserNameViewController.m in Sources */,
 				9329A6F71AA2EDED005B7D70 /* PinyinHelper.m in Sources */,
 				595C014B1AB4145700769FE4 /* LikeViewController.m in Sources */,
 				9383DC2A1A79D843001691BF /* PersonMainViewController.m in Sources */,
@@ -2074,10 +2110,12 @@
 				9337B92D1A58FE61003A0884 /* UIView+WebCacheOperation.m in Sources */,
 				599B9CBA1AC0014500740E51 /* MoreReplyViewController.m in Sources */,
 				9329A6FB1AA2EE50005B7D70 /* ChineseInclude.m in Sources */,
+				59C34D681AC9011A00507A9A /* PhoneLonginViewController.m in Sources */,
 				9383DC211A79D28A001691BF /* DockViewController.m in Sources */,
 				939394A91A89B8370039FFF3 /* NormalCircle.m in Sources */,
 				F8BB36381AAE827D004CD43E /* builddingDetailFirstCell.m in Sources */,
 				9337B9311A58FF19003A0884 /* ServiceManage.m in Sources */,
+				59C34D631AC8F4E500507A9A /* LoginesViewController.m in Sources */,
 				939394AA1A89B8370039FFF3 /* SPLine.m in Sources */,
 				93B33A391A9F118E00EB7F6A /* PeronTipsViewController.m in Sources */,
 				930A56D41A9D9394005F86B3 /* NYPopover.m in Sources */,

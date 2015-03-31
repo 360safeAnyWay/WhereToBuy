@@ -123,6 +123,7 @@
     [ShareSDK connectWeChatTimelineWithAppId: @"wx2136f96bda0598c6"
                                    appSecret: @"e61745800e5887253e6af842ec575d3f"
                                    wechatCls: [WXApi class]];
+    NSLog(@"--------%d",[self validateNumber:@"15239870768"]);
     return YES;
 }
 - (BOOL)application:(UIApplication *)application
@@ -223,22 +224,11 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     [LeafNotification showInController:self.window.rootViewController withText:content type:LeafNotificationTypeWarrning];
     completionHandler(UIBackgroundFetchResultNewData);
 }
-//- (BOOL)application:(UIApplication *)application
-//      handleOpenURL:(NSURL *)url
-//{
-//    return [ShareSDK handleOpenURL:url
-//                        wxDelegate:self];
-//}
-//
-//- (BOOL)application:(UIApplication *)application
-//            openURL:(NSURL *)url
-//  sourceApplication:(NSString *)sourceApplication
-//         annotation:(id)annotation
-//{
-//    return [ShareSDK handleOpenURL:url
-//                 sourceApplication:sourceApplication
-//                        annotation:annotation
-//                        wxDelegate:self];
-//}
+-(BOOL)validateNumber:(NSString *)textString
+{
+    NSString * number = @"^1|3|4|5|7|8|[0-9]\\d{8}$";
+    NSPredicate * numberPre = [NSPredicate predicateWithFormat:@"SELF MATCHES%@",number];
+    return [numberPre evaluateWithObject:textString];
+}
 
 @end

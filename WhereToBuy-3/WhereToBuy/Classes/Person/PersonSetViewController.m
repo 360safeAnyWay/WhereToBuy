@@ -40,7 +40,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideKeyBorard:) name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showKeyBorard:) name:UIKeyboardWillShowNotification object:nil];
     _flag = YES;
-    _arr = @[@[@"昵称",@"真实姓名",@"性别",@"生日",@"账户密码",@"手势密码",@"个人简介"],@[@"Aladin",@"王麻子",@"男",@"1990-12-12",@"",@"",@"从事房地产多年,熟悉相关..."]];
+    _arr = @[@[@"昵称",@"用户名",@"性别",@"生日",@"账户密码",@"手势密码",@"个人简介"],@[@"Aladin",@"王麻子",@"男",@"1990-12-12",@"",@"",@"从事房地产多年,熟悉相关..."]];
     [self addUI];
 }
 
@@ -199,6 +199,10 @@
         cell = [[PersonSetCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         [cell cellInitWithCell:_arr andIndex:indexPath.row];
+    }
+    if(indexPath.row == 1){
+        cell.userInteractionEnabled = NO;
+        cell.icon.hidden = YES;
     }
     if (indexPath.row == 4 || indexPath.row == 5 || indexPath.row == 6) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
