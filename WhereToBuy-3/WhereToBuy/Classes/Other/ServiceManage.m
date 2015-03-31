@@ -41,7 +41,6 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
 //    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-//    manager.responseSerializer.acceptableContentTypes
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@",Base_Url,service];
     if ([method isEqualToString:@"POST"]) {
         [manager POST:requestUrl parameters:parmers success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -174,7 +173,7 @@
 -(void)DidRequestToken:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE code, id obj)) callBack
 {
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parmers];
-    [self requestMethod:@"POST" serviceName:@"/api.php/verify/phone" parmers:dic completeBlock:^(id obj) {
+    [self requestMethod:@"POST" serviceName:@"/api.php/send/phone" parmers:dic completeBlock:^(id obj) {
         ERROR_CODE code = ERROR_CODE_RROR;
         if (obj && obj[@"message"]) {
             code = [obj[@"code"] intValue];
@@ -218,7 +217,7 @@
     AFHTTPRequestOperationManager * manager   = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];//设置相应内容类型
     NSDictionary * PDic = @{@"tel":@"15239870768"};
-    NSMutableArray       * dataArray = [NSMutableArray array];
+    NSMutableArray *dataArray = [NSMutableArray array];
     [manager POST:GET parameters:PDic success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@",responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

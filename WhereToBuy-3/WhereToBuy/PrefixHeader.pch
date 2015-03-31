@@ -21,7 +21,7 @@
 #define Base_Url @"http://218.244.130.25"
 
 #import "ServiceManage.h"
-#define Base_Url @"http://www.mainaer.com"
+//#define Base_Url @"http://www.mainaer.com"
 #define SHOWALERT(messageString)    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"小白提示" message:messageString delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];[alert show];
 
 // Include any system framework and library headers here that should be included in all compilation units.

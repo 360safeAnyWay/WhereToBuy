@@ -104,9 +104,7 @@
 -(void)nextBtn:(id)btn
 {
 #warning 验证请求-----------
-    [[ServiceManage shareInstance] DidRequestToken:@{@"tel":@"18512528352"} completion:^(ERROR_CODE code, id obj) {
-        NSLog(@"发送请求");
-    }];
+    
     UserNameViewController * unv= [[UserNameViewController alloc]init];
     [self.navigationController pushViewController:unv animated:YES];
 }
