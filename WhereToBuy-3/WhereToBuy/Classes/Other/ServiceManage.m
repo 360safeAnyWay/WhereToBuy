@@ -8,7 +8,7 @@
 
 #import "ServiceManage.h"
 #import "AFHTTPRequestOperationManager.h"
-
+#import "AFHTTPSessionManager.h"
 //#define Base_Url @"http://101.227.243.126:8082"
 //#define Base_Url @"http://www.usuda.cn/verify.php/"
 //#define Base_Url @"http://www.weather.com.cn/data/sk/101010100.html"
@@ -197,9 +197,11 @@
 {
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parmers];
     [dic setObject:@"HePd443Mnd" forKey:@"overifyname"];
-    [self requestMethod:@"GET" serviceName:@"/cpanel/index.php/buyc_interface1/registerResUser/" parmers:dic completeBlock:^(id obj) {
+    [self requestMethod:@"POST" serviceName:@"http://test.local.com/api.php/verify/phone" parmers:dic completeBlock:^(id obj) {
         ERROR_CODE code = ERROR_CODE_RROR;
         if (obj && obj[@"message"]) {
+            NSLog(@"%@",obj);
+
             code = [obj[@"code"] intValue];
         }
         callBack(code, obj);
@@ -217,6 +219,30 @@
         }
         callBack(code, obj);
     }];
+}
+//新短信验证
++(void)FinancialManageGET:(NSString *)GET block:(DATAARRAY)block;
+{
+    AFHTTPRequestOperationManager * manager   = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];//设置相应内容类型
+    NSDictionary * PDic = @{@"tel":@"15239870768"};
+    NSMutableArray       * dataArray = [NSMutableArray array];
+    [manager POST:GET parameters:PDic success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@",responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@",error);
+
+    }];
+//    [manager GET:GET parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+//        NSLog(@"%@",responseObject);
+//        NSDictionary     * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+//        NSArray          * array = [dic objectForKey:@"data_list"];
+//       
+//        block(dataArray,nil);
+//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//        NSLog(@"%@",error);
+//        block(nil,[NSString stringWithFormat:@"%@",error]);
+//    }];
 }
 
 @end

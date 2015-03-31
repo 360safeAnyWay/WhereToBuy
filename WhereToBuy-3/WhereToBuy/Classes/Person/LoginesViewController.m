@@ -39,6 +39,9 @@
         SHOWALERT(@"手机号不正确");
     }else{
 #warning 发送求请求----------
+        [ServiceManage FinancialManageGET:@"http://218.244.130.25/api.php/verify/phone" block:^(NSMutableArray *array, NSString *error) {
+            
+        }];
         PhoneLonginViewController* pl = [[PhoneLonginViewController alloc]init];
         pl.phone = self.phoneText.text;
         [self.navigationController pushViewController:pl animated:YES];

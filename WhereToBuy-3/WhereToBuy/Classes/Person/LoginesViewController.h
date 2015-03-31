@@ -11,5 +11,5 @@
 @interface LoginesViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *phoneText;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
-
+@property (nonatomic,copy)           NSString  *codePhone;
 @end

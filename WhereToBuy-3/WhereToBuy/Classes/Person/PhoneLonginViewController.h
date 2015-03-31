@@ -12,4 +12,5 @@
 @property (weak, nonatomic) IBOutlet UITextField *codePhone;
 @property (weak, nonatomic) IBOutlet UIButton *nextBtn;
 @property (nonatomic,copy)           NSString   *phone;
+@property (nonatomic,copy)           NSString   *checking;
 @end

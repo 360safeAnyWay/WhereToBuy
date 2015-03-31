@@ -81,7 +81,7 @@
 {
     NSString * str = [NSString stringWithFormat:@"确认手机号是否正确\n%@",_phone];
     UIAlertView * alv = [[UIAlertView alloc]initWithTitle:@"小白提醒" message:str delegate:self cancelButtonTitle:@"正确" otherButtonTitles:@"错误,进行修改", nil];
-            [alv show];
+    [alv show];
     
 }
 -(void)updateSecondes{
