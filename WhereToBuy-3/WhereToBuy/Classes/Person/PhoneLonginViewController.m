@@ -16,6 +16,7 @@
 {
     NSInteger _seconds;
     NSInteger _token;//验证码
+    UIButton *_itemBtn4;
 
 
 }
@@ -34,10 +35,11 @@
 
 - (void)createBtn
 {
-    UIButton *itemBtn4 = [[UIButton alloc] initWithFrame:CGRectMake(17, 5, 10.5, 18)];
-    [itemBtn4 setBackgroundImage:[UIImage imageNamed:@"leftBack.png"] forState:UIControlStateNormal];
-    [itemBtn4 addTarget:self action:@selector(backPhone) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:itemBtn4];
+    _itemBtn4 = [[UIButton alloc] initWithFrame:CGRectMake(17, 5, 10.5, 18)];
+    [_itemBtn4 setBackgroundImage:[UIImage imageNamed:@"leftBack.png"] forState:UIControlStateNormal];
+    [_itemBtn4 addTarget:self action:@selector(backPhone) forControlEvents:UIControlEventTouchUpInside];
+    _itemBtn4.hidden = YES;
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:_itemBtn4];
     self.navigationItem.leftBarButtonItem= back;
     _seconds = 60;
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -91,6 +93,7 @@
         [((UIButton *)[self.view viewWithTag:4]) setTitle:[[DataCenter instance] getStringForKey:@"getTokenNum"] forState:UIControlStateNormal];//停止
         [((UIButton *)[self.view viewWithTag:4]) setBackgroundImage:@"aniublank.png"];
         ((UIButton *)[self.view viewWithTag:4]).userInteractionEnabled = YES;
+        _itemBtn4.hidden = NO;
     }else
     {
         [((UIButton *)[self.view viewWithTag:4]) setTitle:[NSString stringWithFormat:@"%lds后请求",(long)_seconds] forState:UIControlStateNormal];

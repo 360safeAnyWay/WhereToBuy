@@ -7,7 +7,6 @@
 //
 
 #import "UserNameViewController.h"
-
 @interface UserNameViewController ()
 
 @end
@@ -20,11 +19,16 @@
     UIButton *itemBtn4 = [[UIButton alloc] initWithFrame:CGRectMake(17, 5, 10.5, 18)];
     [itemBtn4 setBackgroundImage:[UIImage imageNamed:@"leftBack.png"] forState:UIControlStateNormal];
     [itemBtn4 addTarget:self action:@selector(backPhone) forControlEvents:UIControlEventTouchUpInside];
+    itemBtn4.hidden = YES;
     UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:itemBtn4];
     self.navigationItem.leftBarButtonItem= back;
+    [self.registers addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
     // Do any additional setup after loading the view from its nib.
 }
-
+- (void)btnClick
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 - (void)backPhone
 {
     [self.navigationController popToRootViewControllerAnimated:YES];
