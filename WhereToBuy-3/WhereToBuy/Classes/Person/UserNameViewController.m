@@ -7,6 +7,9 @@
 //
 
 #import "UserNameViewController.h"
+#import "Tools.h"
+#import "ServiceManage.h"
+
 @interface UserNameViewController ()
 
 @end
@@ -25,27 +28,31 @@
     [self.registers addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
     // Do any additional setup after loading the view from its nib.
 }
+
+//注册
 - (void)btnClick
 {
+    if (self.userName.text.length == 0) {
+        [Tools showAlertView:@"用户名不能为空"];
+        return;
+    }
+    if (![self.passwd.text isEqualToString:self.notarizePasswd.text]) {
+        [Tools showAlertView:@"密码不一致"];
+        return;
+    }
+    if (self.passwd.text.length == 0 || self.notarizePasswd.text.length == 0) {
+        [Tools showAlertView:@"密码不能为空"];
+        return;
+    }
     [self.navigationController popToRootViewControllerAnimated:YES];
-}
-- (void)backPhone
-{
-    [self.navigationController popToRootViewControllerAnimated:YES];
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [[ServiceManage shareInstance] DidRegister:@{@"tel":self.phoneNum,@"username":self.userName.text,@"password":self.passwd.text} completion:^(ERROR_CODE code, id obj) {
+        NSLog(@"%@",obj);
+    }];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+//- (void)backPhone
+//{
+//    [self.navigationController popToRootViewControllerAnimated:YES];
+//}
 
 @end

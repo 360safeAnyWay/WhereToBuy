@@ -10,7 +10,6 @@
 #import "LoginViewController.h"
 #import "DataCenter.h"
 #import "PersonCenterViewController.h"
-#import "RegisterViewController.h"
 
 @interface PersonMainViewController()<loginDelegate>
 

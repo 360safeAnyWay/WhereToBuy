@@ -213,7 +213,6 @@
 		939394AC1A89B8370039FFF3 /* SPLockScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 939394A81A89B8370039FFF3 /* SPLockScreen.m */; };
 		939394B21A89C43B0039FFF3 /* PatternViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 939394B11A89C43B0039FFF3 /* PatternViewController.m */; };
 		93A697381A760FCC00A9B894 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A697371A760FCC00A9B894 /* LoginViewController.m */; };
-		93A6973B1A76140E00A9B894 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A6973A1A76140E00A9B894 /* RegisterViewController.m */; };
 		93A697421A762E1000A9B894 /* UIButton+WJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A697411A762E1000A9B894 /* UIButton+WJ.m */; };
 		93A697451A762E9500A9B894 /* yanzhengma_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A697431A762E9500A9B894 /* yanzhengma_highlighted@2x.png */; };
 		93A697461A762E9500A9B894 /* yanzhengma@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A697441A762E9500A9B894 /* yanzhengma@2x.png */; };
@@ -322,6 +321,8 @@
 		F8A1DE291AB2BB86008474F7 /* initAnimate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8A1DE261AB2BB86008474F7 /* initAnimate@2x.png */; };
 		F8A1DE2A1AB2BB86008474F7 /* initLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8A1DE271AB2BB86008474F7 /* initLogo@2x.png */; };
 		F8A1DE2B1AB2BB86008474F7 /* initLogoName@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8A1DE281AB2BB86008474F7 /* initLogoName@2x.png */; };
+		F8A6DDF11ACBF35400AF36AA /* PersonForgetPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8A6DDEF1ACBF35400AF36AA /* PersonForgetPassViewController.m */; };
+		F8A6DDF21ACBF35400AF36AA /* PersonForgetPassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8A6DDF01ACBF35400AF36AA /* PersonForgetPassViewController.xib */; };
 		F8AF54F11AAAADD00029435B /* SearchDetailEvaluteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AF54EF1AAAADD00029435B /* SearchDetailEvaluteCell.m */; };
 		F8AF54F21AAAADD00029435B /* SearchDetailEvaluteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8AF54F01AAAADD00029435B /* SearchDetailEvaluteCell.xib */; };
 		F8AF54F61AAABDA20029435B /* SearchDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AF54F41AAABDA20029435B /* SearchDetailCell.m */; };
@@ -657,8 +658,6 @@
 		939394B11A89C43B0039FFF3 /* PatternViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatternViewController.m; sourceTree = "<group>"; };
 		93A697361A760FCC00A9B894 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		93A697371A760FCC00A9B894 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		93A697391A76140E00A9B894 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
-		93A6973A1A76140E00A9B894 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		93A697401A762E1000A9B894 /* UIButton+WJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WJ.h"; sourceTree = "<group>"; };
 		93A697411A762E1000A9B894 /* UIButton+WJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WJ.m"; sourceTree = "<group>"; };
 		93A697431A762E9500A9B894 /* yanzhengma_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yanzhengma_highlighted@2x.png"; sourceTree = "<group>"; };
@@ -793,6 +792,9 @@
 		F8A1DE261AB2BB86008474F7 /* initAnimate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "initAnimate@2x.png"; sourceTree = "<group>"; };
 		F8A1DE271AB2BB86008474F7 /* initLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "initLogo@2x.png"; sourceTree = "<group>"; };
 		F8A1DE281AB2BB86008474F7 /* initLogoName@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "initLogoName@2x.png"; sourceTree = "<group>"; };
+		F8A6DDEE1ACBF35400AF36AA /* PersonForgetPassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonForgetPassViewController.h; sourceTree = "<group>"; };
+		F8A6DDEF1ACBF35400AF36AA /* PersonForgetPassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonForgetPassViewController.m; sourceTree = "<group>"; };
+		F8A6DDF01ACBF35400AF36AA /* PersonForgetPassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonForgetPassViewController.xib; sourceTree = "<group>"; };
 		F8AF54EE1AAAADD00029435B /* SearchDetailEvaluteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchDetailEvaluteCell.h; path = ../../../SearchDetailEvaluteCell.h; sourceTree = "<group>"; };
 		F8AF54EF1AAAADD00029435B /* SearchDetailEvaluteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchDetailEvaluteCell.m; path = ../../../SearchDetailEvaluteCell.m; sourceTree = "<group>"; };
 		F8AF54F01AAAADD00029435B /* SearchDetailEvaluteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchDetailEvaluteCell.xib; path = ../../../SearchDetailEvaluteCell.xib; sourceTree = "<group>"; };
@@ -1408,8 +1410,9 @@
 				9383DC291A79D843001691BF /* PersonMainViewController.m */,
 				93A697361A760FCC00A9B894 /* LoginViewController.h */,
 				93A697371A760FCC00A9B894 /* LoginViewController.m */,
-				93A697391A76140E00A9B894 /* RegisterViewController.h */,
-				93A6973A1A76140E00A9B894 /* RegisterViewController.m */,
+				F8A6DDEE1ACBF35400AF36AA /* PersonForgetPassViewController.h */,
+				F8A6DDEF1ACBF35400AF36AA /* PersonForgetPassViewController.m */,
+				F8A6DDF01ACBF35400AF36AA /* PersonForgetPassViewController.xib */,
 				93EE20E71AA04891007D1CD0 /* PersonGestureViewController.h */,
 				93EE20E81AA04891007D1CD0 /* PersonGestureViewController.m */,
 				93F470EE1A77842D0012DC13 /* PersonCenterViewController.h */,
@@ -1858,6 +1861,7 @@
 				93B86C0A1AA5A88700A24353 /* isBuy_7@2x.png in Resources */,
 				9383DC3B1A7A3A2E001691BF /* avatar@2x.png in Resources */,
 				932F96EA1A7F4582000C28B5 /* 5@2x.png in Resources */,
+				F8A6DDF21ACBF35400AF36AA /* PersonForgetPassViewController.xib in Resources */,
 				931C91641A638D1E0051496E /* navigationbar_button_background.png in Resources */,
 				9383DC391A7A24A9001691BF /* isBuyListBack@2x.png in Resources */,
 				59613E131AC1103500CABA3B /* ShareSDKLocalizable.strings in Resources */,
@@ -2059,7 +2063,6 @@
 				F89334FC1AAA06D1007005D0 /* MainMoreCell.m in Sources */,
 				9306778A1A6FA5BF00A1A597 /* DBAccess.m in Sources */,
 				9337B92B1A58FE61003A0884 /* UIImageView+HighlightedWebCache.m in Sources */,
-				93A6973B1A76140E00A9B894 /* RegisterViewController.m in Sources */,
 				9337B9191A58FE61003A0884 /* AFSecurityPolicy.m in Sources */,
 				9337B9231A58FE61003A0884 /* SDWebImageDownloader.m in Sources */,
 				931C915E1A638CA50051496E /* WBNavigationController.m in Sources */,
@@ -2120,6 +2123,7 @@
 				93B33A391A9F118E00EB7F6A /* PeronTipsViewController.m in Sources */,
 				930A56D41A9D9394005F86B3 /* NYPopover.m in Sources */,
 				59AEE0971AC3EAF400E3AF95 /* MFTextView.m in Sources */,
+				F8A6DDF11ACBF35400AF36AA /* PersonForgetPassViewController.m in Sources */,
 				9332C2B11A8854BD008D2DC4 /* PersonBuildingEvaluteViewController.m in Sources */,
 				939394AC1A89B8370039FFF3 /* SPLockScreen.m in Sources */,
 				932B2F651AA16A4B00BBD25E /* AnimationView.m in Sources */,

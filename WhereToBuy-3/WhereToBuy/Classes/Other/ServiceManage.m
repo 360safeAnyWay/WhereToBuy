@@ -63,6 +63,8 @@
     }
 }
 
+
+
 //链接服务器得测试
 -(void)DidConnectServer:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE code, id obj)) callBack
 {
@@ -204,8 +206,8 @@
 -(void)DidRegister:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE code, id obj)) callBack
 {
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parmers];
-    [dic setObject:@"HePd443Mnd" forKey:@"overifyname"];
-    [self requestMethod:@"POST" serviceName:@"http://test.local.com/api.php/verify/phone" parmers:dic completeBlock:^(id obj) {
+    [dic setObject:@"IOS" forKey:@"client"];
+    [self requestMethod:@"POST" serviceName:@"/api.php/user/reg" parmers:dic completeBlock:^(id obj) {
         ERROR_CODE code = ERROR_CODE_RROR;
         if (obj && obj[@"message"]) {
             NSLog(@"%@",obj);

@@ -10,7 +10,6 @@
 #import "Tools.h"
 #import "DataCenter.h"
 #import "PersonSetCell.h"
-#import "RegisterViewController.h"
 #import "PersonIntroViewController.h"
 #import "UIButton+WebCache.h"
 
@@ -215,8 +214,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 4) {
-        RegisterViewController *forgetSecret = [[RegisterViewController alloc] init];
-        [self.navigationController pushViewController:forgetSecret animated:YES];
+//        perso *forgetSecret = [[RegisterViewController alloc] init];
+//        [self.navigationController pushViewController:forgetSecret animated:YES];
     }
     if(indexPath.row == 6)
     {

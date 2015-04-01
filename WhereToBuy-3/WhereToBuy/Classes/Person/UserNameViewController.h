@@ -12,4 +12,5 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwd;
 @property (weak, nonatomic) IBOutlet UITextField *userName;
 @property (weak, nonatomic) IBOutlet UIButton *registers;
+@property (strong, nonatomic) NSString *phoneNum;
 @end

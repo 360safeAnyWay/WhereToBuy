@@ -14,6 +14,7 @@
 #import "Tools.h"
 #import "UserDao.h"
 #import "LoginesViewController.h"
+#import "PersonForgetPassViewController.h"
 
 @interface LoginViewController ()<UITextFieldDelegate>
 {
@@ -26,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.parentViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[[DataCenter instance] getStringForKey:@"registerNow"] style:UIBarButtonItemStyleBordered target:self action:@selector(refindSecret)];
+    self.parentViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[[DataCenter instance] getStringForKey:@"registerNow"] style:UIBarButtonItemStyleBordered target:self action:@selector(registerUser)];
     [self addUI];
 }
 
@@ -80,58 +81,6 @@
     [forgetSecret setBackgroundColor:[UIColor whiteColor]];
     [forgetSecret addTarget:self action:@selector(refindSecret) forControlEvents:UIControlEventTouchUpInside];
     [loginView addSubview:forgetSecret];
-    
-    
-    
-    
-    
-    //忘记密码和注册得试图
-    UIView *forgetView = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width, 0, self.view.frame.size.height, 370)];
-    [forgetView setBackgroundColor:[UIColor whiteColor]];
-    [self.view addSubview:forgetView];
-    _forgetView = forgetView;
-    
-    //两个TextField
-    for (int i = 1; i <= 3; i++) {
-        UITextField *text = [[UITextField alloc] initWithFrame:CGRectMake(20, 85 + (i-1)*52, self.view.frame.size.width - 40, 38)];
-        text.tag = i + 10;
-        [Tools setUIViewLine:text cornerRadius:8 with:1 color:[Tools colorWithRed:207 angGreen:207 andBlue:207]];
-        [forgetView addSubview:text];
-        if(i == 1)
-        {
-            text.placeholder = [[DataCenter instance] getStringForKey:@"insertPhoneNumTip"];
-            text.keyboardType = UIKeyboardTypeNumberPad;
-            text.returnKeyType = UIReturnKeyNext;
-        }else if(i == 2)
-        {
-            text.placeholder = [[DataCenter instance] getStringForKey:@"tokenNumWrong"];
-            text.keyboardType = UIKeyboardTypeNumberPad;
-            text.returnKeyType = UIReturnKeyNext;
-            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-            [btn setFrame:CGRectMake(180, 5, 91, 28)];
-            [btn setTitle:[[DataCenter instance] getStringForKey:@"getTokenNum"] forState:UIControlStateNormal];
-            btn.titleLabel.font = [UIFont systemFontOfSize:14.0f];
-            [btn setBackgroundImage:@"yanzhengma.png"];
-            btn.tag = 4;
-            [btn addTarget:self action:@selector(requestToken) forControlEvents:UIControlEventTouchUpInside];
-            [text addSubview:btn];
-        }else if (i == 3)
-        {
-            text.placeholder = [[DataCenter instance] getStringForKey:@"insertSecretNumTip"];
-            text.keyboardType = UIKeyboardTypeAlphabet;
-            text.returnKeyType = UIReturnKeyDone;
-            [text setDelegate:self];
-            [text setSecureTextEntry:YES];
-        }
-    }
-    //登录按钮
-    UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn1 setFrame:CGRectMake(20, [self.view viewWithTag:13].frame.origin.y + [self.view viewWithTag:13].frame.size.height + 15, self.view.frame.size.width - 40, 45)];
-    [btn1 setTitle:@"确定" forState:UIControlStateNormal];
-    [btn1 addTarget:self action:@selector(registerNewAccount) forControlEvents:UIControlEventTouchUpInside];
-    [btn1 setBackgroundImage:@"aniublank.png"];
-    [forgetView addSubview:btn1];
-    
 }
 
 //登录方法
@@ -161,112 +110,19 @@
         }
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     }];
-//    if ([phoneNum isEqualToString:@"13812345678"] && [secretStr isEqualToString:@"123456"]) {
-//        [DataCenter instance].user = [[UserDao alloc] init];
-//        [self.delegate removeSelfFromSuperView];
-//    }else
-//    {
-//        [Tools showAlertView:@"用户名或者密码错误！"];
-//    }
 }
 
-- (void)registerNewAccount
-{
-    NSLog(@"注册新用户");
-    [[ServiceManage shareInstance] DidRegister:@{} completion:^(ERROR_CODE code, id obj) {
-        
-    }];
-}
-
-//从忘记密码中返回
-- (void)back
-{
-    self.parentViewController.navigationItem.leftBarButtonItem = nil;
-    [UIView animateWithDuration:0.3f animations:^{
-        [self.view bringSubviewToFront:_loginView];
-        [_loginView setCenter:CGPointMake(_loginView.center.x + self.view.frame.size.width, _loginView.center.y)];
-    } completion:^(BOOL finished) {
-        [_forgetView setCenter:CGPointMake(_forgetView.center.x + self.view.frame.size.width, _forgetView.center.y)];
-        self.parentViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[[DataCenter instance] getStringForKey:@"registerNow"] style:UIBarButtonItemStyleBordered target:self action:@selector(refindSecret)];
-    }];
-}
-
-- (void)refindSecret
-{
-//    NSLog(@"找回密码");
-//    self.parentViewController.navigationItem.rightBarButtonItem = nil;
-//    [UIView animateWithDuration:0.3f animations:^{
-//        [self.view bringSubviewToFront:_fqorgetView];
-//        [_forgetView setCenter:CGPointMake(_forgetView.center.x - self.view.frame.size.width, _forgetView.center.y)];
-//    } completion:^(BOOL finished) {
-//        NSLog(@"结束了");
-//        [_loginView setCenter:CGPointMake(_loginView.center.x - self.view.frame.size.width, _loginView.center.y)];
-//        UIButton *itemBtn4 = [[UIButton alloc] initWithFrame:CGRectMake(17, 5, 10.5, 18)];
-//        [itemBtn4 setBackgroundImage:[UIImage imageNamed:@"leftBack.png"] forState:UIControlStateNormal];
-//        [itemBtn4 addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-//        UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:itemBtn4];
-//        self.parentViewController.navigationItem.leftBarButtonItem= back;
-//    }];
+//注册
+- (void)registerUser{
     LoginesViewController * logines = [[LoginesViewController alloc]init];
     [self.navigationController pushViewController:logines animated:YES];
 }
 
-////现在去注册，push方式推入
-//- (void)goRegister
-//{
-//    //    RegisterViewController *goRegister = [[RegisterViewController alloc] init];
-//    //    [self.navigationController pushViewController:goRegister animated:YES];
-//    LoginViewController *loginViewController = self.childViewControllers[0];
-//    [UIView animateWithDuration:1.0f animations:^{
-//        [loginViewController.view bringSubviewToFront:loginViewController.forgetView];
-//        [loginViewController.forgetView setCenter:CGPointMake(loginViewController.forgetView.center.x - self.view.frame.size.width, loginViewController.forgetView.center.y)];
-//    } completion:^(BOOL finished) {
-//        NSLog(@"结束了");
-//        [loginViewController.loginView setCenter:CGPointMake(loginViewController.loginView.center.x - self.view.frame.size.width, loginViewController.loginView.center.y)];
-//        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"leftBack.png"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
-//        self.navigationItem.rightBarButtonItem = nil;
-//    }];
-//}
-
-//获取验证码
-- (void)requestToken
+//重新找回密码
+- (void)refindSecret
 {
-    _seconds = 60;
-    if (((UITextField *)[self.view viewWithTag:1]).text.length != 11) {
-        [Tools showAlertView:[[DataCenter instance] getStringForKey:@"insertPhoneNumTip"]];
-        return;
-    }
-    [self updateSecondes];
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-//    [[ServiceManage shareInstance] DidRequestToken:@{@"tel":((UITextField *)[self.view viewWithTag:1]).text} completion:^(ERROR_CODE code, id obj) {
-//        if (code == ERROR_CODE_NONE) {
-//            NSLog(@"验证码－－－－－%@",obj[@"message"]);
-//            _token = [obj[@"message"] intValue];
-//            [Tools showAlertView:[[DataCenter instance] getStringForKey:@"successGetToken"]];
-//        }else
-//        {
-//            [Tools showAlertView:obj[@"message"]];
-//        }
-//        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-//    }];
-}
-
-//当用户点击申请验证码的时候，60秒后可以再次申请，期间秒数下降，时间到后恢复汉字，并且可以点击
--(void)updateSecondes{
-    if (_seconds < 0)
-    {
-        [((UIButton *)[self.view viewWithTag:4]) setTitle:[[DataCenter instance] getStringForKey:@"getTokenNum"] forState:UIControlStateNormal];//停止
-        [((UIButton *)[self.view viewWithTag:4]) setBackgroundImage:@"aniublank.png"];
-        ((UIButton *)[self.view viewWithTag:4]).userInteractionEnabled = YES;
-    }else
-    {
-        [((UIButton *)[self.view viewWithTag:4]) setTitle:[NSString stringWithFormat:@"%lds后请求",(long)_seconds] forState:UIControlStateNormal];
-        [((UIButton *)[self.view viewWithTag:4]) setBackgroundImage:nil];
-        [((UIButton *)[self.view viewWithTag:4]) setBackgroundColor:[UIColor lightGrayColor]];
-        [self performSelector:@selector(updateSecondes) withObject:nil afterDelay:1];
-        ((UIButton *)[self.view viewWithTag:4]).userInteractionEnabled = NO;
-    }
-    _seconds--;
+    PersonForgetPassViewController *forgetPass = [[PersonForgetPassViewController alloc] init];
+    [self.navigationController pushViewController:forgetPass animated:YES];
 }
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField

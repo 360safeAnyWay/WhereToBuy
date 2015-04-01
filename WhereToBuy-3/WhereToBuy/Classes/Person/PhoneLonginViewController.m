@@ -111,6 +111,7 @@
     [[ServiceManage  shareInstance]DidRerequestToken:@{@"tel":self.phone,@"code":self.codePhone.text} completion:^(ERROR_CODE code, id obj) {
         [MBProgressHUD hideHUDForView:[UIApplication sharedApplication].delegate.window animated:YES];
         UserNameViewController * unv= [[UserNameViewController alloc]init];
+        unv.phoneNum = self.phone;
         [self.navigationController pushViewController:unv animated:YES];
     }];
     
