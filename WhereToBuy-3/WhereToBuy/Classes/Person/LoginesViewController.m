@@ -40,7 +40,6 @@
         SHOWALERT(@"手机号不正确");
     }else{
         [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].delegate.window animated:YES];
-#warning 发送求请求----------
         [[ServiceManage shareInstance] DidRequestToken:@{@"tel":self.phoneText.text} completion:^(ERROR_CODE code, id obj) {
             NSLog(@"%@",self.phoneText.text);
             NSLog(@"发送请求");

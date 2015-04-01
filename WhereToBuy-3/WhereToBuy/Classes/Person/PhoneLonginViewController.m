@@ -11,6 +11,7 @@
 #import "UIButton+WJ.h"
 #import "MBProgressHUD.h"
 #import "UserNameViewController.h"
+#import "MBProgressHUD.h"
 @interface PhoneLonginViewController ()
 {
     NSInteger _seconds;
@@ -103,10 +104,13 @@
 }
 -(void)nextBtn:(id)btn
 {
-#warning 验证请求-----------
+    [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].delegate.window animated:YES];
+    [[ServiceManage  shareInstance]DidRerequestToken:@{@"tel":self.phone,@"code":self.codePhone.text} completion:^(ERROR_CODE code, id obj) {
+        [MBProgressHUD hideHUDForView:[UIApplication sharedApplication].delegate.window animated:YES];
+        UserNameViewController * unv= [[UserNameViewController alloc]init];
+        [self.navigationController pushViewController:unv animated:YES];
+    }];
     
-    UserNameViewController * unv= [[UserNameViewController alloc]init];
-    [self.navigationController pushViewController:unv animated:YES];
 }
 
 @end

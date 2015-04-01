@@ -173,7 +173,8 @@
 -(void)DidRequestToken:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE code, id obj)) callBack
 {
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parmers];
-    [self requestMethod:@"GET" serviceName:@"/api.php/send/phone" parmers:dic completeBlock:^(id obj) {
+    [dic setObject:@"IOS" forKey:@"client"];
+    [self requestMethod:@"POST" serviceName:@"/api.php/send/phone" parmers:dic completeBlock:^(id obj) {
         ERROR_CODE code = ERROR_CODE_RROR;
         if (obj && obj[@"message"]) {
             code = [obj[@"code"] intValue];
@@ -183,7 +184,22 @@
         callBack(code, obj);
     }];
 }
+//验证验证码信息
+-(void)DidRerequestToken:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE code, id obj)) callBack
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parmers];
+    [dic setObject:@"IOS" forKey:@"client"];
 
+    [self requestMethod:@"POST" serviceName:@"/api.php/verify/phone" parmers:dic completeBlock:^(id obj) {
+        ERROR_CODE code = ERROR_CODE_RROR;
+        if (obj && obj[@"message"]) {
+            code = [obj[@"code"] intValue];
+        }
+        
+        NSLog(@"%@",obj);
+        callBack(code, obj);
+    }];
+}
 //注册
 -(void)DidRegister:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE code, id obj)) callBack
 {
@@ -211,30 +227,6 @@
         }
         callBack(code, obj);
     }];
-}
-//新短信验证
-+(void)FinancialManageGET:(NSString *)GET block:(DATAARRAY)block;
-{
-    AFHTTPRequestOperationManager * manager   = [AFHTTPRequestOperationManager manager];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];//设置相应内容类型
-    NSDictionary * PDic = @{@"tel":@"15239870768"};
-    NSMutableArray *dataArray = [NSMutableArray array];
-    [manager POST:GET parameters:PDic success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@",responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@",error);
-
-    }];
-//    [manager GET:GET parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-//        NSLog(@"%@",responseObject);
-//        NSDictionary     * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-//        NSArray          * array = [dic objectForKey:@"data_list"];
-//       
-//        block(dataArray,nil);
-//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-//        NSLog(@"%@",error);
-//        block(nil,[NSString stringWithFormat:@"%@",error]);
-//    }];
 }
 
 @end

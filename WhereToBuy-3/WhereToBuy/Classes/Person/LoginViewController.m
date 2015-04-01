@@ -196,7 +196,7 @@
 //    NSLog(@"找回密码");
 //    self.parentViewController.navigationItem.rightBarButtonItem = nil;
 //    [UIView animateWithDuration:0.3f animations:^{
-//        [self.view bringSubviewToFront:_forgetView];
+//        [self.view bringSubviewToFront:_fqorgetView];
 //        [_forgetView setCenter:CGPointMake(_forgetView.center.x - self.view.frame.size.width, _forgetView.center.y)];
 //    } completion:^(BOOL finished) {
 //        NSLog(@"结束了");

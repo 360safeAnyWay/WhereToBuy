@@ -44,14 +44,14 @@ typedef enum {
 
 //获取验证码
 -(void)DidRequestToken:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE code, id obj)) callBack;
+//验证验证码信息
+-(void)DidRerequestToken:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE code, id obj)) callBack;
 
 //注册
 -(void)DidRegister:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE code, id obj)) callBack;
 
 //获取用户个人信息
 -(void)DidUserInfo:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE code, id obj)) callBack;
-//获取短信验证
-+(void)FinancialManageGET:(NSString *)GET block:(DATAARRAY)block;
 
 
 @end
