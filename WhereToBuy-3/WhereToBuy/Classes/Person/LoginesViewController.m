@@ -8,6 +8,7 @@
 
 #import "LoginesViewController.h"
 #import "PhoneLonginViewController.h"
+#import "MBProgressHUD.h"
 @interface LoginesViewController ()
 
 @end
@@ -38,16 +39,23 @@
     {
         SHOWALERT(@"手机号不正确");
     }else{
+        [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].delegate.window animated:YES];
 #warning 发送求请求----------
-        [[ServiceManage shareInstance] DidRequestToken:@{@"tel":@"18512528352"} completion:^(ERROR_CODE code, id obj) {
+        [[ServiceManage shareInstance] DidRequestToken:@{@"tel":self.phoneText.text} completion:^(ERROR_CODE code, id obj) {
+            NSLog(@"%@",self.phoneText.text);
             NSLog(@"发送请求");
+            [MBProgressHUD  hideHUDForView:[UIApplication sharedApplication].delegate.window animated:YES];
+            [self pushPhoneLongin];
         }];
-        PhoneLonginViewController* pl = [[PhoneLonginViewController alloc]init];
-        pl.phone = self.phoneText.text;
-        [self.navigationController pushViewController:pl animated:YES];
+       
     }
 }
-
+- (void)pushPhoneLongin
+{
+    PhoneLonginViewController* pl = [[PhoneLonginViewController alloc]init];
+    pl.phone = self.phoneText.text;
+    [self.navigationController pushViewController:pl animated:YES];
+}
 -(BOOL)validateNumber:(NSString *)textString
 {
     NSString * number = @"^1[3|4|5|7|8|][0-9]\\d{8}$";

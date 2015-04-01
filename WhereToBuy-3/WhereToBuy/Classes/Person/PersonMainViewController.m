@@ -34,7 +34,7 @@
 {
     [super viewWillAppear:animated];
    // [DataCenter instance].user = [[UserDao alloc] init];
-    [self judgeLogin];
+     [self judgeLogin];
 
 }
 

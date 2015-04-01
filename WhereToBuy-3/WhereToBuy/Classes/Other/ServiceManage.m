@@ -173,11 +173,12 @@
 -(void)DidRequestToken:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE code, id obj)) callBack
 {
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parmers];
-    [self requestMethod:@"POST" serviceName:@"/api.php/send/phone" parmers:dic completeBlock:^(id obj) {
+    [self requestMethod:@"GET" serviceName:@"/api.php/send/phone" parmers:dic completeBlock:^(id obj) {
         ERROR_CODE code = ERROR_CODE_RROR;
         if (obj && obj[@"message"]) {
             code = [obj[@"code"] intValue];
         }
+        
         NSLog(@"%@",obj);
         callBack(code, obj);
     }];
