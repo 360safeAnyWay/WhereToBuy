@@ -9,8 +9,8 @@
             <connections>
                 <outlet property="UpdataPasswd" destination="7UM-rw-K0T" id="3rY-l3-rKx"/>
                 <outlet property="codePhone" destination="hIA-sa-dJE" id="69T-Wi-tyY"/>
-                <outlet property="notarizePasswd" destination="jgc-A9-OjK" id="ika-3W-ere"/>
-                <outlet property="passwd" destination="WZR-d4-yGw" id="V4F-Qx-BgT"/>
+                <outlet property="notarizePasswd" destination="WZR-d4-yGw" id="a1N-rL-FMk"/>
+                <outlet property="passwd" destination="jgc-A9-OjK" id="n0u-tl-ELi"/>
                 <outlet property="phoneText" destination="5cN-YH-2Fb" id="hyS-bN-N1s"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

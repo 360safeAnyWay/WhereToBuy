@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface PersonForgetPassViewController : BaseViewController
+@interface PersonForgetPassViewController : BaseViewController<UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *UpdataPasswd;
 @property (weak, nonatomic) IBOutlet UITextField *phoneText;
 @property (weak, nonatomic) IBOutlet UITextField *codePhone;

@@ -42,7 +42,7 @@
 }
 -(void)sendCode:(UIButton *)btn
 {
-    [[ServiceManage shareInstance]DidRequestTokenForget:@{@"tel":self.phoneText.text} completion:^(ERROR_CODE status, id obj) {
+    if([self validateNumber:self.phoneText.text] == YES){    [[ServiceManage shareInstance]DidRequestTokenForget:@{@"tel":self.phoneText.text} completion:^(ERROR_CODE status, id obj) {
         _seconds = 60;
         if (status == ERROR_CODE_NONE) {
           [self updateSecondes];
@@ -53,7 +53,10 @@
         }
 
     }];
-    
+    }else{
+        SHOWALERT(@"请输入正确的手机号");
+    }
+
 }
 -(void)updateSecondes{
     if (_seconds < 0)
@@ -80,16 +83,10 @@
     {
         SHOWALERT(@"手机号验证码密码都不能为空");
         return;
+    }else if (![self.notarizePasswd.text isEqualToString:self.passwd.text]){
+        SHOWALERT(@"两次密码不一致");
+        return;
     }else
-//        if (self.passwd.text != self.notarizePasswd.text)
-//    {
-//        NSLog(@"%@",self.passwd.text);
-//        NSLog(@"%@",self.notarizePasswd.text);
-//
-//        
-//        SHOWALERT(@"两次密码不一致");
-//        return;
-//    }
     {
     [[ServiceManage shareInstance]DidTokenForgetPasswd:@{@"tel":self.phoneText.text,@"code":self.codePhone.text,@"password":self.passwd.text} completion:^(ERROR_CODE status, id obj) {
         if (status == ERROR_CODE_NONE) {
@@ -101,6 +98,17 @@
 
     }];
     }
+}
+//匹配手机号
+-(BOOL)validateNumber:(NSString *)textString
+{
+    NSString * number = @"^1[3|4|5|7|8|][0-9]\\d{8}$";
+    NSPredicate * numberPre = [NSPredicate predicateWithFormat:@"SELF MATCHES%@",number];
+    return [numberPre evaluateWithObject:textString];
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)back{
     [self.navigationController popViewControllerAnimated:YES];
