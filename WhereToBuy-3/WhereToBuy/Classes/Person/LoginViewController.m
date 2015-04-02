@@ -103,6 +103,8 @@
     [[ServiceManage shareInstance] DidLogin:@{@"username":phoneNum,@"password":secretStr} completion:^(ERROR_CODE code, id obj) {
         if (code == ERROR_CODE_NONE) {
             [DataCenter instance].user = [[UserDao alloc] init];
+            NSDictionary *dic = obj[@"data"];
+            [DataCenter instance].user.token = dic[@"sessionval"];
             [self.delegate removeSelfFromSuperView];
         }else
         {

@@ -9,6 +9,7 @@
 #import "ServiceManage.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "AFHTTPSessionManager.h"
+#import "DataCenter.h"
 //#define Base_Url @"http://101.227.243.126:8082"
 //#define Base_Url @"http://www.usuda.cn/verify.php/"
 //#define Base_Url @"http://www.weather.com.cn/data/sk/101010100.html"
@@ -224,6 +225,23 @@
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parmers];
     [dic setObject:@"IOS" forKey:@"client"];
     [self requestMethod:@"POST" serviceName:@"/api.php/user/forgot" parmers:dic completeBlock:^(id obj) {
+        ERROR_CODE status = ERROR_CODE_RequestFailed;
+        if (obj && obj[@"message"]) {
+            status = [obj[@"status"] intValue];
+        }
+        
+        NSLog(@"%@",obj);
+        callBack(status, obj);
+    }];
+}
+
+//修改密码
+-(void)DidChangePasswd:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parmers];
+    [dic setObject:@"IOS" forKey:@"client"];
+    [dic setObject:[DataCenter instance].user.token forKey:@"token"];
+    [self requestMethod:@"POST" serviceName:@"/api.php/user/editpassword" parmers:dic completeBlock:^(id obj) {
         ERROR_CODE status = ERROR_CODE_RequestFailed;
         if (obj && obj[@"message"]) {
             status = [obj[@"status"] intValue];

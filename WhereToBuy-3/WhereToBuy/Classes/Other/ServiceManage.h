@@ -44,8 +44,13 @@ typedef enum {
 
 //获取验证码(注册时使用)
 -(void)DidRequestToken:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack;
+
 //获取验证码(忘记密码时使用)
 -(void)DidRequestTokenForget:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack;
+
+//修改密码
+-(void)DidChangePasswd:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack;
+
 //验证验证码信息
 -(void)DidRerequestToken:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack;
 

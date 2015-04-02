@@ -10,6 +10,7 @@
 
 @interface UserDao : NSObject
 
+@property (strong, nonatomic) NSString *token;
 @property (strong, nonatomic) NSString *userName;//用户昵称
 @property (strong, nonatomic) NSString *gender;//姓名
 @property (strong, nonatomic) NSString *birthday;

@@ -12,6 +12,7 @@
 #import "PersonSetCell.h"
 #import "PersonIntroViewController.h"
 #import "UIButton+WebCache.h"
+#import "PersonChangePassViewController.h"
 
 @interface PersonSetViewController()<UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
@@ -214,8 +215,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 4) {
-//        perso *forgetSecret = [[RegisterViewController alloc] init];
-//        [self.navigationController pushViewController:forgetSecret animated:YES];
+        PersonChangePassViewController *changePass = [[PersonChangePassViewController alloc] init];
+        [self.navigationController pushViewController:changePass animated:YES];
     }
     if(indexPath.row == 6)
     {

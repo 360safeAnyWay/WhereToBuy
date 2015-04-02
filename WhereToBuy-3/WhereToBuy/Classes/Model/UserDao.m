@@ -13,6 +13,7 @@
 - (id) init
 {
     if (self = [super init]) {
+        _token = @"";
         _userName = @"";//用户姓名
         _gender = @"";//姓名
         _birthday = @"";

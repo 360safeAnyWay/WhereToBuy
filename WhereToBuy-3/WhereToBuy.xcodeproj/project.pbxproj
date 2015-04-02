@@ -313,6 +313,8 @@
 		F88990461AB00D2100DC9513 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F88990451AB00D2100DC9513 /* libz.dylib */; };
 		F889904A1AB017C600DC9513 /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = F88990491AB017C600DC9513 /* PushConfig.plist */; };
 		F889904F1AB0408300DC9513 /* LeafNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = F889904E1AB0408300DC9513 /* LeafNotification.m */; };
+		F889D8571ACD52780047F494 /* PersonChangePassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F889D8551ACD52780047F494 /* PersonChangePassViewController.m */; };
+		F889D8581ACD52780047F494 /* PersonChangePassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F889D8561ACD52780047F494 /* PersonChangePassViewController.xib */; };
 		F89334FB1AAA06D1007005D0 /* DDMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = F89334F61AAA06D1007005D0 /* DDMenuController.m */; };
 		F89334FC1AAA06D1007005D0 /* MainMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F89334F81AAA06D1007005D0 /* MainMoreCell.m */; };
 		F89334FD1AAA06D1007005D0 /* MainMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F89334FA1AAA06D1007005D0 /* MainMoreViewController.m */; };
@@ -780,6 +782,9 @@
 		F88990491AB017C600DC9513 /* PushConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PushConfig.plist; sourceTree = "<group>"; };
 		F889904D1AB0408300DC9513 /* LeafNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeafNotification.h; sourceTree = "<group>"; };
 		F889904E1AB0408300DC9513 /* LeafNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeafNotification.m; sourceTree = "<group>"; };
+		F889D8541ACD52780047F494 /* PersonChangePassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonChangePassViewController.h; sourceTree = "<group>"; };
+		F889D8551ACD52780047F494 /* PersonChangePassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonChangePassViewController.m; sourceTree = "<group>"; };
+		F889D8561ACD52780047F494 /* PersonChangePassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonChangePassViewController.xib; sourceTree = "<group>"; };
 		F89334F51AAA06D1007005D0 /* DDMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMenuController.h; sourceTree = "<group>"; };
 		F89334F61AAA06D1007005D0 /* DDMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMenuController.m; sourceTree = "<group>"; };
 		F89334F71AAA06D1007005D0 /* MainMoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMoreCell.h; sourceTree = "<group>"; };
@@ -1425,6 +1430,9 @@
 				93E59EA41A8EFFF60060AE7E /* VipEvaluteDetailViewContrller.m */,
 				932F96F21A7F6F89000C28B5 /* PersonSetViewController.h */,
 				932F96F31A7F6F89000C28B5 /* PersonSetViewController.m */,
+				F889D8541ACD52780047F494 /* PersonChangePassViewController.h */,
+				F889D8551ACD52780047F494 /* PersonChangePassViewController.m */,
+				F889D8561ACD52780047F494 /* PersonChangePassViewController.xib */,
 				93EF040B1A84C02000FD97B2 /* PersonIntroViewController.h */,
 				93EF040C1A84C02000FD97B2 /* PersonIntroViewController.m */,
 				932F96EF1A7F4ECF000C28B5 /* PersonTopicViewController.h */,
@@ -1949,6 +1957,7 @@
 				F81545B31AB92299009CF568 /* whereBuy1@2x.png in Resources */,
 				597D3B9F1AAE9AB8003F3871 /* black.png in Resources */,
 				F8332ADA1ABAB83C00A0AEC8 /* searchSmall@2x.png in Resources */,
+				F889D8581ACD52780047F494 /* PersonChangePassViewController.xib in Resources */,
 				F8332AD61ABAB79100A0AEC8 /* location1@2x.png in Resources */,
 				93EE20E11AA0318C007D1CD0 /* btn_close_normal.png in Resources */,
 				F8332ADF1ABABA7400A0AEC8 /* search_selected@2x.png in Resources */,
@@ -2089,6 +2098,7 @@
 				9332C2B41A885AAE008D2DC4 /* EvaluteCell.m in Sources */,
 				93B86BF81AA57F0C00A24353 /* IsBuyMainViewController.m in Sources */,
 				F8AF54F11AAAADD00029435B /* SearchDetailEvaluteCell.m in Sources */,
+				F889D8571ACD52780047F494 /* PersonChangePassViewController.m in Sources */,
 				932B2F6C1AA1895D00BBD25E /* IsBuySendTopicViewController.m in Sources */,
 				9329A6F31AA2EDED005B7D70 /* ChineseToPinyinResource.m in Sources */,
 				93E59EA51A8EFFF60060AE7E /* VipEvaluteDetailViewContrller.m in Sources */,
