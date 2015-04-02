@@ -9,5 +9,9 @@
 #import "BaseViewController.h"
 
 @interface PersonForgetPassViewController : BaseViewController
-
+@property (weak, nonatomic) IBOutlet UIButton *UpdataPasswd;
+@property (weak, nonatomic) IBOutlet UITextField *phoneText;
+@property (weak, nonatomic) IBOutlet UITextField *codePhone;
+@property (weak, nonatomic) IBOutlet UITextField *notarizePasswd;
+@property (weak, nonatomic) IBOutlet UITextField *passwd;
 @end

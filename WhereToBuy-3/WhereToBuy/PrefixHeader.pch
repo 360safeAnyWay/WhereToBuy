@@ -17,6 +17,7 @@
 #import <ShareSDK/ShareSDK.h>
 #import "WXApi.h"
 #import "MFTextView.h"
+#import "ServiceManage.h"
 
 #define Base_Url @"http://218.244.130.25"
 

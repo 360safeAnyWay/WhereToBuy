@@ -172,12 +172,27 @@
     }];
 }
 
-//获取验证码
+//获取验证码(注册时使用)
 -(void)DidRequestToken:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack
 {
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parmers];
     [dic setObject:@"IOS" forKey:@"client"];
     [self requestMethod:@"POST" serviceName:@"/api.php/send/phone" parmers:dic completeBlock:^(id obj) {
+        ERROR_CODE status = ERROR_CODE_RequestFailed;
+        if (obj && obj[@"message"]) {
+            status = [obj[@"status"] intValue];
+        }
+        
+        NSLog(@"%@",obj);
+        callBack(status, obj);
+    }];
+}
+//请求验证码(忘记密码)
+-(void)DidRequestTokenForget:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parmers];
+    [dic setObject:@"IOS" forKey:@"client"];
+    [self requestMethod:@"POST" serviceName:@"/api.php/send/forgot" parmers:dic completeBlock:^(id obj) {
         ERROR_CODE status = ERROR_CODE_RequestFailed;
         if (obj && obj[@"message"]) {
             status = [obj[@"status"] intValue];
@@ -203,6 +218,22 @@
         callBack(status, obj);
     }];
 }
+//忘记密码
+-(void)DidTokenForgetPasswd:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parmers];
+    [dic setObject:@"IOS" forKey:@"client"];
+    [self requestMethod:@"POST" serviceName:@"/api.php/user/forgot" parmers:dic completeBlock:^(id obj) {
+        ERROR_CODE status = ERROR_CODE_RequestFailed;
+        if (obj && obj[@"message"]) {
+            status = [obj[@"status"] intValue];
+        }
+        
+        NSLog(@"%@",obj);
+        callBack(status, obj);
+    }];
+}
+
 //注册
 -(void)DidRegister:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack
 {

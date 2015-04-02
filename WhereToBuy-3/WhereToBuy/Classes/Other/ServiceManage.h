@@ -42,8 +42,10 @@ typedef enum {
 //登录
 -(void)DidLogin:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack;
 
-//获取验证码
+//获取验证码(注册时使用)
 -(void)DidRequestToken:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack;
+//获取验证码(忘记密码时使用)
+-(void)DidRequestTokenForget:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack;
 //验证验证码信息
 -(void)DidRerequestToken:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack;
 
@@ -52,6 +54,8 @@ typedef enum {
 
 //获取用户个人信息
 -(void)DidUserInfo:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack;
-
-
+/*
+  -----忘记密码修改密码的请求
+ */
+-(void)DidTokenForgetPasswd:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack;
 @end
