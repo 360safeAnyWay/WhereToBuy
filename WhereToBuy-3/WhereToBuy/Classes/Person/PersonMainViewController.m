@@ -33,6 +33,7 @@
 {
     [super viewWillAppear:animated];
    // [DataCenter instance].user = [[UserDao alloc] init];
+    NSLog(@"viewWillAppear");
      [self judgeLogin];
 
 }
@@ -43,13 +44,12 @@
     UIViewController *personCenter = self.childViewControllers[1];
         if ([DataCenter instance].user == nil) {
             NSLog(@"加载登录试图");
-            static NSInteger i = 0;
-            if (i == 0) {
+            UIViewController *login = self.childViewControllers[0];
+            if ([self.view.subviews count] == 0 || ![login.view isEqual:self.view.subviews[0]]) {
                 self.title = [[DataCenter instance] getStringForKey:@"userLogin"];
-                UIViewController *login = self.childViewControllers[0];
+                
                 [login.view setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
                 [self.view addSubview:login.view];
-                i++;
             }
         }else if([DataCenter instance].user != nil)
         {

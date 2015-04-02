@@ -20,10 +20,14 @@
 #import "LikeViewController.h"
 #import "PersonCollectViewController.h"
 #import "BrowsingHistoryViewController.h"
+#import "DataCenter.h"
+#import "Tools.h"
+
 @interface MainMoreViewController()<UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) UITableView *table;
 @property (strong, nonatomic) NSArray *dataArr;//用来初始化table
+@property (weak, nonatomic) UIButton *logoutBtn;//登出按钮
 
 @end
 
@@ -85,6 +89,7 @@
 {
     UIImageView *headerView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 90)];
     [headerView setImage:[UIImage imageNamed:@"mainMoreHeader.png"]];
+    [headerView setUserInteractionEnabled:YES];
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(50, 20, 60, 60)];
     [btn setBackgroundImage:[UIImage imageNamed:@"mainMorePhoto.png"] forState:UIControlStateNormal];
     [headerView addSubview:btn];
@@ -104,10 +109,19 @@
     [Tools setUIViewLine:logOut cornerRadius:5 with:1 color:[Tools colorWithRed:143 angGreen:144 andBlue:148]];
     [logOut setTitle:@"登出" forState:UIControlStateNormal];
     [logOut setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [logOut addTarget:self action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
     [logOut.titleLabel setFont:[UIFont systemFontOfSize:14]];
     [headerView addSubview:logOut];
+    _logoutBtn = logOut;
     
     return headerView;
+}
+
+//登出方法
+- (void)logout{
+    [DataCenter instance].user = nil;
+    [Tools showAlertView:@"登出成功"];
+    [_logoutBtn setTitle:@"登录" forState:UIControlStateNormal];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
