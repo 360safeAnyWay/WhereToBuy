@@ -54,7 +54,7 @@
 
     }];
     }else{
-        SHOWALERT(@"请输入正确的手机号");
+        [Tools showAlertView:@"请输入正确的手机号"];
     }
 
 }
@@ -79,22 +79,32 @@
 #pragma mark- 这是修改密码填写完成
 - (void)passwd:(UIButton *)btn
 {
+    if ([self validateNumber:self.phoneText.text] == NO)
+    {
+        [Tools showAlertView:@"手机号错误"];
+        return;
+    }
     if ([self.passwd.text isEqualToString:@""]|| [self.notarizePasswd.text isEqualToString:@""]||[self.phoneText.text isEqualToString:@""]||[self.codePhone.text isEqualToString:@""])
     {
-        SHOWALERT(@"手机号验证码密码都不能为空");
+        [Tools showAlertView:@"手机号验证码密码都不能为空"];
+        
         return;
+        
     }else if (![self.notarizePasswd.text isEqualToString:self.passwd.text]){
-        SHOWALERT(@"两次密码不一致");
+        
+        [Tools showAlertView:@"两次密码不一致"];
+        
         return;
     }else
     {
     [[ServiceManage shareInstance]DidTokenForgetPasswd:@{@"tel":self.phoneText.text,@"code":self.codePhone.text,@"password":self.passwd.text} completion:^(ERROR_CODE status, id obj) {
-        if (status == ERROR_CODE_NONE) {
-            SHOWALERT(@"密码修改完成前去登陆");
-        }else
+        if (status == ERROR_CODE_NONE)
         {
-        [Tools showAlertView:obj[@"message"]];
-        }
+            
+            SHOWALERT(@"密码修改完成前去登陆");
+        }else{
+              [Tools showAlertView:obj[@"message"]];
+             }
 
     }];
     }
