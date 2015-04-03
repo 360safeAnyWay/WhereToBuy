@@ -63,7 +63,7 @@
     if ([_CellType  isEqualToString:@"1"])
     {
         CGRect rect = [self cellHight:_infoStr Size:CGSizeMake(210, 0)];
-        return 100+rect.size.height;
+        return 80+rect.size.height;
     }else if ([_CellType isEqualToString:@"2"]){
         return 80;
     }else{

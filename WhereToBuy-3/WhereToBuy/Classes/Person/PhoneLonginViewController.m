@@ -45,6 +45,7 @@
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setFrame:CGRectMake(210,125, 91, 28)];
     [btn setTitle:[[DataCenter instance] getStringForKey:@"getTokenNum"] forState:UIControlStateNormal];
+    [btn setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin];
     btn.titleLabel.font = [UIFont systemFontOfSize:14.0f];
     [btn setBackgroundImage:@"yanzhengma.png"];
     btn.tag = 4;
@@ -59,7 +60,7 @@
 #warning 网络请求----------
         _seconds = 60;
         [self updateSecondes];
-      //  [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 //        [[ServiceManage shareInstance] DidRequestToken:@{@"tel":((UITextField *)[self.view viewWithTag:1]).text} completion:^(ERROR_CODE code, id obj) {
 //            if (code == ERROR_CODE_NONE) {
 //                NSLog(@"验证码－－－－－%@",obj[@"message"]);
@@ -69,8 +70,8 @@
 //            {
 //                [Tools showAlertView:obj[@"message"]];
 //            }
-//            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-       // }];
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+//        }];
 
     }else{
         [self.navigationController popViewControllerAnimated:YES];
