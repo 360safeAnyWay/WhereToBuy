@@ -56,9 +56,15 @@ typedef enum {
 -(void)DidRegister:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack;
 
 //获取用户个人信息
--(void)DidUserInfo:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack;
+-(void)DidUserInfo:(NSString*)GET completion:(DATAARRAY)block;
+
 /*
   -----忘记密码修改密码的请求
  */
+
 -(void)DidTokenForgetPasswd:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack;
+/*
+ 修改个人信息
+ */
+-(void)didRevampUserInfo:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack;
 @end

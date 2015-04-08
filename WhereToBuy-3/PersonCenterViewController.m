@@ -19,8 +19,8 @@
 #import "MBProgressHUD.h"
 #import "SDImageCache.h"
 #import "MyRemindRViewController.h"
-#import "UserBaseClass.h"
-#import "UserData.h"
+#import "USERUSERDataBase.h"
+#import "LoginViewController.h"
 
 @interface PersonCenterViewController()
 {
@@ -37,7 +37,7 @@
     UIColor *_tilteColor;//字体的颜色
     UIImage *_iconImage;//清除缓存使用的icon
     CGFloat _cacheSize;//缓存目录得大小
-    UserData      * _data;
+    USERUSERDataBase * _uudb;
 }
 
 @end
@@ -46,11 +46,21 @@
 
 - (void) viewDidLoad
 {
-    [[ServiceManage shareInstance]DidUserInfo:@{@"uid":[[NSUserDefaults standardUserDefaults] objectForKey:@"uid"]} completion:^(ERROR_CODE status, id obj) {
-        UserBaseClass * ubc = obj;
-        _data = ubc.data;
-        [self addUI];
-    }];
+   [[ServiceManage shareInstance]DidUserInfo:[NSString stringWithFormat:@"http://218.244.130.25/api.php/user/info?token=%@&client=IOS&uid=%@",TOKEN,[[NSUserDefaults standardUserDefaults] objectForKey:@"uid"]] completion:^(NSMutableArray *array, NSString *error) {
+      
+    _uudb =  array[0];
+       if (_uudb.status == 10000001)
+       {
+            [self addUI];
+       }else{
+           LoginViewController * lvc = [[LoginViewController alloc]init];
+           [self.navigationController pushViewController:lvc animated:YES];
+           SHOWALERT(@"账号已过期");
+       }
+   
+      
+       
+   }];
     
 }
 
@@ -69,13 +79,14 @@
         titleDataArray[5] = @"清除缓存";
         [_tableView reloadData];
     }
+    
 }
 
 - (void) addUI
 {
-    UIScrollView *scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 524)];
+    UIScrollView *scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height)];
     [scroll setShowsVerticalScrollIndicator:NO];
-    [scroll setContentSize:CGSizeMake(self.view.frame.size.width, 630)];
+    [scroll setContentSize:CGSizeMake(self.view.frame.size.width, 300)];
     [scroll setBackgroundColor:[Tools colorWithRed:241 angGreen:241 andBlue:241]];
     [self.view addSubview:scroll];
     
@@ -107,7 +118,7 @@
     
     //姓名286
     UILabel *labelName = [[UILabel alloc] initWithFrame:CGRectMake(label.frame.origin.x, label.frame.origin.y + label.frame.size.height + 5, 120, 20)];
-    [labelName setText:_data.username];
+    [labelName setText:_uudb.data.username];
     [labelName setFont:[UIFont systemFontOfSize:15]];
     [labelName setTextAlignment:NSTextAlignmentLeft];
     [labelName setTextColor:[UIColor blackColor]];
@@ -124,7 +135,7 @@
     [str addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(0, 3)];
     [str addAttribute:NSForegroundColorAttributeName value:kMainColor range:NSMakeRange(3, 2)];
     [str addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(5, 3)];
-    UILabel *topicLabel = [[UILabel alloc] initWithFrame:CGRectMake(180, 10, 100, 20)];
+    UILabel *topicLabel = [[UILabel alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width-140, 10, 100, 20)];
     [topicLabel setAttributedText:str];
     [topicLabel setFont:[UIFont systemFontOfSize:12]];
     [view addSubview:topicLabel];
@@ -144,7 +155,7 @@
     dic = [[NSMutableDictionary alloc] init];
     selectedArr = [[NSMutableArray alloc] init];
     //tableView
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(10, view.frame.origin.y + view.frame.size.height + 10, 300,self.view.frame.size.height - 187) style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(10, view.frame.origin.y + view.frame.size.height + 10, [UIScreen mainScreen].bounds.size.width-20,self.view.frame.size.height - 187) style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.showsVerticalScrollIndicator = NO;
@@ -350,7 +361,7 @@
             break;
         case 4:{
             PersonSetViewController *personSet = [[PersonSetViewController alloc] init];
-            personSet.userData = _data;
+            personSet.userData = _uudb.data;
             [self.navigationController pushViewController:personSet animated:YES];
         }
             break;

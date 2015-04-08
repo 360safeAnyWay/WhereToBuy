@@ -10,7 +10,7 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "AFHTTPSessionManager.h"
 #import "DataCenter.h"
-#import "UserBaseClass.h"
+#import "USERUSERDataBase.h"
 //#define Base_Url @"http://101.227.243.126:8082"
 //#define Base_Url @"http://www.usuda.cn/verify.php/"
 //#define Base_Url @"http://www.weather.com.cn/data/sk/101010100.html"
@@ -41,8 +41,9 @@
 //请求基类
 -(void)requestMethod:(NSString*)method serviceName:(NSString*)service parmers:(NSDictionary*)parmers completeBlock:(void (^)(id obj)) callBack{
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+   // manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    //manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];//设置相应内容类型
+   // manager.requestSerializer = [AFJSONRequestSerializer serializer];
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@",Base_Url,service];
     if ([method isEqualToString:@"POST"]) {
         [manager POST:requestUrl parameters:parmers success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -269,27 +270,38 @@
     }];
 }
 //获取用户个人信息
--(void)DidUserInfo:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack
+-(void)DidUserInfo:(NSString*)GET completion:(DATAARRAY)block
 {
-     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parmers];
-     [dic setObject:@"IOS" forKey:@"client"];
+    AFHTTPRequestOperationManager * manager   = [AFHTTPRequestOperationManager manager];
+    NSMutableArray       * dataArray = [NSMutableArray array];
+    [manager GET:GET parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@",responseObject);
+        USERUSERDataBase * uudb = [[USERUSERDataBase alloc]initWithDictionary:responseObject];
+        [dataArray addObject:uudb];
+        NSString * errerStr = [responseObject objectForKey:@"status"];
+        block(dataArray,errerStr);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
+}
+-(void)didRevampUserInfo:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parmers];
+    [dic setObject:@"IOS" forKey:@"client"];
     if (TOKEN == nil)
     {
         return;
     }
-     [dic setObject:TOKEN forKey:@"token"];
-     [self requestMethod:@"GET" serviceName:@"/api.php/user/info" parmers:dic completeBlock:^(id obj) {
+    [dic setObject:TOKEN forKey:@"token"];
+    [self requestMethod:@"GET" serviceName:@"/api.php/user/info" parmers:dic completeBlock:^(id obj) {
         ERROR_CODE status = ERROR_CODE_RequestFailed;
         if (obj && obj[@"message"]) {
             status = [obj[@"status"] intValue];
-            UserBaseClass * ubc = [[UserBaseClass alloc]initWithDictionary:obj];
-            obj = ubc;
         }
-         NSLog(@"%@",obj);
+        NSLog(@"%@",obj);
         callBack(status, obj);
     }];
 }
-
 @end
 
 

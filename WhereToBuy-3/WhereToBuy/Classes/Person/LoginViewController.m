@@ -15,6 +15,7 @@
 #import "UserDao.h"
 #import "LoginesViewController.h"
 #import "PersonForgetPassViewController.h"
+#import "LoginesViewController.h"
 
 @interface LoginViewController ()<UITextFieldDelegate>
 {
@@ -28,9 +29,22 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.parentViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[[DataCenter instance] getStringForKey:@"registerNow"] style:UIBarButtonItemStyleBordered target:self action:@selector(registerUser)];
+    UIButton *itemBtn5 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    UIBarButtonItem *isBuy = [[UIBarButtonItem alloc] initWithCustomView:itemBtn5];
+    self.navigationItem.leftBarButtonItem =isBuy;
+    UIButton *itemBtn3 = [[UIButton alloc] initWithFrame:CGRectMake(22, 5, 40, 17)];
+    [itemBtn3 setTitle:@"注册" forState:UIControlStateNormal];
+    [itemBtn3 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [itemBtn3 addTarget:self action:@selector(goRegister) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *isBuyes = [[UIBarButtonItem alloc] initWithCustomView:itemBtn3];
+    self.navigationItem.rightBarButtonItem = isBuyes;
     [self addUI];
 }
-
+-(void)goRegister
+{
+    LoginesViewController *lvc = [[LoginesViewController alloc]init];
+    [self.navigationController pushViewController:lvc animated:YES];
+}
 - (void) addUI
 {
     UIView *loginView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 370)];

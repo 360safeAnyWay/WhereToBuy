@@ -37,31 +37,29 @@
     [itemBtn4 addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:itemBtn4];
     self.navigationItem.leftBarButtonItem= back;
-    UIButton *itemBtn5 = [[UIButton alloc] initWithFrame:CGRectMake(17, 5, 10.5, 18)];
-    [itemBtn5 setBackgroundImage:[UIImage imageNamed:@"leftBack.png"] forState:UIControlStateNormal];
+    UIButton *itemBtn5 = [[UIButton alloc] initWithFrame:CGRectMake(17, 5, 50, 18)];
+    [itemBtn5 setTintColor:[UIColor whiteColor]];
+    [itemBtn5 setTitle:@"提交" forState:UIControlStateNormal];
     [itemBtn5 addTarget:self action:@selector(textUp:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *back1 = [[UIBarButtonItem alloc] initWithCustomView:itemBtn5];
     self.navigationItem.rightBarButtonItem= back1;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideKeyBorard:) name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showKeyBorard:) name:UIKeyboardWillShowNotification object:nil];
+    if ([_userData.sex isEqualToString:@"M"]) {
+        _userData.sex = @"男";
+    }else{
+        _userData.sex = @"女";
+    }
     _flag = YES;
-    _arr = @[@[@"昵称",@"用户名",@"性别",@"生日",@"账户密码",@"手势密码",@"个人简介"],@[self.userData.nickname,self.userData.username,@"男",self.userData.birthday,@"",@"",self.userData.address]];
-//    phone;
-//    sex;
-//    cityId;
-//    address;
-//    level;
-//    birthday;
-//    username;
-//    role;
-//    nickname;
-//    roleId;
-//    photo;
+    _arr = @[@[@"昵称",@"用户名",@"性别",@"生日",@"账户密码",@"手势密码",@"个人简介"],@[self.userData.nickname,self.userData.username,_userData.sex,self.userData.birthday,@"",@"",@""]];
+
     [self addUI];
 }
 -(void)textUp:(id)btn
 {
-    
+//    [[ServiceManage shareInstance]didRevampUserInfo:@{@"uid":UID,@"":} completion:^(ERROR_CODE status, id obj) {
+//        
+//    }];
 }
 - (void) addUI
 {
@@ -74,7 +72,7 @@
     
     //个人头像
     UIButton *imageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [imageBtn setFrame:CGRectMake(97.5, 15, 125, 125)];
+    [imageBtn setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width/2-125/2, 15, 125, 125)];
     [imageBtn setTitle:@"上传头像" forState:UIControlStateNormal];
     [imageBtn setTitleEdgeInsets:UIEdgeInsetsMake(70, 0, 0, 0)];
     [imageBtn addTarget:self action:@selector(uploadImage) forControlEvents:UIControlEventTouchUpInside];

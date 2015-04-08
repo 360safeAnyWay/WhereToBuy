@@ -7,7 +7,12 @@
 //
 
 #import "BaseViewController.h"
-#import "UserData.h"
+#import "USERUSERDataBase.h"
+#import "USERData.h"
+#import "USERIntros.h"
 @interface PersonSetViewController : BaseViewController
-@property (nonatomic,retain)UserData * userData;
+@property (nonatomic,retain)USERUSERDataBase * uudb;
+@property (nonatomic,retain)USERData * userData;
+@property (nonatomic,retain)USERIntros * intros;
+
 @end

@@ -1,26 +1,26 @@
 //
-//  UserBaseClass.m
+//  USERUSERDataBase.m
 //
-//  Created by   on 15/4/7
+//  Created by   on 15/4/8
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
-#import "UserBaseClass.h"
-#import "UserData.h"
+#import "USERUSERDataBase.h"
+#import "USERData.h"
 
 
-NSString *const kUserBaseClassStatus = @"status";
-NSString *const kUserBaseClassMessage = @"message";
-NSString *const kUserBaseClassData = @"data";
+NSString *const kUSERUSERDataBaseStatus = @"status";
+NSString *const kUSERUSERDataBaseMessage = @"message";
+NSString *const kUSERUSERDataBaseData = @"data";
 
 
-@interface UserBaseClass ()
+@interface USERUSERDataBase ()
 
 - (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict;
 
 @end
 
-@implementation UserBaseClass
+@implementation USERUSERDataBase
 
 @synthesize status = _status;
 @synthesize message = _message;
@@ -39,9 +39,9 @@ NSString *const kUserBaseClassData = @"data";
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
     if(self && [dict isKindOfClass:[NSDictionary class]]) {
-            self.status = [[self objectOrNilForKey:kUserBaseClassStatus fromDictionary:dict] doubleValue];
-            self.message = [self objectOrNilForKey:kUserBaseClassMessage fromDictionary:dict];
-            self.data = [UserData modelObjectWithDictionary:[dict objectForKey:kUserBaseClassData]];
+            self.status = [[self objectOrNilForKey:kUSERUSERDataBaseStatus fromDictionary:dict] doubleValue];
+            self.message = [self objectOrNilForKey:kUSERUSERDataBaseMessage fromDictionary:dict];
+            self.data = [USERData modelObjectWithDictionary:[dict objectForKey:kUSERUSERDataBaseData]];
 
     }
     
@@ -52,9 +52,9 @@ NSString *const kUserBaseClassData = @"data";
 - (NSDictionary *)dictionaryRepresentation
 {
     NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];
-    [mutableDict setValue:[NSNumber numberWithDouble:self.status] forKey:kUserBaseClassStatus];
-    [mutableDict setValue:self.message forKey:kUserBaseClassMessage];
-    [mutableDict setValue:[self.data dictionaryRepresentation] forKey:kUserBaseClassData];
+    [mutableDict setValue:[NSNumber numberWithDouble:self.status] forKey:kUSERUSERDataBaseStatus];
+    [mutableDict setValue:self.message forKey:kUSERUSERDataBaseMessage];
+    [mutableDict setValue:[self.data dictionaryRepresentation] forKey:kUSERUSERDataBaseData];
 
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
@@ -78,23 +78,23 @@ NSString *const kUserBaseClassData = @"data";
 {
     self = [super init];
 
-    self.status = [aDecoder decodeDoubleForKey:kUserBaseClassStatus];
-    self.message = [aDecoder decodeObjectForKey:kUserBaseClassMessage];
-    self.data = [aDecoder decodeObjectForKey:kUserBaseClassData];
+    self.status = [aDecoder decodeDoubleForKey:kUSERUSERDataBaseStatus];
+    self.message = [aDecoder decodeObjectForKey:kUSERUSERDataBaseMessage];
+    self.data = [aDecoder decodeObjectForKey:kUSERUSERDataBaseData];
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
 
-    [aCoder encodeDouble:_status forKey:kUserBaseClassStatus];
-    [aCoder encodeObject:_message forKey:kUserBaseClassMessage];
-    [aCoder encodeObject:_data forKey:kUserBaseClassData];
+    [aCoder encodeDouble:_status forKey:kUSERUSERDataBaseStatus];
+    [aCoder encodeObject:_message forKey:kUSERUSERDataBaseMessage];
+    [aCoder encodeObject:_data forKey:kUSERUSERDataBaseData];
 }
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    UserBaseClass *copy = [[UserBaseClass alloc] init];
+    USERUSERDataBase *copy = [[USERUSERDataBase alloc] init];
     
     if (copy) {
 

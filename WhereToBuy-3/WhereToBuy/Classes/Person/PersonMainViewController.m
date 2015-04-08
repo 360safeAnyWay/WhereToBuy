@@ -32,7 +32,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-   // [DataCenter instance].user = [[UserDao alloc] init];
     NSLog(@"viewWillAppear");
      [self judgeLogin];
 
@@ -42,7 +41,7 @@
 - (void) judgeLogin
 {
     UIViewController *personCenter = self.childViewControllers[1];
-        if ([DataCenter instance].user == nil) {
+        if (TOKEN==nil) {
             NSLog(@"加载登录试图");
             UIViewController *login = self.childViewControllers[0];
             if ([self.view.subviews count] == 0 || ![login.view isEqual:self.view.subviews[0]]) {
@@ -51,7 +50,7 @@
                 [login.view setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
                 [self.view addSubview:login.view];
             }
-        }else if([DataCenter instance].user != nil)
+        }else if(TOKEN != nil)
         {
             if ([self.view.subviews count] != 0) {
                 if (self.view.subviews[0] != personCenter.view) {
@@ -81,13 +80,10 @@
     } completion:^(BOOL finished) {
         [loginViewController.forgetView setCenter:CGPointMake(loginViewController.forgetView.center.x + self.view.frame.size.width, loginViewController.forgetView.center.y)];
         self.navigationItem.leftBarButtonItem = nil;
-        self.navigationItem.rightBarButtonItem =  [[UIBarButtonItem alloc] initWithTitle:[[DataCenter instance] getStringForKey:@"registerNow"] style:UIBarButtonItemStyleBordered target:self action:@selector(goRegister)];
+       // self.navigationItem.rightBarButtonItem =  [[UIBarButtonItem alloc] initWithTitle:[[DataCenter instance] getStringForKey:@"registerNow"] style:UIBarButtonItemStyleBordered target:self action:@selector(goRegister)];
     }];
 }
--(void)goRegister
-{
-    NSLog(@"去注册");
-}
+
 - (void)removeSelfFromSuperView
 {
     //移除登录View

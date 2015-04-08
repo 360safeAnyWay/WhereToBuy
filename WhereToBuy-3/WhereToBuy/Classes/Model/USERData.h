@@ -1,7 +1,7 @@
 //
-//  UserData.h
+//  USERData.h
 //
-//  Created by   on 15/4/7
+//  Created by   on 15/4/8
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
@@ -9,11 +9,11 @@
 
 
 
-@interface UserData : NSObject <NSCoding, NSCopying>
+@interface USERData : NSObject <NSCoding, NSCopying>
 
 @property (nonatomic, strong) NSString *dataIdentifier;
-@property (nonatomic, assign) id intro;
 @property (nonatomic, strong) NSString *phone;
+@property (nonatomic, strong) NSArray *intros;
 @property (nonatomic, strong) NSString *sex;
 @property (nonatomic, strong) NSString *cityId;
 @property (nonatomic, strong) NSString *address;
