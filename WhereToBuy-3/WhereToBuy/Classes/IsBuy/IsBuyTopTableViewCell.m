@@ -22,46 +22,40 @@
     if (self) {
          _markString1 = @"#当代旭辉墅";
         _markString2 = @"#德州烤鸡";
-        _infoStr     =  @"我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。";
-        if(IPhone4||IPhone5){
-            Inforect = [self  cellHight:_infoStr Size:CGSizeMake(210, 0)];
-            CGRect rect = self.frame;
-            rect.size.height = 200+Inforect.size.height;
-            self.frame = rect;
-        }else if(IPhone6){
-            Inforect = [self  cellHight:_infoStr Size:CGSizeMake(210, 0)];
-            NSLog(@"%f",Inforect.size.height);
-            CGRect rect = self.frame;
-            rect.size.height = 200+Inforect.size.height;
-            self.frame = rect;
+        _infoStr     =  @"我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。";
+        if (IPhone5||IPhone4)
+        {
+            Inforect = [self  cellHight:_infoStr Size:CGSizeMake(300, 0)];
         }else{
-            Inforect = [self  cellHight:_infoStr Size:CGSizeMake(210, 0)];
-            CGRect rect = self.frame;
-            rect.size.height = 200+Inforect.size.height;
-            self.frame = rect;
-        }
+            
+            Inforect = [self  cellHight:_infoStr Size:CGSizeMake([UIScreen mainScreen].bounds.size.width-30, 0)];
+    }
+//        if(IPhone4||IPhone5){
+//            Inforect = [self  cellHight:_infoStr Size:CGSizeMake(210, 0)];
+//            CGRect rect = self.frame;
+//            rect.size.height = 200+Inforect.size.height;
+//            self.frame = rect;
+//        }else if(IPhone6){
+//            Inforect = [self  cellHight:_infoStr Size:CGSizeMake(210, 0)];
+//            NSLog(@"%f",Inforect.size.height);
+//            CGRect rect = self.frame;
+//            rect.size.height = 280+Inforect.size.height;
+//            self.frame = rect;
+//        }else{
+//            Inforect = [self  cellHight:_infoStr Size:CGSizeMake(210, 0)];
+//            CGRect rect = self.frame;
+//            rect.size.height = 200+Inforect.size.height;
+//            self.frame = rect;
+//        }
         
         //     创建视图
         [self createView];
-        [self createPointLikes];
         
     }
     return self;
 }
-//点赞按钮
--(void)createPointLikes
-{
-    _pl = [[PointLike alloc]initWithString:@"33652"];
-    _pl.frame = CGRectMake([UIScreen mainScreen].bounds.size.width-110, self.frame.size.height-45, 100, 25);
-    [self.contentView addSubview:_pl];
-}
 -(void)createView
 {
-//    底部的间隔
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-10, [UIScreen mainScreen].applicationFrame.size.width, 10)];
-    [view setBackgroundColor:[Tools colorWithRed:240 angGreen:240 andBlue:240]];
-
-    [self addSubview:view];
     UIButton *imageView = [[UIButton alloc] initWithFrame:CGRectMake(13, 15, 40, 40)];
     [Tools setUIViewLine:imageView cornerRadius:20 with:1 color:[UIColor whiteColor]];
     [imageView setBackgroundImage:[UIImage imageNamed:@"avatar.png"] forState:UIControlStateNormal];
@@ -113,19 +107,29 @@
     [self createInfoStr:viewDown.frame.origin.y+10];
     
     
+    
 }
 -(void)createInfoStr:(CGFloat)y
 {
     UILabel * infoLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, y, [UIScreen mainScreen].bounds.size.width-20, Inforect.size.height)];
     infoLabel.numberOfLines = 0;
     infoLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    infoLabel.font = [UIFont systemFontOfSize:16];
+    infoLabel.font = [UIFont systemFontOfSize:12];
     infoLabel.text = _infoStr;
     infoLabel.backgroundColor = [UIColor redColor];
     infoLabel.textColor = [UIColor darkGrayColor];
     infoLabel.adjustsFontSizeToFitWidth = YES;
+    infoLabel.lineBreakMode=NSLineBreakByCharWrapping;
     [self addSubview:infoLabel];
     [self resetContent:infoLabel];
+    _pl = [[PointLike alloc]initWithString:@"33652"];
+    _pl.frame = CGRectMake([UIScreen mainScreen].bounds.size.width-110, infoLabel.frame.origin.y+infoLabel.frame.size.height+10, 100, 25);
+    [self.contentView addSubview:_pl];
+    //    底部的间隔
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, _pl.frame.origin.y+_pl.frame.size.height+10, [UIScreen mainScreen].applicationFrame.size.width, 10)];
+    [view setBackgroundColor:[Tools colorWithRed:240 angGreen:240 andBlue:240]];
+    [self addSubview:view];
+
 }
 - (void)resetContent:(UILabel *)lab{
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:lab.text];
@@ -140,7 +144,7 @@
 -(CGRect)cellHight:(NSString *)cellText Size:(CGSize)size
 {
     CGRect rect = [cellText boundingRectWithSize:size options:
-                   NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]} context:nil];
+                   NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]} context:nil];
     return rect;
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

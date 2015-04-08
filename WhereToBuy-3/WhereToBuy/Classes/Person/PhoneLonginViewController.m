@@ -61,17 +61,17 @@
         _seconds = 60;
         [self updateSecondes];
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-//        [[ServiceManage shareInstance] DidRequestToken:@{@"tel":((UITextField *)[self.view viewWithTag:1]).text} completion:^(ERROR_CODE code, id obj) {
-//            if (code == ERROR_CODE_NONE) {
-//                NSLog(@"验证码－－－－－%@",obj[@"message"]);
-//                _token = [obj[@"message"] intValue];
-//                [Tools showAlertView:[[DataCenter instance] getStringForKey:@"successGetToken"]];
-//            }else
-//            {
-//                [Tools showAlertView:obj[@"message"]];
-//            }
+        [[ServiceManage shareInstance] DidRequestToken:@{@"tel":((UITextField *)[self.view viewWithTag:1]).text} completion:^(ERROR_CODE code, id obj) {
+            if (code == ERROR_CODE_NONE) {
+                NSLog(@"验证码－－－－－%@",obj[@"message"]);
+                _token = [obj[@"message"] intValue];
+                [Tools showAlertView:[[DataCenter instance] getStringForKey:@"successGetToken"]];
+            }else
+            {
+                [Tools showAlertView:obj[@"message"]];
+            }
             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-//        }];
+        }];
 
     }else{
         [self.navigationController popViewControllerAnimated:YES];

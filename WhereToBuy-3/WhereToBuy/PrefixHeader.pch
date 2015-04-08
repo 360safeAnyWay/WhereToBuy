@@ -22,6 +22,7 @@
 #define IPhone5 ([UIScreen mainScreen].bounds.size.height == 568)
 #define IPhone6 ([UIScreen mainScreen].bounds.size.height == 667)
 #define IPhone6P ([UIScreen mainScreen].bounds.size.height == 736)
+#define TOKEN [[NSUserDefaults standardUserDefaults]objectForKey:@"token"]
 #define Base_Url @"http://218.244.130.25"
 
 #import "ServiceManage.h"

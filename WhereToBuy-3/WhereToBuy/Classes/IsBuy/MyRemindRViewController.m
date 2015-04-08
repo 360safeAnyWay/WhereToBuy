@@ -34,7 +34,7 @@
     [itemBtn4 addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:itemBtn4];
     self.navigationItem.leftBarButtonItem= back;
-    _infoStr = @"我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。";
+    _infoStr = @"我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。";
     [self createTableView];
 
 
@@ -62,8 +62,19 @@
    
     if ([_CellType  isEqualToString:@"1"])
     {
-        CGRect rect = [self cellHight:_infoStr Size:CGSizeMake(210, 0)];
-        return 80+rect.size.height;
+        if (IPhone5||IPhone4)
+        {
+            CGRect rect = [self cellHight:_infoStr Size:CGSizeMake(200, 0)];
+            return ceilf(80+rect.size.height);
+        }
+        if(IPhone6){
+        CGRect rect = [self cellHight:_infoStr Size:CGSizeMake([UIScreen mainScreen].bounds.size.width-120, 0)];
+        return ceilf(80+rect.size.height);
+            
+        }else{
+            CGRect rect = [self cellHight:_infoStr Size:CGSizeMake([UIScreen mainScreen].bounds.size.width-120, 0)];
+            return ceilf(80+rect.size.height);
+        }
     }else if ([_CellType isEqualToString:@"2"]){
         return 80;
     }else{

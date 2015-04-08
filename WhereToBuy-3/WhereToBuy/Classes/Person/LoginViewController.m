@@ -102,15 +102,23 @@
     NSLog(@"%@-----%@",phoneNum,secretStr);
     [[ServiceManage shareInstance] DidLogin:@{@"username":phoneNum,@"password":secretStr} completion:^(ERROR_CODE code, id obj) {
         if (code == ERROR_CODE_NONE) {
-            [DataCenter instance].user = [[UserDao alloc] init];
             NSDictionary *dic = obj[@"data"];
+            [DataCenter instance].user = [[UserDao alloc] init];
+            NSString * token = [dic  objectForKey:@"sessionval"];
+            NSString * uid    = [dic objectForKey:@"uid"];
+            [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"token"];
+            [[NSUserDefaults standardUserDefaults] setObject:uid forKey:@"uid"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
             [DataCenter instance].user.token = dic[@"sessionval"];
             [self.delegate removeSelfFromSuperView];
+            NSLog(@"%@",NSHomeDirectory());
+                        
         }else
         {
             [Tools showAlertView:obj[@"message"]];
         }
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+
     }];
 }
 

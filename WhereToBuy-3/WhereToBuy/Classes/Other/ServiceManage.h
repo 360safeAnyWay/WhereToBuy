@@ -6,9 +6,7 @@
 //  Copyright (c) 2014年 xiang ying. All rights reserved.
 //
 typedef void(^DATAARRAY)(NSMutableArray  * array,NSString       * error);
-
 #import <Foundation/Foundation.h>
-
 typedef enum {
     ERROR_CODE_NONE = 10000001,        //成功
     ERROR_CODE_RequestFailed,   //连接失败或请求超时

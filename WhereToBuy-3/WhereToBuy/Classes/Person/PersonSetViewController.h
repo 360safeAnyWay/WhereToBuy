@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-
+#import "UserData.h"
 @interface PersonSetViewController : BaseViewController
-
+@property (nonatomic,retain)UserData * userData;
 @end

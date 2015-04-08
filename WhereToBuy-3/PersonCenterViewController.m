@@ -19,6 +19,8 @@
 #import "MBProgressHUD.h"
 #import "SDImageCache.h"
 #import "MyRemindRViewController.h"
+#import "UserBaseClass.h"
+#import "UserData.h"
 
 @interface PersonCenterViewController()
 {
@@ -35,6 +37,7 @@
     UIColor *_tilteColor;//字体的颜色
     UIImage *_iconImage;//清除缓存使用的icon
     CGFloat _cacheSize;//缓存目录得大小
+    UserData      * _data;
 }
 
 @end
@@ -43,7 +46,12 @@
 
 - (void) viewDidLoad
 {
-    [self addUI];
+    [[ServiceManage shareInstance]DidUserInfo:@{@"uid":[[NSUserDefaults standardUserDefaults] objectForKey:@"uid"]} completion:^(ERROR_CODE status, id obj) {
+        UserBaseClass * ubc = obj;
+        _data = ubc.data;
+        [self addUI];
+    }];
+    
 }
 
 //每次在页面加载得时候计算缓存的大小，如果缓存不为0，就显示可加载状态
@@ -51,8 +59,6 @@
 {
     NSString *path = [[Tools shareInstance] dirCache];
     CGFloat size = [[Tools shareInstance] folderSizeAtPath:path];
-    NSLog(@"缓存目录是：%@",path);
-    NSLog(@"缓存目录得大小是%f",size);
     if (size > 0) {
         _cacheStatePic = @"1dian_green.png";
         _borderWith  = 0;
@@ -101,7 +107,7 @@
     
     //姓名286
     UILabel *labelName = [[UILabel alloc] initWithFrame:CGRectMake(label.frame.origin.x, label.frame.origin.y + label.frame.size.height + 5, 120, 20)];
-    [labelName setText:@"买姑娘得小房子"];
+    [labelName setText:_data.username];
     [labelName setFont:[UIFont systemFontOfSize:15]];
     [labelName setTextAlignment:NSTextAlignmentLeft];
     [labelName setTextColor:[UIColor blackColor]];
@@ -110,7 +116,7 @@
     //VIP认证图标
     UIImageView *vipImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 22.5, 21)];
     [vipImage setImage:[UIImage imageNamed:@"vip1.png"]];
-    [vipImage setCenter:CGPointMake(labelName.center.x + labelName.frame.size.width / 2, labelName.center.y)];
+    [vipImage setCenter:CGPointMake(labelName.frame.origin.x + labelName.frame.size.width +3, labelName.center.y)];
     [view addSubview:vipImage];
     
     //已发表的话题
@@ -132,7 +138,7 @@
     [feedLabel setAttributedText:str];
     [feedLabel setFont:[UIFont systemFontOfSize:12]];
     [view addSubview:feedLabel];
-
+    
     
     //设置底部菜单
     dic = [[NSMutableDictionary alloc] init];
@@ -271,7 +277,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-        return 40;
+    return 40;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -344,25 +350,24 @@
             break;
         case 4:{
             PersonSetViewController *personSet = [[PersonSetViewController alloc] init];
+            personSet.userData = _data;
             [self.navigationController pushViewController:personSet animated:YES];
         }
             break;
         case 5:{
-//            [sender setBackgroundImage:[UIImage imageNamed:@"1dian.png"] forState:UIControlStateNormal];
-//            titleDataArray[5] = @"缓存已清空,好爽";
-//            _cacheStatePic = @"1dian.png";
-//            [_tableView reloadData];
-//            NSLog(@"yichuasdfasdf");
+            //            [sender setBackgroundImage:[UIImage imageNamed:@"1dian.png"] forState:UIControlStateNormal];
+            //            titleDataArray[5] = @"缓存已清空,好爽";
+            //            _cacheStatePic = @"1dian.png";
+            //            [_tableView reloadData];
+            //            NSLog(@"yichuasdfasdf");
             DXAlertView *alert = [[DXAlertView alloc] initWithTitle:@"提示" contentText:@"是否确定需要清理缓存？" leftButtonTitle:@"取消" rightButtonTitle:@"确定"];
             [alert show];
             alert.leftBlock = ^() {
-                 NSLog(@"left button clicked");
             };
             alert.rightBlock = ^() {
                 [self showWithLabelMixed];
             };
             alert.dismissBlock = ^() {
-                NSLog(@"Do something interesting after dismiss block");
             };
         }
             break;
@@ -415,27 +420,25 @@
 //清除缓存
 - (void)clearCache
 {
-dispatch_async(
-   dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-   , ^{
-       NSString *cachPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-       
-       NSArray *files = [[NSFileManager defaultManager] subpathsAtPath:cachPath];
-       NSLog(@"files :%ld",(unsigned long)[files count]);
-       for (NSString *p in files) {
-           NSError *error;
-           NSString *path = [cachPath stringByAppendingPathComponent:p];
-           if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-               [[NSFileManager defaultManager] removeItemAtPath:path error:&error];
-           }
-       }
-       [self performSelectorOnMainThread:@selector(clearCacheSuccess) withObject:nil waitUntilDone:YES];});
+    dispatch_async(
+                   dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+                   , ^{
+                       NSString *cachPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+                       
+                       NSArray *files = [[NSFileManager defaultManager] subpathsAtPath:cachPath];
+                       for (NSString *p in files) {
+                           NSError *error;
+                           NSString *path = [cachPath stringByAppendingPathComponent:p];
+                           if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+                               [[NSFileManager defaultManager] removeItemAtPath:path error:&error];
+                           }
+                       }
+                       [self performSelectorOnMainThread:@selector(clearCacheSuccess) withObject:nil waitUntilDone:YES];});
 }
 
 //清除缓存成功得回调方法
 -(void)clearCacheSuccess
 {
-    NSLog(@"清理成功");
     _cacheSize = 0.0;
     [_tableView reloadData];
 }

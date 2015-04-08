@@ -10,6 +10,7 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "AFHTTPSessionManager.h"
 #import "DataCenter.h"
+#import "UserBaseClass.h"
 //#define Base_Url @"http://101.227.243.126:8082"
 //#define Base_Url @"http://www.usuda.cn/verify.php/"
 //#define Base_Url @"http://www.weather.com.cn/data/sk/101010100.html"
@@ -270,13 +271,21 @@
 //获取用户个人信息
 -(void)DidUserInfo:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack
 {
-    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parmers];
-    [dic setObject:@"HePd443Mnd" forKey:@"overifyname"];
-    [self requestMethod:@"GET" serviceName:@"/cpanel/index.php/buyc_interface1/registerResUser/" parmers:dic completeBlock:^(id obj) {
+     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parmers];
+     [dic setObject:@"IOS" forKey:@"client"];
+    if (TOKEN == nil)
+    {
+        return;
+    }
+     [dic setObject:TOKEN forKey:@"token"];
+     [self requestMethod:@"GET" serviceName:@"/api.php/user/info" parmers:dic completeBlock:^(id obj) {
         ERROR_CODE status = ERROR_CODE_RequestFailed;
         if (obj && obj[@"message"]) {
             status = [obj[@"status"] intValue];
+            UserBaseClass * ubc = [[UserBaseClass alloc]initWithDictionary:obj];
+            obj = ubc;
         }
+         NSLog(@"%@",obj);
         callBack(status, obj);
     }];
 }

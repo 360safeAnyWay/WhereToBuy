@@ -37,13 +37,32 @@
     [itemBtn4 addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:itemBtn4];
     self.navigationItem.leftBarButtonItem= back;
+    UIButton *itemBtn5 = [[UIButton alloc] initWithFrame:CGRectMake(17, 5, 10.5, 18)];
+    [itemBtn5 setBackgroundImage:[UIImage imageNamed:@"leftBack.png"] forState:UIControlStateNormal];
+    [itemBtn5 addTarget:self action:@selector(textUp:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *back1 = [[UIBarButtonItem alloc] initWithCustomView:itemBtn5];
+    self.navigationItem.rightBarButtonItem= back1;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideKeyBorard:) name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showKeyBorard:) name:UIKeyboardWillShowNotification object:nil];
     _flag = YES;
-    _arr = @[@[@"昵称",@"用户名",@"性别",@"生日",@"账户密码",@"手势密码",@"个人简介"],@[@"Aladin",@"王麻子",@"男",@"1990-12-12",@"",@"",@"从事房地产多年,熟悉相关..."]];
+    _arr = @[@[@"昵称",@"用户名",@"性别",@"生日",@"账户密码",@"手势密码",@"个人简介"],@[self.userData.nickname,self.userData.username,@"男",self.userData.birthday,@"",@"",self.userData.address]];
+//    phone;
+//    sex;
+//    cityId;
+//    address;
+//    level;
+//    birthday;
+//    username;
+//    role;
+//    nickname;
+//    roleId;
+//    photo;
     [self addUI];
 }
-
+-(void)textUp:(id)btn
+{
+    
+}
 - (void) addUI
 {
     //添加scroView，用来支持4s的滑动，否则会进行遮盖
@@ -75,7 +94,7 @@
     
     //手机号码输入框
     UITextField *phoneTextField = [[UITextField alloc] initWithFrame:CGRectMake(phoneLabel.frame.origin.x + phoneLabel.frame.size.width + 10, phoneLabel.frame.origin.y, 140, 40)];
-    [phoneTextField setText:@"13812345678"];
+    [phoneTextField setText:self.userData.phone];
     phoneTextField.delegate = self;
     [scroll addSubview:phoneTextField];
     
