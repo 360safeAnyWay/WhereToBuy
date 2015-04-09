@@ -38,6 +38,7 @@
     UIImage *_iconImage;//清除缓存使用的icon
     CGFloat _cacheSize;//缓存目录得大小
     USERUSERDataBase * _uudb;
+    UILabel *_labelName;
 }
 
 @end
@@ -46,27 +47,30 @@
 
 - (void) viewDidLoad
 {
-   [[ServiceManage shareInstance]DidUserInfo:[NSString stringWithFormat:@"http://218.244.130.25/api.php/user/info?token=%@&client=IOS&uid=%@",TOKEN,[[NSUserDefaults standardUserDefaults] objectForKey:@"uid"]] completion:^(NSMutableArray *array, NSString *error) {
-      
-    _uudb =  array[0];
-       if (_uudb.status == 10000001)
-       {
-            [self addUI];
-       }else{
-           LoginViewController * lvc = [[LoginViewController alloc]init];
-           [self.navigationController pushViewController:lvc animated:YES];
-           SHOWALERT(@"账号已过期");
-       }
-   
-      
-       
-   }];
-    
+ 
+    [self addUI];
+
 }
 
 //每次在页面加载得时候计算缓存的大小，如果缓存不为0，就显示可加载状态
 - (void)viewWillAppear:(BOOL)animated
 {
+    [[ServiceManage shareInstance]DidUserInfo:[NSString stringWithFormat:@"http://218.244.130.25/api.php/user/info?token=%@&client=IOS&uid=%@",TOKEN,[[NSUserDefaults standardUserDefaults] objectForKey:@"uid"]] completion:^(NSMutableArray *array, NSString *error) {
+        
+        _uudb =  array[0];
+        if (_uudb.status == 10000001)
+        {
+            [_labelName setText:_uudb.data.username];
+
+        }else{
+            LoginViewController * lvc = [[LoginViewController alloc]init];
+            [self.navigationController pushViewController:lvc animated:YES];
+            SHOWALERT(@"账号已过期");
+        }
+        
+        
+        
+    }];
     NSString *path = [[Tools shareInstance] dirCache];
     CGFloat size = [[Tools shareInstance] folderSizeAtPath:path];
     if (size > 0) {
@@ -84,20 +88,38 @@
 
 - (void) addUI
 {
-    UIScrollView *scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height)];
+    UIScrollView *scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     [scroll setShowsVerticalScrollIndicator:NO];
-    [scroll setContentSize:CGSizeMake(self.view.frame.size.width, 300)];
+    if (IPhone4)
+   {
+    [scroll setContentSize:CGSizeMake(self.view.frame.size.width, [UIScreen mainScreen].bounds.size.height+140)];
+    }
+    if(IPhone5)
+    {
+        [scroll setContentSize:CGSizeMake(self.view.frame.size.width, [UIScreen mainScreen].bounds.size.height+100)];
+
+    }
+    if (IPhone6||IPhone6P)
+    {
+        [scroll setContentSize:CGSizeMake(self.view.frame.size.width, [UIScreen mainScreen].bounds.size.height+20)];
+    }
     [scroll setBackgroundColor:[Tools colorWithRed:241 angGreen:241 andBlue:241]];
     [self.view addSubview:scroll];
     
     //头像背景
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 176)];
-    [imageView setImage:[UIImage imageNamed:@"personBack.png"]];
+    if (IPhone4||IPhone5)
+    {
+        [imageView setImage:[UIImage imageNamed:@"PersonBG@x.jpg"]];
+
+    }else{
+        [imageView setImage:[UIImage imageNamed:@"PersonBG@2x.jpg"]];
+    }
     [scroll addSubview:imageView];
     
     //头像
     UIButton *personImage = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [personImage setFrame:CGRectMake(98, 24, 124, 124)];
+    [personImage setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width/2-124/2, 24, 124, 124)];
     [personImage setBackgroundImage:[UIImage imageNamed:@"moren.png"] forState:UIControlStateNormal];
     personImage.clipsToBounds = YES;
     [Tools setUIViewLine:personImage cornerRadius:62 with:0 color:[UIColor whiteColor]];
@@ -117,17 +139,15 @@
     [view addSubview:label];
     
     //姓名286
-    UILabel *labelName = [[UILabel alloc] initWithFrame:CGRectMake(label.frame.origin.x, label.frame.origin.y + label.frame.size.height + 5, 120, 20)];
-    [labelName setText:_uudb.data.username];
-    [labelName setFont:[UIFont systemFontOfSize:15]];
-    [labelName setTextAlignment:NSTextAlignmentLeft];
-    [labelName setTextColor:[UIColor blackColor]];
-    [view addSubview:labelName];
+   _labelName = [[UILabel alloc] initWithFrame:CGRectMake(label.frame.origin.x, label.frame.origin.y + label.frame.size.height + 5, 120, 20)];
+    [_labelName setFont:[UIFont systemFontOfSize:15]];
+    [_labelName setTextAlignment:NSTextAlignmentLeft];
+    [_labelName setTextColor:[UIColor blackColor]];
+    [view addSubview:_labelName];
     
     //VIP认证图标
-    UIImageView *vipImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 22.5, 21)];
+    UIImageView *vipImage = [[UIImageView alloc] initWithFrame:CGRectMake(_labelName.frame.origin.x + _labelName.frame.size.width +5,_labelName.frame.origin.y, 22.5, 21)];
     [vipImage setImage:[UIImage imageNamed:@"vip1.png"]];
-    [vipImage setCenter:CGPointMake(labelName.frame.origin.x + labelName.frame.size.width +3, labelName.center.y)];
     [view addSubview:vipImage];
     
     //已发表的话题
@@ -221,7 +241,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 40)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0,[UIScreen mainScreen].bounds.size.width-20, 40)];
     view.backgroundColor = [Tools colorWithRed:241 angGreen:241 andBlue:241];
     return view;
 }
@@ -232,7 +252,7 @@
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
     view.backgroundColor = [UIColor whiteColor];
     if (section == 0) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(276, 18, 12, 7)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width-42, 18, 12, 7)];
         imageView.tag = 20000+section;
         
         //判断是不是选中状态
@@ -249,12 +269,12 @@
     }else
     {
         if (section != 5) {
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(280, 18, 7, 12)];
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width-38, 18, 7, 12)];
             [imageView setImage:[UIImage imageNamed:@"right.png"]];
             [view addSubview:imageView];
         }
     }
-    CenterMainCellButton *button = [[CenterMainCellButton alloc] initWithFrame:CGRectMake(0, 0, 300, 40)];;
+    CenterMainCellButton *button = [[CenterMainCellButton alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width-20, 40)];;
     button.tag = 100+section;
     [button addTarget:self action:@selector(doButton:) forControlEvents:UIControlEventTouchUpInside];
     [button setBackgroundImage:[UIImage imageNamed:@"1dian.png"] forState:UIControlStateHighlighted];
@@ -269,7 +289,7 @@
         [button setUserInteractionEnabled:_btnInteraction];
         
         //显示内存还剩余多少兆
-        UILabel *cacheLabel = [[UILabel alloc] initWithFrame:CGRectMake(180, 10, 120, 20)];
+        UILabel *cacheLabel = [[UILabel alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width-150, 10, 120, 20)];
         [cacheLabel setTextColor:[UIColor whiteColor]];
         [cacheLabel setText:[NSString stringWithFormat:@"%.2fM缓存",_cacheSize]];
         [cacheLabel setTextAlignment:NSTextAlignmentLeft];

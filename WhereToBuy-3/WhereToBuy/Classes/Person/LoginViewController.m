@@ -125,8 +125,7 @@
             [[NSUserDefaults standardUserDefaults] synchronize];
             [DataCenter instance].user.token = dic[@"sessionval"];
             [self.delegate removeSelfFromSuperView];
-            NSLog(@"%@",NSHomeDirectory());
-                        
+            [self.navigationController popViewControllerAnimated:YES];
         }else
         {
             [Tools showAlertView:obj[@"message"]];

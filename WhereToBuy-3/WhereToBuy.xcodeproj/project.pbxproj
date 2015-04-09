@@ -38,6 +38,8 @@
 		59613E2E1AC1310D00CABA3B /* ShareSDKFlatShareViewUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59613E2B1AC1310D00CABA3B /* ShareSDKFlatShareViewUI.framework */; };
 		59613E2F1AC1310D00CABA3B /* ShareSDKShareActionSheet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59613E2C1AC1310D00CABA3B /* ShareSDKShareActionSheet.framework */; };
 		5974FD2B1AA9F52B00B2F306 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5974FD2A1AA9F52B00B2F306 /* Default-568h@2x.png */; };
+		5975C1BF1AD631A1009418B1 /* PersonBG@x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5975C1BE1AD631A1009418B1 /* PersonBG@x.jpg */; };
+		5975C1C11AD631C5009418B1 /* PersonBG@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5975C1C01AD631C5009418B1 /* PersonBG@2x.jpg */; };
 		597CC0321AB15C520026DA64 /* 我发表的主题.png in Resources */ = {isa = PBXBuildFile; fileRef = 597CC0311AB15C520026DA64 /* 我发表的主题.png */; };
 		597CC0391AB18F6D0026DA64 /* YcKeyBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 597CC0381AB18F6D0026DA64 /* YcKeyBoardView.m */; };
 		597D3B981AAE7E2D003F3871 /* gogogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 597D3B971AAE7E2D003F3871 /* gogogo.png */; };
@@ -413,6 +415,8 @@
 		59613E2B1AC1310D00CABA3B /* ShareSDKFlatShareViewUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKFlatShareViewUI.framework; sourceTree = "<group>"; };
 		59613E2C1AC1310D00CABA3B /* ShareSDKShareActionSheet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKShareActionSheet.framework; sourceTree = "<group>"; };
 		5974FD2A1AA9F52B00B2F306 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		5975C1BE1AD631A1009418B1 /* PersonBG@x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "PersonBG@x.jpg"; sourceTree = "<group>"; };
+		5975C1C01AD631C5009418B1 /* PersonBG@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "PersonBG@2x.jpg"; sourceTree = "<group>"; };
 		597CC0311AB15C520026DA64 /* 我发表的主题.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我发表的主题.png"; sourceTree = "<group>"; };
 		597CC0371AB18F6D0026DA64 /* YcKeyBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YcKeyBoardView.h; sourceTree = "<group>"; };
 		597CC0381AB18F6D0026DA64 /* YcKeyBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YcKeyBoardView.m; sourceTree = "<group>"; };
@@ -1160,6 +1164,8 @@
 		930AA87B1A69024000770125 /* Person */ = {
 			isa = PBXGroup;
 			children = (
+				5975C1BE1AD631A1009418B1 /* PersonBG@x.jpg */,
+				5975C1C01AD631C5009418B1 /* PersonBG@2x.jpg */,
 				595C01301AB2CF3400769FE4 /* say.png */,
 				93EE20D31AA00D4A007D1CD0 /* 1dian_green@2x.png */,
 				93EE20D41AA00D4A007D1CD0 /* 6_selected@2x.png */,
@@ -2009,6 +2015,7 @@
 				F889904A1AB017C600DC9513 /* PushConfig.plist in Resources */,
 				932F96E71A7F4582000C28B5 /* 2_2@2x.png in Resources */,
 				93009FF61A7B7A14005B3085 /* say@2x.png in Resources */,
+				5975C1BF1AD631A1009418B1 /* PersonBG@x.jpg in Resources */,
 				F86131321A6D294B0049FE21 /* KYICircleMenuCenterButtonBackground.png in Resources */,
 				59AE22441ACE8AA400D69E13 /* downQ@3x.png in Resources */,
 				59BF04421AD3D75A003E19A1 /* IsBuyTopesTableViewCell.xib in Resources */,
@@ -2026,6 +2033,7 @@
 				59AE224D1ACE8AA400D69E13 /* price@3x.png in Resources */,
 				59AE224C1ACE8AA400D69E13 /* paopao@3x.png in Resources */,
 				931C91651A638D1E0051496E /* navigationbar_button_background@2x.png in Resources */,
+				5975C1C11AD631C5009418B1 /* PersonBG@2x.jpg in Resources */,
 				93C0EB481A8B20FD008792A8 /* good@2x.png in Resources */,
 				59C5C2101AAED9570042382F /* Zdown.png in Resources */,
 				F8332AD71ABAB79100A0AEC8 /* price@2x.png in Resources */,
