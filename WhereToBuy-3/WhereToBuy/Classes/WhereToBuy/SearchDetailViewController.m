@@ -265,7 +265,7 @@ const NSInteger MaxCount6 = 5;
 {
     if ([[self.dataArray[indexPath.row] objectForKey:@"Cell"] isEqualToString:@"MainCell"])
     {
-        return 248;
+        return 248+60;
     }else{
         return 112;
     }

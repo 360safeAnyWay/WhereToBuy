@@ -124,6 +124,13 @@
                                    appSecret: @"e61745800e5887253e6af842ec575d3f"
                                    wechatCls: [WXApi class]];
     NSLog(@"--------%d",[self validateNumber:@"15239870768"]);
+    
+//        UIImage * image = [[UIImage alloc]init];
+//        image = [UIImage imageNamed:@"leftBack.png"];
+//        NSData *data = UIImageJPEGRepresentation(image, 0.7);
+   [[ServiceManage shareInstance]upDataImage:@"http://218.244.130.25/api.php/upload/faceimage" completion:^(NSMutableArray *array, NSString *error) {
+       
+   }];
     return YES;
 }
 - (BOOL)application:(UIApplication *)application

@@ -67,4 +67,9 @@ typedef enum {
  修改个人信息
  */
 -(void)didRevampUserInfo:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack;
+/**
+ *上传图片
+ */
+-(void)didUpdataImage:(NSDictionary *)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack;
+-(void)upDataImage:(NSString *)url  completion:(DATAARRAY)block;
 @end
