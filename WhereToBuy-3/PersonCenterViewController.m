@@ -99,9 +99,13 @@
         [scroll setContentSize:CGSizeMake(self.view.frame.size.width, [UIScreen mainScreen].bounds.size.height+100)];
 
     }
-    if (IPhone6||IPhone6P)
+    if (IPhone6)
     {
         [scroll setContentSize:CGSizeMake(self.view.frame.size.width, [UIScreen mainScreen].bounds.size.height+20)];
+    }
+    if (IPhone6P) {
+        [scroll setContentSize:CGSizeMake(self.view.frame.size.width, [UIScreen mainScreen].bounds.size.height)];
+
     }
     [scroll setBackgroundColor:[Tools colorWithRed:241 angGreen:241 andBlue:241]];
     [self.view addSubview:scroll];

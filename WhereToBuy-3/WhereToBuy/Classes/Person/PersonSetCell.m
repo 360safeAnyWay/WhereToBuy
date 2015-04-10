@@ -25,7 +25,6 @@
         [nameLabel setFont:[UIFont systemFontOfSize:14]];
         [self.contentView addSubview:nameLabel];
         _nameLabel = nameLabel;
-        
         //内容
         UITextField *detailLabel = [[UITextField alloc] initWithFrame:CGRectMake(nameLabel.frame.origin.x + nameLabel.frame.size.width + 10, nameLabel.frame.origin.y, 220, 30)];
         [self.contentView addSubview:detailLabel];
@@ -35,12 +34,12 @@
         [detailLabel setBackgroundColor:[UIColor clearColor]];
         _detailLabel = detailLabel;
         
-        UIImageView *icon = [[UIImageView alloc] initWithFrame:CGRectMake(detailLabel.frame.size.width - 34, 7, 16, 16)];
+        UIImageView *icon = [[UIImageView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width-46, 7, 16, 16)];
         [icon setUserInteractionEnabled:NO];
-        [detailLabel addSubview:icon];
+        [self addSubview:icon];
         _icon = icon;
 
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 39, self.frame.size.width, 1)];
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 39, [UIScreen mainScreen].bounds.size.width-20, 1)];
         [view setBackgroundColor:[UIColor lightGrayColor]];
         [self.contentView addSubview:view];
     }

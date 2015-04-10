@@ -19,6 +19,7 @@
     NSInteger _seconds;
     NSArray *_arr;
     BOOL _flag;//控制切换输入法键盘反复弹起
+    NSString * _introStr;
 }
 
 @property (weak, nonatomic) UITableView *table;
@@ -50,9 +51,22 @@
     }else{
         _userData.sex = @"女";
     }
-    _flag = YES;
-    _arr = @[@[@"昵称",@"用户名",@"性别",@"生日",@"账户密码",@"手势密码",@"个人简介"],@[self.userData.nickname,self.userData.username,_userData.sex,self.userData.birthday,@"",@"",@""]];
+    for ( _intros in _userData.intros)
+    {
+        if ([_intros.type isEqualToString:@"S"])
+        {
+           _introStr= _intros.intro;
+        }
+    }
+    NSLog(@"%@",_intros.intro);
 
+    _flag = YES;
+    _arr = @[@[@"昵称",@"用户名",@"性别",@"生日",@"账户密码",@"手势密码",@"个人简介"],@[self.userData.nickname,self.userData.username,_userData.sex,self.userData.birthday,@"",@"",_introStr]];
+
+//    UIImage * image = [[UIImage alloc]init];
+//    image = [UIImage imageNamed:@"leftBack.png"];
+//    NSData *data = UIImageJPEGRepresentation(image, 0.7);
+//    NSLog(@"%@",data);
     [self addUI];
 }
 -(void)textUp:(id)btn
@@ -91,7 +105,7 @@
     [scroll addSubview:phoneLabel];
     
     //手机号码输入框
-    UITextField *phoneTextField = [[UITextField alloc] initWithFrame:CGRectMake(phoneLabel.frame.origin.x + phoneLabel.frame.size.width + 10, phoneLabel.frame.origin.y, 140, 40)];
+    UITextField *phoneTextField = [[UITextField alloc] initWithFrame:CGRectMake(phoneLabel.frame.origin.x + phoneLabel.frame.size.width + 10, phoneLabel.frame.origin.y, [UIScreen mainScreen].bounds.size.width-185, 40)];
     [phoneTextField setText:self.userData.phone];
     phoneTextField.delegate = self;
     [scroll addSubview:phoneTextField];
@@ -127,7 +141,7 @@
         [view setBackgroundColor:[UIColor lightGrayColor]];
         [scroll addSubview:view];
     }
-    UITableView *table = [[UITableView alloc] initWithFrame:CGRectMake(10, tokenTextFiled.frame.origin.y + tokenTextFiled.frame.size.height - 40 + 1, 300, 280) style:UITableViewStylePlain];
+    UITableView *table = [[UITableView alloc] initWithFrame:CGRectMake(10, tokenTextFiled.frame.origin.y + tokenTextFiled.frame.size.height - 40 + 1, [UIScreen mainScreen].bounds.size.width-20, 280) style:UITableViewStylePlain];
     table.rowHeight = 40.0f;
     table.dataSource = self;
     table.delegate = self;
@@ -244,6 +258,12 @@
 
 - (void)showKeyBorard:(NSNotification *)noti{
     if (_flag) {
+        UIButton * bgView = [UIButton buttonWithType:UIButtonTypeCustom];
+        bgView.frame = self.view.frame;
+        bgView.backgroundColor = [UIColor clearColor];
+        [bgView addTarget:self action:@selector(bgBtn) forControlEvents:UIControlEventTouchUpInside];
+        bgView.tag = 1988;
+        [self.view addSubview:bgView];
         [UIView animateWithDuration:0.3 animations:^{
             [self.view setCenter:CGPointMake(self.view.center.x, self.view.center.y - 110)];
         }];
@@ -253,13 +273,17 @@
 
 - (void)hideKeyBorard:(NSNotification *)noti{
     if (!_flag) {
+        [[self.view viewWithTag:1988] removeFromSuperview];
         [UIView animateWithDuration:0.3 animations:^{
             [self.view setCenter:CGPointMake(self.view.center.x, self.view.center.y + 110)];
         }];
         _flag = YES;
     }
 }
-
+-(void)bgBtn
+{
+    [self.view endEditing:YES];
+}
 @end
 
 

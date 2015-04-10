@@ -7,7 +7,7 @@
 //
 
 #import "DockViewController.h"
-#define kDOCKHEIGHT 44
+#define kDOCKHEIGHT 49
 
 @interface DockViewController()<DockDelegate>
 
