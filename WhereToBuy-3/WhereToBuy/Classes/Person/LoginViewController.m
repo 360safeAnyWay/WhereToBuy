@@ -38,8 +38,10 @@
     [itemBtn3 addTarget:self action:@selector(goRegister) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *isBuyes = [[UIBarButtonItem alloc] initWithCustomView:itemBtn3];
     self.navigationItem.rightBarButtonItem = isBuyes;
+
     [self addUI];
 }
+
 -(void)goRegister
 {
     LoginesViewController *lvc = [[LoginesViewController alloc]init];

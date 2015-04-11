@@ -21,6 +21,10 @@
 #import "MyRemindRViewController.h"
 #import "USERUSERDataBase.h"
 #import "LoginViewController.h"
+#import "UIButton+WebCache.h"
+#import "UIImageView+LBBlurredImage.h"
+#import "UIImage+Screenshot.h"
+
 
 @interface PersonCenterViewController()
 {
@@ -39,6 +43,8 @@
     CGFloat _cacheSize;//缓存目录得大小
     USERUSERDataBase * _uudb;
     UILabel *_labelName;
+    UIButton *_personImage;
+    UIImage * _moImage;
 }
 
 @end
@@ -55,17 +61,18 @@
 //每次在页面加载得时候计算缓存的大小，如果缓存不为0，就显示可加载状态
 - (void)viewWillAppear:(BOOL)animated
 {
+    [self.Moimage removeFromSuperview];
     [[ServiceManage shareInstance]DidUserInfo:[NSString stringWithFormat:@"http://218.244.130.25/api.php/user/info?token=%@&client=IOS&uid=%@",TOKEN,[[NSUserDefaults standardUserDefaults] objectForKey:@"uid"]] completion:^(NSMutableArray *array, NSString *error) {
         
         _uudb =  array[0];
         if (_uudb.status == 10000001)
         {
             [_labelName setText:_uudb.data.username];
+            [_personImage sd_setBackgroundImageWithURL:[NSURL URLWithString:_uudb.data.photo] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"moren.png"]];
+
 
         }else{
-            LoginViewController * lvc = [[LoginViewController alloc]init];
-            [self.navigationController pushViewController:lvc animated:YES];
-            SHOWALERT(@"账号已过期");
+            [self createImage];
         }
         
         
@@ -85,7 +92,20 @@
     }
     
 }
-
+-(void)createImage
+{
+    _moImage = [UIImage screenshot];
+    self.Moimage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    self.Moimage.image = _moImage;
+    [self.Moimage setImageToBlur:self.Moimage.image
+                        blurRadius:kLBBlurredImageDefaultBlurRadius
+                   completionBlock:^(NSError *error){
+    UIAlertView * alv = [[UIAlertView alloc]initWithTitle:@"小白提醒" message:@"账号过期" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                       [alv show];
+                   }];
+    
+    [self.view addSubview:self.Moimage];
+}
 - (void) addUI
 {
     UIScrollView *scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
@@ -122,12 +142,11 @@
     [scroll addSubview:imageView];
     
     //头像
-    UIButton *personImage = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [personImage setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width/2-124/2, 24, 124, 124)];
-    [personImage setBackgroundImage:[UIImage imageNamed:@"moren.png"] forState:UIControlStateNormal];
-    personImage.clipsToBounds = YES;
-    [Tools setUIViewLine:personImage cornerRadius:62 with:0 color:[UIColor whiteColor]];
-    [imageView addSubview:personImage];
+    _personImage = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [_personImage setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width/2-124/2, 24, 124, 124)];
+    _personImage.clipsToBounds = YES;
+    [Tools setUIViewLine:_personImage cornerRadius:62 with:0 color:[UIColor whiteColor]];
+    [imageView addSubview:_personImage];
     
     //个人信息View
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(12, imageView.frame.origin.y + imageView.frame.size.height + 12, self.view.frame.size.width - 24, 58)];

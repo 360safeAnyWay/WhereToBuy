@@ -303,31 +303,13 @@
         callBack(status, obj);
     }];
 }
--(void)didUpdataImage:(NSDictionary *)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack
-{
-     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parmers];
-    [dic setObject:@"IOS" forKey:@"client"];
-//    if (TOKEN == nil)
-//    {
-//        return;
-//    }
-//    [dic setObject:TOKEN forKey:@"token"];
-    
-    [self requestMethod:@"PUT" serviceName:@"/api.php/upload/faceimage" parmers:dic completeBlock:^(id obj) {
-        ERROR_CODE status = ERROR_CODE_RequestFailed;
-        if (obj && obj[@"message"]) {
-            status = [obj[@"status"] intValue];
-        }
-        NSLog(@"%@",obj);
-        callBack(status, obj);
-    }];
-}
--(void)upDataImage:(NSString *)url  completion:(DATAARRAY)block
+
+-(void)upDataImage:(NSString *)url image:(UIImage *)image completion:(DATAARRAY)block
 {
      AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-     NSData *imageData = UIImageJPEGRepresentation([UIImage imageNamed:@"logoFX.png"], 1.0);
+     NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
     NSLog(@"%@",imageData);
-    [manager POST:url parameters:@{@"client":@"IOS",@"file":imageData} constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [manager POST:url parameters:@{@"client":@"IOS",@"file":imageData,@"token":TOKEN,@"uid":UID} constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
        [formData appendPartWithFileData :imageData name:@"file" fileName:@"userImage.png" mimeType:@"image/jpg/png"];
 
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {

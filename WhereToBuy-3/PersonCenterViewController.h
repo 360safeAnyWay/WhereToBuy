@@ -12,7 +12,7 @@
 @interface PersonCenterViewController : BaseViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (assign, nonatomic) id delegate;
-
+@property (nonatomic,strong)UIImageView * Moimage;
 @end
 
 

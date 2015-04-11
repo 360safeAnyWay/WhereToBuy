@@ -70,6 +70,6 @@ typedef enum {
 /**
  *上传图片
  */
--(void)didUpdataImage:(NSDictionary *)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack;
--(void)upDataImage:(NSString *)url  completion:(DATAARRAY)block;
+
+-(void)upDataImage:(NSString *)url image:(UIImage *)image completion:(DATAARRAY)block;
 @end

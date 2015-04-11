@@ -88,12 +88,12 @@
     UIButton *imageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [imageBtn setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width/2-125/2, 15, 125, 125)];
     [imageBtn setTitle:@"上传头像" forState:UIControlStateNormal];
+    [imageBtn setTintColor:[UIColor whiteColor]];
     [imageBtn setTitleEdgeInsets:UIEdgeInsetsMake(70, 0, 0, 0)];
     [imageBtn addTarget:self action:@selector(uploadImage) forControlEvents:UIControlEventTouchUpInside];
-    [imageBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     imageBtn.clipsToBounds = YES;
     [Tools setUIViewLine:imageBtn cornerRadius:125 / 2.0f with:1 color:[UIColor lightGrayColor]];
-    [imageBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:@"http://f.hiphotos.baidu.com/image/pic/item/a8773912b31bb0517547fc2f357adab44aede052.jpg"] forState:UIControlStateNormal];
+    [imageBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:_userData.photo] forState:UIControlStateNormal];
     [scroll addSubview:imageBtn];
     self.headImage = imageBtn;
     
@@ -171,7 +171,15 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
 {
     [self.headImage setImage:image forState:UIControlStateNormal];
+    UIImage * dataimage = image;
     [picker dismissViewControllerAnimated:YES completion:nil];
+    [[ServiceManage shareInstance]upDataImage:@"http://218.244.130.25/api.php/upload/faceimage" image:dataimage  completion:^(NSMutableArray *array, NSString *error) {
+        
+    }];
+    
+    
+
+    
 }
 
 - (void)getTokenNum

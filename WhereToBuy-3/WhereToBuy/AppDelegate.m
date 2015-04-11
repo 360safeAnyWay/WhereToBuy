@@ -128,9 +128,7 @@
 //        UIImage * image = [[UIImage alloc]init];
 //        image = [UIImage imageNamed:@"leftBack.png"];
 //        NSData *data = UIImageJPEGRepresentation(image, 0.7);
-   [[ServiceManage shareInstance]upDataImage:@"http://218.244.130.25/api.php/upload/faceimage" completion:^(NSMutableArray *array, NSString *error) {
-       
-   }];
+
     return YES;
 }
 - (BOOL)application:(UIApplication *)application

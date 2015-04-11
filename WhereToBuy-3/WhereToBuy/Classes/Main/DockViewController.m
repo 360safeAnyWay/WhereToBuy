@@ -28,6 +28,7 @@
     //1导入Dock
     Dock *dock = [[Dock alloc] init];
     dock.frame = CGRectMake(0, self.view.frame.size.height - kDOCKHEIGHT, self.view.frame.size.width, kDOCKHEIGHT);
+    dock.tag = 2000;
     dock.delegate = self;
     [self.view addSubview:dock];
     _dock = dock;

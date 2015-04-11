@@ -80,6 +80,8 @@
 		59AEE0931AC3E59F00E3AF95 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 59AEE0911AC3E59F00E3AF95 /* share.png */; };
 		59AEE0941AC3E59F00E3AF95 /* shoucang.png in Resources */ = {isa = PBXBuildFile; fileRef = 59AEE0921AC3E59F00E3AF95 /* shoucang.png */; };
 		59AEE0971AC3EAF400E3AF95 /* MFTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 59AEE0961AC3EAF400E3AF95 /* MFTextView.m */; };
+		59B306A01AD7C88A005F4EAB /* UIImageView+LBBlurredImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 59B3069F1AD7C88A005F4EAB /* UIImageView+LBBlurredImage.m */; };
+		59B306A31AD7CE8A005F4EAB /* UIImage+Screenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 59B306A21AD7CE8A005F4EAB /* UIImage+Screenshot.m */; };
 		59BF04411AD3D75A003E19A1 /* IsBuyTopesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59BF043F1AD3D75A003E19A1 /* IsBuyTopesTableViewCell.m */; };
 		59BF04421AD3D75A003E19A1 /* IsBuyTopesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59BF04401AD3D75A003E19A1 /* IsBuyTopesTableViewCell.xib */; };
 		59C34D631AC8F4E500507A9A /* LoginesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C34D611AC8F4E500507A9A /* LoginesViewController.m */; };
@@ -468,6 +470,10 @@
 		59AEE0921AC3E59F00E3AF95 /* shoucang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoucang.png; sourceTree = "<group>"; };
 		59AEE0951AC3EAF400E3AF95 /* MFTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFTextView.h; sourceTree = "<group>"; };
 		59AEE0961AC3EAF400E3AF95 /* MFTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFTextView.m; sourceTree = "<group>"; };
+		59B3069E1AD7C88A005F4EAB /* UIImageView+LBBlurredImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+LBBlurredImage.h"; sourceTree = "<group>"; };
+		59B3069F1AD7C88A005F4EAB /* UIImageView+LBBlurredImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+LBBlurredImage.m"; sourceTree = "<group>"; };
+		59B306A11AD7CE8A005F4EAB /* UIImage+Screenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Screenshot.h"; sourceTree = "<group>"; };
+		59B306A21AD7CE8A005F4EAB /* UIImage+Screenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Screenshot.m"; sourceTree = "<group>"; };
 		59BF043E1AD3D75A003E19A1 /* IsBuyTopesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IsBuyTopesTableViewCell.h; sourceTree = "<group>"; };
 		59BF043F1AD3D75A003E19A1 /* IsBuyTopesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IsBuyTopesTableViewCell.m; sourceTree = "<group>"; };
 		59BF04401AD3D75A003E19A1 /* IsBuyTopesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IsBuyTopesTableViewCell.xib; sourceTree = "<group>"; };
@@ -1153,6 +1159,10 @@
 		930A56CF1A9D9393005F86B3 /* NYSliderPopover */ = {
 			isa = PBXGroup;
 			children = (
+				59B306A11AD7CE8A005F4EAB /* UIImage+Screenshot.h */,
+				59B306A21AD7CE8A005F4EAB /* UIImage+Screenshot.m */,
+				59B3069E1AD7C88A005F4EAB /* UIImageView+LBBlurredImage.h */,
+				59B3069F1AD7C88A005F4EAB /* UIImageView+LBBlurredImage.m */,
 				930A56D01A9D9394005F86B3 /* NYPopover.h */,
 				930A56D11A9D9394005F86B3 /* NYPopover.m */,
 				930A56D21A9D9394005F86B3 /* NYSliderPopover.h */,
@@ -2139,6 +2149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59C34D6D1AC917A700507A9A /* UserNameViewController.m in Sources */,
+				59B306A31AD7CE8A005F4EAB /* UIImage+Screenshot.m in Sources */,
 				9329A6F71AA2EDED005B7D70 /* PinyinHelper.m in Sources */,
 				595C014B1AB4145700769FE4 /* LikeViewController.m in Sources */,
 				9383DC2A1A79D843001691BF /* PersonMainViewController.m in Sources */,
@@ -2249,6 +2260,7 @@
 				9337B92D1A58FE61003A0884 /* UIView+WebCacheOperation.m in Sources */,
 				599B9CBA1AC0014500740E51 /* MoreReplyViewController.m in Sources */,
 				9329A6FB1AA2EE50005B7D70 /* ChineseInclude.m in Sources */,
+				59B306A01AD7C88A005F4EAB /* UIImageView+LBBlurredImage.m in Sources */,
 				59C34D681AC9011A00507A9A /* PhoneLonginViewController.m in Sources */,
 				9383DC211A79D28A001691BF /* DockViewController.m in Sources */,
 				939394A91A89B8370039FFF3 /* NormalCircle.m in Sources */,
