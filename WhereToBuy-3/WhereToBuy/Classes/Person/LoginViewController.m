@@ -29,7 +29,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.parentViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[[DataCenter instance] getStringForKey:@"registerNow"] style:UIBarButtonItemStyleBordered target:self action:@selector(registerUser)];
-    UIButton *itemBtn5 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    UIButton *itemBtn5 = [[UIButton alloc] initWithFrame:CGRectMake(17, 5, 10.5, 18)];
+    [itemBtn5 setBackgroundImage:[UIImage imageNamed:@"leftBack.png"] forState:UIControlStateNormal];
+    [itemBtn5 addTarget:self action:@selector(backPhone) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *isBuy = [[UIBarButtonItem alloc] initWithCustomView:itemBtn5];
     self.navigationItem.leftBarButtonItem =isBuy;
     UIButton *itemBtn3 = [[UIButton alloc] initWithFrame:CGRectMake(22, 5, 40, 17)];
@@ -41,7 +43,10 @@
 
     [self addUI];
 }
-
+-(void)backPhone
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 -(void)goRegister
 {
     LoginesViewController *lvc = [[LoginesViewController alloc]init];

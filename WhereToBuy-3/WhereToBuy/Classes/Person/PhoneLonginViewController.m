@@ -38,7 +38,6 @@
     _itemBtn4 = [[UIButton alloc] initWithFrame:CGRectMake(17, 5, 10.5, 18)];
     [_itemBtn4 setBackgroundImage:[UIImage imageNamed:@"leftBack.png"] forState:UIControlStateNormal];
     [_itemBtn4 addTarget:self action:@selector(backPhone) forControlEvents:UIControlEventTouchUpInside];
-    _itemBtn4.hidden = YES;
     UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:_itemBtn4];
     self.navigationItem.leftBarButtonItem= back;
     _seconds = 60;

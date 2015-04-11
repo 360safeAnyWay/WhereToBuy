@@ -24,6 +24,8 @@
 #import "UIButton+WebCache.h"
 #import "UIImageView+LBBlurredImage.h"
 #import "UIImage+Screenshot.h"
+#import "AFNetworkReachabilityManager.h"
+#import "NotNetWorking.h"
 
 
 @interface PersonCenterViewController()
@@ -45,6 +47,9 @@
     UILabel *_labelName;
     UIButton *_personImage;
     UIImage * _moImage;
+    UIView * _moView;
+    BOOL     _isNetWorking;
+    NotNetWorking * _netView;
 }
 
 @end
@@ -55,6 +60,7 @@
 {
  
     [self addUI];
+    [self isNetWorking];
 
 }
 
@@ -62,22 +68,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.Moimage removeFromSuperview];
-    [[ServiceManage shareInstance]DidUserInfo:[NSString stringWithFormat:@"http://218.244.130.25/api.php/user/info?token=%@&client=IOS&uid=%@",TOKEN,[[NSUserDefaults standardUserDefaults] objectForKey:@"uid"]] completion:^(NSMutableArray *array, NSString *error) {
-        
-        _uudb =  array[0];
-        if (_uudb.status == 10000001)
-        {
-            [_labelName setText:_uudb.data.username];
-            [_personImage sd_setBackgroundImageWithURL:[NSURL URLWithString:_uudb.data.photo] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"moren.png"]];
-
-
-        }else{
-            [self createImage];
-        }
-        
-        
-        
-    }];
+    [self netWorking];
     NSString *path = [[Tools shareInstance] dirCache];
     CGFloat size = [[Tools shareInstance] folderSizeAtPath:path];
     if (size > 0) {
@@ -92,19 +83,55 @@
     }
     
 }
+-(void)netWorking
+{
+    [_moView removeFromSuperview];
+    [[ServiceManage shareInstance]DidUserInfo:[NSString stringWithFormat:@"http://218.244.130.25/api.php/user/info?token=%@&client=IOS&uid=%@",TOKEN,[[NSUserDefaults standardUserDefaults] objectForKey:@"uid"]] completion:^(NSMutableArray *array, NSString *error) {
+        
+        _uudb =  array[0];
+        if (_uudb.status == 10000001)
+        {
+            [_labelName setText:_uudb.data.username];
+            [_personImage sd_setBackgroundImageWithURL:[NSURL URLWithString:_uudb.data.photo] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"moren.png"]];
+        }else{
+            [self createImage];
+        }
+        
+        _isNetWorking = YES;
+        
+    }];
+}
 -(void)createImage
 {
+     [_moView removeFromSuperview];
+    [self.Moimage removeFromSuperview];
+    _moView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     _moImage = [UIImage screenshot];
     self.Moimage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     self.Moimage.image = _moImage;
     [self.Moimage setImageToBlur:self.Moimage.image
                         blurRadius:kLBBlurredImageDefaultBlurRadius
                    completionBlock:^(NSError *error){
-    UIAlertView * alv = [[UIAlertView alloc]initWithTitle:@"小白提醒" message:@"账号过期" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-                       [alv show];
+
                    }];
-    
-    [self.view addSubview:self.Moimage];
+    UIButton * btn = [[UIButton alloc]initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width/2, [UIScreen mainScreen].bounds.size.height/2-100/2,0, 100)];
+    btn.backgroundColor = kMainColor;
+    [btn setTintColor:[UIColor whiteColor]];
+    [btn addTarget:self action:@selector(loginBtn) forControlEvents:UIControlEventTouchUpInside];
+    [_moView addSubview:self.Moimage];
+    [_moView addSubview:btn];
+   [UIView animateWithDuration:0.5f animations:^{
+       btn.frame =CGRectMake(0, [UIScreen mainScreen].bounds.size.height/2-100/2, [UIScreen mainScreen].bounds.size.width, 100);
+   } completion:^(BOOL finished) {
+       [btn setTitle:@"前往登陆" forState:0];
+       SHOWALERT(@"登陆状态过期!");
+   }];
+    [self.view addSubview:_moView];
+}
+-(void)loginBtn
+{
+    LoginViewController * login = [[LoginViewController alloc]init];
+    [self.navigationController pushViewController:login animated:YES];
 }
 - (void) addUI
 {
@@ -511,5 +538,53 @@
     [self.navigationController pushViewController:topic animated:YES];
 }
 
+-(void)isNetWorking
+{
+    // 1.获得网络监控的管理者
+    AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];
+    
+    // 2.设置网络状态改变后的处理
+    [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        // 当网络状态改变了, 就会调用这个block
+        switch (status) {
+            case AFNetworkReachabilityStatusUnknown: // 未知网络
+                NSLog(@"未知网络");
+                break;
+                
+            case AFNetworkReachabilityStatusNotReachable: // 没有网络(断网)
+                NSLog(@"没有网络(断网)");
+                [_netView removeFromSuperview];
+                _netView = [[NotNetWorking alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+                [self.view addSubview:_netView];
+                break;
+                
+            case AFNetworkReachabilityStatusReachableViaWWAN: // 手机自带网络
+                NSLog(@"手机自带网络");
+                [_netView removeFromSuperview];
+                _isNetWorking = NO;
+                if (_isNetWorking == NO)
+                {
+                    return;
+                }
+                [self netWorking];
+
+                break;
+                
+            case AFNetworkReachabilityStatusReachableViaWiFi: // WIFI
+                NSLog(@"WIFI");
+                [_netView removeFromSuperview];
+                _isNetWorking = NO;
+                if (_isNetWorking == NO)
+                {
+                    return;
+                }
+                [self netWorking];
+                break;
+        }
+    }];
+    
+    // 3.开始监控
+    [mgr startMonitoring];
+}
 
 @end

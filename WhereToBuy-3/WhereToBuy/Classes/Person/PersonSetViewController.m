@@ -63,10 +63,6 @@
     _flag = YES;
     _arr = @[@[@"昵称",@"用户名",@"性别",@"生日",@"账户密码",@"手势密码",@"个人简介"],@[self.userData.nickname,self.userData.username,_userData.sex,self.userData.birthday,@"",@"",_introStr]];
 
-//    UIImage * image = [[UIImage alloc]init];
-//    image = [UIImage imageNamed:@"leftBack.png"];
-//    NSData *data = UIImageJPEGRepresentation(image, 0.7);
-//    NSLog(@"%@",data);
     [self addUI];
 }
 -(void)textUp:(id)btn

@@ -282,7 +282,8 @@
         NSString * errerStr = [responseObject objectForKey:@"status"];
         block(dataArray,errerStr);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
+        NSLog(@"->>>>>>>>>>>>>%@",error);
+        block(nil,(NSString *)error);
     }];
 }
 -(void)didRevampUserInfo:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack
