@@ -21,6 +21,7 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
     self.modalPresentationCapturesStatusBarAppearance = NO;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.extendedLayoutIncludesOpaqueBars = NO;

@@ -58,7 +58,7 @@
 
 - (void) viewDidLoad
 {
- 
+    [super viewDidLoad];
     [self addUI];
     [self isNetWorking];
 
@@ -67,6 +67,7 @@
 //每次在页面加载得时候计算缓存的大小，如果缓存不为0，就显示可加载状态
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     [self.Moimage removeFromSuperview];
     [self netWorking];
     NSString *path = [[Tools shareInstance] dirCache];
@@ -96,7 +97,6 @@
         }else{
             [self createImage];
         }
-        
         _isNetWorking = YES;
         
     }];
@@ -123,8 +123,7 @@
    [UIView animateWithDuration:0.5f animations:^{
        btn.frame =CGRectMake(0, [UIScreen mainScreen].bounds.size.height/2-100/2, [UIScreen mainScreen].bounds.size.width, 100);
    } completion:^(BOOL finished) {
-       [btn setTitle:@"前往登陆" forState:0];
-       SHOWALERT(@"登陆状态过期!");
+       [btn setTitle:@"登陆状态已过期!前往登陆!" forState:0];
    }];
     [self.view addSubview:_moView];
 }
@@ -382,11 +381,13 @@
             if (indexPath.row == 0) {
                 [cell.image setImage:[UIImage imageNamed:@"title.png"]];
                 [cell.titleLabel setText:@"我发表的话题"];
+                [cell.titleLabel setTextColor:[Tools colorWithRed:51 angGreen:51 andBlue:51]];
                 [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
             }else if(indexPath.row == 1)
             {
                 [cell.image setImage:[UIImage imageNamed:@"reply.png"]];
                 [cell.titleLabel setText:@"我发表的回复"];
+                [cell.titleLabel setTextColor:[Tools colorWithRed:51 angGreen:51 andBlue:51]];
                 [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
             }
         }
@@ -398,63 +399,71 @@
 
 -(void)doButton:(UIButton *)sender
 {
+    if (_isNetWorking == NO)
+    {
+        SHOWALERT(@"网络速度不给力,请稍后再爬!")
+        return;
+    }
     NSString *string = [NSString stringWithFormat:@"%ld",(long)sender.tag-100];
+        
+        //数组selectedArr里面存的数据和表头想对应，方便以后做比较
+        if ([selectedArr containsObject:string])
+        {
+            [selectedArr removeObject:string];
+        }
+        else
+        {
+            [selectedArr addObject:string];
+        };
+        [_tableView reloadData];
+        switch (sender.tag - 100) {
+            case 0:
+                
+                break;
+            case 1:{
+                MyRemindRViewController *personTips = [[MyRemindRViewController alloc] init];
+                [self.navigationController pushViewController:personTips animated:YES];
+                break;
+            }
+            case 2:{
+                PersonBuildingEvaluteViewController *personJudge = [[PersonBuildingEvaluteViewController alloc] init];
+                [self.navigationController pushViewController:personJudge animated:YES];
+            }
+                break;
+            case 3:{
+                PersonCollectViewController *personCollect = [[PersonCollectViewController alloc] init];
+                [self.navigationController pushViewController:personCollect animated:YES];
+            }
+                break;
+            case 4:{
+                PersonSetViewController *personSet = [[PersonSetViewController alloc] init];
+                personSet.userData = _uudb.data;
+                [self.navigationController pushViewController:personSet animated:YES];
+            }
+                break;
+            case 5:{
+                //            [sender setBackgroundImage:[UIImage imageNamed:@"1dian.png"] forState:UIControlStateNormal];
+                //            titleDataArray[5] = @"缓存已清空,好爽";
+                //            _cacheStatePic = @"1dian.png";
+                //            [_tableView reloadData];
+                //            NSLog(@"yichuasdfasdf");
+                DXAlertView *alert = [[DXAlertView alloc] initWithTitle:@"提示" contentText:@"是否确定需要清理缓存？" leftButtonTitle:@"取消" rightButtonTitle:@"确定"];
+                [alert show];
+                alert.leftBlock = ^() {
+                };
+                alert.rightBlock = ^() {
+                    [self showWithLabelMixed];
+                };
+                alert.dismissBlock = ^() {
+                };
+            }
+                break;
+            default:
+                break;
+        }
+
+      
     
-    //数组selectedArr里面存的数据和表头想对应，方便以后做比较
-    if ([selectedArr containsObject:string])
-    {
-        [selectedArr removeObject:string];
-    }
-    else
-    {
-        [selectedArr addObject:string];
-    };
-    [_tableView reloadData];
-    switch (sender.tag - 100) {
-        case 0:
-            
-            break;
-        case 1:{
-            MyRemindRViewController *personTips = [[MyRemindRViewController alloc] init];
-            [self.navigationController pushViewController:personTips animated:YES];
-            break;
-        }
-        case 2:{
-            PersonBuildingEvaluteViewController *personJudge = [[PersonBuildingEvaluteViewController alloc] init];
-            [self.navigationController pushViewController:personJudge animated:YES];
-        }
-            break;
-        case 3:{
-            PersonCollectViewController *personCollect = [[PersonCollectViewController alloc] init];
-            [self.navigationController pushViewController:personCollect animated:YES];
-        }
-            break;
-        case 4:{
-            PersonSetViewController *personSet = [[PersonSetViewController alloc] init];
-            personSet.userData = _uudb.data;
-            [self.navigationController pushViewController:personSet animated:YES];
-        }
-            break;
-        case 5:{
-            //            [sender setBackgroundImage:[UIImage imageNamed:@"1dian.png"] forState:UIControlStateNormal];
-            //            titleDataArray[5] = @"缓存已清空,好爽";
-            //            _cacheStatePic = @"1dian.png";
-            //            [_tableView reloadData];
-            //            NSLog(@"yichuasdfasdf");
-            DXAlertView *alert = [[DXAlertView alloc] initWithTitle:@"提示" contentText:@"是否确定需要清理缓存？" leftButtonTitle:@"取消" rightButtonTitle:@"确定"];
-            [alert show];
-            alert.leftBlock = ^() {
-            };
-            alert.rightBlock = ^() {
-                [self showWithLabelMixed];
-            };
-            alert.dismissBlock = ^() {
-            };
-        }
-            break;
-        default:
-            break;
-    }
 }
 
 //清理缓存
@@ -526,6 +535,7 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+  
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     PersonTopicViewController *topic = [[PersonTopicViewController alloc] init];
     self.delegate = topic;
@@ -561,11 +571,6 @@
             case AFNetworkReachabilityStatusReachableViaWWAN: // 手机自带网络
                 NSLog(@"手机自带网络");
                 [_netView removeFromSuperview];
-                _isNetWorking = NO;
-                if (_isNetWorking == NO)
-                {
-                    return;
-                }
                 [self netWorking];
 
                 break;
@@ -573,11 +578,7 @@
             case AFNetworkReachabilityStatusReachableViaWiFi: // WIFI
                 NSLog(@"WIFI");
                 [_netView removeFromSuperview];
-                _isNetWorking = NO;
-                if (_isNetWorking == NO)
-                {
-                    return;
-                }
+             
                 [self netWorking];
                 break;
         }

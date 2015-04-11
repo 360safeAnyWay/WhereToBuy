@@ -120,7 +120,6 @@
         return;
     }
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    NSLog(@"%@-----%@",phoneNum,secretStr);
     [[ServiceManage shareInstance] DidLogin:@{@"username":phoneNum,@"password":secretStr} completion:^(ERROR_CODE code, id obj) {
         if (code == ERROR_CODE_NONE) {
             NSDictionary *dic = obj[@"data"];
@@ -135,6 +134,12 @@
             [self.navigationController popViewControllerAnimated:YES];
         }else
         {
+            if (obj[@"message"] == nil)
+            {
+                SHOWALERT(@"网络请求失败,请查看网络状态!")
+                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                return ;
+            }
             [Tools showAlertView:obj[@"message"]];
         }
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];

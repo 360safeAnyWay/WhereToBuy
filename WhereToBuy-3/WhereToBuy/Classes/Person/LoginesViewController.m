@@ -16,6 +16,7 @@
 @implementation LoginesViewController
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     self.phoneText.text = @"";
 
 }

@@ -27,6 +27,7 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
     NavBackButton *backBtn = [[NavBackButton alloc] initWithFrame:CGRectMake(0, 0, 105, 26)];
     [backBtn setImage:[UIImage imageNamed:@"leftBack.png"] forState:UIControlStateNormal];
     [backBtn setTitle:@"发表主题" forState:UIControlStateNormal];
