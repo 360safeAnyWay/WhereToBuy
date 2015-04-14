@@ -124,6 +124,14 @@
                                    appSecret: @"e61745800e5887253e6af842ec575d3f"
                                    wechatCls: [WXApi class]];
     NSLog(@"--------%d",[self validateNumber:@"15239870768"]);
+<<<<<<< HEAD
+=======
+    
+//        UIImage * image = [[UIImage alloc]init];
+//        image = [UIImage imageNamed:@"leftBack.png"];
+//        NSData *data = UIImageJPEGRepresentation(image, 0.7);
+
+>>>>>>> parent of e1f60e4... d大是大非上的
     return YES;
 }
 - (BOOL)application:(UIApplication *)application

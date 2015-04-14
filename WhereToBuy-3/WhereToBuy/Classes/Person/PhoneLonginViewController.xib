@@ -3,6 +3,10 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+<<<<<<< HEAD
+=======
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+>>>>>>> parent of e1f60e4... d大是大非上的
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhoneLonginViewController">
@@ -17,20 +21,38 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+<<<<<<< HEAD
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="已发送验证码至你的手机" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bhn-xL-ZmD">
                     <rect key="frame" x="18" y="97" width="294" height="21"/>
+=======
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已发送验证码至你的手机" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bhn-xL-ZmD">
+                    <rect key="frame" x="18" y="97" width="294" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="Imq-jd-JUh"/>
+                    </constraints>
+>>>>>>> parent of e1f60e4... d大是大非上的
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+<<<<<<< HEAD
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wJe-tM-ApR">
                     <rect key="frame" x="18" y="165" width="285" height="40"/>
                     <color key="backgroundColor" red="0.26274509800000001" green="0.82352941180000006" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
+=======
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wJe-tM-ApR">
+                    <rect key="frame" x="18" y="165" width="285" height="40"/>
+                    <color key="backgroundColor" red="0.26274509800000001" green="0.82352941180000006" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="tNp-cd-OKP"/>
+                    </constraints>
+>>>>>>> parent of e1f60e4... d大是大非上的
                     <state key="normal" title="下一步">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
+<<<<<<< HEAD
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入验证码   (请确认手机号)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e0i-xC-KQk">
                     <rect key="frame" x="18" y="127" width="187" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -38,11 +60,43 @@
                 </textField>
                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Itg-zZ-RM9">
                     <rect key="frame" x="18" y="155" width="285" height="2"/>
+=======
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入验证码   (请确认手机号)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e0i-xC-KQk">
+                    <rect key="frame" x="18" y="127" width="187" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="K6F-2f-pco"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Itg-zZ-RM9">
+                    <rect key="frame" x="18" y="155" width="285" height="2"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="ccx-df-8CO"/>
+                    </constraints>
+>>>>>>> parent of e1f60e4... d大是大非上的
                     <color key="progressTintColor" red="0.84009884560000003" green="0.84009884560000003" blue="0.84009884560000003" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="trackTintColor" red="0.86207268650000002" green="0.86207268650000002" blue="0.86207268650000002" alpha="1" colorSpace="calibratedRGB"/>
                 </progressView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+<<<<<<< HEAD
+=======
+            <constraints>
+                <constraint firstItem="e0i-xC-KQk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="18" id="G6O-ZZ-BmS"/>
+                <constraint firstItem="Itg-zZ-RM9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="18" id="NOb-6c-BTL"/>
+                <constraint firstAttribute="trailing" secondItem="Itg-zZ-RM9" secondAttribute="trailing" constant="17" id="NoC-HV-heP"/>
+                <constraint firstItem="wJe-tM-ApR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="18" id="SG9-Cp-itQ"/>
+                <constraint firstItem="wJe-tM-ApR" firstAttribute="top" secondItem="e0i-xC-KQk" secondAttribute="bottom" constant="8" symbolic="YES" id="SZW-5T-BtI"/>
+                <constraint firstAttribute="trailing" secondItem="wJe-tM-ApR" secondAttribute="trailing" constant="17" id="ZKo-aR-tij"/>
+                <constraint firstItem="wJe-tM-ApR" firstAttribute="top" secondItem="Itg-zZ-RM9" secondAttribute="bottom" constant="8" id="ZyG-Pe-vXN"/>
+                <constraint firstItem="Bhn-xL-ZmD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="18" id="gAw-vY-kOt"/>
+                <constraint firstAttribute="trailing" secondItem="e0i-xC-KQk" secondAttribute="trailing" constant="115" id="oRi-ho-HML"/>
+                <constraint firstItem="e0i-xC-KQk" firstAttribute="top" secondItem="Bhn-xL-ZmD" secondAttribute="bottom" constant="9" id="saw-Lg-Tlk"/>
+                <constraint firstItem="Bhn-xL-ZmD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="97" id="wKc-RS-YEQ"/>
+                <constraint firstItem="Bhn-xL-ZmD" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="y14-lM-Gdh"/>
+            </constraints>
+>>>>>>> parent of e1f60e4... d大是大非上的
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>

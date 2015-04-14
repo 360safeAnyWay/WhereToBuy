@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< HEAD
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment version="2048" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+=======
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment version="2048" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+>>>>>>> parent of e1f60e4... d大是大非上的
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -26,6 +35,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="k0M-2h-TdN">
+<<<<<<< HEAD
                         <color key="backgroundColor" red="1" green="0.09413745623" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -33,6 +43,18 @@
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="say.png" translatesAutoresizingMaskIntoConstraints="NO" id="jg6-43-x4E">
                         <rect key="frame" x="265" y="10" width="15" height="15"/>
+=======
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="say.png" translatesAutoresizingMaskIntoConstraints="NO" id="jg6-43-x4E">
+                        <rect key="frame" x="265" y="10" width="15" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="15" id="YCB-UK-q6B"/>
+                            <constraint firstAttribute="height" constant="15" id="hG4-dU-Ekl"/>
+                        </constraints>
+>>>>>>> parent of e1f60e4... d大是大非上的
                     </imageView>
                     <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KuQ-mT-NcG">
                         <rect key="frame" x="15" y="8" width="50" height="50"/>
@@ -57,6 +79,7 @@
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fyq-Xv-ycw">
                         <rect key="frame" x="87" y="55" width="225" height="30"/>
                         <subviews>
+<<<<<<< HEAD
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="主题:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9o-5w-mL5">
                                 <rect key="frame" x="4" y="4" width="39" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -65,6 +88,22 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="今天无聊发个帖子慌慌,水水水水水水水水" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8v-vn-hsK">
                                 <rect key="frame" x="40" y="4" width="185" height="21"/>
+=======
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="主题:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9o-5w-mL5">
+                                <rect key="frame" x="4" y="4" width="39" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="39" id="5m5-hY-IYA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今天无聊发个帖子慌慌,水水水水水水水水" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8v-vn-hsK">
+                                <rect key="frame" x="40" y="4" width="185" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="rWS-PZ-UIi"/>
+                                </constraints>
+>>>>>>> parent of e1f60e4... d大是大非上的
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -72,8 +111,25 @@
                         </subviews>
                         <color key="backgroundColor" red="0.93454333560000002" green="0.93454333560000002" blue="0.93454333560000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+<<<<<<< HEAD
                             <constraint firstAttribute="height" constant="30" id="ee3-ZJ-kCi"/>
                         </constraints>
+=======
+                            <constraint firstItem="X8v-vn-hsK" firstAttribute="baseline" secondItem="G9o-5w-mL5" secondAttribute="baseline" id="2S4-QA-sDL"/>
+                            <constraint firstItem="G9o-5w-mL5" firstAttribute="leading" secondItem="fyq-Xv-ycw" secondAttribute="leading" constant="4" id="D59-bq-cke"/>
+                            <constraint firstItem="X8v-vn-hsK" firstAttribute="leading" secondItem="fyq-Xv-ycw" secondAttribute="leading" constant="40" id="E7b-5e-IDs"/>
+                            <constraint firstItem="X8v-vn-hsK" firstAttribute="top" secondItem="G9o-5w-mL5" secondAttribute="top" id="N5g-WC-oA3"/>
+                            <constraint firstItem="X8v-vn-hsK" firstAttribute="top" secondItem="fyq-Xv-ycw" secondAttribute="top" constant="4" id="T6L-GO-Ssf"/>
+                            <constraint firstAttribute="height" constant="30" id="ee3-ZJ-kCi"/>
+                            <constraint firstAttribute="height" constant="30" id="fsn-jC-PBj"/>
+                            <constraint firstAttribute="trailing" secondItem="X8v-vn-hsK" secondAttribute="trailing" id="xG9-aJ-Kj9"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ee3-ZJ-kCi"/>
+                            </mask>
+                        </variation>
+>>>>>>> parent of e1f60e4... d大是大非上的
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cS4-ZL-fHF">
                         <rect key="frame" x="265" y="3" width="47" height="30"/>
@@ -89,8 +145,16 @@
                             <action selector="review:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="adb-2A-kif"/>
                         </connections>
                     </button>
+<<<<<<< HEAD
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="回复: 你" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fx7-rC-gK0">
                         <rect key="frame" x="87" y="8" width="58" height="20"/>
+=======
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="回复: 你" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fx7-rC-gK0">
+                        <rect key="frame" x="87" y="8" width="58" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="58" id="Zmp-3N-Fho"/>
+                        </constraints>
+>>>>>>> parent of e1f60e4... d大是大非上的
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.2627450980392157" green="0.82352941176470584" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -98,24 +162,58 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="k0M-2h-TdN" firstAttribute="leading" secondItem="KuQ-mT-NcG" secondAttribute="trailing" constant="24" id="1X7-JI-OeB"/>
+<<<<<<< HEAD
+=======
+                    <constraint firstItem="Fx7-rC-gK0" firstAttribute="baseline" secondItem="cS4-ZL-fHF" secondAttribute="firstBaseline" id="27g-eQ-VD5"/>
+                    <constraint firstItem="jg6-43-x4E" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="2Jg-po-A4R"/>
+                    <constraint firstItem="fyq-Xv-ycw" firstAttribute="trailing" secondItem="cS4-ZL-fHF" secondAttribute="trailing" id="3Dc-GV-1UC"/>
+>>>>>>> parent of e1f60e4... d大是大非上的
                     <constraint firstItem="cS4-ZL-fHF" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="6QR-2Y-LVT"/>
                     <constraint firstItem="KuQ-mT-NcG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="7" id="6oA-Hw-exN"/>
                     <constraint firstItem="iTo-cz-p1d" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="6s7-de-frp"/>
                     <constraint firstItem="fyq-Xv-ycw" firstAttribute="leading" secondItem="CKb-Bd-orv" secondAttribute="trailing" constant="5" id="7iv-5S-l3a"/>
                     <constraint firstAttribute="bottomMargin" secondItem="iTo-cz-p1d" secondAttribute="bottom" constant="-8" id="8pM-al-31K"/>
+<<<<<<< HEAD
+=======
+                    <constraint firstAttribute="trailing" secondItem="jg6-43-x4E" secondAttribute="trailing" constant="40" id="Dba-Rc-DNh"/>
+>>>>>>> parent of e1f60e4... d大是大非上的
                     <constraint firstItem="cS4-ZL-fHF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-5" id="J7l-lP-HOa"/>
                     <constraint firstAttribute="trailingMargin" secondItem="k0M-2h-TdN" secondAttribute="trailing" constant="-8" id="KQu-Gc-Vzy"/>
                     <constraint firstItem="k0M-2h-TdN" firstAttribute="top" secondItem="cS4-ZL-fHF" secondAttribute="bottom" constant="-2" id="Kbp-fe-VX7"/>
                     <constraint firstItem="iTo-cz-p1d" firstAttribute="top" secondItem="fyq-Xv-ycw" secondAttribute="bottom" constant="5" id="NP7-2h-mGQ"/>
+<<<<<<< HEAD
                     <constraint firstItem="CKb-Bd-orv" firstAttribute="top" secondItem="KuQ-mT-NcG" secondAttribute="bottom" id="Rhh-e4-IMQ"/>
                     <constraint firstItem="k0M-2h-TdN" firstAttribute="leading" secondItem="KuQ-mT-NcG" secondAttribute="trailing" constant="24" id="ZIG-4E-oLD"/>
+=======
+                    <constraint firstItem="fyq-Xv-ycw" firstAttribute="leading" secondItem="CKb-Bd-orv" secondAttribute="trailing" constant="5" id="Q70-Rp-BXF"/>
+                    <constraint firstItem="CKb-Bd-orv" firstAttribute="top" secondItem="KuQ-mT-NcG" secondAttribute="bottom" id="Rhh-e4-IMQ"/>
+                    <constraint firstItem="Fx7-rC-gK0" firstAttribute="baseline" secondItem="cS4-ZL-fHF" secondAttribute="baseline" id="SHt-tC-LPv"/>
+                    <constraint firstItem="iTo-cz-p1d" firstAttribute="top" secondItem="fyq-Xv-ycw" secondAttribute="bottom" constant="5" id="YK9-2K-Txn"/>
+                    <constraint firstItem="k0M-2h-TdN" firstAttribute="leading" secondItem="KuQ-mT-NcG" secondAttribute="trailing" constant="24" id="ZIG-4E-oLD"/>
+                    <constraint firstItem="Fx7-rC-gK0" firstAttribute="top" secondItem="KuQ-mT-NcG" secondAttribute="top" id="Znd-Dn-nf3"/>
+>>>>>>> parent of e1f60e4... d大是大非上的
                     <constraint firstAttribute="trailingMargin" secondItem="iTo-cz-p1d" secondAttribute="trailing" constant="-8" id="eaX-K2-v63"/>
                     <constraint firstItem="CKb-Bd-orv" firstAttribute="top" secondItem="KuQ-mT-NcG" secondAttribute="bottom" id="eu9-1P-pHk"/>
                     <constraint firstItem="fyq-Xv-ycw" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="evB-4x-A9v"/>
                     <constraint firstAttribute="trailingMargin" secondItem="CKb-Bd-orv" secondAttribute="trailing" constant="230" id="f32-At-qnu"/>
+<<<<<<< HEAD
                     <constraint firstItem="CKb-Bd-orv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="kBr-4A-1D7"/>
                     <constraint firstItem="KuQ-mT-NcG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="oM7-8B-rYF"/>
                 </constraints>
+=======
+                    <constraint firstItem="fyq-Xv-ycw" firstAttribute="leading" secondItem="Fx7-rC-gK0" secondAttribute="leading" id="jcR-4W-RNq"/>
+                    <constraint firstItem="CKb-Bd-orv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="kBr-4A-1D7"/>
+                    <constraint firstItem="KuQ-mT-NcG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="oM7-8B-rYF"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="f32-At-qnu"/>
+                        <exclude reference="NP7-2h-mGQ"/>
+                        <exclude reference="7iv-5S-l3a"/>
+                        <exclude reference="evB-4x-A9v"/>
+                    </mask>
+                </variation>
+>>>>>>> parent of e1f60e4... d大是大非上的
             </tableViewCellContentView>
             <connections>
                 <outlet property="Review" destination="cS4-ZL-fHF" id="v6n-9A-SL7"/>

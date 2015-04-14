@@ -38,13 +38,20 @@
     _itemBtn4 = [[UIButton alloc] initWithFrame:CGRectMake(17, 5, 10.5, 18)];
     [_itemBtn4 setBackgroundImage:[UIImage imageNamed:@"leftBack.png"] forState:UIControlStateNormal];
     [_itemBtn4 addTarget:self action:@selector(backPhone) forControlEvents:UIControlEventTouchUpInside];
+<<<<<<< HEAD
     _itemBtn4.hidden = YES;
+=======
+>>>>>>> parent of e1f60e4... d大是大非上的
     UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:_itemBtn4];
     self.navigationItem.leftBarButtonItem= back;
     _seconds = 60;
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setFrame:CGRectMake(210,125, 91, 28)];
     [btn setTitle:[[DataCenter instance] getStringForKey:@"getTokenNum"] forState:UIControlStateNormal];
+<<<<<<< HEAD
+=======
+    [btn setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin];
+>>>>>>> parent of e1f60e4... d大是大非上的
     btn.titleLabel.font = [UIFont systemFontOfSize:14.0f];
     [btn setBackgroundImage:@"yanzhengma.png"];
     btn.tag = 4;
@@ -59,6 +66,7 @@
 #warning 网络请求----------
         _seconds = 60;
         [self updateSecondes];
+<<<<<<< HEAD
       //  [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 //        [[ServiceManage shareInstance] DidRequestToken:@{@"tel":((UITextField *)[self.view viewWithTag:1]).text} completion:^(ERROR_CODE code, id obj) {
 //            if (code == ERROR_CODE_NONE) {
@@ -71,6 +79,20 @@
 //            }
 //            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
        // }];
+=======
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [[ServiceManage shareInstance] DidRequestToken:@{@"tel":((UITextField *)[self.view viewWithTag:1]).text} completion:^(ERROR_CODE code, id obj) {
+            if (code == ERROR_CODE_NONE) {
+                NSLog(@"验证码－－－－－%@",obj[@"message"]);
+                _token = [obj[@"message"] intValue];
+                [Tools showAlertView:[[DataCenter instance] getStringForKey:@"successGetToken"]];
+            }else
+            {
+                [Tools showAlertView:obj[@"message"]];
+            }
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        }];
+>>>>>>> parent of e1f60e4... d大是大非上的
 
     }else{
         [self.navigationController popViewControllerAnimated:YES];

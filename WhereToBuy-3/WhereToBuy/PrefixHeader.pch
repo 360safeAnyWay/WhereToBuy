@@ -18,7 +18,16 @@
 #import "WXApi.h"
 #import "MFTextView.h"
 #import "ServiceManage.h"
+<<<<<<< HEAD
 
+=======
+#define IPhone4 ([UIScreen mainScreen].bounds.size.height == 480)
+#define IPhone5 ([UIScreen mainScreen].bounds.size.height == 568)
+#define IPhone6 ([UIScreen mainScreen].bounds.size.height == 667)
+#define IPhone6P ([UIScreen mainScreen].bounds.size.height == 736)
+#define TOKEN [[NSUserDefaults standardUserDefaults]objectForKey:@"token"]
+#define UID [[NSUserDefaults standardUserDefaults]objectForKey:@"uid"]
+>>>>>>> parent of e1f60e4... d大是大非上的
 #define Base_Url @"http://218.244.130.25"
 
 #import "ServiceManage.h"

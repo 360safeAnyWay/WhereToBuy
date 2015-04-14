@@ -21,6 +21,10 @@
 
 - (void)viewDidLoad
 {
+<<<<<<< HEAD
+=======
+    [super viewDidLoad];
+>>>>>>> parent of e1f60e4... d大是大非上的
     self.modalPresentationCapturesStatusBarAppearance = NO;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.extendedLayoutIncludesOpaqueBars = NO;

@@ -60,8 +60,11 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
+<<<<<<< HEAD
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+=======
+>>>>>>> parent of e1f60e4... d大是大非上的
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>

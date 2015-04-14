@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+<<<<<<< HEAD
       "orientation" : "portrait",
       "idiom" : "iphone",
       "extent" : "full-screen",
@@ -14,6 +15,23 @@
       "extent" : "full-screen",
       "minimum-system-version" : "8.0",
       "subtype" : "667h",
+=======
+      "extent" : "full-screen",
+      "idiom" : "iphone",
+      "subtype" : "736h",
+      "filename" : "initAnimate@3x.png",
+      "minimum-system-version" : "8.0",
+      "orientation" : "portrait",
+      "scale" : "3x"
+    },
+    {
+      "extent" : "full-screen",
+      "idiom" : "iphone",
+      "subtype" : "667h",
+      "filename" : "6@2x.png",
+      "minimum-system-version" : "8.0",
+      "orientation" : "portrait",
+>>>>>>> parent of e1f60e4... d大是大非上的
       "scale" : "2x"
     },
     {
@@ -21,6 +39,10 @@
       "idiom" : "iphone",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
+<<<<<<< HEAD
+=======
+      "filename" : "4s@2x.png",
+>>>>>>> parent of e1f60e4... d大是大非上的
       "scale" : "2x"
     },
     {

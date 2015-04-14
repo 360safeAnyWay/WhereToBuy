@@ -10,6 +10,11 @@
 
 @interface IsBuyTopicDetailViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource,ISSShareViewDelegate>
 @property (nonatomic, copy) NSString * infoStr;
+<<<<<<< HEAD
+=======
+@property (nonatomic, copy) NSString * infoStrs;
+
+>>>>>>> parent of e1f60e4... d大是大非上的
 @property (nonatomic,retain)NSMutableArray  * reviewArray;
 
 

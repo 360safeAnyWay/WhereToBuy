@@ -265,7 +265,11 @@ const NSInteger MaxCount6 = 5;
 {
     if ([[self.dataArray[indexPath.row] objectForKey:@"Cell"] isEqualToString:@"MainCell"])
     {
+<<<<<<< HEAD
         return 248;
+=======
+        return 248+60;
+>>>>>>> parent of e1f60e4... d大是大非上的
     }else{
         return 112;
     }

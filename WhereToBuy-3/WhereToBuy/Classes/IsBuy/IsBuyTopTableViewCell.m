@@ -22,6 +22,7 @@
     if (self) {
          _markString1 = @"#当代旭辉墅";
         _markString2 = @"#德州烤鸡";
+<<<<<<< HEAD
         _infoStr     =  @"1、做英语阅读的感觉： 我们知道贤鏛是在生活中很重要的。比如在鼙蛮和贎胡里，有彃燊在罅鸡那里蘩墝，之前他们链滼鞷蕻贱鬡鴊雫宽裤湾旷隗谡坚镊蠵恒闳嘑傡彚槩滼鞷蕻贱鬡艐倏雫宽裤湾旷隗谡坚镊蠵。 1，鞷 在文中的意思？ 2，给这篇文章起个标题？ 3，作者想告诉我们什么？2、学渣滴考试心得：语文考试时觉得自己是外国人，英语考试时又觉得自己变回中国人了，数学考试时发现试卷上都是外星文。3、一天下课我问同桌：“咱俩谁爹谁儿子？”同桌想了半天来一句：“我爹你儿子。”随后我说：“好孙子。。。”4、我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。1、做英语阅读的感觉： 我们知道贤鏛是在生活中很重要的。比如在鼙蛮和贎胡里，有彃燊在罅鸡那里蘩墝，之前他们链滼鞷蕻贱鬡鴊雫宽裤湾旷隗谡坚镊蠵恒闳嘑傡彚槩滼鞷蕻贱鬡艐倏雫宽裤湾旷隗谡坚镊蠵。 1，鞷 在文中的意思？ 2，给这篇文章起个标题？ 3，作者想告诉我们什么？2、学渣滴考试心得：语文考试时觉得自己是外国人，英语考试时又觉得自己变回中国人了，数学考试时发现试卷上都是外星文。3、一天下课我问同桌：“咱俩谁爹谁儿子？”同桌想了半天来一句：“我爹你儿子。”随后我说：“好孙子。。。”4、我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。1、做英语阅读的感觉： 我们知道贤鏛是在生活中很重要的。比如在鼙蛮和贎胡里，有彃燊在罅鸡那里蘩墝，之前他们链滼鞷蕻贱鬡鴊雫宽裤湾旷隗谡坚镊蠵恒闳嘑傡彚槩滼鞷蕻贱鬡艐倏雫宽裤湾旷隗谡坚镊蠵。 1，鞷 在文中的意思？ 2，给这篇文章起个标题？ 3，作者想告诉我们什么？2、学渣滴考试心得：语文考试时觉得自己是外国人，英语考试时又觉得自己变回中国人了，数学考试时发现试卷上都是外星文。3、一天下课我问同桌：“咱俩谁爹谁儿子？”同桌想了半天来一句：“我爹你儿子。”随后我说：“好孙子。。。”4、我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。1、做英语阅读的感觉： 我们知道贤鏛是在生活中很重要的。比如在鼙蛮和贎胡里，有彃燊在罅鸡那里蘩墝，之前他们链滼鞷蕻贱鬡鴊雫宽裤湾旷隗谡坚镊蠵恒闳嘑傡彚槩滼鞷蕻贱鬡艐倏雫宽裤湾旷隗谡坚镊蠵。 1，鞷 在文中的意思？ 2，给这篇文章起个标题？ 3，作者想告诉我们什么？2、学渣滴考试心得：语文考试时觉得自己是外国人，英语考试时又觉得自己变回中国人了，数学考试时发现试卷上都是外星文。3、一天下课我问同桌：“咱俩谁爹谁儿子？”同桌想了半天来一句：“我爹你儿子。”随后我说：“好孙子。。。”4、我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。";
         Inforect = [self  cellHight:_infoStr Size:CGSizeMake(210, 0)];
         CGRect rect = self.frame;
@@ -30,10 +31,41 @@
         //     创建视图
         [self createView];
         [self createPointLikes];
+=======
+        _infoStr     =  @"我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。我拿着刚发下来的试卷问同桌：这道题要求写ABAC式，我填“不孕不育”老师怎么没给我分数？同桌：可能是你戳中老师的痛处了。";
+        if (IPhone5||IPhone4)
+        {
+            Inforect = [self  cellHight:_infoStr Size:CGSizeMake(300, 0)];
+        }else{
+            
+            Inforect = [self  cellHight:_infoStr Size:CGSizeMake([UIScreen mainScreen].bounds.size.width-30, 0)];
+    }
+//        if(IPhone4||IPhone5){
+//            Inforect = [self  cellHight:_infoStr Size:CGSizeMake(210, 0)];
+//            CGRect rect = self.frame;
+//            rect.size.height = 200+Inforect.size.height;
+//            self.frame = rect;
+//        }else if(IPhone6){
+//            Inforect = [self  cellHight:_infoStr Size:CGSizeMake(210, 0)];
+//            NSLog(@"%f",Inforect.size.height);
+//            CGRect rect = self.frame;
+//            rect.size.height = 280+Inforect.size.height;
+//            self.frame = rect;
+//        }else{
+//            Inforect = [self  cellHight:_infoStr Size:CGSizeMake(210, 0)];
+//            CGRect rect = self.frame;
+//            rect.size.height = 200+Inforect.size.height;
+//            self.frame = rect;
+//        }
+        
+        //     创建视图
+        [self createView];
+>>>>>>> parent of e1f60e4... d大是大非上的
         
     }
     return self;
 }
+<<<<<<< HEAD
 //点赞按钮
 -(void)createPointLikes
 {
@@ -48,6 +80,10 @@
     [view setBackgroundColor:[Tools colorWithRed:240 angGreen:240 andBlue:240]];
 
     [self addSubview:view];
+=======
+-(void)createView
+{
+>>>>>>> parent of e1f60e4... d大是大非上的
     UIButton *imageView = [[UIButton alloc] initWithFrame:CGRectMake(13, 15, 40, 40)];
     [Tools setUIViewLine:imageView cornerRadius:20 with:1 color:[UIColor whiteColor]];
     [imageView setBackgroundImage:[UIImage imageNamed:@"avatar.png"] forState:UIControlStateNormal];
@@ -99,18 +135,41 @@
     [self createInfoStr:viewDown.frame.origin.y+10];
     
     
+<<<<<<< HEAD
+=======
+    
+>>>>>>> parent of e1f60e4... d大是大非上的
 }
 -(void)createInfoStr:(CGFloat)y
 {
     UILabel * infoLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, y, [UIScreen mainScreen].bounds.size.width-20, Inforect.size.height)];
     infoLabel.numberOfLines = 0;
     infoLabel.lineBreakMode = NSLineBreakByWordWrapping;
+<<<<<<< HEAD
     infoLabel.font = [UIFont systemFontOfSize:14];
     infoLabel.text = _infoStr;
     infoLabel.textColor = [UIColor darkGrayColor];
     infoLabel.adjustsFontSizeToFitWidth = YES;
     [self addSubview:infoLabel];
     [self resetContent:infoLabel];
+=======
+    infoLabel.font = [UIFont systemFontOfSize:12];
+    infoLabel.text = _infoStr;
+    infoLabel.backgroundColor = [UIColor redColor];
+    infoLabel.textColor = [UIColor darkGrayColor];
+    infoLabel.adjustsFontSizeToFitWidth = YES;
+    infoLabel.lineBreakMode=NSLineBreakByCharWrapping;
+    [self addSubview:infoLabel];
+    [self resetContent:infoLabel];
+    _pl = [[PointLike alloc]initWithString:@"33652"];
+    _pl.frame = CGRectMake([UIScreen mainScreen].bounds.size.width-110, infoLabel.frame.origin.y+infoLabel.frame.size.height+10, 100, 25);
+    [self.contentView addSubview:_pl];
+    //    底部的间隔
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, _pl.frame.origin.y+_pl.frame.size.height+10, [UIScreen mainScreen].applicationFrame.size.width, 10)];
+    [view setBackgroundColor:[Tools colorWithRed:240 angGreen:240 andBlue:240]];
+    [self addSubview:view];
+
+>>>>>>> parent of e1f60e4... d大是大非上的
 }
 - (void)resetContent:(UILabel *)lab{
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:lab.text];
@@ -125,7 +184,11 @@
 -(CGRect)cellHight:(NSString *)cellText Size:(CGSize)size
 {
     CGRect rect = [cellText boundingRectWithSize:size options:
+<<<<<<< HEAD
                    NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]} context:nil];
+=======
+                   NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]} context:nil];
+>>>>>>> parent of e1f60e4... d大是大非上的
     return rect;
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

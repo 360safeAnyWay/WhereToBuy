@@ -10,6 +10,10 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "AFHTTPSessionManager.h"
 #import "DataCenter.h"
+<<<<<<< HEAD
+=======
+#import "USERUSERDataBase.h"
+>>>>>>> parent of e1f60e4... d大是大非上的
 //#define Base_Url @"http://101.227.243.126:8082"
 //#define Base_Url @"http://www.usuda.cn/verify.php/"
 //#define Base_Url @"http://www.weather.com.cn/data/sk/101010100.html"
@@ -20,6 +24,10 @@
 @interface ServiceManage()
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of e1f60e4... d大是大非上的
 -(void)requestMethod:(NSString*)method serviceName:(NSString*)service parmers:(NSDictionary*)parmers completeBlock:(void (^)(id obj)) callBack;
 
 @end
@@ -40,8 +48,14 @@
 //请求基类
 -(void)requestMethod:(NSString*)method serviceName:(NSString*)service parmers:(NSDictionary*)parmers completeBlock:(void (^)(id obj)) callBack{
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+<<<<<<< HEAD
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
 //    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+=======
+   // manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    //manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];//设置相应内容类型
+   // manager.requestSerializer = [AFJSONRequestSerializer serializer];
+>>>>>>> parent of e1f60e4... d大是大非上的
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@",Base_Url,service];
     if ([method isEqualToString:@"POST"]) {
         [manager POST:requestUrl parameters:parmers success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -268,19 +282,73 @@
     }];
 }
 //获取用户个人信息
+<<<<<<< HEAD
 -(void)DidUserInfo:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack
 {
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parmers];
     [dic setObject:@"HePd443Mnd" forKey:@"overifyname"];
     [self requestMethod:@"GET" serviceName:@"/cpanel/index.php/buyc_interface1/registerResUser/" parmers:dic completeBlock:^(id obj) {
+=======
+-(void)DidUserInfo:(NSString*)GET completion:(DATAARRAY)block
+{
+    AFHTTPRequestOperationManager * manager   = [AFHTTPRequestOperationManager manager];
+    NSMutableArray       * dataArray = [NSMutableArray array];
+    [manager GET:GET parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@",responseObject);
+        USERUSERDataBase * uudb = [[USERUSERDataBase alloc]initWithDictionary:responseObject];
+        [dataArray addObject:uudb];
+        NSString * errerStr = [responseObject objectForKey:@"status"];
+        block(dataArray,errerStr);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"->>>>>>>>>>>>>%@",error);
+        block(nil,(NSString *)error);
+    }];
+}
+-(void)didRevampUserInfo:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parmers];
+    [dic setObject:@"IOS" forKey:@"client"];
+    if (TOKEN == nil)
+    {
+        return;
+    }
+    [dic setObject:TOKEN forKey:@"token"];
+    [self requestMethod:@"GET" serviceName:@"/api.php/user/info" parmers:dic completeBlock:^(id obj) {
+>>>>>>> parent of e1f60e4... d大是大非上的
         ERROR_CODE status = ERROR_CODE_RequestFailed;
         if (obj && obj[@"message"]) {
             status = [obj[@"status"] intValue];
         }
+<<<<<<< HEAD
+=======
+        NSLog(@"%@",obj);
+>>>>>>> parent of e1f60e4... d大是大非上的
         callBack(status, obj);
     }];
 }
 
+<<<<<<< HEAD
+=======
+-(void)upDataImage:(NSString *)url image:(UIImage *)image completion:(DATAARRAY)block
+{
+     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+     NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
+    NSLog(@"%@",imageData);
+    [manager POST:url parameters:@{@"client":@"IOS",@"file":imageData,@"token":TOKEN,@"uid":UID} constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+       [formData appendPartWithFileData :imageData name:@"file" fileName:@"userImage.png" mimeType:@"image/jpg/png"];
+
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSString * str = [NSString stringWithFormat:@"%@",responseObject];
+        NSLog(@"%@",str);
+        SHOWALERT(str);
+
+    } failure:
+     ^(AFHTTPRequestOperation *operation, NSError *error) {
+         NSLog(@"%@",error);
+     }];
+    
+}
+>>>>>>> parent of e1f60e4... d大是大非上的
 @end
 
 

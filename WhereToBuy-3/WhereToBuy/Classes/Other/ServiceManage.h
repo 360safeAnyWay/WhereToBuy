@@ -6,9 +6,13 @@
 //  Copyright (c) 2014年 xiang ying. All rights reserved.
 //
 typedef void(^DATAARRAY)(NSMutableArray  * array,NSString       * error);
+<<<<<<< HEAD
 
 #import <Foundation/Foundation.h>
 
+=======
+#import <Foundation/Foundation.h>
+>>>>>>> parent of e1f60e4... d大是大非上的
 typedef enum {
     ERROR_CODE_NONE = 10000001,        //成功
     ERROR_CODE_RequestFailed,   //连接失败或请求超时
@@ -58,9 +62,28 @@ typedef enum {
 -(void)DidRegister:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack;
 
 //获取用户个人信息
+<<<<<<< HEAD
 -(void)DidUserInfo:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack;
 /*
   -----忘记密码修改密码的请求
  */
 -(void)DidTokenForgetPasswd:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack;
+=======
+-(void)DidUserInfo:(NSString*)GET completion:(DATAARRAY)block;
+
+/*
+  -----忘记密码修改密码的请求
+ */
+
+-(void)DidTokenForgetPasswd:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack;
+/*
+ 修改个人信息
+ */
+-(void)didRevampUserInfo:(NSDictionary*)parmers completion:(void (^)(ERROR_CODE status, id obj)) callBack;
+/**
+ *上传图片
+ */
+
+-(void)upDataImage:(NSString *)url image:(UIImage *)image completion:(DATAARRAY)block;
+>>>>>>> parent of e1f60e4... d大是大非上的
 @end

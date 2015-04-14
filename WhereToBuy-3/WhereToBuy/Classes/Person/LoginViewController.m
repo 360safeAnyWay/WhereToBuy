@@ -15,6 +15,10 @@
 #import "UserDao.h"
 #import "LoginesViewController.h"
 #import "PersonForgetPassViewController.h"
+<<<<<<< HEAD
+=======
+#import "LoginesViewController.h"
+>>>>>>> parent of e1f60e4... d大是大非上的
 
 @interface LoginViewController ()<UITextFieldDelegate>
 {
@@ -28,9 +32,35 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.parentViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[[DataCenter instance] getStringForKey:@"registerNow"] style:UIBarButtonItemStyleBordered target:self action:@selector(registerUser)];
+<<<<<<< HEAD
     [self addUI];
 }
 
+=======
+    UIButton *itemBtn5 = [[UIButton alloc] initWithFrame:CGRectMake(17, 5, 10.5, 18)];
+    [itemBtn5 setBackgroundImage:[UIImage imageNamed:@"leftBack.png"] forState:UIControlStateNormal];
+    [itemBtn5 addTarget:self action:@selector(backPhone) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *isBuy = [[UIBarButtonItem alloc] initWithCustomView:itemBtn5];
+    self.navigationItem.leftBarButtonItem =isBuy;
+    UIButton *itemBtn3 = [[UIButton alloc] initWithFrame:CGRectMake(22, 5, 40, 17)];
+    [itemBtn3 setTitle:@"注册" forState:UIControlStateNormal];
+    [itemBtn3 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [itemBtn3 addTarget:self action:@selector(goRegister) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *isBuyes = [[UIBarButtonItem alloc] initWithCustomView:itemBtn3];
+    self.navigationItem.rightBarButtonItem = isBuyes;
+
+    [self addUI];
+}
+-(void)backPhone
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+-(void)goRegister
+{
+    LoginesViewController *lvc = [[LoginesViewController alloc]init];
+    [self.navigationController pushViewController:lvc animated:YES];
+}
+>>>>>>> parent of e1f60e4... d大是大非上的
 - (void) addUI
 {
     UIView *loginView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 370)];
@@ -99,6 +129,7 @@
         return;
     }
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+<<<<<<< HEAD
     NSLog(@"%@-----%@",phoneNum,secretStr);
     [[ServiceManage shareInstance] DidLogin:@{@"username":phoneNum,@"password":secretStr} completion:^(ERROR_CODE code, id obj) {
         if (code == ERROR_CODE_NONE) {
@@ -111,6 +142,32 @@
             [Tools showAlertView:obj[@"message"]];
         }
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+=======
+    [[ServiceManage shareInstance] DidLogin:@{@"username":phoneNum,@"password":secretStr} completion:^(ERROR_CODE code, id obj) {
+        if (code == ERROR_CODE_NONE) {
+            NSDictionary *dic = obj[@"data"];
+            [DataCenter instance].user = [[UserDao alloc] init];
+            NSString * token = [dic  objectForKey:@"sessionval"];
+            NSString * uid    = [dic objectForKey:@"uid"];
+            [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"token"];
+            [[NSUserDefaults standardUserDefaults] setObject:uid forKey:@"uid"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            [DataCenter instance].user.token = dic[@"sessionval"];
+            [self.delegate removeSelfFromSuperView];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else
+        {
+            if (obj[@"message"] == nil)
+            {
+                SHOWALERT(@"网络请求失败,请查看网络状态!")
+                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                return ;
+            }
+            [Tools showAlertView:obj[@"message"]];
+        }
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+
+>>>>>>> parent of e1f60e4... d大是大非上的
     }];
 }
 

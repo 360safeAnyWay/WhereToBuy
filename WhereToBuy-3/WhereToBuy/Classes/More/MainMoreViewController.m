@@ -34,6 +34,10 @@
 @implementation MainMoreViewController
 -(void)viewDidAppear:(BOOL)animated
 {
+<<<<<<< HEAD
+=======
+    [super viewDidAppear:animated];
+>>>>>>> parent of e1f60e4... d大是大非上的
     self.view.userInteractionEnabled = YES;
 }
 -(void)viewDidLoad

@@ -7,7 +7,11 @@
 //
 
 #import "DockViewController.h"
+<<<<<<< HEAD
 #define kDOCKHEIGHT 44
+=======
+#define kDOCKHEIGHT 49
+>>>>>>> parent of e1f60e4... d大是大非上的
 
 @interface DockViewController()<DockDelegate>
 
@@ -28,6 +32,10 @@
     //1导入Dock
     Dock *dock = [[Dock alloc] init];
     dock.frame = CGRectMake(0, self.view.frame.size.height - kDOCKHEIGHT, self.view.frame.size.width, kDOCKHEIGHT);
+<<<<<<< HEAD
+=======
+    dock.tag = 2000;
+>>>>>>> parent of e1f60e4... d大是大非上的
     dock.delegate = self;
     [self.view addSubview:dock];
     _dock = dock;

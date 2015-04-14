@@ -16,6 +16,10 @@
 @implementation LoginesViewController
 - (void)viewWillAppear:(BOOL)animated
 {
+<<<<<<< HEAD
+=======
+    [super viewWillAppear:animated];
+>>>>>>> parent of e1f60e4... d大是大非上的
     self.phoneText.text = @"";
 
 }

@@ -105,15 +105,29 @@
         WBNavigationController *personNav = [[WBNavigationController alloc] initWithRootViewController:person];
     personNav.delegate = self;
     [self addChildViewController:personNav];
+<<<<<<< HEAD
+=======
+    
+>>>>>>> parent of e1f60e4... d大是大非上的
 }
 
 //初始化Dock
 - (void) addDocks
 {
     //2.往dock里面填充内容
+<<<<<<< HEAD
     [self.dock addItemWithIcon:@"isBuy.png" andTitle:@"买否"];
     [self.dock addItemWithIcon:@"search.png" andTitle:@"搜索"];
     [self.dock addItemWithIcon:@"person.png" andTitle:@"个人"];
+=======
+
+  [self.dock addItemWithIcon:@"isBuy.png" andTitle:@"买否"];
+  [self.dock addItemWithIcon:@"search.png" andTitle:@"搜索"];
+  [self.dock addItemWithIcon:@"person.png" andTitle:@"个人"];
+
+ 
+    
+>>>>>>> parent of e1f60e4... d大是大非上的
     UIView *viewLine = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 1)];
     [viewLine setBackgroundColor:[Tools colorWithRed:221 angGreen:221 andBlue:221]];
     [self.dock addSubview:viewLine];

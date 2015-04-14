@@ -27,6 +27,10 @@
 
 - (void)viewDidLoad
 {
+<<<<<<< HEAD
+=======
+    [super viewDidLoad];
+>>>>>>> parent of e1f60e4... d大是大非上的
     NavBackButton *backBtn = [[NavBackButton alloc] initWithFrame:CGRectMake(0, 0, 105, 26)];
     [backBtn setImage:[UIImage imageNamed:@"leftBack.png"] forState:UIControlStateNormal];
     [backBtn setTitle:@"发表主题" forState:UIControlStateNormal];

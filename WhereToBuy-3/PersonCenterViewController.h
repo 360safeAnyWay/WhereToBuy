@@ -12,7 +12,11 @@
 @interface PersonCenterViewController : BaseViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (assign, nonatomic) id delegate;
+<<<<<<< HEAD
 
+=======
+@property (nonatomic,strong)UIImageView * Moimage;
+>>>>>>> parent of e1f60e4... d大是大非上的
 @end
 
 

@@ -34,6 +34,10 @@
 
 - (void)viewDidLoad
 {
+<<<<<<< HEAD
+=======
+    [super viewDidLoad];
+>>>>>>> parent of e1f60e4... d大是大非上的
     self.title = @"搜索话题";
     UIButton *itemBtn4 = [[UIButton alloc] initWithFrame:CGRectMake(17, 5, 10.5, 18)];
     [itemBtn4 setBackgroundImage:[UIImage imageNamed:@"leftBack.png"] forState:UIControlStateNormal];

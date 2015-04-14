@@ -32,6 +32,10 @@
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setFrame:CGRectMake(220,95, 91, 28)];
     [btn setTitle:[[DataCenter instance] getStringForKey:@"getTokenNum"] forState:UIControlStateNormal];
+<<<<<<< HEAD
+=======
+    [btn setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin];
+>>>>>>> parent of e1f60e4... d大是大非上的
     btn.titleLabel.font = [UIFont systemFontOfSize:14.0f];
     [btn setBackgroundImage:@"yanzhengma.png"];
     btn.tag = 4;

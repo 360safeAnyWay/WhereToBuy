@@ -22,7 +22,10 @@
     UIButton *itemBtn4 = [[UIButton alloc] initWithFrame:CGRectMake(17, 5, 10.5, 18)];
     [itemBtn4 setBackgroundImage:[UIImage imageNamed:@"leftBack.png"] forState:UIControlStateNormal];
   //  [itemBtn4 addTarget:self action:@selector(backPhone) forControlEvents:UIControlEventTouchUpInside];
+<<<<<<< HEAD
     itemBtn4.hidden = YES;
+=======
+>>>>>>> parent of e1f60e4... d大是大非上的
     UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:itemBtn4];
     self.navigationItem.leftBarButtonItem= back;
     [self.registers addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
